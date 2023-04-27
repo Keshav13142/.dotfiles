@@ -114,12 +114,6 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# i3 status bar config
-bar {
-        status_command i3status -c /home/keshav/.config/i3status/config
-        tray_output primary
-}
-
 # -----------CUSTOM KEYS START-----------#
 
 # Settings apps
@@ -146,6 +140,7 @@ exec --no-startup-id nm-applet
 
 # set wallpaper using feh
 exec_always feh --bg-fill /usr/share/backgrounds/pop/nick-nazzaro-space-blue.png
+exec_always ~/.config/polybar/launch.sh
 
 # Lock screen
 bindsym $mod+o exec betterlockscreen -l
