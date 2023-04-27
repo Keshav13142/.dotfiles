@@ -129,6 +129,8 @@ for_window [class="Org.gnome.Nautilus"] floating enable
 
 # move windows to default workspaces
 for_window [class = "Brave-browser-beta"] move to workspace 1
+for_window [class = "Bitwarden"] move to workspace 4
+for_window [class = "Authy"] move to workspace 4
 
 # window compositor
 exec_always picom
