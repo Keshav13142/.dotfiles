@@ -142,7 +142,12 @@ exec --no-startup-id nm-applet
 
 # set wallpaper using feh
 exec_always feh --bg-fill /usr/share/backgrounds/pop/nick-nazzaro-space-blue.png
+
+# Launch polybar
 exec_always ~/.config/polybar/launch.sh
+
+# Enable tap to click on the Touchpad (window managers disable this be default :))
+exec_always xinput set-prop "ELAN1205:00 04F3:30E9 Touchpad" "libinput Tapping Enabled" 1
 
 # Lock screen
 bindsym $mod+o exec betterlockscreen -l
