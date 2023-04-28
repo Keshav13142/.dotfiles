@@ -16,9 +16,12 @@ bindsym $mod+Return exec alacritty
 
 bindsym $mod+Shift+q kill
 
-# use i3-dmenu-desktop or rofi
-# bindsym $mod+d exec --no-startup-id rofi -show combi -combi-modi "drun" -modi combi
+# use i3-dmenu-desktop or rofi as launcher
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+space exec --no-startup-id rofi -show drun
+
+# Search through tabs
+bindsym $mod+Tab exec --no-startup-id rofi -show window
 
 # change focus
 bindsym $mod+h focus left
