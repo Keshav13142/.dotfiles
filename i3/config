@@ -137,7 +137,7 @@ for_window [class = "Bitwarden"] move to workspace 4
 for_window [class = "Authy"] move to workspace 4
 
 # window compositor
-exec_always picom
+exec_always picom -b --experimental-backends --config ~/.config/picom/picom.conf
 
 # Apparently this fixes brave clearing sessions/cookies after I change my desktop enviroment (Doesn't work)
 exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets
