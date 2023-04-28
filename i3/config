@@ -145,7 +145,7 @@ exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets
 exec --no-startup-id nm-applet
 
 # set wallpaper using feh
-exec_always feh --bg-fill /usr/share/backgrounds/pop/nick-nazzaro-space-blue.png
+exec_always feh --bg-fill /home/keshav/Pictures/wallpapers/wall.jpg
 
 # Launch polybar
 exec_always ~/.config/polybar/launch.sh
@@ -168,9 +168,6 @@ bindsym XF86AudioPause exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-# Sreen brightness controls
-bindsym XF86MonBrightnessUp exec brightnessctl set 7%+ # increase screen brightness
-bindsym XF86MonBrightnessDown exec brightnessctl set 7%- # decrease screen brightness
-
-# Suspend
-bindsym $mod+Shift+period exec systemctl suspend
+# Sreen brightness controls (-q is logarithmic, -u is fade duration in micro_secs)
+bindsym XF86MonBrightnessUp exec brillo -A 5 -q -u 150000 # increase screen brightness
+bindsym XF86MonBrightnessDown exec brillo -U 5 -q -u 150000 # decrease screen brightness
