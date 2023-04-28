@@ -31,6 +31,9 @@ alias sw='shutter -w -e'
 alias grep='rg'
 eval "$(zoxide init zsh)"
 alias cd='z'
+alias tr='trash'
+alias trr='trash-restore'
+alias tl='trash-list'
 
 bindkey -s ^f "tmux-sessionizer\n"
 
