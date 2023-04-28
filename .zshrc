@@ -40,12 +40,11 @@ bindkey -s ^f "tmux-sessionizer\n"
 
 # ------------------NEOVIM----------------
 alias nvim=~/softwares/neovim/build/bin/nvim
-alias vi='nvim'
-alias v='nvim'
-alias vim='nvim'
-alias lv='lvim'
-export EDITOR="nvim"
-export VISUAL="nvim"
+alias vi='lvim'
+alias v='lvim'
+alias vim='lvim'
+export EDITOR="lvim"
+export VISUAL="lvim"
 
 # ------------------GIT----------------
 alias ga='git add' 
