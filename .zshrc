@@ -1,7 +1,7 @@
 # ------------ZSH----------------
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
-plugins=(git zsh-autosuggestions)
+plugins=(git zsh-autosuggestions zsh-history-substring-search you-should-use)
 source $ZSH/oh-my-zsh.sh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=244"
 
@@ -65,3 +65,4 @@ alias gr='git reflog'
 alias ns='npm start'
 alias nrd='npm run dev'
 alias nr='npm run'
+source /home/keshav/softwares/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
