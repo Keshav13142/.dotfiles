@@ -1,0 +1,101 @@
+[global]
+    monitor = 0
+    follow = mouse
+
+    shrink = no
+    indicate_hidden = yes
+
+    geometry = "300x5-30+20"
+    corner_radius = 5
+    transparency = 0 
+
+    progress_bar = true
+    progress_bar_height = 10
+    progress_bar_frame_width = 1
+    progress_bar_min_width = 150
+    progress_bar_max_width = 400
+
+    separator_height = 2
+    separator_color = frame
+
+    padding = 15
+    horizontal_padding = 15
+    text_icon_padding = 15
+
+    frame_width = 2
+    frame_color = "#9399b2"
+
+    sort = yes
+    idle_threshold = 120
+
+    font = JetBrainsMono Nerd Font Mono 10
+    line_height = 0
+    markup = full
+    format = "<span weight='bold'>%s</span>\n%b"
+
+    dmenu = /usr/bin/dmenu -p dunst:
+
+    alignment = left
+    vertical_alignment = center
+
+    icon_position = left
+    min_icon_size = 0
+    max_icon_size = 32
+    icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
+
+    show_age_threshold = 60
+    show_indicators = yes
+
+    word_wrap = yes
+    ellipsize = middle
+    ignore_newline = no
+    hide_duplicate_count = false
+
+    stack_duplicates = true
+    sticky_history = yes
+    history_length = 20
+    always_run_script = true
+
+    title = Dunst
+    class = Dunst
+
+    ignore_dbusclose = false
+
+    force_xwayland = false
+    force_xinerama = false
+
+    mouse_left_click = do_action, close_current
+    mouse_middle_click = do_action, close_current
+    mouse_right_click = close_all
+
+[experimental]
+    per_monitor_dpi = false
+
+[shortcuts]
+    # Available modifiers are "ctrl", "mod1" (the alt-key), "mod2",
+    # "mod3" and "mod4" (windows-key).
+
+    # close = ctrl+space
+    # close_all = ctrl+shift+space
+    # history = ctrl+shift+u
+    # context = ctrl+shift+period
+
+[urgency_low]
+    background = "#181825AA"
+    foreground = "#CDD6F4"
+    timeout = 2
+
+[urgency_normal]
+    background = "#181825AA"
+    foreground = "#CDD6F4"
+    timeout = 2
+
+[urgency_critical]
+    background = "#181825AA"
+    foreground = "#F38BA8"
+    frame_color = "#F38BA8"
+    timeout = -1
+    format = "<b>%s</b>\n%b"
+
+# For syntax highlighting in vim
+# vim: ft=cfg
