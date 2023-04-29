@@ -15,7 +15,7 @@ source ~/.config/zsh/zsh-history-substring-search/zsh-history-substring-search.z
 source ~/.config/zsh/zsh-you-should-use/you-should-use.plugin.zsh
 source ~/.config/zsh/powerlevel10k/powerlevel10k.zsh-theme
 
-ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+# ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 # history substring search options
 bindkey '^[[A' history-substring-search-up
@@ -74,7 +74,7 @@ alias clip='xclip -selection clipboard'
 alias sf='shutter -f -e'
 alias ss='shutter -s -e'
 alias sw='shutter -w -e'
-alias grep='rg'
+# alias grep='rg'
 eval "$(zoxide init zsh)"
 alias cd='z'
 alias tr='trash'
@@ -96,7 +96,7 @@ export VISUAL="lvim"
 # ------------------GIT----------------
 alias g='git' 
 alias ga='git add' 
-alias gpm='git push' 
+alias gp='git push' 
 alias gi='git init'
 alias gs='git status'
 alias gra='git remote add origin'
