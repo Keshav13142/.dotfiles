@@ -94,8 +94,9 @@ export EDITOR="lvim"
 export VISUAL="lvim"
 
 # ------------------GIT----------------
+alias g='git' 
 alias ga='git add' 
-alias gpm='git push origin master'
+alias gpm='git push' 
 alias gi='git init'
 alias gs='git status'
 alias gra='git remote add origin'
