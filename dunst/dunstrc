@@ -83,12 +83,12 @@
 [urgency_low]
     background = "#181825AA"
     foreground = "#CDD6F4"
-    timeout = 2
+    timeout = 3
 
 [urgency_normal]
     background = "#181825AA"
-    foreground = "#CDD6F4"
-    timeout = 2
+    foreground = "#CDD7F4"
+    timeout = 3
 
 [urgency_critical]
     background = "#181825AA"
