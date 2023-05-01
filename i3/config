@@ -127,6 +127,10 @@ bindsym $mod+r mode "resize"
 default_floating_border normal 0
 hide_edge_borders smart
 
+# Gaps configuration
+#gaps inner 10px
+#gaps outer 10px
+
 # Settings apps
 for_window [class="Gnome-tweaks"] floating enable
 for_window [class="Gnome-control-center"] floating enable
