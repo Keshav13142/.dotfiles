@@ -120,6 +120,10 @@ bindsym $mod+r mode "resize"
 
 # -----------CUSTOM KEYS START-----------#
 
+# Window borders
+default_floating_border normal 0
+hide_edge_borders smart
+
 # Settings apps
 for_window [class="Gnome-tweaks"] floating enable
 for_window [class="Gnome-control-center"] floating enable
@@ -127,14 +131,12 @@ for_window [class="Io.elementary.appcenter"] floating enable
 for_window [class="Gnome-calculator"] floating enable
 for_window [class="qt5ct"] floating enable
 for_window [class="Synergy"] floating enable
-for_window [class="Bitwarden"] floating enable
+for_window [class="Bitwarden"] floating enable, resize set 1000 700
 for_window [class="Authy"] floating enable
-for_window [class="Org.gnome.Nautilus"] floating enable
+for_window [class="Org.gnome.Nautilus"] floating enable, resize set 1000 700
 
 # move windows to default workspaces
 for_window [class = "Brave-browser-beta"] move to workspace 1
-for_window [class = "Bitwarden"] move to workspace 4
-for_window [class = "Authy"] move to workspace 4
 
 # window compositor
 exec_always picom -b --experimental-backends --config ~/.config/picom/picom.conf
