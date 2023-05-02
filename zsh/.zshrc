@@ -53,15 +53,13 @@ bindkey '^e' end-of-line
 path+=('/home/keshav/.local/bin')
 
 # Android
-export ANDROID_HOME=~/.local/Android/Sdk
-path+=('~/.local/Android/Sdk/emulator')
-path+=('~/.local/Android/Sdk/platform-tools')
-
-export GRADLE_USER_HOME=~/.local
+export ANDROID_HOME=/home/keshav/.local/Android/Sdk
+path+=('/home/keshav/.local/Android/Sdk/tools')
+path+=('/home/keshav/.local/Android/Sdk/platform-tools')
 
 # Rust
-export CARGO_HOME=~/.local/.cargo
-export RUSTUP_HOME=~/.local/.rustup
+export CARGO_HOME=/home/keshav/.local/.cargo
+export RUSTUP_HOME=/home/keshav/.local/.rustup
 
 path+=('/usr/local/go/bin')
 
@@ -80,7 +78,6 @@ alias clip='xclip -selection clipboard'
 alias sf='shutter -f -e'
 alias ss='shutter -s -e'
 alias sw='shutter -w -e'
-# alias grep='rg'
 eval "$(zoxide init zsh)"
 alias cd='z'
 alias tr='trash'

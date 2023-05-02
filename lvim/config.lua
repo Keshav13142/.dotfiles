@@ -37,24 +37,37 @@ lvim.builtin.nvimtree.setup.renderer.icons.show.git = true
 -- Automatically install missing parsers when entering buffer
 lvim.builtin.treesitter.auto_install = true
 
---  Formatting config
-local nls = require("null-ls")
-nls.setup {
-  on_attach = require("lvim.lsp").common_on_attach,
-  debounce = 150,
-  save_after_format = false,
-  sources = {
-    nls.builtins.formatting.prettierd.with {
-      condition = function(utils)
-        return not utils.root_has_file { ".eslintrc", ".eslintrc.js" }
-      end,
-      prefer_local = "node_modules/.bin",
-    },
-    nls.builtins.formatting.eslint_d.with {
-      condition = function(utils)
-        return utils.root_has_file { ".eslintrc", ".eslintrc.js" }
-      end,
-      prefer_local = "node_modules/.bin",
-    },
+local formatters = require "lvim.lsp.null-ls.formatters"
+formatters.setup {
+  { command = "prettier", filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact", "css" } },
+  { command = "shfmt",    filetypes = { "sh", "zsh", "bash" } },
+  { command = "stylua",   filetypes = { "lua" } },
+}
+
+vim.filetype.add {
+  extension = {
+    zsh = "zsh",
   },
 }
+
+--  Formatting config
+-- local nls = require("null-ls")
+-- nls.setup {
+--   on_attach = require("lvim.lsp").common_on_attach,
+--   debounce = 150,
+--   save_after_format = false,
+--   sources = {
+--     nls.builtins.formatting.prettierd.with {
+--       condition = function(utils)
+--         return not utils.root_has_file { ".eslintrc", ".eslintrc.js" }
+--       end,
+--       prefer_local = "node_modules/.bin",
+--     },
+--     nls.builtins.formatting.eslint_d.with {
+--       condition = function(utils)
+--         return utils.root_has_file { ".eslintrc", ".eslintrc.js" }
+--       end,
+--       prefer_local = "node_modules/.bin",
+--     },
+--   },
+-- }
