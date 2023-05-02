@@ -141,6 +141,7 @@ for_window [class="Synergy"] floating enable
 for_window [class="Bitwarden"] floating enable, resize set 1000 700
 for_window [class="Authy"] floating enable
 for_window [class="Org.gnome.Nautilus"] floating enable, resize set 1000 700
+for_window [class="Quickgui"] floating enable, resize set 1000 700
 
 # move windows to default workspaces
 for_window [class = "Brave-browser-beta"] move to workspace 1
