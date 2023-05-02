@@ -53,9 +53,15 @@ bindkey '^e' end-of-line
 path+=('/home/keshav/.local/bin')
 
 # Android
-export ANDROID_HOME=$HOME/Android/Sdk
-path+=('/home/keshav/Android/Sdk/emulator')
-path+=('/home/keshav/Android/Sdk/platform-tools')
+export ANDROID_HOME=~/.local/Android/Sdk
+path+=('~/.local/Android/Sdk/emulator')
+path+=('~/.local/Android/Sdk/platform-tools')
+
+export GRADLE_USER_HOME=~/.local
+
+# Rust
+export CARGO_HOME=~/.local/.cargo
+export RUSTUP_HOME=~/.local/.rustup
 
 path+=('/usr/local/go/bin')
 
