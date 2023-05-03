@@ -166,6 +166,9 @@ exec_always xinput set-prop "ELAN1205:00 04F3:30E9 Touchpad" "libinput Tapping E
 # Lock screen
 bindsym $mod+o exec betterlockscreen -l
 
+# Screenshot tool
+exec_always sxhkd &
+ 
 # FKeys
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
