@@ -26,14 +26,14 @@ case $chosen in
 $screen)
 	if [[ -f /usr/local/bin/scrot ]]; then
 		sleep 1
-		scrot 'Screenshot_%Y-%m-%d-%S_$wx$h.png' -e 'mv $f ~/Pictures/Screenshots/'
+		scrot '~/Pictures/Screenshots/Screenshot_%Y-%m-%d-%S_$wx$h.png'
 	else
 		msg
 	fi
 	;;
 $area)
 	if [[ -f /usr/local/bin/scrot ]]; then
-		scrot -s 'Screenshot_%Y-%m-%d-%S_$wx$h.png' -e 'mv $f ~/Pictures/Screenshots/'
+		scrot -s '~/Pictures/Screenshots/Screenshot_%Y-%m-%d-%S_$wx$h.png'
 	else
 		msg
 	fi
@@ -41,7 +41,7 @@ $area)
 $window)
 	if [[ -f /usr/local/bin/scrot ]]; then
 		sleep 1
-		scrot -u 'Screenshot_%Y-%m-%d-%S_$wx$h.png' -e 'mv $f ~/Pictures/Screenshots/'
+		scrot -u '~/Pictures/Screenshots/Screenshot_%Y-%m-%d-%S_$wx$h.png'
 	else
 		msg
 	fi
