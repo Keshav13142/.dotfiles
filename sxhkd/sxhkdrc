@@ -1,0 +1,32 @@
+super + period
+ rofi -show emoji
+
+super + slash
+rofi -show calc
+
+# printscreen
+@Print
+ screenshot.sh
+
+# Reload polybar
+super + Escape
+$HOME/.config/polybar/launch.sh
+
+# Reload sxhkd
+super + shift + Escape
+pkill -USR1 -x sxhkd
+
+# notifications
+super + space
+ dunstctl close
+
+super + shift + space
+ dunstctl close-all
+
+super + question
+ dunstctl context
+
+super + comma
+ dunstctl history-pop
+
+; vim:ft=conf
