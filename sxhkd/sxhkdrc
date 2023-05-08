@@ -2,7 +2,7 @@ super + period
  rofi -show emoji
 
 super + slash
-rofi -show calc
+ rofi -show calc
 
 # printscreen
 @Print
@@ -10,11 +10,11 @@ rofi -show calc
 
 # Reload polybar
 super + Escape
-$HOME/.config/polybar/launch.sh
+ $HOME/.config/polybar/launch.sh
 
 # Reload sxhkd
 super + shift + Escape
-pkill -USR1 -x sxhkd
+ pkill -USR1 -x sxhkd
 
 # notifications
 super + space
