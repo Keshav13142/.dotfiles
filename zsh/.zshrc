@@ -150,10 +150,8 @@ source ~/.config/zsh/powerlevel10k/powerlevel10k.zsh-theme
 source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.config/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
+source ~/.config/zsh/powerlevel10k/powerlevel10k.zsh-theme
 
 # history substring search options
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
-
-source ~/.config/zsh/zsh-you-should-use/you-should-use.plugin.zsh
-source ~/.config/zsh/powerlevel10k/powerlevel10k.zsh-theme
