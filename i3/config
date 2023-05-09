@@ -14,14 +14,18 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec alacritty
 
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
 # use i3-dmenu-desktop or rofi as launcher
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+space exec --no-startup-id rofi -show drun
 
 # Search through tabs
-bindsym $mod+Tab exec --no-startup-id rofi -show window
+bindsym $mod+t exec --no-startup-id rofi -show window
+
+# switch/iterate between workspaces
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
 
 # change focus
 bindsym $mod+h focus left
@@ -54,15 +58,13 @@ bindsym $mod+Shift+v split h
 bindsym $mod+v split v
 
 # Toggle split orientation
-bindsym $mod+q split toggle
+bindsym $mod+b split toggle
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+p layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -127,6 +129,9 @@ bindsym $mod+r mode "resize"
 default_floating_border normal 0
 hide_edge_borders smart
 
+bindsym $mod+w exec brave-browser
+bindsym $mod+e exec nautilus
+
 # Gaps configuration
 #gaps inner 10px
 #gaps outer 10px
@@ -140,11 +145,18 @@ for_window [class="qt5ct"] floating enable
 for_window [class="Synergy"] floating enable
 for_window [class="Bitwarden"] floating enable, resize set 1000 700
 for_window [class="Authy"] floating enable
-for_window [class="Org.gnome.Nautilus"] floating enable, resize set 1000 700
+for_window [class="Org.gnome.Nautilus"] floating enable, resize set 1300 800
 for_window [class="Quickgui"] floating enable, resize set 1000 700
 
 # move windows to default workspaces
 for_window [class = "Brave-browser-beta"] move to workspace 1
+for_window [class = "Alacritty"] move to workspace 2
+for_window [class="Org.gnome.Nautilus"] move to workspace 3
+
+# focus windows on open
+for_window [class = "Brave-browser-beta"] focus
+for_window [class = "Alacritty"] focus
+for_window [class="Org.gnome.Nautilus"] focus
 
 # window compositor
 exec_always picom -b --experimental-backends --config ~/.config/picom/picom.conf
