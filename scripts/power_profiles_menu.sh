@@ -3,6 +3,7 @@ chosen=$(printf '  Battery\n  Balanced\n  Performance\n%s (active)' "$(
 case "$chosen" in
 "  Battery")
 	system76-power profile battery
+	xrandr -s 1920x1080 -r 60
 	dunstify " Battery saver mode activated"
 	;;
 "  Balanced")
