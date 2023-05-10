@@ -86,6 +86,7 @@ export CARGO_HOME=/home/keshav/.local/.cargo
 export RUSTUP_HOME=/home/keshav/.local/.rustup
 
 path+=('/usr/local/go/bin')
+path+=('/home/keshav/.local/share/fnm')
 
 export PATH
 
@@ -102,13 +103,15 @@ alias clip='xclip -selection clipboard'
 alias sf='shutter -f -e'
 alias ss='shutter -s -e'
 alias sw='shutter -w -e'
-eval "$(zoxide init zsh)"
 alias cd='z'
 alias tr='trash'
 alias trr='trash-restore'
 alias tl='trash-list'
 alias ..='cd ..'
 alias ...='cd ...'
+
+eval "$(zoxide init zsh)"
+eval "$(fnm env --use-on-cd)"
 
 bindkey -s ^f "tmux-sessionizer\n"
 
