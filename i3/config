@@ -23,10 +23,6 @@ bindsym $mod+space exec --no-startup-id rofi -show drun
 # Search through tabs
 bindsym $mod+t exec --no-startup-id rofi -show window
 
-# switch/iterate between workspaces
-bindsym $mod+Tab workspace next
-bindsym $mod+Shift+Tab workspace prev
-
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
