@@ -144,12 +144,12 @@ alias gr='git reset'
 alias ns='npm start'
 alias nrd='npm run dev'
 alias nr='npm run'
-source ~/.config/zsh/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.config/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
 
 # Plugins
+source ~/.config/zsh/powerlevel10k/powerlevel10k.zsh-theme
 source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.config/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
