@@ -100,6 +100,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec rofi_powermenu.sh
 bindsym $mod+Shift+p exec power_profiles_menu.sh
 bindsym $mod+Shift+g exec graphics_profiles_menu.sh
+bindsym $mod+Shift+m exec toggle_mic.sh
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
