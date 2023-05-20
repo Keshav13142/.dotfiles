@@ -1,9 +1,10 @@
 -- General
 lvim.log.level = "warn"
 lvim.format_on_save = true
+lvim.colorscheme = "catppuccin"
 lvim.use_icons = true
 lvim.leader = "space"
-lvim.transparent_window = true
+lvim.transparent_window = false
 lvim.reload_config_on_save = true
 lvim.builtin.illuminate.active = true
 lvim.builtin.bufferline.active = true
