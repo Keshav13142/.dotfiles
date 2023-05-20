@@ -85,7 +85,7 @@ path+=('/home/keshav/.local/Android/Sdk/platform-tools')
 export CARGO_HOME=/home/keshav/.local/.cargo
 export RUSTUP_HOME=/home/keshav/.local/.rustup
 
-path+=('/usr/local/go')
+path+=('/usr/local/go/bin')
 path+=('/home/keshav/go/bin')
 path+=('/home/keshav/.local/share/fnm')
 
