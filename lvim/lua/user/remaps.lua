@@ -1,6 +1,5 @@
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
-local nmap = vim.api.nvim_set_keymap
 local lnmap = lvim.keys.normal_mode
 local limap = lvim.keys.insert_mode
 
@@ -15,25 +14,29 @@ keymap("n", "*", "*zz", opts)
 keymap("n", "#", "#zz", opts)
 keymap("n", "g*", "g*zz", opts)
 keymap("n", "g#", "g#zz", opts)
-
--- copy and delete
-nmap("n", "<Leader>p", '"_dP', opts)
-nmap("n", "<Leader>y", '"+y', opts)
-nmap("v", "<Leader>y", '"+y', opts)
-nmap("n", "<Leader>Y", '"+y$', opts)
-nmap("n", "<Leader>d", '"_d', opts)
-nmap("v", "<Leader>d", '"_d', opts)
+-- Void paste remap
+keymap("v", "<leader>P", '"_dP', opts)
+-- Void delete remap
+keymap("v", "<leader>D", '"_x', opts)
+keymap("n", "Y", "0y$", { noremap = true })
+-- Harpoon remaps
+keymap("n", "<leader>a", ":lua require('harpoon.mark').add_file()<CR>", { desc = "Add to Harpoon" })
+keymap("n", "<leader>0", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", { desc = "Show Harpoon" })
+keymap("n", "<leader>1", ":lua require('harpoon.ui').nav_file(1)<CR>", { desc = "Harpoon Buffer 1" })
+keymap("n", "<leader>2", ":lua require('harpoon.ui').nav_file(2)<CR>", { desc = "Harpoon Buffer 2" })
+keymap("n", "<leader>3", ":lua require('harpoon.ui').nav_file(3)<CR>", { desc = "Harpoon Buffer 3" })
+keymap("n", "<leader>4", ":lua require('harpoon.ui').nav_file(4)<CR>", { desc = "Harpoon Buffer 4" })
 
 -- normal mode remaps
 lnmap["<S-h>"] = ":BufferLineCyclePrev<CR>"
 lnmap["<S-l>"] = ":BufferLineCycleNext<CR>"
 lnmap["<C-s>"] = ":w<CR>"
-lnmap["<C-a>"] = "ggVG"
+-- lnmap["<C-A>"] = "ggVG"
 lnmap["<C-q>"] = ":q!<CR>"
 -- insert mode remaps
 limap["<C-q>"] = "<ESC>:q!<CR>"
 limap["<C-s>"] = "<ESC>:w<CR>"
-limap["<C-a>"] = "<ESC>ggVG"
+-- limap["<C-A>"] = "<ESC>ggVG"
 
 -- open floating terminal inside lvim
 lvim.builtin.terminal.open_mapping = "<C-t>"
