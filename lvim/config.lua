@@ -61,19 +61,14 @@ vim.filetype.add {
 
 lvim.plugins = {
   {
-    "ggandor/leap.nvim",
-    name = "leap",
+    "phaazon/hop.nvim",
+    event = "BufRead",
     config = function()
-      require("leap").add_default_mappings()
+      require("hop").setup()
+      vim.api.nvim_set_keymap("n", "s", ":HopChar2<cr>", { silent = true })
+      vim.api.nvim_set_keymap("n", "S", ":HopWord<cr>", { silent = true })
     end,
   },
-  -- {
-  --   "andymass/vim-matchup",
-  --   event = "CursorMoved",
-  --   config = function()
-  --     vim.g.matchup_matchparen_offscreen = { method = "popup" }
-  --   end,
-  -- },
   {
     "folke/trouble.nvim",
     dependencies = "nvim-tree/nvim-web-devicons",
