@@ -3,7 +3,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # ------------ZSH----------------
-ZSH_THEME="robbyrussell"
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=244"
 
 # Enable colors and change prompt:
@@ -95,11 +94,12 @@ export PATH
 alias cl='clear'
 alias t='tmux'
 alias et='exit'
-alias l='exa -a --icons' 
+alias l='exa -al --icons' 
 alias ll='exa -al --icons'
 alias ls='exa -a --icons'
 alias lg='lazygit'
 alias cat='batcat -p'
+alias man='batman'
 alias clip='xclip -selection clipboard'
 alias sf='shutter -f -e'
 alias ss='shutter -s -e'
