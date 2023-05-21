@@ -24,12 +24,12 @@ keymap("n", "Y", "0y$", { noremap = true })
 lnmap["<S-h>"] = ":BufferLineCyclePrev<CR>"
 lnmap["<S-l>"] = ":BufferLineCycleNext<CR>"
 lnmap["<C-s>"] = ":w<CR>"
--- lnmap["<C-A>"] = "ggVG"
+lnmap["<C-A>"] = "ggVG"
 lnmap["<C-q>"] = ":q!<CR>"
 -- insert mode remaps
 limap["<C-q>"] = "<ESC>:q!<CR>"
 limap["<C-s>"] = "<ESC>:w<CR>"
--- limap["<C-A>"] = "<ESC>ggVG"
+limap["<C-A>"] = "<ESC>ggVG"
 
 -- open floating terminal inside lvim
 lvim.builtin.terminal.open_mapping = "<C-t>"
