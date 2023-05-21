@@ -2,9 +2,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# ------------ZSH----------------
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=244"
-
 # Enable colors and change prompt:
 autoload -U colors && colors	# Load colors
 PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
@@ -73,8 +70,6 @@ bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
 
 # ------------PATH----------------
-path+=('/home/keshav/.local/bin')
-
 # Android
 export ANDROID_HOME=/home/keshav/.local/Android/Sdk
 path+=('/home/keshav/.local/Android/Sdk/tools')
@@ -84,6 +79,8 @@ path+=('/home/keshav/.local/Android/Sdk/platform-tools')
 export CARGO_HOME=/home/keshav/.local/.cargo
 export RUSTUP_HOME=/home/keshav/.local/.rustup
 
+path+=('/home/keshav/.local/bin')
+path+=('/home/keshav/.config/tmux/plugins/t-smart-tmux-session-manager/bin')
 path+=('/usr/local/go/bin')
 path+=('/home/keshav/go/bin')
 path+=('/home/keshav/.local/share/fnm')
@@ -92,18 +89,16 @@ export PATH
 
 # ------------GENERAL----------------
 alias cl='clear'
-alias t='tmux'
+alias tm='tmux'
+alias tn='tmux new -s $(pwd | sed "s/.*\///g")'
 alias et='exit'
+alias cat='batcat -p'
+alias man='batman'
 alias l='exa -al --icons' 
 alias ll='exa -al --icons'
 alias ls='exa -a --icons'
 alias lg='lazygit'
-alias cat='batcat -p'
-alias man='batman'
 alias clip='xclip -selection clipboard'
-alias sf='shutter -f -e'
-alias ss='shutter -s -e'
-alias sw='shutter -w -e'
 alias cd='z'
 alias tr='trash'
 alias trr='trash-restore'
@@ -146,8 +141,11 @@ alias ns='npm start'
 alias nrd='npm run dev'
 alias nr='npm run'
 
+# ----------------ZSH PLUGINS-------------------
 # To customize prompt, run `p10k configure` or edit ~/.config/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=244"
 
 # Plugins
 source ~/.config/zsh/powerlevel10k/powerlevel10k.zsh-theme
