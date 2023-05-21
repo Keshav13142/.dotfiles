@@ -17,11 +17,10 @@ draw_bold_text_with_bright_colors: true
 key_bindings:
   - { key: Key0, mods: Control, action: ResetFontSize }
   - { key: Equals, mods: Control, action: IncreaseFontSize }
-  - { key: E, mods: Control, chars: "lfcd\n" } # open a new tmux tab
-  - { key: T, mods: Control, chars: "\x00\x63" } # open a new tmux tab
+  - { key: B, mods: Control, chars: "\x00\x63" } # open a new tmux tab
   - { key: G, mods: Control, chars: "lg\n" } # open lazygit in curr_dir
-  - { key: N, mods: Control, chars: "\x00\x7c" } # tmux split vertical
-  - { key: N, mods: Control|Shift, chars: "\x00\x22" } # tmux split horizontal
+  - { key: E, mods: Control, chars: "\x00\x7c" } # tmux split vertical
+  - { key: E, mods: Control|Shift, chars: "\x00\x22" } # tmux split horizontal
   - { key: Semicolon, mods: Control, chars: "\x00\x70" } # tmux next tab
   - { key: Apostrophe, mods: Control, chars: "\x00\x6e" } # tmux prev tab
   - { key: Key1, mods: Control, chars: "\x00\x31" } # tmux switch to tab 1 
