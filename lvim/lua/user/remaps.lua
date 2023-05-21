@@ -19,13 +19,6 @@ keymap("v", "<leader>P", '"_dP', opts)
 -- Void delete remap
 keymap("v", "<leader>D", '"_x', opts)
 keymap("n", "Y", "0y$", { noremap = true })
--- Harpoon remaps
-keymap("n", "<leader>a", ":lua require('harpoon.mark').add_file()<CR>", { desc = "Add to Harpoon" })
-keymap("n", "<leader>0", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", { desc = "Show Harpoon" })
-keymap("n", "<leader>1", ":lua require('harpoon.ui').nav_file(1)<CR>", { desc = "Harpoon Buffer 1" })
-keymap("n", "<leader>2", ":lua require('harpoon.ui').nav_file(2)<CR>", { desc = "Harpoon Buffer 2" })
-keymap("n", "<leader>3", ":lua require('harpoon.ui').nav_file(3)<CR>", { desc = "Harpoon Buffer 3" })
-keymap("n", "<leader>4", ":lua require('harpoon.ui').nav_file(4)<CR>", { desc = "Harpoon Buffer 4" })
 
 -- normal mode remaps
 lnmap["<S-h>"] = ":BufferLineCyclePrev<CR>"
