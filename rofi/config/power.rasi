@@ -1,3 +1,5 @@
+@import "launcher_custom.rasi" 
+
 inputbar {
   children: [entry];
 }

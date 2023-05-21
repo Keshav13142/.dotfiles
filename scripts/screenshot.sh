@@ -5,8 +5,7 @@
 ## Github  : @adi1090x
 ## Twitter : @adi1090x
 
-dir="$HOME/.config/rofi/applets/android"
-rofi_command="rofi -theme $dir/three.rasi"
+rofi_command="rofi -theme ~/.config/rofi/config/screenshot.rasi"
 
 # Error msg
 msg() {

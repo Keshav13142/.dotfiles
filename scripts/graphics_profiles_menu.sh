@@ -1,4 +1,4 @@
-chosen=$(printf 'Integrated\nHybrid\nNvidia\n%s (active)' "$(system76-power graphics)" | rofi -dmenu -i -theme-str '@import "power.rasi"')
+chosen=$(printf 'Integrated\nHybrid\nNvidia\n%s (active)' "$(system76-power graphics)" | rofi -dmenu -i -theme ~/.config/rofi/config/power.rasi)
 
 case "$chosen" in
 "Integrated")

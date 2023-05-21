@@ -1,4 +1,4 @@
-chosen=$(printf '  Battery\n  Balanced\n  Performance\n%s (active)' "$(system76-power profile | grep -oP 'Power Profile: \K\w+')" | rofi -dmenu -i -theme-str '@import "power.rasi"')
+chosen=$(printf '  Battery\n  Balanced\n  Performance\n%s (active)' "$(system76-power profile | grep -oP 'Power Profile: \K\w+')" | rofi -dmenu -i -theme ~/.config/rofi/config/power.rasi)
 
 case "$chosen" in
 "  Battery")
