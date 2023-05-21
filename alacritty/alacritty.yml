@@ -22,7 +22,7 @@ window:
   padding:
     x: 0
     y: 0
-  opacity: 1
+  opacity: 0.9
   decorations: none
 
 cursor:
@@ -251,7 +251,7 @@ schemes:
   ### moonfly ###
   moonfly: &moonfly # Default colors
     primary:
-      background: "#080808"
+      background: "#000000"
       foreground: "#b2b2b2"
 
     # Colors the cursor will use if `custom_cursor_colors` is true
