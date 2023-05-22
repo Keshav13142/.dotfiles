@@ -84,6 +84,7 @@ path+=('/home/keshav/.config/tmux/plugins/t-smart-tmux-session-manager/bin')
 path+=('/usr/local/go/bin')
 path+=('/home/keshav/go/bin')
 path+=('/home/keshav/.local/share/fnm')
+path+=('/home/keshav/softwares/apache-maven-3.9.2/bin')
 
 export PATH
 
