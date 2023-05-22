@@ -149,13 +149,8 @@ for_window [class="Quickgui"] floating enable, resize set 1000 700
 
 # move windows to default workspaces
 for_window [class = "Brave-browser-beta"] move to workspace 1
-for_window [class = "Alacritty"] move to workspace 2
-for_window [class="Org.gnome.Nautilus"] move to workspace 3
-
 # focus windows on open
 for_window [class = "Brave-browser-beta"] focus
-for_window [class = "Alacritty"] focus
-for_window [class="Org.gnome.Nautilus"] focus
 
 # window compositor
 exec_always picom -b --experimental-backends --config ~/.config/picom/picom.conf
@@ -179,7 +174,7 @@ bindsym $mod+o exec betterlockscreen -l
 
 # Screenshot tool
 exec_always sxhkd &
- 
+
 # FKeys
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
