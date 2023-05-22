@@ -25,3 +25,6 @@ lvim.builtin.which_key.mappings["r"] = {
 }
 
 lvim.builtin.which_key.mappings["s"] = nil
+-- Use which-key to add extra bindings with the leader-key prefix
+lvim.builtin.which_key.mappings["W"] = { "<cmd>noautocmd w<cr>", "Save without formatting" }
+lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }

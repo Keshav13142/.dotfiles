@@ -1,7 +1,7 @@
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
-local lnmap = lvim.keys.normal_mode
-local limap = lvim.keys.insert_mode
+local nmap = lvim.keys.normal_mode
+local imap = lvim.keys.insert_mode
 
 -- move lines up and down
 keymap("v", "J", ":m '>+1<CR>gv=gv")
@@ -31,6 +31,9 @@ keymap("n", "x", '"_x', opts)
 keymap("n", "+", "<C-a>", opts)
 keymap("n", "-", "<C-x>", opts)
 
+-- set Shift+u as redo
+keymap("n", "<S-u>", "<C-r>", opts)
+
 -- better indenting
 keymap("v", "<", "<gv")
 keymap("v", ">", ">gv")
@@ -40,27 +43,18 @@ keymap({ "n", "x" }, "gw", "*N", { desc = "Search word under cursor" })
 keymap("n", "<C-p>", "<cmd>Telescope git_files<cr>", opts)
 
 -- remap ^ and $ (meta/windows key is not working, have to check)
-keymap("n", "<T-h>", "^", opts)
-keymap("n", "<T-l>", "$", opts)
-keymap("v", "<T-h>", "^", opts)
-keymap("v", "<T-l>", "$", opts)
-keymap("x", "<T-h>", "^", opts)
-keymap("x", "<T-l>", "$", opts)
-keymap("o", "<T-h>", "^", opts)
-keymap("o", "<T-l>", "$", opts)
+keymap({ "n", "v", "x", "o" }, "gh", "^", opts)
+-- remove existing lsp mapping
+lvim.lsp.buffer_mappings.normal_mode["gl"] = nil
+keymap({ "n", "v", "x", "o" }, "gl", "$", opts)
 
--- normal mode remaps
-lnmap["<S-h>"] = ":BufferLineCyclePrev<CR>"
-lnmap["<S-l>"] = ":BufferLineCycleNext<CR>"
--- lnmap["<C-s>"] = ":w<CR>"
-lnmap["<C-q>"] = ":q!<CR>"
--- insert mode remaps
-limap["<C-q>"] = "<ESC>:q!<CR>"
--- limap["<C-s>"] = "<ESC>:w<CR>"
+-- cycle between tabs
+nmap["<S-h>"] = ":BufferLineCyclePrev<CR>"
+nmap["<S-l>"] = ":BufferLineCycleNext<CR>"
+
+-- quit
+nmap["<C-q>"] = ":q!<CR>"
+imap["<C-q>"] = "<ESC>:q!<CR>"
 
 -- open floating terminal inside lvim
 lvim.builtin.terminal.open_mapping = "<C-t>"
-
--- Use which-key to add extra bindings with the leader-key prefix
-lvim.builtin.which_key.mappings["W"] = { "<cmd>noautocmd w<cr>", "Save without formatting" }
-lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
