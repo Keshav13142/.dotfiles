@@ -19,15 +19,15 @@ key_bindings:
   - { key: Equals, mods: Control, action: IncreaseFontSize }
   - { key: B, mods: Control, chars: "\x00\x63" } # open a new tmux tab
   - { key: G, mods: Control, chars: "lg\n" } # open lazygit in curr_dir
-  - { key: E, mods: Control, chars: "\x00\x7c" } # tmux split vertical
-  - { key: E, mods: Control|Shift, chars: "\x00\x22" } # tmux split horizontal
+  - { key: LBracket, mods: Control, chars: "\x00\x7c" } # tmux split vertical
+  - { key: RBracket, mods: Control, chars: "\x00\x22" } # tmux split horizontal
   - { key: Semicolon, mods: Control, chars: "\x00\x70" } # tmux next tab
   - { key: Apostrophe, mods: Control, chars: "\x00\x6e" } # tmux prev tab
-  - { key: Key1, mods: Control, chars: "\x00\x31" } # tmux switch to tab 1 
-  - { key: Key2, mods: Control, chars: "\x00\x32" } # tmux switch to tab 2 
-  - { key: Key3, mods: Control, chars: "\x00\x33" } # tmux switch to tab 3 
-  - { key: Key4, mods: Control, chars: "\x00\x34" } # tmux switch to tab 4 
-  - { key: Key5, mods: Control, chars: "\x00\x35" } # tmux switch to tab 5 
+  - { key: Key1, mods: Control, chars: "\x00\x31" } # tmux switch to tab 1
+  - { key: Key2, mods: Control, chars: "\x00\x32" } # tmux switch to tab 2
+  - { key: Key3, mods: Control, chars: "\x00\x33" } # tmux switch to tab 3
+  - { key: Key4, mods: Control, chars: "\x00\x34" } # tmux switch to tab 4
+  - { key: Key5, mods: Control, chars: "\x00\x35" } # tmux switch to tab 5
 
 window:
   padding:
