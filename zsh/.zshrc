@@ -149,12 +149,16 @@ alias nr='npm run'
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=244"
 
 # Plugins
-source ~/.config/zsh/powerlevel10k/powerlevel10k.zsh-theme
-source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/.config/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
-source ~/.config/zsh/powerlevel10k/powerlevel10k.zsh-theme
+source ~/.config/zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme
+source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.config/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+source ~/.config/zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme
+source ~/.config/zsh/plugins/zsh-completions/zsh-completions.plugin.zsh
+source ~/.config/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh
+source ~/.config/zsh/plugins/zsh-autopair/autopair.plugin.zsh
 
+autopair-init
 # history substring search options
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
