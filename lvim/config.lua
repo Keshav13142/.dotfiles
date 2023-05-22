@@ -1,7 +1,7 @@
 reload("user.plugins")
 reload("user.options")
-reload("user.after")
 reload("user.remaps")
+reload("user.functions")
 reload("user.formatters")
 reload("user.telescope")
 reload("user.whichkey")

@@ -39,15 +39,15 @@ keymap("v", ">", ">gv")
 keymap({ "n", "x" }, "gw", "*N", { desc = "Search word under cursor" })
 keymap("n", "<C-p>", "<cmd>Telescope git_files<cr>", opts)
 
--- remap ^ and $
-keymap("n", "<C-h>", "^", opts)
-keymap("n", "<C-l>", "$", opts)
-keymap("v", "<C-h>", "^", opts)
-keymap("v", "<C-l>", "$", opts)
-keymap("x", "<C-h>", "^", opts)
-keymap("x", "<C-l>", "$", opts)
-keymap("o", "<C-h>", "^", opts)
-keymap("o", "<C-l>", "$", opts)
+-- remap ^ and $ (meta/windows key is not working, have to check)
+keymap("n", "<T-h>", "^", opts)
+keymap("n", "<T-l>", "$", opts)
+keymap("v", "<T-h>", "^", opts)
+keymap("v", "<T-l>", "$", opts)
+keymap("x", "<T-h>", "^", opts)
+keymap("x", "<T-l>", "$", opts)
+keymap("o", "<T-h>", "^", opts)
+keymap("o", "<T-l>", "$", opts)
 
 -- normal mode remaps
 lnmap["<S-h>"] = ":BufferLineCyclePrev<CR>"
