@@ -95,7 +95,7 @@ alias et='exit'
 alias cat='batcat -p'
 alias man='batman'
 alias bg='batgrep'
-alias l='exa -al --icons' 
+alias l='exa -al --icons'
 alias ll='exa -al --icons'
 alias ls='exa -a --icons'
 alias lg='lazygit'
@@ -121,9 +121,9 @@ export EDITOR="lvim"
 export VISUAL="lvim"
 
 # ------------------GIT----------------
-alias g='git' 
-alias ga='git add' 
-alias gp='git push' 
+alias g='git'
+alias ga='git add'
+alias gp='git push'
 alias gi='git init'
 alias gs='git status'
 alias gra='git remote add origin'
@@ -155,7 +155,7 @@ source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.config/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 source ~/.config/zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme
 source ~/.config/zsh/plugins/zsh-completions/zsh-completions.plugin.zsh
-source ~/.config/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh
+# source ~/.config/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh
 source ~/.config/zsh/plugins/zsh-autopair/autopair.plugin.zsh
 
 autopair-init
