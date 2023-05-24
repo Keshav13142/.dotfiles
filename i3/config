@@ -161,7 +161,7 @@ exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets
 exec --no-startup-id nm-applet
 
 # set wallpaper using feh
-exec_always feh --bg-fill /home/keshav/Pictures/wallpapers/wall.jpg
+exec_always feh --bg-fill /home/keshav/Pictures/wallpapers/city.png
 
 # Launch polybar
 exec_always ~/.config/polybar/launch.sh
