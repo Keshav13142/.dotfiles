@@ -1,46 +1,56 @@
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
-local nmap = lvim.keys.normal_mode
-local imap = lvim.keys.insert_mode
+
+local function nmap(key, map)
+	keymap("n", key, map, opts)
+end
+
+local function vmap(key, map)
+	keymap("v", key, map, opts)
+end
+
+local function imap(key, map)
+	keymap("i", key, map, opts)
+end
 
 -- move lines up and down
-keymap("v", "J", ":m '>+1<CR>gv=gv")
-keymap("v", "K", ":m '<-2<CR>gv=gv")
+vmap("J", ":m '>+1<CR>gv=gv")
+vmap("K", ":m '<-2<CR>gv=gv")
 
 -- Center cursor
-keymap("n", "<C-u>", "<C-u>zz")
-keymap("n", "<C-d>", "<C-d>zz")
-keymap("n", "n", "nzz", opts)
-keymap("n", "N", "Nzz", opts)
-keymap("n", "*", "*zz", opts)
-keymap("n", "#", "#zz", opts)
-keymap("n", "g*", "g*zz", opts)
-keymap("n", "g#", "g#zz", opts)
+nmap("<C-u>", "<C-u>zz")
+nmap("<C-d>", "<C-d>zz")
+nmap("n", "nzz")
+nmap("N", "Nzz")
+nmap("*", "*zz")
+nmap("#", "#zz")
+nmap("g*", "g*zz")
+nmap("g#", "g#zz")
 
 -- Ctrl+s to save
 keymap({ "i", "v", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
 
 -- paste and delete register stuff
-keymap("v", "<leader>P", '"_dP', opts)
-keymap("v", "<leader>D", '"_x', opts)
-keymap("n", "Y", "0y$", { noremap = true })
+vmap("<leader>P", '"_dP')
+vmap("<leader>D", '"_x')
+nmap("Y", "0y$")
 -- Do not copy on x
-keymap("n", "x", '"_x', opts)
+nmap("x", '"_x')
 
 -- Increment/decrement
-keymap("n", "+", "<C-a>", opts)
-keymap("n", "-", "<C-x>", opts)
+nmap("+", "<C-a>")
+nmap("-", "<C-x>")
 
 -- set Shift+u as redo
-keymap("n", "<S-u>", "<C-r>", opts)
+nmap("<S-u>", "<C-r>")
 
 -- better indenting
-keymap("v", "<", "<gv")
-keymap("v", ">", ">gv")
+vmap("<", "<gv")
+vmap(">", ">gv")
 
 -- Search for word under cursor
 keymap({ "n", "x" }, "gw", "*N", { desc = "Search word under cursor" })
-keymap("n", "<C-p>", "<cmd>Telescope git_files<cr>", opts)
+nmap("<C-p>", "<cmd>Telescope git_files<cr>")
 
 -- remap ^ and $ (meta/windows key is not working, have to check)
 keymap({ "n", "v", "x", "o" }, "gh", "^", opts)
@@ -49,12 +59,12 @@ lvim.lsp.buffer_mappings.normal_mode["gl"] = nil
 keymap({ "n", "v", "x", "o" }, "gl", "$", opts)
 
 -- cycle between tabs
-nmap["<S-h>"] = ":BufferLineCyclePrev<CR>"
-nmap["<S-l>"] = ":BufferLineCycleNext<CR>"
+nmap("<S-h>", ":BufferLineCyclePrev<CR>")
+nmap("<S-l>", ":BufferLineCycleNext<CR>")
 
 -- quit
-nmap["<C-q>"] = ":q!<CR>"
-imap["<C-q>"] = "<ESC>:q!<CR>"
+nmap("<C-w>", ":q!<CR>")
+imap("<C-w>", "<ESC>:q!<CR>")
 
 -- open floating terminal inside lvim
 lvim.builtin.terminal.open_mapping = "<C-t>"
