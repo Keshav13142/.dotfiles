@@ -5,13 +5,32 @@ fi
 # Enable colors and change prompt:
 autoload -U colors && colors	# Load colors
 PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
-setopt autocd		# Automatically cd into typed directory.
-setopt interactive_comments
 
-# History in cache directory:
+
+# display how long all tasks over 10 seconds take
+export REPORTTIME=10
+export KEYTIMEOUT=1              # 10ms delay for key sequences
+export THEME_FLAVOUR=mocha
+
+setopt NO_BG_NICE
+setopt NO_HUP                    # don't kill background jobs when the shell exits
+setopt NO_LIST_BEEP
+setopt LOCAL_OPTIONS
+setopt LOCAL_TRAPS
+setopt PROMPT_SUBST
+
+# history
 HISTSIZE=10000000
 SAVEHIST=10000000
 HISTFILE=~/.cache/zsh/history
+setopt EXTENDED_HISTORY          # write the history file in the ":start:elapsed;command" format.
+setopt HIST_REDUCE_BLANKS        # remove superfluous blanks before recording entry.
+setopt SHARE_HISTORY             # share history between all sessions.
+setopt HIST_IGNORE_ALL_DUPS      # delete old recorded entry if new entry is a duplicate.
+
+setopt COMPLETE_ALIASES
+setopt autocd		# Automatically cd into typed directory.
+setopt interactive_comments
 
 # Basic auto/tab complete:
 autoload -U compinit
@@ -102,6 +121,7 @@ alias ls='exa -a --icons'
 alias lg='lazygit'
 alias clip='xclip -selection clipboard'
 alias cd='z'
+alias rm='trash'
 alias tr='trash'
 alias trr='trash-restore'
 alias tl='trash-list'
@@ -122,7 +142,6 @@ export EDITOR="lvim"
 export VISUAL="lvim"
 
 # ------------------GIT----------------
-alias g='git'
 alias ga='git add'
 alias gp='git push'
 alias gi='git init'
