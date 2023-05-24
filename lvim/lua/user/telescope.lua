@@ -51,3 +51,20 @@ lvim.builtin.telescope.defaults.file_ignore_patterns = {
 	"%.flac",
 	"%.tar.gz",
 }
+
+local actions = require("telescope.actions")
+
+lvim.builtin.telescope.defaults.mappings = {
+	i = {
+		["<Esc>"] = actions.close, -- don't go into normal mode, just close
+		["<C-t>"] = actions.select_tab, -- open selection in new tab
+		["<C-y>"] = actions.preview_scrolling_up,
+		["<C-e>"] = actions.preview_scrolling_down,
+	},
+}
+
+lvim.builtin.telescope.defaults.sorting_strategy = "ascending"
+lvim.builtin.telescope.defaults.layout_strategy = "horizontal"
+lvim.builtin.telescope.extensions = {
+	fzf = { fuzzy = true, override_generic_sorter = true, override_file_sorter = true, case_mode = "smart_case" },
+}
