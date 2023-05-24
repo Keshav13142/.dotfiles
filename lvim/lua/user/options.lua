@@ -17,6 +17,45 @@ lvim.builtin.terminal.active = true
 lvim.builtin.lualine.active = false
 -- enable autotag closing
 lvim.builtin.treesitter.autotag.enable = true
+lvim.builtin.treesitter.ensure_installed = {
+	"bash",
+	"c",
+	"comment",
+	"cpp",
+	"css",
+	"diff",
+	"dockerfile",
+	"git_rebase",
+	"gitcommit",
+	"gitignore",
+	"go",
+	"html",
+	"java",
+	"javascript",
+	"jsdoc",
+	"json",
+	"json5",
+	"jsonc",
+	"lua",
+	"markdown",
+	"markdown_inline",
+	"python",
+	"rust",
+	"typescript",
+	"tsx",
+	"vim",
+	"yaml",
+}
+
+local fn = vim.fn
+if fn.executable("rg") then
+	-- if ripgrep installed, use that as a grepper
+	vim.opt.grepprg = "rg --vimgrep --no-heading"
+	vim.opt.grepformat = "%f:%l:%c:%m,%f:%l:%m"
+	-- create autocmd to automatically open quickfix window when grepping
+	vim.cmd([[autocmd QuickFixCmdPost [^l]* nested cwindow]])
+end
+
 -- Automatically install missing parsers when entering buffer
 lvim.builtin.treesitter.auto_install = true
 
@@ -36,14 +75,27 @@ local options = {
 	conceallevel = 0, -- so that `` is visible in markdown files
 	confirm = true, -- Confirm to save changes before exiting modified buffer
 	cursorline = false, -- highlight the current line
+	errorbells = false,
 	expandtab = true, -- convert tabs to spaces
+	fcs = "eob: ",
 	fileencoding = "utf-8", -- the encoding written to a file
+	foldenable = false, -- don't fold by default
+	foldexpr = "nvim_treesitter#foldexpr()",
+	foldlevel = 1,
+	foldlevelstart = 99,
+	foldmethod = "expr",
+	foldnestmax = 10, -- deepest fold is 10 levels,
 	formatoptions = "jcroqlnt", -- tcqj
 	grepformat = "%f:%l:%c:%m",
 	grepprg = "rg --vimgrep",
 	ignorecase = true, -- ignore case in search patterns
 	incsearch = true,
 	laststatus = 3, -- The value of this option influences when the last window will have a status line
+	lazyredraw = false, -- don't redraw while executing macros
+	linebreak = true,
+	list = false, -- turn this on the see EOL and other stuff like that
+	listchars = { tab = "→ ", eol = "¬", trail = "⋅", extends = "❯", precedes = "❮" },
+	magic = true, -- for regular expressions
 	mouse = "a", -- allow the mouse to be used in neovim
 	number = true, -- set numbered lines
 	numberwidth = 1, -- set number column width to 2 {default 4}
@@ -54,6 +106,7 @@ local options = {
 	shell = "zsh",
 	shiftround = true,
 	shiftwidth = 2, -- the number of spaces inserted for each indentation
+	showbreak = "↪",
 	showcmd = false, -- Show (partial) command in the last line of the screen.
 	showmode = false, -- we don't need to see things like -- INSERT -- anymore
 	sidescrolloff = 8,
@@ -68,9 +121,12 @@ local options = {
 	timeoutlen = 1000, -- time to wait for a mapped sequence to complete (in milliseconds)
 	title = true,
 	titleold = vim.split(os.getenv("SHELL") or "", "/")[3],
+	ttyfast = true,
 	undofile = true, -- enable persistent undo
 	updatetime = 100, -- faster completion (4000ms default)
+	visualbell = true,
 	wrap = true, -- Wrap lines
+	wrapmargin = 8,
 	writebackup = false, -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
 }
 
