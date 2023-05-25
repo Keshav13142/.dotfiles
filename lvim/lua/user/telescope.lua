@@ -64,7 +64,6 @@ lvim.builtin.telescope.defaults.mappings = {
 }
 
 lvim.builtin.telescope.defaults.sorting_strategy = "ascending"
-lvim.builtin.telescope.defaults.layout_strategy = "horizontal"
 lvim.builtin.telescope.extensions = {
 	fzf = { fuzzy = true, override_generic_sorter = true, override_file_sorter = true, case_mode = "smart_case" },
 }
