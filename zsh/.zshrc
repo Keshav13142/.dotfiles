@@ -115,9 +115,18 @@ alias et='exit'
 alias cat='batcat -p'
 alias man='batman'
 alias bg='batgrep'
-alias l='exa -al --icons'
-alias ll='exa -al --icons'
-alias ls='exa -a --icons'
+
+# use exa if available
+if [[ -x "$(command -v exa)" ]]; then
+  alias l='exa -al --icons'
+  alias ll='exa -al --icons'
+  alias ls='exa -a --icons'
+else
+  alias l="ls -lah ${colorflag}"
+  alias ll="ls -lFh ${colorflag}"
+fi
+
+alias rmf="rm -rf"
 alias lg='lazygit'
 alias clip='xclip -selection clipboard'
 alias cd='z'
@@ -125,6 +134,8 @@ alias rm='trash'
 alias tr='trash'
 alias trr='trash-restore'
 alias tl='trash-list'
+alias mv='mv -i'
+alias cp='cp -i'
 alias ..='cd ..'
 alias ...='cd ...'
 
@@ -162,6 +173,32 @@ alias ns='npm start'
 alias nrd='npm run dev'
 alias nr='npm run'
 
+# ----------------FUNCTIONS-------------------
+# # ex - archive extractor
+# # usage: ex <file>
+un ()
+{
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2)   tar xjf $1   ;;
+      *.tar.gz)    tar xzf $1   ;;
+      *.tar.xz)    tar xJf $1   ;;
+      *.bz2)       bunzip2 $1   ;;
+      *.rar)       unrar x $1     ;;
+      *.gz)        gunzip $1    ;;
+      *.tar)       tar xf $1    ;;
+      *.tbz2)      tar xjf $1   ;;
+      *.tgz)       tar xzf $1   ;;
+      *.zip)       unzip $1     ;;
+      *.Z)         uncompress $1;;
+      *.7z)        7zz x $1      ;;
+      *)           echo "'$1' cannot be extracted via ex()" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
+}
+
 # ----------------ZSH PLUGINS-------------------
 # To customize prompt, run `p10k configure` or edit ~/.config/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
@@ -177,6 +214,7 @@ source ~/.config/zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme
 source ~/.config/zsh/plugins/zsh-completions/zsh-completions.plugin.zsh
 # source ~/.config/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh
 source ~/.config/zsh/plugins/zsh-autopair/autopair.plugin.zsh
+source ~/.config/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 autopair-init
 # history substring search options
