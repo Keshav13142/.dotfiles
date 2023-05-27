@@ -6,12 +6,6 @@ fi
 autoload -U colors && colors	# Load colors
 PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 
-
-# display how long all tasks over 10 seconds take
-export REPORTTIME=10
-export KEYTIMEOUT=1              # 10ms delay for key sequences
-export THEME_FLAVOUR=mocha
-
 setopt NO_BG_NICE
 setopt NO_HUP                    # don't kill background jobs when the shell exits
 setopt NO_LIST_BEEP
@@ -41,7 +35,6 @@ _comp_options+=(globdots)
 
 # vi mode
 bindkey -v
-export KEYTIMEOUT=1
 
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
@@ -90,13 +83,9 @@ bindkey '^e' end-of-line
 
 # ------------PATH----------------
 # Android
-export ANDROID_HOME=/home/keshav/.local/Android/Sdk
 path+=('/home/keshav/.local/Android/Sdk/tools')
 path+=('/home/keshav/.local/Android/Sdk/platform-tools')
 
-# Rust
-export CARGO_HOME=/home/keshav/.local/.cargo
-export RUSTUP_HOME=/home/keshav/.local/.rustup
 
 path+=('/home/keshav/.local/bin')
 path+=('/home/keshav/.config/tmux/plugins/t-smart-tmux-session-manager/bin')
@@ -149,8 +138,6 @@ alias nvim=~/softwares/neovim/build/bin/nvim
 alias vi='lvim'
 alias v='lvim'
 alias vim='lvim'
-export EDITOR="lvim"
-export VISUAL="lvim"
 
 # ------------------GIT----------------
 alias ga='git add'
