@@ -128,7 +128,8 @@ bindsym $mod+r mode "resize"
 default_floating_border normal 0
 hide_edge_borders smart
 
-bindsym $mod+w exec brave-browser
+bindsym $mod+w exec brave-browser-beta
+bindsym $mod+Shift+w exec brave-browser-beta --incognito
 bindsym $mod+e exec nautilus
 
 # Gaps configuration
