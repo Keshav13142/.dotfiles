@@ -1,8 +1,145 @@
+##################### ROFI & DMENU #######################
+
+alt + d
+  i3-dmenu-desktop
+
+alt + space
+  ~/.config/rofi/bin/launcher
+
+alt + shift + e
+  ~/.config/rofi/bin/powermenu
+
+alt + shift + p
+  power_profiles_menu.sh
+
+alt + shift + g
+  graphics_profiles_menu.sh
+
+alt + shift + m
+  toggle_mic.sh
+
+alt + Tab
+  rofi -show window -theme ~/.config/rofi/config/launcher_custom.rasi
+
+######################## APPLICATION KEYBINDINGS ###################
+
+alt + w
+    brave-browser-beta
+
+alt + shift + w
+    brave-browser-beta --incognito
+
+alt + g; {d,g,o}
+  {flatpak run com.discordapp.Discord,flatpak run org.gimp.GIMP,flatpak run com.obsproject.Studio}
+
+####################### AUDIO KEYBINDINGS ###################
+
+XF86AudioRaiseVolume
+  pactl set-sink-volume 0 +5%
+
+XF86AudioLowerVolume
+  pactl set-sink-volume 0 -5%
+
+XF86AudioMute
+  pactl set-sink-mute 0 toggle # mute sound
+
+XF86AudioPlay
+    playerctl play-pause
+
+XF86AudioPause
+    playerctl play-pause
+
+XF86AudioNext
+    playerctl next
+
+XF86AudioPrev
+    playerctl previous
+
+XF86AudioStop
+    playerctl stop
+
+################ BRIGHTNESS CONTROLS ####################
+
+#(-q is logarithmic, -u is fade duration in micro_secs)
+XF86MonBrightnessUp
+ brillo -A 5 -q -u 150000
+
+XF86MonBrightnessDown
+  brillo -U 5 -q -u 150000
+
+####################### I3 #############################
+
+## MOVEMENTS
+
+alt+ {h,j,k,l}
+    i3-msg focus {left,down,up,right}
+
+alt+ shift +{h,j,k,l}
+    i3-msg move {left,down,up,right}
+
+alt + {v, shift+v}
+    i3-msg split {v,h}
+
+alt + f
+    i3-msg fullscreen toggle
+
+alt + shift + space
+    i3-msg floating toggle
+
+## WORKSPACES
+
+alt + shift + b
+    i3-msg move workspace to output next
+
+alt + {1-9,0}
+    i3-msg workspace {1-9,10}
+
+alt + shift+{1-9,0}
+    i3-msg move container to workspace number {1-9,10}
+
+alt+shift+{0,1,2,3,4,5,6,7,8,9}
+    i3-msg move container to workspace number {10,11,12,13,14,15,16,17,18,19}
+
+alt + Return
+    alacritty
+
+## OTHERS
+
+alt + q
+    i3-msg kill
+
+alt + shift + c
+    i3-msg reload
+
+alt + shift + r
+    i3-msg restart
+
+alt + shift + s
+    i3-msg layout stacking
+
+alt + shift + t
+ i3-msg layout tabbed
+
+alt + ctrl + {l,k,j,h}
+ i3-msg resize {grow width 5 px or 5 ppt, shrink height 5 px or 5 ppt, grow height 5 px or 5 ppt, shrink width 5 px or 5 ppt}
+
+################# GENERAL ##################################
+
+## TOGGLE POLYBAR
+alt + y
+ polybar-msg cmd toggle
+
+# LOCK SCREEN
+alt + o
+  betterlockscreen -l
+
+## EMOJI PICKER
 super + period
  rofi -show emoji
 
+## CALCULTOR
 super + slash
- rofi -show calc
+ rofi -show calc -theme ~/.config/rofi/config/launcher_custom.rasi
 
 # printscreen
 @Print
@@ -16,8 +153,9 @@ super + Escape
 super + shift + Escape
  pkill -USR1 -x sxhkd
 
-# notifications
-super + space
+###################### NOTIFICATION #################
+
+Super + space
  dunstctl close
 
 super + shift + space
@@ -29,4 +167,4 @@ super + question
 super + comma
  dunstctl history-pop
 
-; vim:ft=conf
+;vim:ft=conf
