@@ -134,7 +134,6 @@ eval "$(fnm env --use-on-cd)"
 bindkey -s ^f "tmux-sessionizer\n"
 
 # ------------------NEOVIM----------------
-alias nvim=~/softwares/neovim/build/bin/nvim
 alias vi='lvim'
 alias v='lvim'
 alias vim='lvim'
