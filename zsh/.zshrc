@@ -127,6 +127,13 @@ alias mv='mv -i'
 alias cp='cp -i'
 alias ..='cd ..'
 alias ...='cd ...'
+# Edit config files
+alias vz='v ~/.config/zsh/.zshrc'
+alias vi='v ~/.config/i3/config'
+alias vp='v ~/.config/polybar/config.ini'
+alias vs='v ~/.config/sxhkd/sxhkdrc'
+alias vt='v ~/.config/tmux/tmux.conf'
+alias va='v ~/.config/alacritty/alacritty.yml'
 
 eval "$(zoxide init zsh)"
 eval "$(fnm env --use-on-cd)"
@@ -134,7 +141,6 @@ eval "$(fnm env --use-on-cd)"
 bindkey -s ^f "tmux-sessionizer\n"
 
 # ------------------NEOVIM----------------
-alias vi='lvim'
 alias v='lvim'
 alias vim='lvim'
 
