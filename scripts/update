@@ -1,0 +1,34 @@
+#!/bin/bash
+
+sudo_check() {
+	if [[ $(/usr/bin/id -u) -ne 0 ]]; then
+		echo "Run as root"
+		exit
+	fi
+}
+
+case "$1" in
+neovim)
+	sudo_check
+	cd /home/keshav/softwares || return
+	echo "Downloading latest neovim release..........."
+	wget https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.tar.gz -q
+	echo "Extracting packages.........."
+	tar xvf nvim-linux64.tar.gz >/dev/null
+	echo "Installing.........."
+	rm /usr/local/bin/nvim >/dev/null || true # To ignore if cmd fails
+	mv nvim-linux64/bin/nvim /usr/local/bin/
+	echo "Cleaning up.........."
+	rm nvim-linux64.tar.gz
+	rm -r nvim-linux64
+	cd - >/dev/null || return
+	;;
+alacritty)
+	echo "Updating using cargo-update........"
+	cargo install-update alacritty >/dev/null
+	echo "Updated alacritty......."
+	;;
+*)
+	printf "BRUH 😐\nTell me what to update\n1.neovim\n2.alacritty\n"
+	;;
+esac
