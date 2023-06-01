@@ -14,6 +14,6 @@ RUSTUP_HOME=/home/keshav/.local/.rustup
 . "/home/keshav/.local/.cargo/env"
 
 # General
-EDITOR=nvim
-VISUAL=nvim
+EDITOR=/home/keshav/.local/bin/lvim
+VISUAL=/usr/bin/code
 BROWSER='brave-browser-beta'

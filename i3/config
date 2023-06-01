@@ -23,3 +23,5 @@ exec_always xinput set-prop "ELAN1205:00 04F3:30E9 Touchpad" "libinput Tapping E
 exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets
 
 exec --no-startup-id nm-applet
+
+exec --no-startup-id ~/.config/scripts/fix_scrolling
