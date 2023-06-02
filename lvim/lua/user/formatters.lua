@@ -1,8 +1,15 @@
 local formatters = require("lvim.lsp.null-ls.formatters")
 formatters.setup({
-	{ command = "prettier", filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact", "css" } },
+	-- { command = "prettier", filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact", "css" } },
 	{ command = "shfmt", filetypes = { "sh", "zsh", "bash" } },
 	{ command = "stylua", filetypes = { "lua" } },
+	{ command = "goimports", filetypes = { "go" } },
+	{ command = "gofumpt", filetypes = { "go" } },
+})
+
+local linters = require("lvim.lsp.null-ls.linters")
+linters.setup({
+	{ command = "eslint", filetypes = { "javascript", "typescript" } },
 })
 
 vim.filetype.add({
@@ -10,41 +17,3 @@ vim.filetype.add({
 		zsh = "zsh",
 	},
 })
-
--- ############################### This is extremely slow when saving (idk why) ##################################
--- local status_ok, null_ls = pcall(require, "null-ls")
--- if not status_ok then
--- 	return
--- end
-
--- local formatting = null_ls.builtins.formatting
--- local diagnostics = null_ls.builtins.diagnostics
--- local hover = null_ls.builtins.hover
--- local code_actions = null_ls.builtins.code_actions
--- local completion = null_ls.builtins.completion
-
--- null_ls.setup({
--- 	debug = false,
--- 	border = "rounded",
--- 	log_level = "error",
--- 	diagnostics_format = "#{c} #{m} (#{s})",
--- 	sources = {
--- 		code_actions.eslint,
--- 		code_actions.proselint,
--- 		code_actions.refactoring,
--- 		code_actions.shellcheck,
--- 		completion.spell,
--- 		completion.tags,
--- 		diagnostics.eslint,
--- 		diagnostics.rubocop,
--- 		diagnostics.selene,
--- 		diagnostics.shellcheck,
--- 		formatting.eslint,
--- 		formatting.prettier,
--- 		formatting.rubocop,
--- 		formatting.shfmt,
--- 		formatting.stylua,
--- 		hover.dictionary,
--- 		hover.printenv,
--- 	},
--- })
