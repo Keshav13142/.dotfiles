@@ -16,7 +16,9 @@ lvim.builtin.dap.active = false
 lvim.builtin.terminal.active = true
 lvim.builtin.lualine.active = false
 -- enable autotag closing
+lvim.builtin.treesitter.highlight.enable = true
 lvim.builtin.treesitter.autotag.enable = true
+lvim.builtin.treesitter.auto_install = true
 lvim.builtin.treesitter.ensure_installed = {
 	"bash",
 	"c",
@@ -64,6 +66,7 @@ lvim.builtin.nvimtree.setup.view.side = "right"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = true
 lvim.builtin.nvimtree.setup.filters.dotfiles = true
 lvim.builtin.nvimtree.setup.view.centralize_selection = true
+lvim.builtin.nvimtree.setup.actions.open_file.quit_on_open = true
 
 local options = {
 	backspace = "indent,eol,start",

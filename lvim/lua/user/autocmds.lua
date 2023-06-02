@@ -41,3 +41,9 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 		vim.cmd([[ %s/\s\+$//e ]])
 	end,
 })
+
+vim.api.nvim_create_autocmd({ "TextYankPost" }, {
+	callback = function()
+		vim.highlight.on_yank({ higroup = "Visual", timeout = 40 })
+	end,
+})
