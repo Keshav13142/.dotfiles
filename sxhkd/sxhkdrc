@@ -122,6 +122,9 @@ alt + ctrl + {l,k,j,h}
 
 ################# GENERAL ##################################
 
+ctrl + alt + t
+  toggle_touchpad
+
 ## TOGGLE POLYBAR
 alt + y
  polybar-msg cmd toggle
