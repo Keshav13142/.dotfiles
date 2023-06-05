@@ -6,16 +6,16 @@ alt + d
 alt + space
   ~/.config/rofi/bin/launcher
 
-alt + shift + e
+super + e
   ~/.config/rofi/bin/powermenu
 
-alt + shift + p
+super + p
   power_profiles_menu.sh
 
-alt + shift + g
+super + g
   graphics_profiles_menu.sh
 
-alt + shift + m
+super + m
   toggle_mic.sh
 
 ######################## APPLICATION KEYBINDINGS ###################
@@ -135,7 +135,7 @@ alt + o
 
 ## EMOJI PICKER
 super + period
- rofi -show emoji
+ rofi -show emoji -theme ~/.config/rofi/config/launcher_custom.rasi
 
 ## CALCULTOR
 super + slash
@@ -150,12 +150,12 @@ super + Escape
  $HOME/.config/polybar/launch.sh
 
 # Reload sxhkd
-super + shift + Escape
+super + grave
  pkill -USR1 -x sxhkd
 
 ###################### NOTIFICATION #################
 
-Super + space
+super + space
  dunstctl close
 
 super + shift + space
