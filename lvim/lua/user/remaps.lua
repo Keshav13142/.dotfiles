@@ -66,5 +66,14 @@ nmap("<S-l>", ":BufferLineCycleNext<CR>")
 nmap("<C-w>", ":q!<CR>")
 imap("<C-w>", "<ESC>:q!<CR>")
 
+-- Move to window using the movement keys
+nmap("<left>", "<C-w>h")
+nmap("<down>", "<C-w>j")
+nmap("<up>", "<C-w>k")
+nmap("<right>", "<C-w>l")
+
+-- change word with <c-c>
+nmap("<C-c>", "<cmd>normal! ciw<cr>a")
+
 -- open floating terminal inside lvim
 lvim.builtin.terminal.open_mapping = "<C-t>"
