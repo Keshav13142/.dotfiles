@@ -26,8 +26,8 @@ alt + w
 alt + shift + w
     brave-browser-beta --incognito
 
-alt + g; {d,g,o}
-  {flatpak run com.discordapp.Discord,flatpak run org.gimp.GIMP,flatpak run com.obsproject.Studio}
+alt + e
+  nautilus
 
 ####################### AUDIO KEYBINDINGS ###################
 
