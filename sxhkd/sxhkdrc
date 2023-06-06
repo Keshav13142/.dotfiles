@@ -122,7 +122,7 @@ alt + ctrl + {l,k,j,h}
 
 ################# GENERAL ##################################
 
-ctrl + alt + t
+super + t
   toggle_touchpad
 
 super + c
