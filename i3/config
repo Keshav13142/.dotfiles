@@ -10,7 +10,7 @@ exec --no-startup-id ~/.config/scripts/fix_scrolling
 exec_always picom -b --experimental-backends --config ~/.config/picom/picom.conf
 
 # set wallpaper using feh
-exec_always feh --bg-fill /home/keshav/Pictures/wallpapers/willow_rays.jpg
+exec_always feh --bg-fill /home/keshav/Pictures/wallpapers/willow_rays.png
 
 # Launch polybar
 exec_always ~/.config/polybar/launch.sh
