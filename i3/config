@@ -18,6 +18,9 @@ exec_always ~/.config/polybar/launch.sh
 # Keyboard shortcuts
 exec_always sxhkd &
 
+# clipmenu
+exec_always clipmenud &
+
 # Enable tap to click on the Touchpad (window managers disable this be default :))
 exec_always xinput set-prop "ELAN1205:00 04F3:30E9 Touchpad" "libinput Tapping Enabled" 1
 
