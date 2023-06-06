@@ -3,11 +3,11 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # Enable colors and change prompt:
-autoload -U colors && colors	# Load colors
+autoload -U colors && colors # Load colors
 PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 
 setopt NO_BG_NICE
-setopt NO_HUP                    # don't kill background jobs when the shell exits
+setopt NO_HUP # don't kill background jobs when the shell exits
 setopt NO_LIST_BEEP
 setopt LOCAL_OPTIONS
 setopt LOCAL_TRAPS
@@ -17,13 +17,13 @@ setopt PROMPT_SUBST
 HISTSIZE=10000000
 SAVEHIST=10000000
 HISTFILE=~/.cache/zsh/history
-setopt EXTENDED_HISTORY          # write the history file in the ":start:elapsed;command" format.
-setopt HIST_REDUCE_BLANKS        # remove superfluous blanks before recording entry.
-setopt SHARE_HISTORY             # share history between all sessions.
-setopt HIST_IGNORE_ALL_DUPS      # delete old recorded entry if new entry is a duplicate.
+setopt EXTENDED_HISTORY     # write the history file in the ":start:elapsed;command" format.
+setopt HIST_REDUCE_BLANKS   # remove superfluous blanks before recording entry.
+setopt SHARE_HISTORY        # share history between all sessions.
+setopt HIST_IGNORE_ALL_DUPS # delete old recorded entry if new entry is a duplicate.
 
 setopt COMPLETE_ALIASES
-setopt autocd		# Automatically cd into typed directory.
+setopt autocd # Automatically cd into typed directory.
 setopt interactive_comments
 
 # Basic auto/tab complete:
@@ -37,37 +37,38 @@ _comp_options+=(globdots)
 bindkey -v
 
 # Edit line in vim with ctrl-e:
-autoload edit-command-line; zle -N edit-command-line
+autoload edit-command-line
+zle -N edit-command-line
 bindkey '^e' edit-command-line
 bindkey -M vicmd '^[[P' vi-delete-char
 bindkey -M vicmd '^e' edit-command-line
 bindkey -M visual '^[[P' vi-delete
 
 # Change cursor shape for different vi modes.
-function zle-keymap-select () {
-    case $KEYMAP in
-        vicmd) echo -ne '\e[1 q';;      # block
-        viins|main) echo -ne '\e[5 q';; # beam
-    esac
+function zle-keymap-select() {
+	case $KEYMAP in
+	vicmd) echo -ne '\e[1 q' ;;        # block
+	viins | main) echo -ne '\e[5 q' ;; # beam
+	esac
 }
 zle -N zle-keymap-select
 zle-line-init() {
-    zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
-    echo -ne "\e[5 q"
+	zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
+	echo -ne "\e[5 q"
 }
 zle -N zle-line-init
-echo -ne '\e[5 q' # Use beam shape cursor on startup.
-preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
+echo -ne '\e[5 q'                # Use beam shape cursor on startup.
+preexec() { echo -ne '\e[5 q'; } # Use beam shape cursor for each new prompt.
 
 # Use lf to switch directories and bind it to ctrl-o
-lfcd () {
-    tmp="$(mktemp -uq)"
-    trap 'rm -f $tmp >/dev/null 2>&1 && trap - HUP INT QUIT TERM PWR EXIT' HUP INT QUIT TERM PWR EXIT
-    lf -last-dir-path="$tmp" "$@"
-    if [ -f "$tmp" ]; then
-        dir="$(cat "$tmp")"
-        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
-    fi
+lfcd() {
+	tmp="$(mktemp -uq)"
+	trap 'rm -f $tmp >/dev/null 2>&1 && trap - HUP INT QUIT TERM PWR EXIT' HUP INT QUIT TERM PWR EXIT
+	lf -last-dir-path="$tmp" "$@"
+	if [ -f "$tmp" ]; then
+		dir="$(cat "$tmp")"
+		[ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+	fi
 }
 bindkey -s '^o' '^ulfcd\n'
 
@@ -85,7 +86,6 @@ bindkey '^e' end-of-line
 # Android
 path+=('/home/keshav/.local/Android/Sdk/tools')
 path+=('/home/keshav/.local/Android/Sdk/platform-tools')
-
 
 path+=('/home/keshav/.local/bin')
 path+=('/home/keshav/.config/tmux/plugins/t-smart-tmux-session-manager/bin')
@@ -107,12 +107,12 @@ alias bg='batgrep'
 
 # use exa if available
 if [[ -x "$(command -v exa)" ]]; then
-  alias l='exa -al --icons'
-  alias ll='exa -al --icons'
-  alias ls='exa -a --icons'
+	alias l='exa -al --icons'
+	alias ll='exa -al --icons'
+	alias ls='exa -a --icons'
 else
-  alias l="ls -lah ${colorflag}"
-  alias ll="ls -lFh ${colorflag}"
+	alias l="ls -lah ${colorflag}"
+	alias ll="ls -lFh ${colorflag}"
 fi
 
 alias rmf="rm -rf"
@@ -168,27 +168,26 @@ alias nr='npm run'
 # ----------------FUNCTIONS-------------------
 # # ex - archive extractor
 # # usage: ex <file>
-un ()
-{
-  if [ -f $1 ] ; then
-    case $1 in
-      *.tar.bz2)   tar xjf $1   ;;
-      *.tar.gz)    tar xzf $1   ;;
-      *.tar.xz)    tar xJf $1   ;;
-      *.bz2)       bunzip2 $1   ;;
-      *.rar)       unrar x $1     ;;
-      *.gz)        gunzip $1    ;;
-      *.tar)       tar xf $1    ;;
-      *.tbz2)      tar xjf $1   ;;
-      *.tgz)       tar xzf $1   ;;
-      *.zip)       unzip $1     ;;
-      *.Z)         uncompress $1;;
-      *.7z)        7zz x $1      ;;
-      *)           echo "'$1' cannot be extracted via ex()" ;;
-    esac
-  else
-    echo "'$1' is not a valid file"
-  fi
+un() {
+	if [ -f $1 ]; then
+		case $1 in
+		*.tar.bz2) tar xjf $1 ;;
+		*.tar.gz) tar xzf $1 ;;
+		*.tar.xz) tar xJf $1 ;;
+		*.bz2) bunzip2 $1 ;;
+		*.rar) unrar x $1 ;;
+		*.gz) gunzip $1 ;;
+		*.tar) tar xf $1 ;;
+		*.tbz2) tar xjf $1 ;;
+		*.tgz) tar xzf $1 ;;
+		*.zip) unzip $1 ;;
+		*.Z) uncompress $1 ;;
+		*.7z) 7zz x $1 ;;
+		*) echo "'$1' cannot be extracted via ex()" ;;
+		esac
+	else
+		echo "'$1' is not a valid file"
+	fi
 }
 
 # ----------------ZSH PLUGINS-------------------
@@ -202,11 +201,10 @@ source ~/.config/zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme
 source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.config/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
-source ~/.config/zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme
 source ~/.config/zsh/plugins/zsh-completions/zsh-completions.plugin.zsh
-# source ~/.config/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh
 source ~/.config/zsh/plugins/zsh-autopair/autopair.plugin.zsh
 source ~/.config/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+# source ~/.config/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh
 
 autopair-init
 # history substring search options
