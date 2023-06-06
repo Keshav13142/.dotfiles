@@ -128,7 +128,7 @@ alt + ctrl + {l,k,j,h}
 super + t
   toggle_touchpad
 
-super + c
+alt + p
   clipmenu
 
 ## TOGGLE POLYBAR
