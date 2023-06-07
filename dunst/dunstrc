@@ -7,7 +7,7 @@
 
     geometry = "300x5-30+20"
     corner_radius = 5
-    transparency = 0 
+    transparency = 0
 
     progress_bar = true
     progress_bar_height = 10
@@ -15,8 +15,8 @@
     progress_bar_min_width = 150
     progress_bar_max_width = 400
 
-    separator_height = 2
-    separator_color = frame
+    separator_height = 10
+    separator_color = auto
 
     padding = 15
     horizontal_padding = 15
