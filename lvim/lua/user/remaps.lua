@@ -72,8 +72,5 @@ nmap("<down>", "<C-w>j")
 nmap("<up>", "<C-w>k")
 nmap("<right>", "<C-w>l")
 
--- change word with <c-c>
-nmap("<C-c>", "<cmd>normal! ciw<cr>a")
-
 -- open floating terminal inside lvim
 lvim.builtin.terminal.open_mapping = "<C-t>"
