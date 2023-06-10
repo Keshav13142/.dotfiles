@@ -37,11 +37,6 @@ rdialog() {
 		-theme "$ddir/confirm.rasi"
 }
 
-# Display Help
-show_msg() {
-	rofi -theme "$ddir/askpass.rasi" -e "Options : yes / no / y / n"
-}
-
 # Variable passed to rofi
 options="$lock\n$suspend\n$logout\n$reboot\n$shutdown"
 
@@ -51,8 +46,6 @@ $shutdown)
 	ans=$(rdialog &)
 	if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
 		systemctl poweroff
-	elif [[ $ans == "no" ]] || [[ $ans == "NO" ]] || [[ $ans == "n" ]]; then
-		exit
 	else
 		show_msg
 	fi
@@ -61,8 +54,6 @@ $reboot)
 	ans=$(rdialog &)
 	if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
 		systemctl reboot
-	elif [[ $ans == "no" ]] || [[ $ans == "NO" ]] || [[ $ans == "n" ]]; then
-		exit
 	else
 		show_msg
 	fi
@@ -77,8 +68,6 @@ $suspend)
 		amixer set Master mute
 		betterlockscreen -l
 		systemctl suspend
-	elif [[ $ans == "no" ]] || [[ $ans == "NO" ]] || [[ $ans == "n" ]]; then
-		exit
 	else
 		show_msg
 	fi
@@ -87,8 +76,6 @@ $logout)
 	ans=$(rdialog &)
 	if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
 		i3-msg exit
-	elif [[ $ans == "no" ]] || [[ $ans == "NO" ]] || [[ $ans == "n" ]]; then
-		exit
 	else
 		show_msg
 	fi
