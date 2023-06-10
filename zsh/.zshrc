@@ -104,6 +104,7 @@ alias et='exit'
 alias cat='batcat -p'
 alias man='batman'
 alias bg='batgrep'
+alias wt="curl -4 wttr.in/avadi"
 
 # use exa if available
 if [[ -x "$(command -v exa)" ]]; then
