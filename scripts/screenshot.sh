@@ -1,41 +1,27 @@
 rofi_command="rofi -theme ~/.config/rofi/config/screenshot.rasi"
 
-# Error msg
-msg() {
-	rofi -theme "$dir/message.rasi" -e "Please install 'scrot' first."
-}
-
 # Options
-screen=""
-area=""
+screen="󱣴"
+area="󰩬"
 window=""
 
 # Variable passed to rofi
 options="$screen\n$area\n$window"
 
-chosen="$(echo -e "$options" | $rofi_command -p '' -dmenu -selected-row 1)"
+chosen="$(echo "$options" | $rofi_command -p '' -dmenu -selected-row 0)"
 case $chosen in
 $screen)
-	if [[ -f /usr/local/bin/scrot ]]; then
-		sleep 1
-		scrot -e 'mv $f ~/Pictures/Screenshots/Screenshot_%Y-%m-%d-%S_$wx$h.png'
-	else
-		msg
-	fi
+  sleep 1;
+	scrot ~/Pictures/Screenshots/%d-%b-%Y-%I:%M-%p.png;
+	exec notify-send "Screenshot has been saved";
 	;;
 $area)
-	if [[ -f /usr/local/bin/scrot ]]; then
-		scrot -s -e 'mv $f ~/Pictures/Screenshots/Screenshot_%Y-%m-%d-%S_$wx$h.png'
-	else
-		msg
-	fi
+	scrot ~/Pictures/Screenshots/%d-%b-%Y-%I:%M-%p.png -s;
+	exec notify-send "Screenshot has been saved";
 	;;
 $window)
-	if [[ -f /usr/local/bin/scrot ]]; then
-		sleep 1
-		scrot -u -e 'mv $f ~/Pictures/Screenshots/Screenshot_%Y-%m-%d-%S_$wx$h.png'
-	else
-		msg
-	fi
+  sleep 1
+	scrot ~/Pictures/Screenshots/%d-%b-%Y-%I:%M-%p.png -u;
+	exec notify-send "Screenshot has been saved";
 	;;
 esac

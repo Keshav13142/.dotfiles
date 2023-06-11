@@ -1,7 +1,7 @@
 configuration {
-    show-icons:                     false;
-    disable-history:                false;
-    sidebar-mode: 					false;
+    show-icons:       true;
+    disable-history:  false;
+    sidebar-mode:     false;
 }
 
 * {
@@ -45,9 +45,9 @@ element {
 }
 
 element-text {
-    background-color: 				inherit;
-    text-color:       				inherit;
-	font:							"feather 20";
+    background-color: 				      inherit;
+    text-color:       				      inherit;
+	  font:							              "Symbols Nerd Font 20";
     expand:                         true;
     horizontal-align:               0.5;
     vertical-align:                 0.5;
@@ -70,7 +70,7 @@ element alternate.active {
 element selected {
     background-color:               @accent;
     text-color:                     @background;
-    border:                  		0px;
+    border:                  		    0px;
     border-radius:                  10px;
     border-color:                  	@border;
 }
