@@ -7,8 +7,7 @@ sudo_check() {
 	fi
 }
 
-case "$1" in
-neovim)
+neovim() {
 	sudo_check
 	cd /home/keshav/softwares || return
 	echo "Downloading latest neovim release..........."
@@ -22,11 +21,20 @@ neovim)
 	rm nvim-linux64.tar.gz
 	rm -r nvim-linux64
 	cd - >/dev/null || return
-	;;
-alacritty)
+}
+
+alacritty() {
 	echo "Updating using cargo-update........"
 	cargo install-update alacritty >/dev/null
 	echo "Updated alacritty......."
+}
+
+case "$1" in
+neovim)
+	neovim
+	;;
+alacritty)
+	alacritty
 	;;
 *)
 	printf "BRUH 😐\nTell me what to update\n1.neovim\n2.alacritty\n"
