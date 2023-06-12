@@ -3,7 +3,6 @@ return {
   opts = {
     highlight = { enable = true },
     autotag = { enable = true },
-    indent = { enable = true },
     auto_install = true,
     ensure_installed = {
       "bash",
@@ -33,15 +32,6 @@ return {
       "tsx",
       "vim",
       "yaml",
-    },
-    incremental_selection = {
-      enable = true,
-      keymaps = {
-        init_selection = "<C-space>",
-        node_incremental = "<C-space>",
-        scope_incremental = false,
-        node_decremental = "<bs>",
-      },
     },
   },
 }
