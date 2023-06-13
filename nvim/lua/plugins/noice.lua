@@ -3,7 +3,7 @@ return {
   opts = {
     -- disable popup command line
     cmdline = {
-      enabled = true,
+      enabled = false,
     },
     presets = {
       lsp_doc_border = true,
