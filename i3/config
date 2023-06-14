@@ -2,29 +2,5 @@ include $HOME/.config/i3/options.conf
 include $HOME/.config/i3/rules.conf
 include $HOME/.config/i3/theme.conf
 
-############ AUTOSTART APPLICATIONS ##############
-
-exec --no-startup-id ~/.config/scripts/fix_scrolling
-
-# window compositor
-exec_always picom -b --experimental-backends --config ~/.config/picom/picom.conf
-
-# set wallpaper using feh
-exec_always feh --bg-fill /home/keshav/Pictures/wallpapers/willow_rays.png
-
-# Launch polybar
-exec_always ~/.config/polybar/launch.sh
-
-# Keyboard shortcuts
-exec_always sxhkd &
-
-# clipmenu
-exec_always clipmenud &
-
-# Enable tap to click on the Touchpad (window managers disable this be default :))
-exec_always xinput set-prop "ELAN1205:00 04F3:30E9 Touchpad" "libinput Tapping Enabled" 1
-
-# Apparently this fixes brave clearing sessions/cookies after I change my desktop enviroment (Doesn't work)
-exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets
-
-exec --no-startup-id nm-applet
+# Autostart stuff
+exec --no-startup-id ~/.config/scripts/startup
