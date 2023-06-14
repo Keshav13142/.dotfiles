@@ -93,6 +93,7 @@ path+=('/usr/local/go/bin')
 path+=('/home/keshav/go/bin')
 path+=('/home/keshav/.local/share/fnm')
 path+=('/home/keshav/softwares/apache-maven-3.9.2/bin')
+fpath=(/home/keshav/.config/zsh/plugins/zsh-completions/src/ $fpath)
 
 export PATH
 
