@@ -1,0 +1,9 @@
+#!/bin/bash
+
+picom -b --experimental-backends --config ~/.config/picom/picom.conf &
+feh --bg-fill /home/keshav/Pictures/wallpapers/willow_rays.png
+~/.config/polybar/launch.sh &
+sxhkd &
+clipmenud &
+xinput set-prop "ELAN1205:00 04F3:30E9 Touchpad" "libinput Tapping Enabled" 1
+~/.config/scripts/fix_scrolling
