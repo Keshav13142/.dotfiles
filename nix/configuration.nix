@@ -60,12 +60,14 @@
     exa
     feh
     flatpak
+    fnm
     gcc
     gimp
     git
     gnumake
     gparted
     lazygit
+    lf
     neofetch
     neovim
     nfs-utils
