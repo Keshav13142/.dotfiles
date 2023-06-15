@@ -141,7 +141,7 @@ alt + o
 
 ## EMOJI PICKER
 super + period
- rofi -show emoji -theme ~/.config/rofi/config/launcher_custom.rasi
+  rofimoji
 
 ## CALCULTOR
 super + slash
@@ -149,7 +149,10 @@ super + slash
 
 # printscreen
 @Print
- screenshot.sh
+ flameshot full -p ~/Pictures/screenshots
+
+super + @Print
+ flameshot gui -p ~/Pictures/screenshots
 
 # Reload polybar
 super + Escape
