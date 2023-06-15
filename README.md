@@ -1,1 +1,1 @@
-## My dotfiles in pop-os
+## My dotfiles for LINUX
