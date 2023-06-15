@@ -29,12 +29,13 @@ setopt COMPLETE_ALIASES
 setopt autocd # Automatically cd into typed directory.
 setopt interactive_comments
 
-# Basic auto/tab complete:
-autoload -U compinit
-zstyle ':completion:*' menu select
-zmodload zsh/complist
-compinit
-_comp_options+=(globdots)
+autoload -U colors && colors # Load colors
+PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+autoload -Uz compinit && compinit
+
+bindkey -s '^o' '^ulfcd\n'
+bindkey '^a' beginning-of-line
+bindkey '^e' end-of-line
 
 # Use lf to switch directories and bind it to ctrl-o
 lfcd() {
@@ -46,17 +47,6 @@ lfcd() {
 		[ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
 	fi
 }
-bindkey -s '^o' '^ulfcd\n'
-
-# Use vim keys in tab complete menu:
-bindkey -M menuselect 'h' vi-backward-char
-bindkey -M menuselect 'k' vi-up-line-or-history
-bindkey -M menuselect 'l' vi-forward-char
-bindkey -M menuselect 'j' vi-down-line-or-history
-bindkey -v '^?' backward-delete-char
-
-bindkey '^a' beginning-of-line
-bindkey '^e' end-of-line
 
 # ------------PATH----------------
 # Android
@@ -68,7 +58,6 @@ path+=('/home/keshav/.config/tmux/plugins/t-smart-tmux-session-manager/bin')
 path+=('/usr/local/go/bin')
 path+=('/home/keshav/go/bin')
 path+=('/home/keshav/softwares/apache-maven-3.9.2/bin')
-fpath=(/home/keshav/.config/zsh/plugins/zsh-completions/src/ $fpath)
 
 export PATH
 
@@ -172,7 +161,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=244"
 # Plugins
 source ~/.config/zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme
 source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.config/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source ~/.config/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 source ~/.config/zsh/plugins/zsh-completions/zsh-completions.plugin.zsh
 source ~/.config/zsh/plugins/zsh-autopair/autopair.plugin.zsh
