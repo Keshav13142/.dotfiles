@@ -1,4 +1,6 @@
-TYPE=$(gum choose "fix" "feat" "docs" "style" "refactor" "test" "chore" "revert")
+#!/usr/bin/env bash
+
+#TYPE=$(gum choose "fix" "feat" "docs" "style" "refactor" "test" "chore" "revert")
 SCOPE=$(gum input --placeholder "scope")
 
 # Since the scope is optional, wrap it in parentheses if it has a value.

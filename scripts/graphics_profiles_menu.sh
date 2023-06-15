@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 chosen=$(printf 'Integrated\nHybrid\nNvidia\n%s (active)' "$(system76-power graphics)" | rofi -dmenu -i -theme ~/.config/rofi/config/power.rasi)
 
 case "$chosen" in

@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 echo "Normal"
 echo "\033[1mBold\033[22m"
 echo "\033[3mItalic\033[23m"

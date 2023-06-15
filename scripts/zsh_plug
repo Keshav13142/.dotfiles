@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 cd ~/.config/zsh/
 mkdir -p plugins
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git

@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Get id of touchpad and the id of the field corresponding to
 # natural scrolling
 id=$(xinput | grep -i "Touchpad" | cut -d'=' -f2 | cut -d'[' -f1)
