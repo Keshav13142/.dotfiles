@@ -61,7 +61,6 @@
     feh
     flatpak
     gcc
-    # i3
     gimp
     git
     gnumake
@@ -112,10 +111,7 @@
       xfce.enable = false;
     };
     displayManager.defaultSession = "none+i3";
-    windowManager.i3 = {
-      enable = true;
-      # package = pkgs.i3;
-    };
+    windowManager.i3.enable = true;
     layout = "us";
     xkbVariant = "intl";
     libinput.enable = true;
@@ -124,6 +120,7 @@
   services = {
     printing.enable = true;
     flatpak.enable = true;
+    gnome.gnome-keyring.enable = true;
     dbus.enable = true;
     picom.enable = true;
     # clipmenud.enable = true;
