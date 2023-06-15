@@ -91,7 +91,6 @@ path+=('/home/keshav/.local/bin')
 path+=('/home/keshav/.config/tmux/plugins/t-smart-tmux-session-manager/bin')
 path+=('/usr/local/go/bin')
 path+=('/home/keshav/go/bin')
-path+=('/home/keshav/.local/share/fnm')
 path+=('/home/keshav/softwares/apache-maven-3.9.2/bin')
 fpath=(/home/keshav/.config/zsh/plugins/zsh-completions/src/ $fpath)
 
@@ -102,7 +101,7 @@ alias cl='clear'
 alias tm='tmux'
 alias tn='tmux new -s $(pwd | sed "s/.*\///g")'
 alias et='exit'
-alias cat='batcat -p'
+alias cat='bat -p'
 alias man='batman'
 alias bg='batgrep'
 alias wt="curl -4 wttr.in/avadi"
@@ -138,7 +137,6 @@ alias vt='v ~/.config/tmux/tmux.conf'
 alias va='v ~/.config/alacritty/alacritty.yml'
 
 eval "$(zoxide init zsh)"
-eval "$(fnm env --use-on-cd)"
 
 bindkey -s ^f "tmux-sessionizer\n"
 
