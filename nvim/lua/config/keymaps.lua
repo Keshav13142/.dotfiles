@@ -52,6 +52,7 @@ vmap(">", ">gv")
 
 -- Search for word under cursor
 keymap({ "n", "x" }, "gw", "*N", { desc = "Search word under cursor" })
+keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", { desc = "Disable highlight" })
 nmap("<C-p>", "<cmd>Telescope git_files<cr>")
 
 -- remap ^ and $ (meta/windows key is not working, have to check)
