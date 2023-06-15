@@ -85,7 +85,6 @@
     qemu
     ripgrep
     rofi
-    rofi-calc
     rofimoji
     scrot
     stdenv
@@ -182,6 +181,11 @@
     packageOverrides = pkgs: {
       polybar = pkgs.polybar.override {
         i3Support = true;
+      };
+      rofi = pkgs.rofi.override {
+        plugins = [
+          pkgs.rofi-calc
+        ];
       };
     };
     allowUnfree = true;
