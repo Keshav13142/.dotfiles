@@ -1,5 +1,3 @@
-#!/bin/bash
-
 picom -b --experimental-backends --config ~/.config/picom/picom.conf &
 feh --bg-fill /home/keshav/Pictures/wallpapers/willow_rays.png
 ~/.config/polybar/launch.sh &

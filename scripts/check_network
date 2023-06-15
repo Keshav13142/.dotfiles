@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-
 disconnected="睊"
 wireless_connected="直"
 
