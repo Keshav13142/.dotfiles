@@ -60,6 +60,7 @@
     exa
     feh
     flatpak
+    flameshot
     fnm
     gcc
     gimp
@@ -84,6 +85,8 @@
     qemu
     ripgrep
     rofi
+    rofi-calc
+    rofimoji
     scrot
     stdenv
     sxhkd
@@ -101,6 +104,7 @@
     xorg.libxcb
     xorg.libXft
     xorg.libXinerama
+    xorg.xev
     xorg.xinit
     xorg.xinput
     zoxide
