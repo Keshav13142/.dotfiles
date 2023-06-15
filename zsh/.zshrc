@@ -16,7 +16,7 @@ setopt PROMPT_SUBST
 # history
 HISTSIZE=10000000
 SAVEHIST=10000000
-HISTFILE=~/.cache/zsh/history
+HISTFILE=~/.zsh_history
 setopt EXTENDED_HISTORY     # write the history file in the ":start:elapsed;command" format.
 setopt HIST_REDUCE_BLANKS   # remove superfluous blanks before recording entry.
 setopt SHARE_HISTORY        # share history between all sessions.
