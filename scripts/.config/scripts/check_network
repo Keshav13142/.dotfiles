@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-disconnected="睊"
-wireless_connected="直"
+disconnected="󰖪"
+wireless_connected=""
 
 while true; do
 	if (ping -c 1 archlinux.org || ping -c 1 google.com || ping -c 1 bitbucket.org || ping -c 1 github.com || ping -c 1 sourceforge.net) &>/dev/null; then
