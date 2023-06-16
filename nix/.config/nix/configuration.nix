@@ -61,35 +61,57 @@
     alacritty
     bat
     betterlockscreen
+    blueman
     brave
     brillo
+    btop
     cargo
     clang-tools_9
     clipmenu
+    cmatrix
+    coreutils
+    cowsay
+    dracula-icon-theme
+    dracula-theme
     dunst
     exa
+    fd
     feh
-    flatpak
+    ffmpeg
+    figlet
     flameshot
+    flatpak
     fnm
+    fzf
     gcc
     gimp
     git
+    glow
     gnumake
     gparted
+    gum
+    imagemagick
+    killall
     lazygit
     lf
+    libnotify
+    libreoffice-qt
     neofetch
     neovim
+    networkmanagerapplet
     nfs-utils
     ninja
     nixpkgs-fmt
     nodejs
+    obs-studio
+    okular
     openssl
     pavucontrol
+    pciutils
     picom
     polkit_gnome
     polybar
+    powertop
     python310Packages.pip
     python3Full
     qemu
@@ -98,12 +120,18 @@
     rofimoji
     scrot
     stdenv
+    stow
     sxhkd
+    tig
     tldr
     tmux
     trash-cli
+    tree
+    unrar
     unzip
+    usbutils
     virt-manager
+    vlc
     vscode
     wget
     xclip
@@ -116,6 +144,11 @@
     xorg.xev
     xorg.xinit
     xorg.xinput
+    xorg.xkill
+    xorg.xbacklight
+    xorg.xmodmap
+    xsel
+    zip
     zoxide
   ];
 
