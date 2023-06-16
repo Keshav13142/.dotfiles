@@ -171,6 +171,7 @@
     gnome.gnome-keyring.enable = true;
     dbus.enable = true;
     picom.enable = true;
+    # auto-cpufreq.enable = true;
     # clipmenud.enable = true;
     pipewire = {
       enable = true;
@@ -219,6 +220,34 @@
       DefaultTimeoutStopSec=1s
     '';
   };
+
+  # Nix Package Manager settings
+  nix = {
+    settings.auto-optimise-store = true; # Optimise syslinks
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 2d";
+    };
+    package = pkgs.nixVersions.unstable;
+    # Enable nixFlakes on system
+    extraOptions = ''
+      experimental-features = nix-command flakes
+      keep-outputs          = true
+      keep-derivations      = true
+    '';
+  };
+
+  # GTK3 global theme (widget and icon theme)
+  environment.etc."xdg/gtk-3.0/settings.ini" = {
+    text = ''
+      [Settings]
+      gtk-icon-theme-name=Dracula
+      gtk-theme-name=Dracula
+    '';
+    mode = "444";
+  };
+
 
   nixpkgs.config = {
     packageOverrides = pkgs: {
