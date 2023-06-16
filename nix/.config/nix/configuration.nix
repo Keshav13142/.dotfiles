@@ -43,7 +43,17 @@
   users.users.keshav = {
     isNormalUser = true;
     description = "keshav";
-    extraGroups = [ "networkmanager" "wheel" "kvm" "input" "disk" "libvirtd" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "kvm"
+      "input"
+      "disk"
+      "libvirtd"
+      "audio"
+      "video"
+      "camera"
+    ];
   };
 
   # List packages installed in system profile.
