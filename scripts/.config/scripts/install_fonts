@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+url=https://github.com/ryanoasis/nerd-fonts/releases/latest/download
+fonts=('JetBrainsMono' 'NerdFontsSymbolsOnly')
+font_dir=~/.local/share/fonts
+
+for name in "${fonts[@]}"; do
+	echo "Downloading $name......"
+	path="$font_dir/$name"
+	rm -rf "$path" >/dev/null || true # To ignore if dir does not exist
+	mkdir -p "$path"
+	wget -qc "$url/$name.tar.xz" -O - | tar -xJ -C "$path"
+done
