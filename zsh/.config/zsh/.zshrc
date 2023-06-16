@@ -2,10 +2,21 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# add fnm to path if not on nixos
+# Set env and path vars if not on nixos
 if ! [[ -x "$(command -v nixos-version)" ]]; then
   path+=('/home/keshav/.local/share/fnm')
+
+  export ANDROID_HOME=/home/keshav/.local/Android/Sdk
+  export CARGO_HOME=/home/keshav/.local/.cargo
+  export RUSTUP_HOME=/home/keshav/.local/.rustup
+  export EDITOR=nvim
+  export VISUAL=code-insiders
+  export BROWSER=brave-browser-beta
+else
+  export BROWSER=brave
+  export VISUAL=code
 fi
+
 eval "$(fnm env --use-on-cd)"
 eval "$(zoxide init zsh)"
 
@@ -48,6 +59,7 @@ path+=('/home/keshav/.config/tmux/plugins/t-smart-tmux-session-manager/bin')
 path+=('/usr/local/go/bin')
 path+=('/home/keshav/go/bin')
 path+=('/home/keshav/softwares/apache-maven-3.9.2/bin')
+path+=('/home/keshav/.local/.cargo/bin')
 
 export PATH
 
