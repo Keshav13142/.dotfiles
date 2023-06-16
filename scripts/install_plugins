@@ -11,7 +11,7 @@ git clone https://github.com/zsh-users/zsh-completions
 git clone https://github.com/hlissner/zsh-autopair.git
 git clone https://github.com/jeffreytse/zsh-vi-mode.git
 
-rm -rf ~/.config/tmux/plugins
+rm -rf ~/.config/tmux/plugins/tpm/
 cd ~/.config/tmux/
 mkdir -p plugins && cd plugins
 git clone https://github.com/tmux-plugins/tpm
