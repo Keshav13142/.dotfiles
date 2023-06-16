@@ -59,8 +59,10 @@
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
     alacritty
+    authy
     bat
     betterlockscreen
+    bitwarden
     blueman
     brave
     brillo
@@ -87,6 +89,7 @@
     gimp
     git
     glow
+    gnome.nautilus
     gnumake
     gparted
     gum
@@ -96,6 +99,7 @@
     lf
     libnotify
     libreoffice-qt
+    lxappearance
     neofetch
     neovim
     networkmanagerapplet
@@ -141,11 +145,11 @@
     xorg.libxcb
     xorg.libXft
     xorg.libXinerama
+    xorg.xbacklight
     xorg.xev
     xorg.xinit
     xorg.xinput
     xorg.xkill
-    xorg.xbacklight
     xorg.xmodmap
     xsel
     zip
