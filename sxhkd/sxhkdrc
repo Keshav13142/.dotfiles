@@ -160,7 +160,10 @@ super + Escape
 
 # Reload sxhkd
 super + grave
- pkill -USR1 -x sxhkd
+  killall -q sxhkd && sxhkd & disown
+
+super + shift + Escape
+  ~/.config/polybar/launch.sh
 
 ###################### NOTIFICATION #################
 
