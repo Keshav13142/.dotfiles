@@ -1,5 +1,6 @@
 # ZSH
 ZDOTDIR=~/.config/zsh
+ZIM_HOME=~/.config/zsh/zim
 ZSH_COMPDUMP=~/.cache/zsh
 ZSH_CUSTOM=~/.config/zsh/plugins
 REPORTTIME=10

@@ -9,13 +9,6 @@ fi
 eval "$(fnm env --use-on-cd)"
 eval "$(zoxide init zsh)"
 
-setopt NO_BG_NICE
-setopt NO_HUP # don't kill background jobs when the shell exits
-setopt NO_LIST_BEEP
-setopt LOCAL_OPTIONS
-setopt LOCAL_TRAPS
-setopt PROMPT_SUBST
-
 # history
 HISTSIZE=10000000
 SAVEHIST=10000000
@@ -25,13 +18,10 @@ setopt HIST_REDUCE_BLANKS   # remove superfluous blanks before recording entry.
 setopt SHARE_HISTORY        # share history between all sessions.
 setopt HIST_IGNORE_ALL_DUPS # delete old recorded entry if new entry is a duplicate.
 
+setopt NO_HUP # don't kill background jobs when the shell exits
 setopt COMPLETE_ALIASES
 setopt autocd # Automatically cd into typed directory.
 setopt interactive_comments
-
-autoload -U colors && colors # Load colors
-PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
-autoload -Uz compinit && compinit
 
 bindkey -s '^o' '^ulfcd\n'
 bindkey '^a' beginning-of-line
@@ -66,8 +56,18 @@ alias cl='clear'
 alias tm='tmux'
 alias tn='tmux new -s $(pwd | sed "s/.*\///g")'
 alias et='exit'
-alias cat='bat -p'
-alias man='batman'
+
+# use bat if available
+if [[ -x "$(command -v bat)" ]]; then
+  alias cat='bat -p'
+fi
+if [[ -x "$(command -v batcat)" ]]; then
+  alias cat='batcat -p'
+fi
+if [[ -x "$(command -v batman)" ]]; then
+  alias man='batman'
+fi
+
 alias bg='batgrep'
 alias wt="curl -4 wttr.in/avadi"
 
@@ -92,14 +92,15 @@ alias tl='trash-list'
 alias mv='mv -i'
 alias cp='cp -i'
 alias ..='cd ..'
-alias ...='cd ...'
+alias ...='cd ../../'
+
 # Edit config files
-alias vz='v ~/.config/zsh/.zshrc'
-alias vi='v ~/.config/i3/config'
-alias vp='v ~/.config/polybar/config.ini'
-alias vs='v ~/.config/sxhkd/sxhkdrc'
-alias vt='v ~/.config/tmux/tmux.conf'
-alias va='v ~/.config/alacritty/alacritty.yml'
+alias vz='nvim ~/.config/zsh/.zshrc'
+alias vi='nvim ~/.config/i3/config'
+alias vp='nvim ~/.config/polybar/config.ini'
+alias vs='nvim ~/.config/sxhkd/sxhkdrc'
+alias vt='nvim ~/.config/tmux/tmux.conf'
+alias va='nvim ~/.config/alacritty/alacritty.yml'
 
 bindkey -s ^f "tmux-sessionizer\n"
 
@@ -129,8 +130,6 @@ alias nrd='npm run dev'
 alias nr='npm run'
 
 # ----------------FUNCTIONS-------------------
-# # ex - archive extractor
-# # usage: ex <file>
 un() {
 	if [ -f $1 ]; then
 		case $1 in
@@ -154,21 +153,24 @@ un() {
 }
 
 # ----------------ZSH PLUGINS-------------------
-[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+zstyle ':zim:zmodule' use 'degit'
 
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=244"
+# Download zimfw plugin manager if missing.
+if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
+  curl -fsSL --create-dirs -o ${ZIM_HOME}/zimfw.zsh \
+      https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
+fi
 
-# Plugins
-source ~/.config/zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme
-source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.config/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
-source ~/.config/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
-source ~/.config/zsh/plugins/zsh-completions/zsh-completions.plugin.zsh
-source ~/.config/zsh/plugins/zsh-autopair/autopair.plugin.zsh
-source ~/.config/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-# source ~/.config/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh
+# Install missing modules, and update ${ZIM_HOME}/init.zsh if missing or outdated.
+if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZDOTDIR:-${HOME}}/.zimrc ]]; then
+  source ${ZIM_HOME}/zimfw.zsh init -q
+fi
 
-autopair-init
-# history substring search options
+# Initialize modules.
+source ${ZIM_HOME}/init.zsh
+
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
+autopair-init
+
+[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
