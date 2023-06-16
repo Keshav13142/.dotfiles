@@ -21,10 +21,10 @@ super + m
 ######################## APPLICATION KEYBINDINGS ###################
 
 alt + w
-    brave-browser-beta
+  "$BROWSER"
 
 alt + shift + w
-    brave-browser-beta --incognito
+  "$BROWSER" --incognito
 
 alt + e
   nautilus
@@ -160,7 +160,7 @@ super + Escape
 
 # Reload sxhkd
 super + grave
-  killall -q sxhkd && sxhkd & disown
+ killall -q sxhkd && sxhkd &
 
 super + shift + Escape
   ~/.config/polybar/launch.sh
