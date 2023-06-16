@@ -10,4 +10,9 @@ for name in "${fonts[@]}"; do
 	rm -rf "$path" >/dev/null || true # To ignore if dir does not exist
 	mkdir -p "$path"
 	wget -qc "$url/$name.tar.xz" -O - | tar -xJ -C "$path"
+	echo "Done...."
 done
+
+echo "Updating font cache...."
+fc-cache -f -v >/dev/null
+echo "Sucessfully installed fonts...."
