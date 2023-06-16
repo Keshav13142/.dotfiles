@@ -132,7 +132,7 @@ alt + p
   clipmenu
 
 ## TOGGLE POLYBAR
-alt + y
+alt + t
  polybar-msg cmd toggle
 
 # LOCK SCREEN
