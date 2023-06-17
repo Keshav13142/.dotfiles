@@ -1,0 +1,12 @@
+.git
+node_modules
+.gradle
+.tldr
+.cache
+BraveSoftware
+.android
+.mysql
+go/pkg/mod
+.java
+.npm
+.electron*
