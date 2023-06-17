@@ -88,6 +88,7 @@
     gcc
     gimp
     git
+    gitmux
     glow
     gnome.nautilus
     gnumake
@@ -152,6 +153,7 @@
     xorg.xkill
     xorg.xmodmap
     xsel
+    yt-dlp
     zip
     zoxide
   ];
