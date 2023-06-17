@@ -148,6 +148,135 @@ alias gl='git log'
 alias grl='git reflog'
 alias gr='git reset'
 
+# ----------------FZF-------------------
+# fbr - checkout git branch (including remote branches)
+fbr() {
+  local branches branch
+  branches=$(git branch --all | grep -v HEAD) &&
+  branch=$(echo "$branches" |
+           fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
+  git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+}
+
+# fkill - kill processes - list only the ones you can kill
+fkill() {
+    local pid
+    if [ "$UID" != "0" ]; then
+        pid=$(ps -f -u $UID | sed 1d | fzf -m | awk '{print $2}')
+    else
+        pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+    fi
+
+    if [ "x$pid" != "x" ]
+    then
+        echo $pid | xargs kill -${1:-9}
+    fi
+}
+
+# fh - repeat history
+fh() {
+  print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed -E 's/ *[0-9]*\*? *//' | sed -E 's/\\/\\\\/g')
+}
+
+# f mv # To move files. You can write the destination after selecting the files.
+f() {
+    sels=( "${(@f)$(fd "${fd_default[@]}" "${@:2}"| fzf)}" )
+    test -n "$sels" && print -z -- "$1 ${sels[@]:q:q}"
+}
+
+# b - browse chrome bookmarks
+b() {
+  bookmarks_path=~/.config/BraveSoftware/Brave-Browser-Beta/Default/Bookmarks
+
+  jq_script='
+    def ancestors: while(. | length >= 2; del(.[-1,-2]));
+    . as $in | paths(.url?) as $key | $in | getpath($key) | {name,url, path: [$key[0:-2] | ancestors as $a | $in | getpath($a) | .name?] | reverse | join("/") } | .path + "/" + .name + "\t" + .url'
+
+  jq -r "$jq_script" < "$bookmarks_path" \
+    | sed -E $'s/(.*)\t(.*)/\\1\t\x1b[36m\\2\x1b[m/g' \
+    | fzf --ansi \
+    | cut -d$'\t' -f2 \
+    | xargs "$BROWSER"
+}
+
+alias glNoGraph='git log --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr% C(auto)%an" "$@"'
+_gitLogLineToHash="echo {} | grep -o '[a-f0-9]\{7\}' | head -1"
+_viewGitLogLine="$_gitLogLineToHash | xargs -I % sh -c 'git show --color=always % | diff-so-fancy'"
+
+# git commit browser with previews
+fshow() {
+  git log --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr% C(auto)%an" "$@" |
+    fzf --no-sort --reverse --tiebreak=index --no-multi \
+      --ansi --preview="$_viewGitLogLine" \
+      --header "enter to view, alt-y to copy hash" \
+      --bind "enter:execute:$_viewGitLogLine   | less -R" \
+      --bind "alt-y:execute:$_gitLogLineToHash | xclip"
+}
+
+# Create useful gitignore files
+fgi() {
+	__gi() {
+		cmd="$@"
+		curl -L -s https://www.gitignore.io/api/"$cmd"
+	}
+
+	if [ "$#" -eq 0 ]; then
+		IFS+=","
+		for item in $(__gi list); do
+			echo "$item"
+		done | fzf --multi --ansi | paste -s -d "," - |
+			{ read -r result && __gi "$result"; } >>.gitignore
+	else
+		__gi "$@"
+	fi
+}
+
+# fstash - easier way to deal with stashes
+# type fstash to get a list of your stashes
+# enter shows you the contents of the stash
+# ctrl-d shows a diff of the stash against your current HEAD
+# ctrl-b checks the stash out as a branch, for easier merging
+fstash() {
+  local out q k sha
+  while out=$(
+    git stash list --pretty="%C(yellow)%h %>(14)%Cgreen%cr %C(blue)%gs" |
+    fzf --ansi --no-sort --query="$q" --print-query \
+        --expect=ctrl-d,ctrl-b);
+  do
+    mapfile -t out <<< "$out"
+    q="${out[0]}"
+    k="${out[1]}"
+    sha="${out[-1]}"
+    sha="${sha%% *}"
+    [[ -z "$sha" ]] && continue
+    if [[ "$k" == 'ctrl-d' ]]; then
+      git diff $sha
+    elif [[ "$k" == 'ctrl-b' ]]; then
+      git stash branch "stash-$sha" $sha
+      break;
+    else
+      git stash show -p $sha
+    fi
+  done
+}
+
+# fgst - pick files from `git status -s`
+is_in_git_repo() {
+  git rev-parse HEAD > /dev/null 2>&1
+}
+
+fgst() {
+  # "Nothing to see here, move along"
+  is_in_git_repo || return
+
+  local cmd="${FZF_CTRL_T_COMMAND:-"command git status -s"}"
+
+  eval "$cmd" | FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} --reverse $FZF_DEFAULT_OPTS $FZF_CTRL_T_OPTS" fzf -m "$@" | while read -r item; do
+    echo "$item" | awk '{print $2}'
+  done
+  echo
+}
+
 # ----------------NODE-------------------
 alias ns='npm start'
 alias nrd='npm run dev'
