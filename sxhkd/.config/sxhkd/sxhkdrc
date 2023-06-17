@@ -4,19 +4,19 @@ alt + d
   i3-dmenu-desktop
 
 alt + space
-  ~/.config/rofi/bin/launcher
+  ~/.config/rofi/scripts/launcher
 
 super + e
-  ~/.config/rofi/bin/powermenu
+  ~/.config/rofi/scripts/powermenu
 
 super + p
-  power_profiles_menu.sh
+  ~/.config/rofi/scripts/power_profiles_menu.sh
 
 super + g
-  graphics_profiles_menu.sh
+  ~/.config/rofi/scripts/graphics_profiles_menu.sh
 
 super + m
-  toggle_mic.sh
+  ~/.config/scripts/toggle_mic.sh
 
 ######################## APPLICATION KEYBINDINGS ###################
 
