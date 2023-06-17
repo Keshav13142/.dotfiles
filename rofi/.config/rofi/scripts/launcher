@@ -2,10 +2,4 @@
 
 rofi \
 	-show drun \
-	-modi run,drun \
-	-scroll-method 0 \
-	-drun-match-fields all \
-	-drun-display-format "{name}" \
-	-no-drun-show-actions \
-	-terminal alacritty \
-	-theme ~/.config/rofi/config/launcher_custom.rasi
+	-theme ~/.config/rofi/config/launcher-dmenu.rasi
