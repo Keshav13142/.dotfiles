@@ -10,7 +10,7 @@ configuration {
     foreground:     #D9E0EE;
     selected:       #7AA2F7;
     active:         #ABE9B3;
-    urgent:         #F28FADF;
+    urgent:         #F28FAD;
     font: "JetBrains Mono Nerd Font 10";
 }
 
@@ -155,7 +155,7 @@ element {
     cursor:                      pointer;
 }
 element-text {
-    font:                        "JetBrains Mono Nerd Font 24";
+    font:                        "JetBrains Mono Nerd Font 20";
     background-color:            transparent;
     text-color:                  inherit;
     cursor:                      inherit;
