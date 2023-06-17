@@ -154,6 +154,12 @@ super + slash
 super + @Print
  flameshot gui -p ~/Pictures/screenshots
 
+super + s
+ flameshot full -p ~/Pictures/screenshots
+
+super + shift + s
+ flameshot gui -p ~/Pictures/screenshots
+
 # Reload polybar
 super + Escape
  $HOME/.config/polybar/launch.sh
