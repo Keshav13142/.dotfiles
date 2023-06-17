@@ -73,6 +73,7 @@
     cmatrix
     coreutils
     cowsay
+    diff-so-fancy
     dracula-icon-theme
     dracula-theme
     dunst
