@@ -1,9 +1,0 @@
-@import "launcher_custom.rasi" 
-
-inputbar {
-  children: [entry];
-}
-
-listview {
-	lines: 6;
-}

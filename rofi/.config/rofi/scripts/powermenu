@@ -5,32 +5,13 @@ rofi_command="rofi -theme $HOME/.config/rofi/config/powermenu.rasi"
 uptime=$(uptime -p | sed -e 's/up //g')
 
 # Options
-if [[ "$DIR" == "powermenus" ]]; then
-	shutdown="⏻"
-	reboot=""
-	lock=""
-	suspend="󰒲"
-	logout="󰍃"
-	ddir="$HOME/.config/rofi/config"
-else
-	# Buttons
-	layout=$(cat $HOME/.config/rofi/config/powermenu.rasi | grep BUTTON | cut -d'=' -f2 | tr -d '[:blank:],*/')
-	if [[ "$layout" == "TRUE" ]]; then
-		shutdown="⏻"
-		reboot=""
-		lock=""
-		suspend="󰒲"
-		logout="󰍃"
+ddir="$HOME/.config/rofi/config"
 
-	else
-		shutdown="⏻"
-		reboot=""
-		lock=""
-		suspend="󰒲"
-		logout="󰍃"
-	fi
-	ddir="$HOME/.config/rofi/config"
-fi
+shutdown="⏻"
+reboot=""
+lock=""
+suspend="󰒲"
+logout="󰍃"
 
 # Ask for confirmation
 rdialog() {
