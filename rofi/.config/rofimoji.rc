@@ -1,2 +1,2 @@
 action = copy
-selector-args = "-theme ~/.config/rofi/config/launcher_custom.rasi"
+selector-args = "-theme ~/.config/rofi/config/launcher.rasi"

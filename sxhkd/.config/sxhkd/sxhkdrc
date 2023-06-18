@@ -145,7 +145,7 @@ super + period
 
 ## CALCULTOR
 super + slash
- rofi -show calc -theme ~/.config/rofi/config/launcher_custom.rasi
+ rofi -show calc -theme ~/.config/rofi/config/launcher.rasi
 
 # printscreen
 @Print
