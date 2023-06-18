@@ -10,13 +10,5 @@ else
 	export VISUAL=code
 fi
 
-# Use lunarvim or fallback to neovim
-if [ $(command -v lvim) ]; then
-	export EDITOR=$(which lvim)
-else
-	export EDITOR=$(which nvim)
-fi
-export SUDO_EDITOR=$EDITOR
-
 export FZF_DEFAULT_COMMAND='fd --type f --color=never --hidden'
 export FZF_DEFAULT_OPTS='--layout=reverse --height 40%'
