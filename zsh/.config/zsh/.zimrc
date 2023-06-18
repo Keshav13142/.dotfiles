@@ -5,5 +5,6 @@ zmodule zsh-users/zsh-history-substring-search
 zmodule zsh-users/zsh-autosuggestions
 zmodule hlissner/zsh-autopair
 zmodule jeffreytse/zsh-vi-mode
+zmodule wfxr/forgit
 zmodule Aloxaf/fzf-tab
 zmodule romkatv/powerlevel10k --use degit

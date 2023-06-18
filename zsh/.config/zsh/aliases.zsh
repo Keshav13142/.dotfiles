@@ -36,8 +36,8 @@ alias rm='trash'
 alias tr='trash'
 alias trr='trash-restore'
 alias tl='trash-list'
-alias mv='mv -i'
-alias cp='cp -i'
+alias mv="mv -iv"
+alias cp='cp -iv'
 alias ..='cd ..'
 alias ...='cd ../../'
 alias v="$EDITOR"
@@ -53,22 +53,6 @@ alias vt="$EDITOR ~/.config/tmux/tmux.conf"
 alias va="$EDITOR ~/.config/alacritty/alacritty.yml"
 
 bindkey -s ^f "tmux-sessionizer\n"
-
-# ------------------GIT----------------
-alias ga='git add'
-alias gp='git push'
-alias gi='git init'
-alias gs='git status -s'
-alias gra='git remote add origin'
-alias gc='commit.sh'
-alias gca='git commit --amend'
-alias gcn='git commit --amend --no-edit'
-alias grv='git remote -v'
-alias gb='git branch -a'
-alias gco='git checkout'
-alias gl='git log'
-alias grl='git reflog'
-alias gr='git reset'
 
 # ----------------NODE-------------------
 alias ns='npm start'
