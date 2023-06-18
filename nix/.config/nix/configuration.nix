@@ -167,24 +167,21 @@
   # i3 configuration
   services.xserver = {
     enable = true;
-    desktopManager = {
-      xfce.enable = false;
-    };
     displayManager.defaultSession = "none+i3";
     windowManager.i3.enable = true;
     layout = "us";
-    xkbVariant = "intl";
+    xkbOptions = "caps:escape_shifted_capslock";
+    xkbVariant = "";
     libinput.enable = true;
   };
 
   services = {
     printing.enable = true;
+    gvfs.enable = true;
     flatpak.enable = true;
     gnome.gnome-keyring.enable = true;
     dbus.enable = true;
-    picom.enable = true;
-    # auto-cpufreq.enable = true;
-    # clipmenud.enable = true;
+    auto-cpufreq.enable = true;
     pipewire = {
       enable = true;
       alsa.enable = true;
@@ -192,6 +189,10 @@
       pulse.enable = true;
       jack.enable = true;
     };
+    # To allow polybar and other scripts to set brightness
+    udev.extraRules = ''
+      ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="intel_backlight", MODE="0666", RUN+="${pkgs.coreutils}/bin/chmod a+w /sys/class/backlight/%k/brightness"
+    '';
   };
 
   # Enable sound with pipewire.
@@ -207,7 +208,6 @@
 
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
-
 
   xdg.portal = {
     enable = true;
@@ -249,17 +249,6 @@
       keep-derivations      = true
     '';
   };
-
-  # GTK3 global theme (widget and icon theme)
-  environment.etc."xdg/gtk-3.0/settings.ini" = {
-    text = ''
-      [Settings]
-      gtk-icon-theme-name=Dracula
-      gtk-theme-name=Dracula
-    '';
-    mode = "444";
-  };
-
 
   nixpkgs.config = {
     packageOverrides = pkgs: {
