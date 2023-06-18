@@ -11,7 +11,7 @@ font:
   bold_italic:
     family: JetBrainsMono Nerd Font Mono
     style: Bold Italic
-  size: 13.5
+  size: 9
 draw_bold_text_with_bright_colors: true
 
 key_bindings:
@@ -52,8 +52,8 @@ scrolling:
 
 colors:
   primary:
-      background: "#000000"
-      foreground: "#b2b2b2"
+    background: "#000000"
+    foreground: "#b2b2b2"
 
   cursor:
     text: "#080808"

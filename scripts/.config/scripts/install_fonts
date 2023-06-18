@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 url=https://github.com/ryanoasis/nerd-fonts/releases/latest/download
-fonts=('JetBrainsMono' 'NerdFontsSymbolsOnly')
+fonts=('JetBrainsMono' 'NerdFontsSymbolsOnly' 'Iosevka')
 font_dir=~/.local/share/fonts
 
 for name in "${fonts[@]}"; do

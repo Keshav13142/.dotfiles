@@ -2,8 +2,6 @@
 
 rofi_command="rofi -theme $HOME/.config/rofi/config/powermenu.rasi"
 
-uptime=$(uptime -p | sed -e 's/up //g')
-
 # Options
 ddir="$HOME/.config/rofi/config"
 
