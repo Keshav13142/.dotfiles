@@ -147,6 +147,32 @@ ftpane() {
   fi
 }
 
+fman() {
+  batman="man {1} | col -bx | batcat --language=man --plain"
+  battldr="tldr {1} | col -bx | batcat --language=man --plain"
+   man -k . | sort \
+   | awk -v cyan=$(tput setaf 6) -v blue=$(tput setaf 4) -v res=$(tput sgr0) -v bld=$(tput bold) '{ $1=cyan bld $1; $2=res blue;} 1' \
+   | fzf  \
+      -q "$1" \
+      --ansi \
+      --tiebreak=begin \
+      --prompt=' Man > '  \
+      --preview-window '50%,rounded,<50(up,85%,border-bottom)' \
+      --preview "${batman}" \
+      --bind "enter:execute(man {1})" \
+      --bind "alt-m:+change-preview(${batman})+change-prompt(󰗚 Man > )" \
+      --bind "alt-M:+change-preview(${battldr})+change-prompt( TLDR > )"
+  zle reset-prompt
+}
+bindkey '^h' fman
+zle -N fman
+
+# run npm script (requires jq)
+fns() {
+  local script
+  script=$(cat package.json | jq -r '.scripts | keys[] ' | sort | fzf) && npm run $(echo "$script")
+}
+
 # ----------------FUNCTIONS-------------------
 un() {
 	if [ -f $1 ]; then
@@ -180,4 +206,3 @@ lfcd() {
 		[ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
 	fi
 }
-
