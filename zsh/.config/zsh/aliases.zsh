@@ -40,14 +40,17 @@ alias mv='mv -i'
 alias cp='cp -i'
 alias ..='cd ..'
 alias ...='cd ../../'
+alias v="$EDITOR"
+alias vim="$EDITOR"
+alias g='git'
 
 # Edit config files
-alias vz='nvim ~/.config/zsh/.zshrc'
-alias vi='nvim ~/.config/i3/config'
-alias vp='nvim ~/.config/polybar/config.ini'
-alias vs='nvim ~/.config/sxhkd/sxhkdrc'
-alias vt='nvim ~/.config/tmux/tmux.conf'
-alias va='nvim ~/.config/alacritty/alacritty.yml'
+alias vz="$EDITOR ~/.config/zsh/.zshrc"
+alias vi="$EDITOR ~/.config/i3/config"
+alias vp="$EDITOR ~/.config/polybar/config.ini"
+alias vs="$EDITOR ~/.config/sxhkd/sxhkdrc"
+alias vt="$EDITOR ~/.config/tmux/tmux.conf"
+alias va="$EDITOR ~/.config/alacritty/alacritty.yml"
 
 bindkey -s ^f "tmux-sessionizer\n"
 

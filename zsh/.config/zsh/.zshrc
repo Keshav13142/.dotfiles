@@ -8,9 +8,9 @@ source $ZDOTDIR/functions.zsh
 
 # Adding stuff to path
 if ! [[ -x "$(command -v nixos-version)" ]]; then
-	path+=("$HOME/.local/share/fnm")
-  path+=("$HOME/.local/Android/Sdk/tools")
-  path+=("$HOME/.local/Android/Sdk/platform-tools")
+	path+=("$XDG_DATA_HOME/fnm")
+  path+=("$ANDROID_HOME/tools")
+  path+=("$ANDROID_HOME/platform-tools")
   path+=("$HOME/softwares/apache-maven-3.9.2/bin")
 fi
 path+=("$HOME/.local/bin")
