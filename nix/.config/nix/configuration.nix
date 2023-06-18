@@ -117,9 +117,11 @@
     obs-studio
     okular
     openssl
+    pamixer
     pavucontrol
     pciutils
     picom
+    playerctl
     polkit_gnome
     polybar
     powertop
@@ -130,6 +132,7 @@
     rofi
     rofimoji
     scrot
+    spotify
     stdenv
     stow
     sxhkd
