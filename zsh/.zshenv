@@ -13,3 +13,6 @@ else
 	export EDITOR=$(which nvim)
 fi
 export SUDO_EDITOR="$EDITOR"
+
+export TERMINAL="alacritty"
+export TERMINAL_PROG="alacritty"
