@@ -40,6 +40,16 @@ XF86AudioLowerVolume
 XF86AudioMute
   pactl set-sink-mute 0 toggle # mute sound
 
+# Fn media keys dont work in nixos 😿😿
+alt + equal
+  amixer -q set Master 5%+ unmute
+
+alt + minus
+  amixer -q set Master 5%- unmute
+
+alt + BackSpace
+  amixer -q set Master toggle # mute sound
+
 XF86Launch3
     playerctl play-pause
 
@@ -60,7 +70,7 @@ XF86AudioStop
 
 ################ BRIGHTNESS CONTROLS ####################
 
-#(-q is logarithmic, -u is fade duration in micro_secs)
+# -q is logarithmic, -u is fade duration in micro_secs
 XF86MonBrightnessUp
  brillo -A 5 -q -u 150000
 
@@ -185,4 +195,4 @@ super + question
 super + comma
  dunstctl history-pop
 
-;vim:ft=conf
+# vim:ft=conf
