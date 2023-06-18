@@ -1,40 +1,42 @@
 local function augroup(name)
 	return vim.api.nvim_create_augroup("keshav" .. name, { clear = true })
 end
+local au = vim.api.nvim_create_autocmd
+local defaults = augroup("Defaults")
 
-vim.api.nvim_create_autocmd("BufWritePost", {
+au("BufWritePost", {
 	pattern = { "*tmux.conf" },
 	command = "execute 'silent !tmux source <afile> --silent'",
 })
 
-vim.api.nvim_create_autocmd("BufWritePost", {
+au("BufWritePost", {
 	pattern = { ".skhdrc" },
-	command = "!brew services restart skhd",
+	command = "!killall -q sxhkd && sxhkd &",
 })
 
--- vim.api.nvim_create_autocmd({ "BufNewFile", "BufFilePre", "BufRead" }, {
---   pattern = { "*.mdx", "*.md" },
---   callback = function()
---     vim.cmd([[set filetype=markdown wrap linebreak nolist]])
---   end,
--- })
-
-vim.api.nvim_create_autocmd({ "BufRead" }, {
+au({ "BufRead" }, {
 	pattern = { "*.conf" },
 	callback = function()
 		vim.cmd([[set filetype=sh]])
 	end,
 })
 
-vim.api.nvim_create_autocmd({ "BufRead" }, {
+au({ "BufRead" }, {
 	pattern = { "*.rasi" },
 	callback = function()
 		vim.cmd([[set filetype=sass]])
 	end,
 })
 
+au("BufEnter", {
+	pattern = { "*" },
+	callback = function()
+		vim.cmd([[set formatoptions-=cro]])
+	end,
+})
+
 -- Strip trailing spaces before write
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+au({ "BufWritePre" }, {
 	group = augroup("strip_space"),
 	pattern = { "*" },
 	callback = function()
@@ -42,8 +44,15 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 	end,
 })
 
-vim.api.nvim_create_autocmd({ "TextYankPost" }, {
+au({ "TextYankPost" }, {
 	callback = function()
 		vim.highlight.on_yank({ higroup = "Visual", timeout = 40 })
 	end,
+})
+
+au("Termopen", {
+	desc = "Unclutter terminal",
+	group = defaults,
+	pattern = { "*" },
+	command = "setlocal nonumber norelativenumber scrolloff=0",
 })

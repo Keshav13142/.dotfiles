@@ -44,6 +44,9 @@ nmap("-", "<C-x>")
 -- set Shift+u as redo
 nmap("<S-u>", "<C-r>")
 
+-- Clear search with <esc>
+keymap({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
+
 -- better indenting
 vmap("<", "<gv")
 vmap(">", ">gv")

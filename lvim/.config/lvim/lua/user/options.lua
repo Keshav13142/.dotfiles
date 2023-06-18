@@ -15,6 +15,17 @@ lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.dap.active = false
 lvim.builtin.terminal.active = true
 lvim.builtin.lualine.active = false
+local logo = [[
+	  ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗
+	  ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║
+	  ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║
+	  ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║
+	  ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║
+	  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝
+
+	                   [ @keshav13142 ]
+    ]]
+lvim.builtin.alpha.dashboard.section.header.val = vim.split(logo, "\n", { trimempty = true })
 -- enable autotag closing
 lvim.builtin.treesitter.highlight.enable = true
 lvim.builtin.treesitter.autotag.enable = true
@@ -64,7 +75,7 @@ lvim.builtin.treesitter.auto_install = true
 -- nvim-tree config
 lvim.builtin.nvimtree.setup.view.side = "right"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = true
-lvim.builtin.nvimtree.setup.filters.dotfiles = true
+lvim.builtin.nvimtree.setup.filters.dotfiles = false -- Show hidden files by default
 lvim.builtin.nvimtree.setup.view.centralize_selection = true
 lvim.builtin.nvimtree.setup.actions.open_file.quit_on_open = false
 
@@ -88,7 +99,7 @@ local options = {
 	foldlevelstart = 99,
 	foldmethod = "expr",
 	foldnestmax = 10, -- deepest fold is 10 levels,
-	formatoptions = "jcroqlnt", -- tcqj
+	formatoptions = "jqlnt",
 	grepformat = "%f:%l:%c:%m",
 	grepprg = "rg --vimgrep",
 	ignorecase = true, -- ignore case in search patterns
