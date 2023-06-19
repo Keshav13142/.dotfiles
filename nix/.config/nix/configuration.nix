@@ -62,112 +62,6 @@
     ];
   };
 
-  # List packages installed in system profile.
-  environment.systemPackages = with pkgs; [
-    alacritty
-    authy
-    bat
-    betterlockscreen
-    bitwarden
-    brave
-    brillo
-    btop
-    cargo
-    clang-tools_9
-    clipmenu
-    cmatrix
-    coreutils
-    cowsay
-    diff-so-fancy
-    dracula-icon-theme
-    dracula-theme
-    dunst
-    exa
-    fd
-    feh
-    ffmpeg
-    figlet
-    flameshot
-    flatpak
-    fnm
-    fzf
-    gcc
-    gimp
-    git
-    gitmux
-    glow
-    gnome.nautilus
-    gnumake
-    gparted
-    gtk3
-    gum
-    imagemagick
-    killall
-    lazygit
-    lf
-    libnotify
-    libreoffice-qt
-    lxappearance
-    neofetch
-    neovim
-    networkmanagerapplet
-    nfs-utils
-    ninja
-    nixpkgs-fmt
-    nodejs
-    obs-studio
-    okular
-    openssl
-    pamixer
-    pavucontrol
-    pciutils
-    picom
-    playerctl
-    polkit_gnome
-    polybar
-    powertop
-    python310Packages.pip
-    python3Full
-    qemu
-    ripgrep
-    rofi
-    rofimoji
-    scrot
-    spotify
-    stdenv
-    stow
-    sxhkd
-    tig
-    tldr
-    tmux
-    trash-cli
-    tree
-    unrar
-    unzip
-    usbutils
-    virt-manager
-    vlc
-    vscode
-    wget
-    xclip
-    xdg-desktop-portal-gtk
-    xorg.libX11
-    xorg.libX11.dev
-    xorg.libxcb
-    xorg.libXft
-    xorg.libXinerama
-    xorg.xbacklight
-    xorg.xev
-    xorg.xinit
-    xorg.xinput
-    xorg.xkill
-    xorg.xmodmap
-    xsel
-    yt-dlp
-    zip
-    zoxide
-  ];
-
   # i3 configuration
   services.xserver = {
     enable = true;
@@ -178,8 +72,6 @@
     xkbVariant = "";
     libinput.enable = true;
   };
-
-  programs.dconf.enable = true;
 
   services = {
     printing.enable = true;
@@ -210,6 +102,8 @@
   hardware.pulseaudio.enable = false;
 
   hardware.bluetooth.enable = true;
+
+  programs.dconf.enable = true;
 
   security = {
     rtkit.enable = true;
