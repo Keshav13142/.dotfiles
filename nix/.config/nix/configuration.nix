@@ -18,6 +18,7 @@
       efi.canTouchEfiVariables = true;
     };
     supportedFilesystems = [ "ntfs" "ntfs3" ];
+    kernelPackages = pkgs.linuxPackages_latest;
   };
 
   networking = {
@@ -68,7 +69,6 @@
     bat
     betterlockscreen
     bitwarden
-    blueman
     brave
     brillo
     btop
@@ -99,6 +99,7 @@
     gnome.nautilus
     gnumake
     gparted
+    gtk3
     gum
     imagemagick
     killall
@@ -178,13 +179,19 @@
     libinput.enable = true;
   };
 
+  programs.dconf.enable = true;
+
   services = {
     printing.enable = true;
     gvfs.enable = true;
     flatpak.enable = true;
     gnome.gnome-keyring.enable = true;
-    dbus.enable = true;
+    dbus = {
+      enable = true;
+      packages = with pkgs; [ dconf ];
+    };
     auto-cpufreq.enable = true;
+    blueman.enable = true;
     pipewire = {
       enable = true;
       alsa.enable = true;
@@ -198,9 +205,11 @@
     '';
   };
 
-  # Enable sound with pipewire.
+  # Enable sound
   sound.enable = true;
   hardware.pulseaudio.enable = false;
+
+  hardware.bluetooth.enable = true;
 
   security = {
     rtkit.enable = true;
@@ -244,14 +253,38 @@
       dates = "weekly";
       options = "--delete-older-than 2d";
     };
-    package = pkgs.nixVersions.unstable;
     # Enable nixFlakes on system
+    package = pkgs.nixVersions.unstable;
     extraOptions = ''
       experimental-features = nix-command flakes
       keep-outputs          = true
       keep-derivations      = true
     '';
   };
+
+  # GTK3 global theme (widget and icon theme)
+  environment.etc."xdg/gtk-3.0/settings.ini" = {
+    text = ''
+      [Settings]
+      gtk-icon-theme-name=Dracula
+      gtk-theme-name=Dracula
+    '';
+    mode = "444";
+  };
+
+  fonts.fonts = with pkgs; [
+    font-awesome
+    (nerdfonts.override {
+      fonts = [
+        "JetBrainsMono"
+        "NerdFontsSymbolsOnly"
+        "Iosevka"
+        "IBMPlexMono"
+        "CascadiaCode"
+        "FiraCode"
+      ];
+    })
+  ];
 
   nixpkgs.config = {
     packageOverrides = pkgs: {
