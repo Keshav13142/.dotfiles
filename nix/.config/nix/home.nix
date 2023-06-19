@@ -132,8 +132,8 @@
       package = pkgs.dracula-icon-theme
       ;
     };
-    font = {
-      name = "JetBrainsMono Nerd Font Mono Medium";
-    }; # Cursor is declared under home.pointerCursor
+    # font = {
+    #   name = "JetBrainsMono Nerd Font Mono Medium";
+    # };
   };
 }
