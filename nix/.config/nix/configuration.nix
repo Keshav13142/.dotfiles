@@ -110,7 +110,10 @@
     polkit.enable = true;
   };
 
-  virtualisation.libvirtd.enable = true;
+  virtualisation = {
+    docker.enable = true;
+    libvirtd.enable = true;
+  };
 
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;

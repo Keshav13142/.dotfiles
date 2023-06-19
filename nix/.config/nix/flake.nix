@@ -13,6 +13,7 @@
     , home-manager
     }:
     let
+      user = "keshav";
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
@@ -21,8 +22,10 @@
       lib = nixpkgs.lib;
     in
     {
+      formatter = pkgs.alejandra;
+
       nixosConfigurations = {
-        keshav = lib.nixosSystem {
+        laptop = lib.nixosSystem {
           inherit system;
           modules = [
             ./configuration.nix
@@ -30,7 +33,10 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.keshav = import ./home.nix;
+              home-manager.extraSpecialArgs = {
+                inherit user;
+              };
+              home-manager.users.${user} = import ./home.nix;
             }
           ];
         };

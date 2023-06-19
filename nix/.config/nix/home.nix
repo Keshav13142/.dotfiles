@@ -1,10 +1,10 @@
-{ config, pkgs, ... }:
+{ config, pkgs, user, ... }:
 
 {
   home =
     {
-      username = "keshav";
-      homeDirectory = "/home/keshav";
+      username = "${user}";
+      homeDirectory = "/home/${user}";
       packages = with pkgs; [
         alacritty
         authy
@@ -21,6 +21,8 @@
         coreutils
         cowsay
         diff-so-fancy
+        docker
+        docker-compose
         dracula-icon-theme
         dracula-theme
         dunst
@@ -50,6 +52,7 @@
         libnotify
         libreoffice-qt
         lxappearance
+        mpv
         neofetch
         neovim
         networkmanagerapplet
@@ -132,8 +135,5 @@
       package = pkgs.dracula-icon-theme
       ;
     };
-    # font = {
-    #   name = "JetBrainsMono Nerd Font Mono Medium";
-    # };
   };
 }
