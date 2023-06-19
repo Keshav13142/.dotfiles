@@ -36,7 +36,7 @@
       nixosConfigurations = {
         keshav = lib.nixosSystem {
           inherit system;
-          modules = [ ./configurations.nix ];
+          modules = [ ./configuration.nix ];
         };
       };
     };

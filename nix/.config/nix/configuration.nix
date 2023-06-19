@@ -3,7 +3,7 @@
 {
   imports =
     [
-      /etc/nixos/hardware-configuration.nix
+      ./hardware-configuration.nix
     ];
 
   boot = {
@@ -301,7 +301,6 @@
   };
 
   system = {
-    copySystemConfiguration = true;
     autoUpgrade.enable = true;
     autoUpgrade.allowReboot = true;
     autoUpgrade.channel = "https://channels.nixos.org/nixos-23.05";
