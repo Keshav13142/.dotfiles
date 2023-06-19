@@ -19,3 +19,4 @@ export SUDO_EDITOR="$EDITOR"
 
 export TERMINAL="alacritty"
 export TERMINAL_PROG="alacritty"
+export GTK_THEME=Dracula:dark
