@@ -20,3 +20,20 @@ export SUDO_EDITOR="$EDITOR"
 export TERMINAL="alacritty"
 export TERMINAL_PROG="alacritty"
 export GTK_THEME=Dracula:dark
+
+export ANDROID_HOME="$HOME/Android/Sdk"
+
+if ! [[ -x "$(command -v nixos-version)" ]]; then
+	export CARGO_HOME=$HOME/.local/.cargo
+	export RUSTUP_HOME=$HOME/.local/.rustup
+	export VISUAL=code-insiders
+	export BROWSER=brave-browser-beta
+else
+	export BROWSER=brave
+	export VISUAL=code
+fi
+
+export FZF_DEFAULT_COMMAND='fd --type f --color=never --hidden'
+export FZF_DEFAULT_OPTS='--layout=reverse --height 40%'
+
+export JAVA_HOME="${$(readlink -e $(type -p java))%*/bin/java}"

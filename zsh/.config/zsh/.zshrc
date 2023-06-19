@@ -15,6 +15,7 @@ if ! [[ -x "$(command -v nixos-version)" ]]; then
 fi
 path+=("$HOME/.local/bin")
 path+=("$HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin")
+path+=("$XDG_CONFIG_HOME/tmux/plugins/t-smart-tmux-session-manager/bin")
 path+=("/usr/local/go/bin")
 path+=("$HOME/go/bin")
 path+=("$HOME/.local/.cargo/bin")
