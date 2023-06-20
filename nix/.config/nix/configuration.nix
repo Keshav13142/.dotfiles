@@ -78,6 +78,7 @@
     printing.enable = true;
     gvfs.enable = true;
     flatpak.enable = true;
+    cron.enable = true;
     gnome.gnome-keyring.enable = true;
     dbus = {
       enable = true;
