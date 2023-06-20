@@ -44,7 +44,7 @@ alias ...='cd ../../'
 alias v="$EDITOR"
 alias vim="$EDITOR"
 alias g='git'
-alias nixup='sudo nixos-rebuild --flake ~/.config/nix/.#laptop'
+alias nixup='pushd ~/.config/nix ; sudo nixos-rebuild switch --flake .#laptop ; popd'
 alias nixcl='sudo nix-collect-garbage -d'
 
 # Edit config files
