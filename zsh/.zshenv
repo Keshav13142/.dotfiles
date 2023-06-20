@@ -32,6 +32,7 @@ else
 	export BROWSER=brave
 	export VISUAL=code
 fi
+export GIT_EDITOR = "$EDITOR";
 
 export FZF_DEFAULT_COMMAND='fd --type f --color=never --hidden'
 export FZF_DEFAULT_OPTS='--layout=reverse --height 40%'

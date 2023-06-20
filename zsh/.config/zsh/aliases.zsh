@@ -20,9 +20,10 @@ alias wt="curl -4 wttr.in/avadi"
 
 # use exa if available
 if [[ -x "$(command -v exa)" ]]; then
-	alias l='exa -al --icons'
-	alias ll='exa -al --icons'
-	alias ls='exa -a --icons'
+	alias l='exa --icons --git-ignore --git -F --extended -l'
+	alias ll='exa --icons --git-ignore --git -F --extended -l'
+	alias ls='exa --icons --git-ignore --git -F --extended'
+	alias llt='exa --icons --git-ignore --git -F --extended -lT'
 else
 	alias l="ls -lah ${colorflag}"
 	alias ll="ls -lFh ${colorflag}"
@@ -43,6 +44,8 @@ alias ...='cd ../../'
 alias v="$EDITOR"
 alias vim="$EDITOR"
 alias g='git'
+alias nixup='sudo nixos-rebuild --flake ~/.config/nix/.#laptop'
+alias nixcl='sudo nix-collect-garbage -d'
 
 # Edit config files
 alias vz="$EDITOR ~/.config/zsh/.zshrc"
