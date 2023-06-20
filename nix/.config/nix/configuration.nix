@@ -1,5 +1,7 @@
 { config, pkgs, ... }:
-
+let
+  user = "keshav";
+in
 {
   imports =
     [
@@ -32,34 +34,37 @@
   time.timeZone = "Asia/Kolkata";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_US.UTF-8";
-    LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT = "en_US.UTF-8";
-    LC_MONETARY = "en_US.UTF-8";
-    LC_NAME = "en_US.UTF-8";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+    extraLocaleSettings = {
+      LC_ADDRESS = "en_US.UTF-8";
+      LC_IDENTIFICATION = "en_US.UTF-8";
+      LC_MEASUREMENT = "en_US.UTF-8";
+      LC_MONETARY = "en_US.UTF-8";
+      LC_NAME = "en_US.UTF-8";
+      LC_NUMERIC = "en_US.UTF-8";
+      LC_PAPER = "en_US.UTF-8";
+      LC_TELEPHONE = "en_US.UTF-8";
+      LC_TIME = "en_US.UTF-8";
+    };
   };
 
-  users.users.keshav = {
+  users.users.${user} = {
     isNormalUser = true;
-    description = "keshav";
+    description = "${user}";
     extraGroups = [
-      "networkmanager"
-      "wheel"
-      "kvm"
-      "input"
-      "disk"
-      "libvirtd"
       "audio"
-      "video"
       "camera"
+      "disk"
       "docker"
+      "input"
+      "kvm"
+      "libvirtd"
+      "networkmanager"
+      "power"
+      "render"
+      "video"
+      "wheel"
     ];
   };
 
@@ -71,7 +76,7 @@
       lightdm.enable = true;
       autoLogin = {
         enable = true;
-        user = "keshav";
+        user = "${user}";
       };
     };
     windowManager.i3.enable = true;
@@ -92,6 +97,7 @@
       packages = with pkgs; [ dconf ];
     };
     auto-cpufreq.enable = true;
+    tlp.enable = true;
     blueman.enable = true;
     pipewire = {
       enable = true;
@@ -117,6 +123,10 @@
   security = {
     rtkit.enable = true;
     polkit.enable = true;
+    sudo = {
+      enable = true;
+      execWheelOnly = true;
+    };
   };
 
   virtualisation = {
@@ -139,7 +149,7 @@
       before = [ "sleep.target" "suspend.target" ];
       serviceConfig = {
         Type = "simple";
-        ExecStart = "/home/keshav/.config/scripts/wakelock.sh";
+        ExecStart = "/home/${user}/.config/scripts/wakelock.sh";
         Environment = "DISPLAY=:0";
       };
     };
@@ -163,7 +173,13 @@
 
   # Nix Package Manager settings
   nix = {
-    settings.auto-optimise-store = true; # Optimise syslinks
+    settings = {
+      auto-optimise-store = true; # Optimise syslinks
+      trusted-users = [ "${user}" "root" ];
+      max-jobs = 8;
+      cores = 0; # use them all
+      allowed-users = [ "@wheel" ];
+    };
     gc = {
       automatic = true;
       dates = "weekly";
@@ -176,16 +192,6 @@
       keep-outputs          = true
       keep-derivations      = true
     '';
-  };
-
-  # GTK3 global theme (widget and icon theme)
-  environment.etc."xdg/gtk-3.0/settings.ini" = {
-    text = ''
-      [Settings]
-      gtk-icon-theme-name=Dracula
-      gtk-theme-name=Dracula
-    '';
-    mode = "444";
   };
 
   fonts.fonts = with pkgs; [
