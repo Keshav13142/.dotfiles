@@ -96,8 +96,21 @@ in
       enable = true;
       packages = with pkgs; [ dconf ];
     };
-    auto-cpufreq.enable = true;
-    tlp.enable = true;
+    auto-cpufreq = {
+      enable = true;
+      settings = {
+        charger = {
+          turbo = "always";
+          #scalingMaxFreq = "1000000";
+          #scalingMinFreq = "1000000";
+        };
+        battery = {
+          turbo = "never";
+          #scalingMaxFreq = "1000000";
+          #scalingMinFreq = "1000000";
+        };
+      };
+    };
     blueman.enable = true;
     pipewire = {
       enable = true;
@@ -143,16 +156,6 @@ in
   };
 
   systemd = {
-    services.wakelock = {
-      description = "Lock the screen on resume from suspend";
-      wantedBy = [ "sleep.target" "suspend.target" ];
-      before = [ "sleep.target" "suspend.target" ];
-      serviceConfig = {
-        Type = "simple";
-        ExecStart = "/home/${user}/.config/scripts/wakelock.sh";
-        Environment = "DISPLAY=:0";
-      };
-    };
     user.services.polkit-gnome-authentication-agent-1 = {
       description = "polkit-gnome-authentication-agent-1";
       wantedBy = [ "graphical-session.target" ];
