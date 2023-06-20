@@ -59,6 +59,7 @@
       "audio"
       "video"
       "camera"
+      "docker"
     ];
   };
 

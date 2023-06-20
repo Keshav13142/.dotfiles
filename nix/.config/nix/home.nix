@@ -7,6 +7,8 @@
       homeDirectory = "/home/${user}";
       packages = with pkgs; [
         alacritty
+        android-studio
+        android-tools
         authy
         bat
         betterlockscreen
@@ -53,6 +55,7 @@
         libreoffice-qt
         lxappearance
         mpv
+        mysql-workbench
         neofetch
         neovim
         networkmanagerapplet
@@ -93,6 +96,7 @@
         virt-manager
         vlc
         vscode
+        watchman
         wget
         xclip
         xdg-desktop-portal-gtk
@@ -121,8 +125,13 @@
       };
     };
 
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
+  programs = {
+    home-manager.enable = true;
+    java = {
+      enable = true;
+      package = pkgs.jdk11;
+    };
+  };
 
   gtk = {
     enable = true;
