@@ -66,7 +66,14 @@
   # i3 configuration
   services.xserver = {
     enable = true;
-    displayManager.defaultSession = "none+i3";
+    displayManager = {
+      defaultSession = "none+i3";
+      lightdm.enable = true;
+      autoLogin = {
+        enable = true;
+        user = "keshav";
+      };
+    };
     windowManager.i3.enable = true;
     layout = "us";
     xkbOptions = "caps:escape_shifted_capslock";
@@ -126,6 +133,16 @@
   };
 
   systemd = {
+    services.wakelock = {
+      description = "Lock the screen on resume from suspend";
+      wantedBy = [ "sleep.target" "suspend.target" ];
+      before = [ "sleep.target" "suspend.target" ];
+      serviceConfig = {
+        Type = "simple";
+        ExecStart = "/home/keshav/.config/scripts/wakelock.sh";
+        Environment = "DISPLAY=:0";
+      };
+    };
     user.services.polkit-gnome-authentication-agent-1 = {
       description = "polkit-gnome-authentication-agent-1";
       wantedBy = [ "graphical-session.target" ];
@@ -140,7 +157,7 @@
       };
     };
     extraConfig = ''
-      DefaultTimeoutStopSec=1s
+      DefaultTimeoutStopSec=10s
     '';
   };
 
