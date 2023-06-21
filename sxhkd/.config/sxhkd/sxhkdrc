@@ -153,6 +153,10 @@ alt + o
 super + period
   rofimoji
 
+## refresh reate
+super + r
+  ~/.config/rofi/scripts/refresh_rate
+
 ## CALCULTOR
 super + slash
  rofi -show calc -theme ~/.config/rofi/config/launcher.rasi
