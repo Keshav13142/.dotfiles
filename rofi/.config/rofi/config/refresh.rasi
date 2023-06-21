@@ -1,0 +1,5 @@
+@import "powermenu.rasi"
+
+element-text {
+  font: "JetBrains Mono Nerd Font 15";
+}

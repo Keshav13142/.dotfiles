@@ -26,16 +26,12 @@ $shutdown)
 	ans=$(rdialog &)
 	if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
 		systemctl poweroff
-	else
-		show_msg
 	fi
 	;;
 $reboot)
 	ans=$(rdialog &)
 	if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
 		systemctl reboot
-	else
-		show_msg
 	fi
 	;;
 $lock)
@@ -48,16 +44,12 @@ $suspend)
 		amixer set Master mute
 		betterlockscreen -l
 		systemctl suspend
-	else
-		show_msg
 	fi
 	;;
 $logout)
 	ans=$(rdialog &)
 	if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
 		i3-msg exit
-	else
-		show_msg
 	fi
 	;;
 esac

@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+rofi_command="rofi -theme $HOME/.config/rofi/config/refresh.rasi"
+
+# Options
+ddir="$HOME/.config/rofi/config"
+
+# Ask for confirmation
+rdialog() {
+	rofi -dmenu -i -no-fixed-num-lines -p "Are You Sure? : " \
+		-theme "$ddir/confirm.rasi"
+}
+
+# Variable passed to rofi
+options="144\n60"
+
+chosen="$(echo -e "$options" | $rofi_command -p "UP - $uptime" -dmenu -selected-row 0)"
+case $chosen in
+144)
+	ans=$(rdialog &)
+	if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
+		xrandr -r 144
+	fi
+	;;
+60)
+	ans=$(rdialog &)
+	if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
+		xrandr -r 60
+	fi
+	;;
+esac
