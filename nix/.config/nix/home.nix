@@ -26,7 +26,6 @@
         fd
         ffmpeg
         figlet
-        flatpak
         fnm
         gcc
         gimp
@@ -68,7 +67,6 @@
         ripgrep
         rofi
         rofimoji
-        scrot
         spotify
         stdenv
         stow

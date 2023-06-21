@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib,... }:
 let
   user = "keshav";
 in
@@ -71,6 +71,7 @@ in
   # i3 configuration
   services.xserver = {
     enable = true;
+    videoDrivers = [ "nvidia" ];
     displayManager = {
       defaultSession = "none+i3";
       lightdm.enable = true;
@@ -106,7 +107,7 @@ in
         };
         battery = {
           turbo = "never";
-          #scalingMaxFreq = "1000000";
+          #scalingMaxFreq = "2800000";
           #scalingMinFreq = "1000000";
         };
       };
@@ -127,11 +128,36 @@ in
 
   # Enable sound
   sound.enable = true;
-  hardware.pulseaudio.enable = false;
 
-  hardware.bluetooth.enable = true;
+  hardware = {
+    pulseaudio.enable = false;
+    bluetooth.enable = true;
+    opengl = {
+      enable = true;
+      driSupport = true;
+      driSupport32Bit = true;
+    };
+    nvidia = {
+      # Modesetting is needed for most wayland compositors
+      modesetting.enable = true;
+      open = false;
+      prime = {
+        reverseSync.enable = true;
+        intelBusId = "PCI:0:2:0";
+        nvidiaBusId = "PCI:1:0:0";
+      };
+      nvidiaSettings = true;
+      # Optionally, you may need to select the appropriate driver version for your specific GPU.
+      #package = config.boot.kernelPackages.nvidiaPackages.latest;
+    };
+  };
 
-  programs.dconf.enable = true;
+  programs = {
+    dconf.enable = true;
+    zsh.enable = true;
+  };
+
+  users.defaultUserShell = pkgs.zsh;
 
   security = {
     rtkit.enable = true;
@@ -147,8 +173,6 @@ in
     libvirtd.enable = true;
   };
 
-  users.defaultUserShell = pkgs.zsh;
-  programs.zsh.enable = true;
 
   xdg.portal = {
     enable = true;
@@ -212,6 +236,10 @@ in
   ];
 
   nixpkgs.config = {
+    allowUnfreePredicate = pkg:
+      builtins.elem (lib.getName pkg) [
+        "nvidia-x11"
+      ];
     packageOverrides = pkgs: {
       polybar = pkgs.polybar.override {
         i3Support = true;
