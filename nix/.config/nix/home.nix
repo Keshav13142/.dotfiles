@@ -22,6 +22,7 @@
         dracula-icon-theme
         dracula-theme
         dunst
+        espanso
         fd
         ffmpeg
         figlet
@@ -57,6 +58,7 @@
         pavucontrol
         pciutils
         picom
+        playerctl
         polkit_gnome
         polybar
         powertop
@@ -114,7 +116,6 @@
     };
 
   services = {
-    playerctld.enable = true;
     betterlockscreen.enable = true;
     clipmenu.enable = true;
     flameshot.enable = true;
