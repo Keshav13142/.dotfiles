@@ -34,10 +34,12 @@
         gnome.nautilus
         gnumake
         gparted
+        graphicsmagick
         gtk3
         gum
         imagemagick
         killall
+        kitty
         lf
         libnotify
         libreoffice-qt
@@ -76,7 +78,6 @@
         tmux
         trash-cli
         tree
-        ueberzug
         unrar
         unzip
         usbutils

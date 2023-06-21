@@ -1,4 +1,4 @@
-{ config, pkgs, lib,... }:
+{ config, pkgs, lib, ... }:
 let
   user = "keshav";
 in
@@ -253,7 +253,10 @@ in
     allowUnfree = true;
   };
 
-  system = {
+  # Add ~/.local/bin/ to $PATH
+  environment.localBinInPath = true;
+
+    system = {
     autoUpgrade.enable = true;
     autoUpgrade.allowReboot = true;
     autoUpgrade.channel = "https://channels.nixos.org/nixos-23.05";
