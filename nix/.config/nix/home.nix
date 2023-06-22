@@ -163,6 +163,7 @@
       aliases = {
         s = "status";
         co = "checkout";
+        cl = "clone";
         br = "branch";
         st = "status -sb";
         wtf = "!git-wtf";
