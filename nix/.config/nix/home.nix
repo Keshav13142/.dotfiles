@@ -108,8 +108,8 @@
 
       pointerCursor = {
         gtk.enable = true;
-        name = "Dracula-cursors";
-        package = pkgs.dracula-theme;
+        name = "Catpuccin Mocha";
+        package = pkgs.catppuccin-cursors.mochaMauve;
         size = 16;
       };
     };
@@ -195,15 +195,21 @@
         enable = true;
         background = "dark";
       };
-      #ignores = import ./dotfiles/gitignore.nix;
     };
   };
 
   gtk = {
     enable = true;
     theme = {
-      name = "Dracula";
-      package = pkgs.dracula-theme;
+      #name = "Dracula";
+      #package = pkgs.dracula-theme;
+      name = "Catppuccin-Mocha";
+      package = pkgs.catppuccin-gtk.override {
+        accents = [ "mauve" ];
+        size = "standard";
+        tweaks = [ "rimless" "black" ];
+        variant = "mocha";
+      };
     };
     iconTheme = {
       name = "Dracula";

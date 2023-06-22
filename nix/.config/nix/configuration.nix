@@ -278,7 +278,7 @@ in
     allowUnfree = true;
   };
 
-# Nvidia Configuration
+  # Nvidia Configuration
   specialisation = {
     nvidia.configuration = {
       services.xserver.videoDrivers = [ "nvidia" ];
