@@ -33,6 +33,7 @@
         glow
         gnome.nautilus
         gnumake
+        go
         gparted
         graphicsmagick
         gtk3
@@ -72,6 +73,7 @@
         spotify
         stdenv
         stow
+        stylua
         sxhkd
         tig
         tldr

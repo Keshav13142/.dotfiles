@@ -86,7 +86,11 @@ in
   sound.enable = true;
 
   # Set zsh as the default shell
-  programs.zsh.enable = true;
+  programs = {
+    zsh.enable = true;
+    dconf.enable = true;
+  };
+
   users.defaultUserShell = pkgs.zsh;
 
   security = {
