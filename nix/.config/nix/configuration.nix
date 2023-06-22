@@ -68,89 +68,23 @@ in
     ];
   };
 
-  # i3 configuration
-  services.xserver = {
-    enable = true;
-    videoDrivers = [ "nvidia" ];
-    displayManager = {
-      defaultSession = "none+i3";
-      lightdm.enable = true;
-      autoLogin = {
-        enable = true;
-        user = "${user}";
-      };
-    };
-    windowManager.i3.enable = true;
-    layout = "us";
-    xkbOptions = "caps:escape_shifted_capslock";
-    xkbVariant = "";
-    libinput.enable = true;
-  };
-
-  services = {
-    printing.enable = true;
-    gvfs.enable = true;
-    flatpak.enable = true;
-    cron.enable = true;
-    gnome.gnome-keyring.enable = true;
-    dbus = {
-      enable = true;
-      packages = with pkgs; [ dconf ];
-    };
-    auto-cpufreq = {
-      enable = true;
-      settings = {
-        charger = {
-          turbo = "always";
-          #scalingMaxFreq = "1000000";
-          #scalingMinFreq = "1000000";
-        };
-        battery = {
-          turbo = "never";
-          #scalingMaxFreq = "2800000";
-          #scalingMinFreq = "1000000";
-        };
-      };
-    };
-    blueman.enable = true;
-    pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-      jack.enable = true;
-    };
-    # To allow polybar and other scripts to set brightness
-    udev.extraRules = ''
-      ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="intel_backlight", MODE="0666", RUN+="${pkgs.coreutils}/bin/chmod a+w /sys/class/backlight/%k/brightness"
-    '';
-  };
+  fonts.fonts = with pkgs; [
+    font-awesome
+    (nerdfonts.override {
+      fonts = [
+        "JetBrainsMono"
+        "NerdFontsSymbolsOnly"
+        "Iosevka"
+        "IBMPlexMono"
+        "CascadiaCode"
+        "FiraCode"
+      ];
+    })
+  ];
 
   # Enable sound
   sound.enable = true;
 
-  hardware = {
-    pulseaudio.enable = false;
-    bluetooth.enable = true;
-    opengl = {
-      enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
-    };
-    nvidia = {
-      # Modesetting is needed for most wayland compositors
-      modesetting.enable = true;
-      open = false;
-      prime = {
-        reverseSync.enable = true;
-        intelBusId = "PCI:0:2:0";
-        nvidiaBusId = "PCI:1:0:0";
-      };
-      nvidiaSettings = true;
-      # Optionally, you may need to select the appropriate driver version for your specific GPU.
-      #package = config.boot.kernelPackages.nvidiaPackages.latest;
-    };
-  };
 
   programs = {
     dconf.enable = true;
@@ -177,6 +111,115 @@ in
   xdg.portal = {
     enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  };
+
+  # Add ~/.local/bin/ to $PATH
+  environment.localBinInPath = true;
+
+  services = {
+    # Xserver config
+    xserver = {
+      enable = true;
+      displayManager = {
+        defaultSession = "none+i3";
+        lightdm.enable = true;
+        #autoLogin = {
+        #  enable = true;
+        #  user = "${user}";
+        #};
+      };
+      windowManager.i3.enable = true;
+      layout = "us";
+      xkbOptions = "caps:escape_shifted_capslock";
+      xkbVariant = "";
+      libinput.enable = true;
+    };
+    printing.enable = true;
+    # For nautilus to work properly
+    gvfs.enable = true;
+    flatpak.enable = true;
+    cron.enable = true;
+    gnome.gnome-keyring.enable = true;
+    dbus = {
+      enable = true;
+      packages = with pkgs; [ dconf ];
+    };
+    #auto-cpufreq.settings = {
+    #  battery = {
+    #    governor = "powersave";
+    #    turbo = "never";
+    #  };
+    #  charger = {
+    #    governor = "performance";
+    #    turbo = "auto";
+    #  };
+    #};
+    thermald.enable = true;
+    tlp = {
+      enable = true;
+      # Followed https://knowledgebase.frame.work/en_us/optimizing-fedora-battery-life-r1baXZh
+      settings = {
+        INTEL_GPU_MIN_FREQ_ON_AC = 100;
+        INTEL_GPU_MIN_FREQ_ON_BAT = 100;
+        INTEL_GPU_MAX_FREQ_ON_AC = 1500;
+        INTEL_GPU_MAX_FREQ_ON_BAT = 800;
+        INTEL_GPU_BOOST_FREQ_ON_AC = 1500;
+        INTEL_GPU_BOOST_FREQ_ON_BAT = 1000;
+        WIFI_PWR_ON_AC = "off";
+        WIFI_PWR_ON_BAT = "on";
+        WOL_DISABLE = "Y";
+        PCIE_ASPM_ON_AC = "default";
+        PCIE_ASPM_ON_BAT = "powersupersave";
+        RUNTIME_PM_ON_AC = 0;
+        RUNTIME_PM_ON_BAT = 1;
+        CPU_SCALING_GOVERNOR_ON_AC = "performance";
+        CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+        CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
+        CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+        CPU_MIN_PERF_ON_AC = 0;
+        CPU_MAX_PERF_ON_AC = 100;
+        CPU_MIN_PERF_ON_BAT = 0;
+        CPU_MAX_PERF_ON_BAT = 30;
+        CPU_BOOST_ON_AC = 1;
+        CPU_BOOST_ON_BAT = 0;
+        CPU_HWP_DYN_BOOST_ON_AC = 1;
+        CPU_HWP_DYN_BOOST_ON_BAT = 0;
+        SCHED_POWERSAVE_ON_AC = 0;
+        SCHED_POWERSAVE_ON_BAT = 1;
+        NMI_WATHCDOG = 0;
+        PLATFORM_PROFILE_ON_AC = "performance";
+        PLATFORM_PROFILE_ON_BAT = "low-power";
+        USB_AUTOSUSPEND = 1;
+        USE_EXCLUDE_AUDIO = 1;
+        USE_EXCLUDE_BTUSB = 0;
+        USE_EXCLUDE_PHONE = 0;
+        USE_EXCLUDE_WWAN = 0;
+        START_CHARGE_THRESH_BAT0 = 40;
+        STOP_CHARGE_THRESH_BAT0 = 80;
+      };
+    };
+    blueman.enable = true;
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      jack.enable = true;
+    };
+    # To allow polybar and other scripts to set brightness
+    udev.extraRules = ''
+      ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="intel_backlight", MODE="0666", RUN+="${pkgs.coreutils}/bin/chmod a+w /sys/class/backlight/%k/brightness"
+    '';
+  };
+
+  hardware = {
+    pulseaudio.enable = false;
+    bluetooth.enable = true;
+    opengl = {
+      enable = true;
+      driSupport = true;
+      driSupport32Bit = true;
+    };
   };
 
   systemd = {
@@ -221,25 +264,7 @@ in
     '';
   };
 
-  fonts.fonts = with pkgs; [
-    font-awesome
-    (nerdfonts.override {
-      fonts = [
-        "JetBrainsMono"
-        "NerdFontsSymbolsOnly"
-        "Iosevka"
-        "IBMPlexMono"
-        "CascadiaCode"
-        "FiraCode"
-      ];
-    })
-  ];
-
   nixpkgs.config = {
-    allowUnfreePredicate = pkg:
-      builtins.elem (lib.getName pkg) [
-        "nvidia-x11"
-      ];
     packageOverrides = pkgs: {
       polybar = pkgs.polybar.override {
         i3Support = true;
@@ -253,10 +278,29 @@ in
     allowUnfree = true;
   };
 
-  # Add ~/.local/bin/ to $PATH
-  environment.localBinInPath = true;
+# Nvidia Configuration
+  specialisation = {
+    nvidia.configuration = {
+      services.xserver.videoDrivers = [ "nvidia" ];
+      hardware.opengl.enable = true;
+      hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.latest;
+      hardware.nvidia.modesetting.enable = true;
+      hardware.nvidia.prime = {
+        sync.enable = true;
+        nvidiaBusId = "PCI:1:0:0";
+        intelBusId = "PCI:0:2:0";
+      };
+    };
+  };
 
-    system = {
+  #powerManagement = {
+  #  enable = true;
+  #  cpuFreqGovernor = "powersave";
+  #  # Messes with usb devices autosuspend
+  #  #powertop.enable = true;
+  #};
+
+  system = {
     autoUpgrade.enable = true;
     autoUpgrade.allowReboot = true;
     autoUpgrade.channel = "https://channels.nixos.org/nixos-23.05";
