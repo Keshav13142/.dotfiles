@@ -23,8 +23,6 @@
       lib = nixpkgs.lib;
     in
     {
-      formatter = pkgs.alejandra;
-
       nixosConfigurations = {
         laptop = lib.nixosSystem {
           inherit system;

@@ -51,7 +51,6 @@
         networkmanagerapplet
         nfs-utils
         ninja
-        nixpkgs-fmt
         nodejs
         obs-studio
         okular
@@ -71,6 +70,10 @@
         rofi
         rofimoji
         spotify
+        # Nix language features
+        nixpkgs-fmt
+        statix
+        deadnix
         stdenv
         stow
         stylua
