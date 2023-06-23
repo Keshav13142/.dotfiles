@@ -103,7 +103,10 @@ in
   };
 
   virtualisation = {
-    docker.enable = true;
+    docker = {
+      enable = true;
+      enableOnBoot = false;
+    };
     libvirtd.enable = true;
   };
 
@@ -144,6 +147,12 @@ in
       enable = true;
       packages = with pkgs; [ dconf ];
     };
+    thermald.enable = true;
+
+    # TODO: try this instead of TLP
+    #power-profiles-daemon.enable = true;
+    #upower.enable = true;
+
     #auto-cpufreq.settings = {
     #  battery = {
     #    governor = "powersave";
@@ -154,7 +163,7 @@ in
     #    turbo = "auto";
     #  };
     #};
-    thermald.enable = true;
+
     tlp = {
       enable = true;
       # Followed https://knowledgebase.frame.work/en_us/optimizing-fedora-battery-life-r1baXZh
@@ -246,7 +255,7 @@ in
     settings = {
       auto-optimise-store = true; # Optimise syslinks
       trusted-users = [ "${user}" "root" ];
-      max-jobs = 8;
+      max-jobs = "auto";
       cores = 0; # use them all
       allowed-users = [ "@wheel" ];
     };
