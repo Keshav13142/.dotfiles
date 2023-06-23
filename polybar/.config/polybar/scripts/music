@@ -1,7 +1,35 @@
 #!/usr/bin/env bash
 
-if [ "$(playerctl status -a 2>/dev/null | grep Playing)" = "Playing" ]; then
-  echo 
-else
-  echo 
+status() {
+	if [ "$(playerctl status -a 2>/dev/null | grep "$1")" = "$1" ]; then
+		echo true
+	else
+		echo false
+	fi
+}
+
+playing=$(status Playing)
+paused=$(status Paused)
+
+if ! [ "$playing" = "true" ] && ! [ "$paused" = "true" ]; then
+	exit
 fi
+
+case "$1" in
+"playpause")
+	if [ "$playing" = "true" ]; then
+		echo 
+	else
+		echo 
+	fi
+	;;
+"next")
+	playerctl next
+	;;
+"prev")
+	playerctl previous
+	;;
+*)
+	echo "What ?"
+	;;
+esac

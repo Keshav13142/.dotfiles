@@ -7,7 +7,7 @@ else
 	export BROWSER=brave
 fi
 
-feh --bg-fill /home/keshav/Pictures/wallpapers/bg_9.jpg
+feh --bg-fill ~/Pictures/wallpapers/mqjnbna9y53a1.jpg
 xinput set-prop "ELAN1205:00 04F3:30E9 Touchpad" "libinput Tapping Enabled" 1
 ~/.config/scripts/fix_scrolling
 picom -b --config ~/.config/picom/picom.conf
