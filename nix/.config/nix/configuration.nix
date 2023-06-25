@@ -20,7 +20,7 @@ in
       efi.canTouchEfiVariables = true;
     };
     supportedFilesystems = [ "ntfs" "ntfs3" ];
-    kernelPackages = pkgs.linuxPackages_latest;
+    # kernelPackages = pkgs.linuxPackages_latest;
   };
 
   networking = {
