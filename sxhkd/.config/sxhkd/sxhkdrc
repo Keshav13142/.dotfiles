@@ -9,11 +9,8 @@ alt + space
 super + e
   ~/.config/rofi/scripts/powermenu
 
-super + p
-  ~/.config/rofi/scripts/power_profiles_menu.sh
-
-super + g
-  ~/.config/rofi/scripts/graphics_profiles_menu.sh
+super + w
+  wal -i ~/Pictures/wallpapers/ &
 
 super + m
   ~/.config/scripts/toggle_mic.sh
@@ -176,7 +173,7 @@ super + shift + s
 
 # Reload polybar
 super + Escape
- $HOME/.config/polybar/launch.sh
+ polybar-msg cmd restart
 
 # Reload sxhkd
 super + grave
