@@ -16,6 +16,7 @@ else
 	export EDITOR=$(which nvim)
 fi
 export SUDO_EDITOR="$EDITOR"
+export GIT_EDITOR="$EDITOR";
 
 export TERMINAL="alacritty"
 export TERMINAL_PROG="alacritty"
@@ -32,7 +33,6 @@ else
 	export BROWSER=brave
 	export VISUAL=code
 fi
-export GIT_EDITOR = "$EDITOR";
 
 export FZF_DEFAULT_COMMAND='fd --type f --color=never --hidden'
 export FZF_DEFAULT_OPTS='--layout=reverse --height 40%'
