@@ -65,6 +65,7 @@
         powertop
         python310Packages.pip
         python3Full
+        pywal
         qemu
         ripgrep
         rofi
@@ -93,6 +94,7 @@
         wget
         xclip
         xdg-desktop-portal-gtk
+        xdotool
         xorg.libX11
         xorg.libX11.dev
         xorg.libxcb

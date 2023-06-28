@@ -1,24 +1,20 @@
-@import "colors.rasi"
-@import "font.rasi"
+@import "~/.cache/wal/colors-rofi-dark"
 
 * {
-    background-color:       @BG;
-    text-color:             @FG;
+  font:	"JetBrainsMono Nerd Font Mono 10";
 }
 
 window {
-    width:      	        200px;
-    padding:                20px;
-    border:		            0px 0px 2px 0px;
-    border-radius:          8px;
-    border-color:           @BDR;
-    location:               0;
-    x-offset:               0;
-    y-offset:               -4%;
+  width:      	        200px;
+  padding:                20px;
+  border:		            0px 0px 2px 0px;
+  border-radius:          8px;
+  location:               0;
+  x-offset:               0;
+  y-offset:               -4%;
 }
 
 entry {
-    expand: 		        true;
-    width: 		            150px;
-    text-color:		        @BDR;
+  expand: 		        true;
+  width: 		            150px;
 }

@@ -3,16 +3,7 @@ configuration {
     show-icons:                 false;
 }
 
-/*****----- Global Properties -----*****/
-* {
-    background:     #1E1D2F;
-    background-alt: #282839;
-    foreground:     #D9E0EE;
-    selected:       #7AA2F7;
-    active:         #ABE9B3;
-    urgent:         #F28FAD;
-    font: "JetBrains Mono Nerd Font 10";
-}
+@import "~/.cache/wal/colors-rofi-dark"
 
 /*
 USE_BUTTONS=YES
@@ -48,7 +39,6 @@ mainbox {
     padding:                     0px;
     border:                      0px solid;
     border-radius:               0px;
-    border-color:                @selected;
     background-color:            transparent;
     children:                    [ "listview" ];
 }
@@ -61,9 +51,7 @@ inputbar {
     padding:                     0px;
     border:                      0px;
     border-radius:               0px;
-    border-color:                @selected;
     background-color:            transparent;
-    text-color:                  @foreground;
     children:                    [ "textbox-prompt-colon", "prompt"];
 }
 
@@ -77,15 +65,11 @@ textbox-prompt-colon {
     str:                         "";
     padding:                     12px 16px;
     border-radius:               0px;
-    background-color:            @urgent;
-    text-color:                  @background;
 }
 prompt {
     enabled:                     true;
     padding:                     12px;
     border-radius:               0px;
-    background-color:            @active;
-    text-color:                  @background;
 }
 
 /*****----- Message -----*****/
@@ -95,16 +79,10 @@ message {
     padding:                     15px;
     border:                      0px solid;
     border-radius:               100%;
-    border-color:                @selected;
-    background-color:            @background-alt;
-    text-color:                  @foreground;
 }
 textbox {
-    background-color:            inherit;
-    text-color:                  inherit;
     vertical-align:              0.5;
     horizontal-align:            0.5;
-    placeholder-color:           @foreground;
     blink:                       true;
     markup:                      true;
 }
@@ -112,9 +90,6 @@ error-message {
     padding:                     12px;
     border:                      0px solid;
     border-radius:               0px;
-    border-color:                @selected;
-    background-color:            @background;
-    text-color:                  @foreground;
 }
 
 /*****----- Listview -----*****/
@@ -135,9 +110,7 @@ listview {
     padding:                     0px;
     border:                      0px solid;
     border-radius:               0px;
-    border-color:                @selected;
     background-color:            transparent;
-    text-color:                  @foreground;
     cursor:                      "default";
 }
 
@@ -149,9 +122,6 @@ element {
     padding:                     25px;
     border:                      0px solid;
     border-radius:               100%;
-    border-color:                @selected;
-    background-color:            @background-alt;
-    text-color:                  @foreground;
     cursor:                      pointer;
 }
 element-text {
@@ -161,8 +131,4 @@ element-text {
     cursor:                      inherit;
     vertical-align:              0.5;
     horizontal-align:            0.5;
-}
-element selected.normal {
-    background-color:            var(selected);
-    text-color:                  var(background);
 }
