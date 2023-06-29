@@ -20,10 +20,10 @@ alias wt="curl -4 wttr.in/avadi"
 
 # use exa if available
 if [[ -x "$(command -v exa)" ]]; then
-	alias l='exa --icons --git-ignore --git -F --extended -l'
-	alias ll='exa --icons --git-ignore --git -F --extended -l'
-	alias ls='exa --icons --git-ignore --git -F --extended'
-	alias llt='exa --icons --git-ignore --git -F --extended -lT'
+	alias l='exa --icons -F --extended -l'
+	alias ll='exa --icons -F --extended -l'
+	alias ls='exa --icons -F --extended'
+	alias llt='exa --icons -F --extended -lT'
 else
 	alias l="ls -lah ${colorflag}"
 	alias ll="ls -lFh ${colorflag}"
