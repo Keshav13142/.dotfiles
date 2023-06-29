@@ -14,9 +14,11 @@
         brillo
         cargo
         clang-tools_9
+        cliphist
         cmatrix
         coreutils
         cowsay
+        deadnix
         dmenu
         docker
         docker-compose
@@ -54,6 +56,7 @@
         networkmanagerapplet
         nfs-utils
         ninja
+        nixpkgs-fmt
         nodejs
         obs-studio
         okular
@@ -71,21 +74,19 @@
         pywal
         qemu
         ripgrep
-        rofi
+        # rofi
         rofimoji
-        spotify
+        rofi-wayland
         slurp
-        # Nix language features
-        nixpkgs-fmt
+        spotify
         statix
-        deadnix
         stdenv
         stow
         stylua
         swayidle
-        swaylock
-        sxhkd
+        swaylock-effects
         swww
+        sxhkd
         tig
         tldr
         tmux
@@ -98,16 +99,16 @@
         vlc
         vscode
         watchman
+        waybar
         wget
         wl-clipboard
-        wofi
-        waybar
+        wlsunset
         xclip
-        xdg-desktop-portal-gtk
-        xdotool
         xdg-desktop-portal
+        xdg-desktop-portal-gtk
         xdg-desktop-portal-hyprland
         xdg-desktop-portal-wlr
+        xdotool
         xorg.libX11
         xorg.libX11.dev
         xorg.libxcb
@@ -142,7 +143,6 @@
 
   programs = {
     home-manager.enable = true;
-    swaylock.enable = true;
     btop.enable = true;
     feh.enable = true;
     exa.enable = true;

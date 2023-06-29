@@ -261,11 +261,19 @@ in
       polybar = pkgs.polybar.override {
         i3Support = true;
       };
-      rofi = pkgs.rofi.override {
+      # rofi = pkgs.rofi.override {
+      #   plugins = [
+      #     pkgs.rofi-calc
+      #   ];
+      # };
+      rofi-wayland = pkgs.rofi-wayland.override {
         plugins = [
           pkgs.rofi-calc
         ];
       };
+      waybar = pkgs.waybar.overrideAttrs (oldAttrs: {
+        mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+      });
     };
     allowUnfree = true;
   };
