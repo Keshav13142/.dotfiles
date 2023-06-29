@@ -18,14 +18,16 @@ chosen="$(echo -e "$options" | $rofi_command -p "UP - $uptime" -dmenu -selected-
 case $chosen in
 144)
 	ans=$(rdialog &)
-	if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
+	if [[ $ans == "Y" ]] || [[ $ans == "y" ]]; then
 		xrandr -r 144
+		hyprctl keyword monitor "eDP-1,1920x1080@144,0x0,1"
 	fi
 	;;
 60)
 	ans=$(rdialog &)
-	if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
+	if [[ $ans == "Y" ]] || [[ $ans == "y" ]]; then
 		xrandr -r 60
+		hyprctl keyword monitor "eDP-1,1920x1080@60,0x0,1"
 	fi
 	;;
 esac

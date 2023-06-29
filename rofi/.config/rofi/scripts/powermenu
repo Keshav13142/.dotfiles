@@ -24,13 +24,13 @@ chosen="$(echo -e "$options" | $rofi_command -p "UP - $uptime" -dmenu -selected-
 case $chosen in
 $shutdown)
 	ans=$(rdialog &)
-	if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
+	if [[ $ans == "Y" ]] || [[ $ans == "y" ]]; then
 		systemctl poweroff
 	fi
 	;;
 $reboot)
 	ans=$(rdialog &)
-	if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
+	if [[ $ans == "Y" ]] || [[ $ans == "y" ]]; then
 		systemctl reboot
 	fi
 	;;
@@ -39,7 +39,7 @@ $lock)
 	;;
 $suspend)
 	ans=$(rdialog &)
-	if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
+	if [[ $ans == "Y" ]] || [[ $ans == "y" ]]; then
 		mpc -q pause
 		amixer set Master mute
 		betterlockscreen -l
