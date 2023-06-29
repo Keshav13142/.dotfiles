@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+CONFIG="$HOME/.config/waybar/config.jsonc"
+STYLE="$HOME/.config/waybar/style.css"
+
+pkill waybar
+waybar -c $CONFIG -s $STYLE >/dev/null 2>&1 &
