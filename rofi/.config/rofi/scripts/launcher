@@ -2,4 +2,4 @@
 
 rofi \
 	-show drun \
-	-theme ~/.config/rofi/config/launcher-dmenu.rasi
+	-theme ~/.config/rofi/config/launcher.rasi
