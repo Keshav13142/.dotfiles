@@ -7,17 +7,17 @@
   "height": 20,
   "margin": "2 2 0 2",
   "modules-left": [
-    "custom/power_btn",
-    "custom/lock_screen",
+    "wlr/workspaces",
     "disk",
     "memory",
     "cpu",
-    "wlr/workspaces"
+    "custom/lock_screen",
+    "custom/power_btn"
   ],
-  "modules-center": ["hyprland/window", "custom/playerlabel"],
+  "modules-center": ["custom/playerlabel"],
   "modules-right": [
-    "pulseaudio",
     "pulseaudio#microphone",
+    "pulseaudio",
     "backlight",
     "battery",
     "clock",
@@ -94,21 +94,18 @@
 
   "hyprland/window": {
     "format": "{}",
+    "max-length": "30",
     "separate-outputs": true
   },
 
   "custom/playerlabel": {
     "format": "<span>{}</span>",
     "return-type": "json",
-    "max-length": 48,
+    "max-length": 30,
     "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
     "on-click-middle": "playerctl play-pause",
     "on-click": "playerctl previous",
-    "on-click-right": "playerctl next",
-    "format-icons": {
-      "Playing": "<span foreground='#E5B9C6'>󰒮 󰐌 󰒭</span>",
-      "Paused": "<span foreground='#928374'>󰒮 󰏥 󰒭</span>"
-    }
+    "on-click-right": "playerctl next"
   },
 
   "battery": {
@@ -117,12 +114,13 @@
       "warning": 30,
       "critical": 20
     },
-    "format": "{icon}",
-    "format-charging": " {capacity}%",
-    "format-plugged": " {capacity}%",
-    "format-alt-click": "click-right",
-    "format-alt": "{icon} {capacity}%",
-    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    "format": "<span size='13000' foreground='#B1E3AD'>{icon}</span> {capacity}%",
+    "format-warning": "<span size='13000' foreground='#B1E3AD'>{icon}</span> {capacity}%",
+    "format-critical": "<span size='13000' foreground='#E38C8F'>{icon}</span> {capacity}%",
+    "format-charging": "<span size='13000' foreground='#B1E3AD'> </span>{capacity}%",
+    "format-plugged": "<span size='13000' foreground='#B1E3AD'> </span>{capacity}%",
+    "format-full": "<span size='13000' foreground='#B1E3AD'> </span>{capacity}%",
+    "format-icons": ["", "", "", "", ""]
   },
 
   "pulseaudio": {

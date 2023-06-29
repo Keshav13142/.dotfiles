@@ -3,7 +3,7 @@
   border-radius: 0;
   font-family: "JetBrainsMono Nerd Font";
   font-weight: bold;
-  font-size: 16px;
+  font-size: 15px;
   min-height: 0;
 }
 
@@ -41,17 +41,8 @@ tooltip label {
   background: transparent;
 }
 
-#custom-launch_wofi,
-#custom-launch_firefox,
-#custom-launch_thunderbird,
-#custom-launch_thunar,
-#custom-launch_kitty,
 #custom-lock_screen,
-#custom-light_dark,
 #custom-power_btn,
-#custom-power_profile,
-#custom-weather,
-#custom-myhyprv,
 #window,
 #cpu,
 #disk,
@@ -60,9 +51,7 @@ tooltip label {
 #clock,
 #battery,
 #pulseaudio,
-#network,
 #tray,
-#temperature,
 #workspaces,
 #idle_inhibitor,
 #backlight {
@@ -71,10 +60,6 @@ tooltip label {
   padding: 0px 8px;
   margin: 0px 3px;
   border: 0px;
-}
-
-#temperature.critical {
-  color: #e92d4d;
 }
 
 #workspaces {
@@ -86,21 +71,4 @@ tooltip label {
   border-radius: 10px;
   margin-left: 0px;
   margin-right: 0px;
-}
-
-#custom-launch_firefox,
-#custom-launch_thunderbird,
-#custom-launch_thunar,
-#custom-launch_wofi,
-#custom-launch_kitty,
-#custom-weather {
-  margin-left: 0px;
-  border-right: 0px;
-  font-size: 24px;
-  margin-right: 20px;
-}
-
-#custom-launch_firefox,
-#custom-launch_kitty {
-  font-size: 20px;
 }
