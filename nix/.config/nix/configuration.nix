@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ inputs, config, pkgs, ... }:
 let
   user = "keshav";
 in
@@ -89,6 +89,11 @@ in
   programs = {
     zsh.enable = true;
     dconf.enable = true;
+    hyprland = {
+      enable = true;
+      xwayland.enable = true;
+      package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    };
   };
 
   users.defaultUserShell = pkgs.zsh;
@@ -100,6 +105,11 @@ in
       enable = true;
       execWheelOnly = true;
     };
+    pam.services.swaylock = {
+      text = ''
+        auth include login
+      '';
+    };
   };
 
   virtualisation = {
@@ -110,12 +120,6 @@ in
     libvirtd.enable = true;
   };
 
-
-  xdg.portal = {
-    enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-  };
-
   # Add ~/.local/bin/ to $PATH
   environment.localBinInPath = true;
 
@@ -124,18 +128,12 @@ in
     xserver = {
       enable = true;
       displayManager = {
-        defaultSession = "none+i3";
         lightdm.enable = true;
-        #autoLogin = {
-        #  enable = true;
-        #  user = "${user}";
-        #};
+        gdm = {
+          enable = false;
+          wayland = true;
+        };
       };
-      windowManager.i3.enable = true;
-      layout = "us";
-      xkbOptions = "caps:escape_shifted_capslock";
-      xkbVariant = "";
-      libinput.enable = true;
     };
     printing.enable = true;
     # For nautilus to work properly
@@ -148,22 +146,6 @@ in
       packages = with pkgs; [ dconf ];
     };
     thermald.enable = true;
-
-    # TODO: try this instead of TLP
-    #power-profiles-daemon.enable = true;
-    #upower.enable = true;
-
-    #auto-cpufreq.settings = {
-    #  battery = {
-    #    governor = "powersave";
-    #    turbo = "never";
-    #  };
-    #  charger = {
-    #    governor = "performance";
-    #    turbo = "auto";
-    #  };
-    #};
-
     tlp = {
       enable = true;
       # Followed https://knowledgebase.frame.work/en_us/optimizing-fedora-battery-life-r1baXZh
@@ -214,6 +196,7 @@ in
       alsa.support32Bit = true;
       pulse.enable = true;
       jack.enable = true;
+      wireplumber.enable = true;
     };
     # To allow polybar and other scripts to set brightness
     udev.extraRules = ''
@@ -291,23 +274,37 @@ in
   specialisation = {
     nvidia.configuration = {
       services.xserver.videoDrivers = [ "nvidia" ];
-      hardware.opengl.enable = true;
-      hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.latest;
-      hardware.nvidia.modesetting.enable = true;
-      hardware.nvidia.prime = {
-        sync.enable = true;
-        nvidiaBusId = "PCI:1:0:0";
-        intelBusId = "PCI:0:2:0";
+      # programs.hyprland.nvidiaPatched = true;
+      hardware = {
+        opengl.enable = true;
+        nvidia.package = config.boot.kernelPackages.nvidiaPackages.latest;
+        nvidia.modesetting.enable = true;
+        nvidia.prime = {
+          sync.enable = true;
+          nvidiaBusId = "PCI:1:0:0";
+          intelBusId = "PCI:0:2:0";
+        };
+      };
+    };
+    x11.configuration = {
+      services.xserver = {
+        displayManager = {
+          defaultSession = "none+i3";
+          gdm.wayland = false;
+        };
+        layout = "us";
+        xkbOptions = "caps:escape_shifted_capslock";
+        xkbVariant = "";
+        libinput.enable = true;
+        windowManager.i3.enable = true;
+      };
+
+      xdg.portal = {
+        enable = true;
+        extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
       };
     };
   };
-
-  #powerManagement = {
-  #  enable = true;
-  #  cpuFreqGovernor = "powersave";
-  #  # Messes with usb devices autosuspend
-  #  #powertop.enable = true;
-  #};
 
   system = {
     autoUpgrade.enable = true;

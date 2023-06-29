@@ -6,13 +6,16 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    hyprland.url = "github:hyprwm/Hyprland";
   };
 
   outputs =
     { self
     , nixpkgs
     , home-manager
-    }:
+    , ...
+    } @ inputs:
     let
       user = "keshav";
       system = "x86_64-linux";
@@ -26,6 +29,7 @@
       nixosConfigurations = {
         laptop = lib.nixosSystem {
           inherit system;
+          specialArgs = { inherit inputs; };
           modules = [
             ./configuration.nix
             home-manager.nixosModules.home-manager

@@ -17,6 +17,7 @@
         cmatrix
         coreutils
         cowsay
+        dmenu
         docker
         docker-compose
         dracula-icon-theme
@@ -36,8 +37,10 @@
         go
         gparted
         graphicsmagick
+        grim
         gtk3
         gum
+        hyprpicker
         imagemagick
         killall
         kitty
@@ -71,6 +74,7 @@
         rofi
         rofimoji
         spotify
+        slurp
         # Nix language features
         nixpkgs-fmt
         statix
@@ -78,7 +82,10 @@
         stdenv
         stow
         stylua
+        swayidle
+        swaylock
         sxhkd
+        swww
         tig
         tldr
         tmux
@@ -92,9 +99,15 @@
         vscode
         watchman
         wget
+        wl-clipboard
+        wofi
+        waybar
         xclip
         xdg-desktop-portal-gtk
         xdotool
+        xdg-desktop-portal
+        xdg-desktop-portal-hyprland
+        xdg-desktop-portal-wlr
         xorg.libX11
         xorg.libX11.dev
         xorg.libxcb
@@ -122,13 +135,14 @@
     };
 
   services = {
-    betterlockscreen.enable = true;
+    # betterlockscreen.enable = true;
+    # flameshot.enable = true;
     clipmenu.enable = true;
-    flameshot.enable = true;
   };
 
   programs = {
     home-manager.enable = true;
+    swaylock.enable = true;
     btop.enable = true;
     feh.enable = true;
     exa.enable = true;
