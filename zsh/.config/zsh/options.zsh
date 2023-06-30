@@ -9,7 +9,7 @@ setopt globdots             # tab-complete dotfiles
 setopt menucomplete         # tab-expand to first option immediately
 setopt autocd               # change dirs without 'cd'
 setopt hist_ignore_dups     # don't add duplicate cmd to hist
-setopt no_autoremoveslash   # keep trailing slash after dir completion
+# setopt no_autoremoveslash   # keep trailing slash after dir completion
 setopt interactivecomments  # enable comments in shell commands
 disable r                   # remove irritating alias
 setopt NO_HUP # don't kill background jobs when the shell exits
