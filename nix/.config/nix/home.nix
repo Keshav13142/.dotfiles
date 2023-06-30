@@ -93,6 +93,9 @@
         # Desktop
         brillo
         dmenu
+        qogir-theme
+        papirus-icon-theme
+        qogir-icon-theme
         dracula-icon-theme
         dracula-theme
         dunst
@@ -117,6 +120,7 @@
         rofi-wayland
         slurp
         swappy
+        swayidle
         swaylock-effects
         swww
         waybar
@@ -151,20 +155,18 @@
 
       pointerCursor = {
         gtk.enable = true;
-        name = "Catpuccin Mocha";
-        package = pkgs.catppuccin-cursors.mochaMauve;
+        package = pkgs.qogir-icon-theme;
+        name = "Qogir";
         size = 16;
       };
     };
 
-  services = {
-    swayidle.enable = true;
-
-    # Xorg X11
-    # betterlockscreen.enable = true;
-    # flameshot.enable = true;
-    # clipmenu.enable = true;
-  };
+  # Xorg X11
+  # services = {
+  #   betterlockscreen.enable = true;
+  #   flameshot.enable = true;
+  #   clipmenu.enable = true;
+  # };
 
   programs = {
     home-manager.enable = true;
@@ -257,20 +259,19 @@
   gtk = {
     enable = true;
     theme = {
-      #name = "Dracula";
-      #package = pkgs.dracula-theme;
       name = "Catppuccin-Mocha";
-      package = pkgs.catppuccin-gtk.override {
-        accents = [ "mauve" ];
-        size = "standard";
-        tweaks = [ "rimless" "black" ];
-        variant = "mocha";
-      };
+      package = pkgs.qogir-theme;
+      #   name = "Catppuccin-Mocha";
+      #   package = pkgs.catppuccin-gtk.override {
+      #     accents = [ "mauve" ];
+      #     size = "standard";
+      #     tweaks = [ "rimless" "black" ];
+      #     variant = "mocha";
+      #   };
     };
     iconTheme = {
       name = "Dracula";
-      package = pkgs.dracula-icon-theme
-      ;
+      package = pkgs.dracula-icon-theme;
     };
     gtk3.extraConfig = {
       gtk-application-prefer-dark-theme = 1;
