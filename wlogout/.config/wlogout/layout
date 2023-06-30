@@ -1,13 +1,13 @@
 {
-    "label" : "lock",
-    "action" : "swaylock",
-    "text" : "Lock"
+    "label" : "shutdown",
+    "action" : "poweroff",
+    "text" : "Shutdown"
 }
 
 {
-    "label" : "hibernate",
-    "action" : "systemctl hibernate",
-    "text" : "Hibernate"
+    "label" : "reboot",
+    "action" : "reboot",
+    "text" : "Reboot"
 }
 
 {
@@ -17,9 +17,9 @@
 }
 
 {
-    "label" : "shutdown",
-    "action" : "systemctl poweroff",
-    "text" : "Shutdown"
+    "label" : "lock",
+    "action" : "swaylock",
+    "text" : "Lock"
 }
 
 {
@@ -29,7 +29,7 @@
 }
 
 {
-    "label" : "reboot",
-    "action" : "systemctl reboot",
-    "text" : "Reboot"
+    "label" : "hibernate",
+    "action" : "systemctl hibernate",
+    "text" : "Hibernate"
 }
