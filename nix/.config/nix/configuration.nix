@@ -20,7 +20,7 @@ in
       efi.canTouchEfiVariables = true;
     };
     supportedFilesystems = [ "ntfs" "ntfs3" ];
-    # kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_latest;
   };
 
   networking = {
@@ -93,6 +93,7 @@ in
       enable = true;
       xwayland.enable = true;
       package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+      # nvidiaPatched = true;
     };
   };
 
@@ -116,6 +117,10 @@ in
     docker = {
       enable = true;
       enableOnBoot = false;
+      autoPrune = {
+        enable = true;
+        dates = "weekly";
+      };
     };
     libvirtd.enable = true;
   };
@@ -126,6 +131,7 @@ in
   services = {
     # Xserver config
     xserver = {
+      videoDrivers = [ "nvidia" ];
       enable = true;
       displayManager = {
         lightdm.enable = true;
@@ -134,10 +140,20 @@ in
           wayland = true;
         };
       };
+      # X11 + i3
+      # displayManager = {
+      #   defaultSession = "none+i3";
+      #   gdm.wayland = false;
+      # };
+      # layout = "us";
+      # xkbOptions = "caps:escape_shifted_capslock";
+      # xkbVariant = "";
+      # libinput.enable = true;
+      # windowManager.i3.enable = true;
     };
-    printing.enable = true;
     # For nautilus to work properly
     gvfs.enable = true;
+    printing.enable = true;
     flatpak.enable = true;
     cron.enable = true;
     gnome.gnome-keyring.enable = true;
@@ -204,6 +220,11 @@ in
     '';
   };
 
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  };
+
   hardware = {
     pulseaudio.enable = false;
     bluetooth.enable = true;
@@ -211,6 +232,15 @@ in
       enable = true;
       driSupport = true;
       driSupport32Bit = true;
+    };
+    nvidia = {
+      package = config.boot.kernelPackages.nvidiaPackages.latest;
+      modesetting.enable = true;
+      prime = {
+        sync.enable = true;
+        nvidiaBusId = "PCI:1:0:0";
+        intelBusId = "PCI:0:2:0";
+      };
     };
   };
 
@@ -241,6 +271,7 @@ in
       max-jobs = "auto";
       cores = 0; # use them all
       allowed-users = [ "@wheel" ];
+      warn-dirty = false;
     };
     gc = {
       automatic = true;
@@ -261,6 +292,7 @@ in
       polybar = pkgs.polybar.override {
         i3Support = true;
       };
+      # When using X11
       # rofi = pkgs.rofi.override {
       #   plugins = [
       #     pkgs.rofi-calc
@@ -271,47 +303,12 @@ in
           pkgs.rofi-calc
         ];
       };
+      # TO enable hyprland support
       waybar = pkgs.waybar.overrideAttrs (oldAttrs: {
         mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
       });
     };
     allowUnfree = true;
-  };
-
-  # Nvidia Configuration
-  specialisation = {
-    nvidia.configuration = {
-      services.xserver.videoDrivers = [ "nvidia" ];
-      # programs.hyprland.nvidiaPatched = true;
-      hardware = {
-        opengl.enable = true;
-        nvidia.package = config.boot.kernelPackages.nvidiaPackages.latest;
-        nvidia.modesetting.enable = true;
-        nvidia.prime = {
-          sync.enable = true;
-          nvidiaBusId = "PCI:1:0:0";
-          intelBusId = "PCI:0:2:0";
-        };
-      };
-    };
-    x11.configuration = {
-      services.xserver = {
-        displayManager = {
-          defaultSession = "none+i3";
-          gdm.wayland = false;
-        };
-        layout = "us";
-        xkbOptions = "caps:escape_shifted_capslock";
-        xkbVariant = "";
-        libinput.enable = true;
-        windowManager.i3.enable = true;
-      };
-
-      xdg.portal = {
-        enable = true;
-        extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-      };
-    };
   };
 
   system = {
