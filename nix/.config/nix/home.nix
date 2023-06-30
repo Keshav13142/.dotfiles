@@ -6,88 +6,62 @@
       username = "${user}";
       homeDirectory = "/home/${user}";
       packages = with pkgs; [
-        android-studio
-        android-tools
+        # Applications
         authy
         bitwarden
         brave
-        brillo
-        cargo
-        clang-tools_9
-        cliphist
-        cmatrix
-        coreutils
-        cowsay
-        deadnix
-        dmenu
-        docker
-        docker-compose
-        dracula-icon-theme
-        dracula-theme
-        dunst
-        espanso
-        fd
-        ffmpeg
-        figlet
-        fnm
-        gcc
         gimp
-        gitmux
-        glow
-        gnome.nautilus
-        gnumake
-        go
-        gparted
-        graphicsmagick
-        grim
-        gtk3
-        gum
-        hyprpicker
-        imagemagick
-        killall
-        kitty
-        lf
-        libnotify
         libreoffice-qt
-        lxappearance
         mpv
-        mysql-workbench
-        neofetch
-        networkmanagerapplet
-        nfs-utils
-        ninja
-        nixpkgs-fmt
-        nodejs
         obs-studio
         okular
+        spotify
+        virt-manager
+        vlc
+        espanso
+
+        # Cli looks nice
+        cmatrix
+        cowsay
+        figlet
+        glow
+        gum
+        neofetch
+        ninja
+        tig
+
+        # Build tools?
+        clang-tools_9
+        coreutils
+        gcc
+        gnumake
+
+        # Nix language support
+        deadnix
+        nixpkgs-fmt
+        statix
+
+        # Utils
+        fd
+        ffmpeg
+        fnm
+        gitmux
+        gparted
+        graphicsmagick
+        imagemagick
+        killall
+        lf
+        libnotify
+        nfs-utils
         openssl
-        pamixer
-        pavucontrol
         pciutils
-        picom
-        playerctl
         polkit_gnome
-        polybar
         powertop
-        python310Packages.pip
-        python3Full
-        pywal
         qemu
         ripgrep
-        # rofi
-        rofimoji
-        rofi-wayland
-        slurp
-        spotify
-        statix
         stdenv
         stow
         stylua
-        swayidle
-        swaylock-effects
-        swww
-        sxhkd
-        tig
         tldr
         tmux
         trash-cli
@@ -95,34 +69,80 @@
         unrar
         unzip
         usbutils
-        virt-manager
-        vlc
-        vscode
-        watchman
-        waybar
         wget
-        wl-clipboard
-        wlsunset
-        xclip
-        xdg-desktop-portal
-        xdg-desktop-portal-gtk
-        xdg-desktop-portal-hyprland
-        xdg-desktop-portal-wlr
-        xdotool
-        xorg.libX11
-        xorg.libX11.dev
-        xorg.libxcb
-        xorg.libXft
-        xorg.libXinerama
-        xorg.xbacklight
-        xorg.xev
-        xorg.xinit
-        xorg.xinput
-        xorg.xkill
-        xorg.xmodmap
-        xsel
         yt-dlp
         zip
+
+        # Dev
+        android-studio
+        android-tools
+        cargo
+        docker
+        docker-compose
+        go
+        mysql-workbench
+        nodejs
+        python310Packages.pip
+        python3Full
+        vscode
+        watchman
+        xdg-desktop-portal
+        xdg-desktop-portal-gtk
+
+        # Desktop
+        brillo
+        dmenu
+        dracula-icon-theme
+        dracula-theme
+        dunst
+        gnome.nautilus
+        gtk3
+        kitty
+        networkmanagerapplet
+        pamixer
+        pavucontrol
+        playerctl
+        pywal
+        rofimoji
+        wlsunset
+        xfce.thunar
+
+        # Wayland
+        cliphist
+        # dbus-hyprland-environment
+        glib
+        grim
+        hyprpicker
+        rofi-wayland
+        slurp
+        swappy
+        swaylock-effects
+        swww
+        waybar
+        wl-clipboard
+        wlogout
+        wlr-randr
+
+        # Xorg/X11
+        xclip
+        xorg.xev
+        # lxappearance
+        # picom
+        # polybar
+        # rofi
+        # sxhkd
+        # xdotool
+        # xorg.libX11
+        # xorg.libX11.dev
+        # xorg.libxcb
+        # xorg.libXft
+        # xorg.libXinerama
+        # xorg.xbacklight
+        # xorg.xinit
+        # xorg.xinput
+        # xorg.xkill
+        # xorg.xmodmap
+        # xsel
       ];
 
       stateVersion = "23.05";
@@ -136,15 +156,18 @@
     };
 
   services = {
+    swayidle.enable = true;
+
+    # Xorg X11
     # betterlockscreen.enable = true;
     # flameshot.enable = true;
-    clipmenu.enable = true;
+    # clipmenu.enable = true;
   };
 
   programs = {
     home-manager.enable = true;
+    # feh.enable = true;
     btop.enable = true;
-    feh.enable = true;
     exa.enable = true;
     neovim.enable = true;
     alacritty.enable = true;
