@@ -4,13 +4,7 @@ alias tm='tmux'
 alias tn='tmux new -s $(pwd | sed "s/.*\///g")'
 alias et='exit'
 
-# use bat if available
-if [[ -x "$(command -v bat)" ]]; then
-	alias cat='bat -p'
-fi
-if [[ -x "$(command -v batcat)" ]]; then
-	alias cat='batcat -p'
-fi
+# use batman if available
 if [[ -x "$(command -v batman)" ]]; then
 	alias man='batman'
 fi
@@ -34,8 +28,7 @@ alias lg='lazygit'
 alias clip='xclip -selection clipboard'
 alias cd='z'
 alias rm='trash'
-alias tr='trash'
-alias trr='trash-restore'
+alias trs='trash-restore'
 alias tl='trash-list'
 alias mv="mv -iv"
 alias cp='cp -iv'
