@@ -42,6 +42,7 @@
         statix
 
         # Utils
+        cava
         fd
         ffmpeg
         fnm
@@ -109,16 +110,17 @@
 
         # Wayland
         cliphist
-        # dbus-hyprland-environment
         glib
         grim
         hyprpicker
+        libsForQt5.qt5.qtwayland
         rofi-wayland
         slurp
         swappy
         swaylock-effects
         swww
         waybar
+        wayland-protocols
         wl-clipboard
         wlogout
         wlr-randr
@@ -269,6 +271,12 @@
       name = "Dracula";
       package = pkgs.dracula-icon-theme
       ;
+    };
+    gtk3.extraConfig = {
+      gtk-application-prefer-dark-theme = 1;
+    };
+    gtk4.extraConfig = {
+      gtk-application-prefer-dark-theme = 1;
     };
   };
 }

@@ -90,10 +90,10 @@ in
     zsh.enable = true;
     dconf.enable = true;
     hyprland = {
-      enable = true;
       xwayland.enable = true;
+      enable = true;
       package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-      # nvidiaPatched = true;
+      # nvidiaPatches = true;
     };
   };
 
@@ -131,7 +131,7 @@ in
   services = {
     # Xserver config
     xserver = {
-      videoDrivers = [ "nvidia" ];
+      # videoDrivers = [ "nvidia" ];
       enable = true;
       displayManager = {
         lightdm.enable = true;
@@ -222,7 +222,10 @@ in
 
   xdg.portal = {
     enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    xdgOpenUsePortal = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+    ];
   };
 
   hardware = {
@@ -233,15 +236,18 @@ in
       driSupport = true;
       driSupport32Bit = true;
     };
-    nvidia = {
-      package = config.boot.kernelPackages.nvidiaPackages.latest;
-      modesetting.enable = true;
-      prime = {
-        sync.enable = true;
-        nvidiaBusId = "PCI:1:0:0";
-        intelBusId = "PCI:0:2:0";
-      };
-    };
+    # nvidia = {
+    #   open = false;
+    #   # package = config.boot.kernelPackages.nvidiaPackages.stable;
+    #   forceFullCompositionPipeline = true;
+    #   modesetting.enable = true;
+    #   powerManagement.enable = true;
+    #   prime = {
+    #     reverseSync.enable = true;
+    #     nvidiaBusId = "PCI:1:0:0";
+    #     intelBusId = "PCI:0:2:0";
+    #   };
+    # };
   };
 
   systemd = {
