@@ -247,27 +247,18 @@
     };
   };
 
-  dconf = {
-    enable = true;
-    settings = {
-      "org/gnome/desktop/interface" = {
-        color-scheme = "prefer-dark";
-      };
-    };
-  };
-
   gtk = {
     enable = true;
     theme = {
-      name = "Catppuccin-Mocha";
+      name = "Qogir";
       package = pkgs.qogir-theme;
-      #   name = "Catppuccin-Mocha";
-      #   package = pkgs.catppuccin-gtk.override {
-      #     accents = [ "mauve" ];
-      #     size = "standard";
-      #     tweaks = [ "rimless" "black" ];
-      #     variant = "mocha";
-      #   };
+      # name = "Catppuccin";
+      # package = pkgs.catppuccin-gtk.override {
+      #   accents = [ "mauve" ];
+      #   size = "standard";
+      #   tweaks = [ "rimless" "black" ];
+      #   variant = "mocha";
+      # };
     };
     iconTheme = {
       name = "Dracula";
@@ -280,4 +271,20 @@
       gtk-application-prefer-dark-theme = 1;
     };
   };
+
+  dconf = {
+    enable = true;
+    settings = {
+      "org/gnome/desktop/interface" = {
+        gtk-key-theme = "Qogir";
+        color-scheme = "prefer-dark";
+      };
+    };
+  };
+
+  xdg.systemDirs.data = [
+    "${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}"
+    "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}"
+  ];
+
 }
