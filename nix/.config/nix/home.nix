@@ -169,16 +169,17 @@
 
   programs = {
     home-manager.enable = true;
-    # feh.enable = true;
-    btop.enable = true;
-    ssh.enable = true;
-    obs-studio.enable = true;
-    yt-dlp.enable = true;
-    mpv.enable = true;
-    exa.enable = true;
-    neovim.enable = true;
     alacritty.enable = true;
+    btop.enable = true;
+    exa.enable = true;
+    # feh.enable = true;
     lazygit.enable = true;
+    mpv.enable = true;
+    neovim.enable = true;
+    obs-studio.enable = true;
+    ssh.enable = true;
+    yt-dlp.enable = true;
+    zathura.enable = true;
     java = {
       enable = true;
       package = pkgs.jdk11;
@@ -255,13 +256,6 @@
     theme = {
       name = "Qogir";
       package = pkgs.qogir-theme;
-      # name = "Catppuccin";
-      # package = pkgs.catppuccin-gtk.override {
-      #   accents = [ "mauve" ];
-      #   size = "standard";
-      #   tweaks = [ "rimless" "black" ];
-      #   variant = "mocha";
-      # };
     };
     iconTheme = {
       name = "Dracula";
