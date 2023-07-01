@@ -1,6 +1,9 @@
 daemonize
 show-failed-attempts
+ignore-empty-password
 clock
+image=~/Pictures/wallpapers/0131.jpg
+
 effect-blur=9x5
 effect-vignette=0.5:0.5
 color=1f1d2e80
@@ -34,4 +37,3 @@ grace-no-touch
 datestr=%a, %B %e
 timestr=%I:%M %p
 fade-in=0
-ignore-empty-password
