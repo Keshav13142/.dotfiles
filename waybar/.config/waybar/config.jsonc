@@ -60,7 +60,7 @@
 
   "custom/power_btn": {
     "format": "",
-    "on-click": "wlogout --protocol layer-shell",
+    "on-click": "wlogout --buttons-per-row 4 -c 20 --margin 400 -p layer-shell",
     "tooltip": false
   },
 
