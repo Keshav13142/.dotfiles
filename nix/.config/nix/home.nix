@@ -10,15 +10,12 @@
         authy
         bitwarden
         brave
+        espanso
         gimp
         libreoffice-qt
         mpv
-        obs-studio
-        okular
         spotify
         virt-manager
-        vlc
-        espanso
 
         # Cli looks nice
         cmatrix
@@ -54,7 +51,6 @@
         lf
         libnotify
         nfs-utils
-        openssl
         pciutils
         polkit_gnome
         powertop
@@ -71,7 +67,6 @@
         unzip
         usbutils
         wget
-        yt-dlp
         zip
 
         # Dev
@@ -93,9 +88,6 @@
         # Desktop
         brillo
         dmenu
-        qogir-theme
-        papirus-icon-theme
-        qogir-icon-theme
         dracula-icon-theme
         dracula-theme
         dunst
@@ -104,9 +96,12 @@
         kitty
         networkmanagerapplet
         pamixer
+        papirus-icon-theme
         pavucontrol
         playerctl
         pywal
+        qogir-icon-theme
+        qogir-theme
         rofimoji
         wlsunset
         xfce.thunar
@@ -161,17 +156,25 @@
       };
     };
 
-  # Xorg X11
-  # services = {
-  #   betterlockscreen.enable = true;
-  #   flameshot.enable = true;
-  #   clipmenu.enable = true;
-  # };
+  services = {
+    mpd = {
+      enable = true;
+      musicDirectory = "/run/media/keshav/Media/Music/";
+    };
+    # Xorg X11
+    # betterlockscreen.enable = true;
+    # flameshot.enable = true;
+    # clipmenu.enable = true;
+  };
 
   programs = {
     home-manager.enable = true;
     # feh.enable = true;
     btop.enable = true;
+    ssh.enable = true;
+    obs-studio.enable = true;
+    yt-dlp.enable = true;
+    mpv.enable = true;
     exa.enable = true;
     neovim.enable = true;
     alacritty.enable = true;
