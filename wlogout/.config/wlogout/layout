@@ -20,22 +20,8 @@
 }
 
 {
-  "label" : "lock",
-  "action" : "swaylock",
-  "text" : "Lock"
-  "keybind" : "l"
-}
-
-{
   "label" : "suspend",
   "action" : "systemctl suspend",
   "text" : "Suspend"
   "keybind" : "s"
-}
-
-{
-  "label" : "hibernate",
-  "action" : "systemctl hibernate",
-  "text" : "Hibernate"
-  "keybind" : "h"
 }
