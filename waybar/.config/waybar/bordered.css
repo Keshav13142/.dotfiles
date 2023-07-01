@@ -1,0 +1,129 @@
+* {
+  border: none;
+  border-radius: 0;
+  font-family: "JetBrainsMono Nerd Font";
+  font-weight: bold;
+  font-size: 15px;
+  min-height: 0;
+}
+
+window#waybar {
+  background: rgba(21, 18, 27, 0);
+  color: #f6f7fc;
+}
+
+tooltip {
+  background: #1e1e2e;
+  opacity: 0.8;
+  border-radius: 10px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #11111b;
+}
+
+tooltip label {
+  color: #cdd6f4;
+}
+
+#workspaces button {
+  padding: 5px;
+  color: #f6f7fc;
+  margin-right: 5px;
+}
+
+#workspaces button.active {
+  color: #a6e3a1;
+  background: transparent;
+}
+
+#workspaces button:hover {
+  color: #cdd6f4;
+  background: transparent;
+}
+
+#custom-lock_screen,
+#custom-power_btn,
+#window,
+#cpu,
+#disk,
+#custom-updates,
+#memory,
+#clock,
+#battery,
+#pulseaudio,
+#tray,
+#workspaces,
+#idle_inhibitor,
+#backlight {
+  background: rgba(21, 18, 27, 0);
+  opacity: 1;
+  padding: 0px 10px;
+  border: 0px;
+  background: #24283b;
+}
+
+#workspaces {
+  padding-right: 0px;
+  padding-left: 5px;
+}
+
+#window {
+  border-radius: 10px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+#cpu,
+#memory {
+  border-top: 1px solid #0c0d14;
+  border-bottom: 1px solid #0c0d14;
+}
+
+#workspaces {
+  border-left: 1px solid #0c0d14;
+  border-top: 1px solid #0c0d14;
+  border-bottom: 1px solid #0c0d14;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+#disk {
+  border-right: 1px solid #0c0d14;
+  border-top: 1px solid #0c0d14;
+  border-bottom: 1px solid #0c0d14;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+#pulseaudio,
+#backlight,
+#clock,
+#custom-lock_screen,
+#battery,
+#memory {
+  border-top: 1px solid #0c0d14;
+  border-bottom: 1px solid #0c0d14;
+}
+
+#tray {
+  border-left: 1px solid #0c0d14;
+  border-top: 1px solid #0c0d14;
+  border-bottom: 1px solid #0c0d14;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+#custom-power_btn {
+  border-right: 1px solid #0c0d14;
+  border-top: 1px solid #0c0d14;
+  border-bottom: 1px solid #0c0d14;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+#custom-playerlabel {
+  border: 1px solid #0c0d14;
+  border-radius: 10px;
+  padding: 0px 10px;
+  background: #24283b;
+}
