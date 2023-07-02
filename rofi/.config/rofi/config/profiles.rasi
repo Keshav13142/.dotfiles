@@ -1,0 +1,9 @@
+@import "powermenu.rasi"
+
+element-text {
+  font: "JetBrains Mono Nerd Font 25";
+}
+
+listview {
+  lines:  5;
+}

@@ -2,32 +2,12 @@
 
 rofi_command="rofi -theme $HOME/.config/rofi/config/refresh.rasi"
 
-# Options
-ddir="$HOME/.config/rofi/config"
-
-# Ask for confirmation
-rdialog() {
-	rofi -dmenu -i -no-fixed-num-lines -p "Are You Sure? : " \
-		-theme "$ddir/confirm.rasi"
-}
-
-# Variable passed to rofi
-options="144\n60"
-
-chosen="$(echo -e "$options" | $rofi_command -p "UP - $uptime" -dmenu -selected-row 0)"
+chosen="$(echo -e "144\n60" | $rofi_command -dmenu -selected-row 0)"
 case $chosen in
 144)
-	ans=$(rdialog &)
-	if [[ $ans == "Y" ]] || [[ $ans == "y" ]]; then
-		xrandr -r 144
-		hyprctl keyword monitor "eDP-1,1920x1080@144,0x0,1"
-	fi
+	xrandr -r 144
 	;;
 60)
-	ans=$(rdialog &)
-	if [[ $ans == "Y" ]] || [[ $ans == "y" ]]; then
-		xrandr -r 60
-		hyprctl keyword monitor "eDP-1,1920x1080@60,0x0,1"
-	fi
+	xrandr -r 60
 	;;
 esac

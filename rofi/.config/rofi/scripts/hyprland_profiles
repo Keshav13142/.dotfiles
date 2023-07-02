@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+rofi_command="rofi -theme $HOME/.config/rofi/config/profiles.rasi"
+
+chosen="$(echo -e "󱐌\n󱟢" | $rofi_command -dmenu -selected-row 0)"
+case $chosen in
+󱐌)
+	hyprctl keyword monitor "eDP-1,1920x1080@144,0x0,1"
+	hyprctl reload
+	;;
+󱟢)
+	hyprctl keyword monitor "eDP-1,1920x1080@60,0x0,1"
+	hyprctl --batch "\
+        keyword animations:enabled 0;\
+        keyword decoration:blur 0;\
+        keyword general:gaps_in 0;\
+        keyword general:gaps_out 0;\
+        keyword general:border_size 1;\
+        keyword decoration:rounding 0"
+	;;
+esac
