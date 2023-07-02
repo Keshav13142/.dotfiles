@@ -229,7 +229,10 @@
       };
       extraConfig =
         {
-          gpg.format = "ssh";
+          gpg = {
+            format = "ssh";
+            ssh.allowedSignersFile = "~/.ssh/allowed_signers";
+          };
           user.signingKey = "~/.ssh/id_rsa.pub";
           core = {
             excludesFile = "~/.gitignore";
