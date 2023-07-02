@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+if [ "$(playerctl status -a 2>/dev/null | grep "Playing")" = "Playing" ]; then
+	echo 
+fi
+
+if [ "$(playerctl status -a 2>/dev/null | grep "Paused")" = "Paused" ]; then
+	echo 
+fi

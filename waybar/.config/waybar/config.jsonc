@@ -7,7 +7,7 @@
   "height": 20,
   "margin": "5 5 0 5",
   "modules-left": ["wlr/workspaces", "cpu", "memory", "disk"],
-  "modules-center": ["custom/playerlabel"],
+  "modules-center": ["custom/playpause", "custom/playerlabel"],
   "modules-right": [
     "tray",
     "pulseaudio#microphone",
@@ -58,18 +58,6 @@
     }
   },
 
-  "custom/power_btn": {
-    "format": "",
-    "on-click": "wlogout --buttons-per-row 4 -c 20 --margin 400 -p layer-shell",
-    "tooltip": false
-  },
-
-  "custom/lock_screen": {
-    "format": "",
-    "on-click": "swaylock",
-    "tooltip": false
-  },
-
   "wlr/workspaces": {
     "disable-scroll": true,
     "all-outputs": true,
@@ -114,16 +102,6 @@
     "format": "{}",
     "max-length": "30",
     "separate-outputs": true
-  },
-
-  "custom/playerlabel": {
-    "format": "<span>{}</span>",
-    "return-type": "json",
-    "max-length": 30,
-    "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
-    "on-click-middle": "playerctl play-pause",
-    "on-click": "playerctl previous",
-    "on-click-right": "playerctl next"
   },
 
   "battery": {
@@ -175,5 +153,34 @@
   "tray": {
     "icon-size": 16,
     "spacing": 10
+  },
+
+  "custom/power_btn": {
+    "format": "",
+    "on-click": "wlogout --buttons-per-row 4 -c 20 --margin 400 -p layer-shell",
+    "tooltip": false
+  },
+
+  "custom/lock_screen": {
+    "format": "",
+    "on-click": "swaylock",
+    "tooltip": false
+  },
+
+  "custom/playerlabel": {
+    "format": "<span>{}</span>",
+    "return-type": "json",
+    "max-length": 30,
+    "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+    "on-click-middle": "playerctl play-pause",
+    "on-click": "playerctl previous",
+    "on-click-right": "playerctl next"
+  },
+
+  "custom/playpause": {
+    "format": "<span>{}</span>",
+    "exec": "$HOME/.config/waybar/scripts/music",
+    "on-click": "playerctl play-pause",
+    "interval": 1
   }
 }
