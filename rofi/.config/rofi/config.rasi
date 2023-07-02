@@ -1,6 +1,6 @@
 configuration {
 	/*---------- General setting ----------*/
-  modi: "drun,run,calc";
+  modi: "drun,calc";
 	case-sensitive: false;
 	cycle: true;
 	filter: "";
@@ -8,6 +8,16 @@ configuration {
 	show-icons: true;
 	icon-theme: "Dracula";
 	steal-focus: false;
+	terminal: "kitty";
+  font: "JetBrainsMono Nerd Font 13";
+	click-to-exit: true;
+
+	/*---------- Other settings ----------*/
+  timeout {
+    action: "kb-cancel";
+    delay:  0;
+  }
+
 
 	/*---------- Matching setting ----------*/
 	normalize-match: true;
@@ -52,28 +62,31 @@ configuration {
 
 	/*---------- History and Sorting ----------*/
 	disable-history: false;
+	sort: true;
 	sorting-method: "normal";
 	max-history-size: 25;
 
 	/*---------- Display setting ----------*/
-	display-window: "Windows";
-	display-windowcd: "Window CD";
-	display-run: "Run";
-	display-ssh: "SSH";
-	display-drun: "Apps";
-	display-combi: "Combi";
-	display-keys: "Keys";
-	display-filebrowser: "Files";
+	display-combi: "󱟱";
+  display-drun: "";
+  display-filebrowser: "";
+	display-keys: "";
+	display-calc: "󰪚";
+  display-run: "";
+	display-ssh: "󰣀";
+  display-window: "";
+	display-windowcd: "";
 
-	/*---------- Misc setting ----------*/
-	terminal: "alacritty";
-	font: "Mono 13";
-	sort: false;
-	click-to-exit: true;
-
-	/*---------- Other settings ----------*/
-  timeout {
-    action: "kb-cancel";
-    delay:  0;
-  }
+	/*---------- Keymaps ----------*/
+  kb-remove-to-eol: "";
+  kb-accept-entry: "Return";
+  kb-row-up: "Up,Control+p,Control+k";
+  kb-row-down: "Down,Control+n,Control+j";
+  kb-remove-to-sol: "";
+  kb-move-char-back: "Left";
+  kb-move-char-forward: "Right";
+  kb-remove-char-forward: "";
+  kb-remove-char-backward: "";
+  kb-page-prev: "Page_Up,Control+u";
+  kb-page-next: "Page_Down,Control+d";
 }
