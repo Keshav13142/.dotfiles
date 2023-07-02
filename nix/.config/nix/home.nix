@@ -8,6 +8,7 @@
       packages = with pkgs; [
         # Applications
         authy
+        amberol
         bitwarden
         brave
         espanso
@@ -118,6 +119,7 @@
         swayidle
         swaylock-effects
         swww
+        wev
         waybar
         wayland-protocols
         wl-clipboard
@@ -125,8 +127,8 @@
         wlr-randr
 
         # Xorg/X11
-        xclip
-        xorg.xev
+        # xclip
+        # xorg.xev
         # lxappearance
         # picom
         # polybar
@@ -228,7 +230,7 @@
       extraConfig =
         {
           gpg.format = "ssh";
-          user.signinKey = "~/.ssh/id_rsa";
+          user.signingKey = "~/.ssh/id_rsa.pub";
           core = {
             excludesFile = "~/.gitignore";
             editor = "nvim";
