@@ -227,11 +227,22 @@
       };
       extraConfig =
         {
+          gpg.format = "ssh";
+          user.signinKey = "~/.ssh/id_rsa";
+          core = {
+            excludesFile = "~/.gitignore";
+            editor = "nvim";
+            fileMode = false;
+          };
           github.user = "keshav13142";
           color.ui = true;
           init.defaultBranch = "main";
           http.sslVerify = true;
           pull.rebase = true;
+          commit = {
+            verbose = true;
+            gpgsign = true;
+          };
         };
       # Really nice looking diffs
       delta = {
