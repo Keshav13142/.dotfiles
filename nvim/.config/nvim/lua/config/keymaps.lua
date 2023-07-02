@@ -72,3 +72,6 @@ nmap("<left>", "<C-w>h")
 nmap("<down>", "<C-w>j")
 nmap("<up>", "<C-w>k")
 nmap("<right>", "<C-w>l")
+
+-- Make files executable
+nmap("<leader>X", "<cmd>!chmod +x %<CR>")
