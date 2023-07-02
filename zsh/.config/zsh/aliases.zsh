@@ -25,7 +25,11 @@ fi
 
 alias rmf="rm -rf"
 alias lg='lazygit'
-alias clip='xclip -selection clipboard'
+if [[ -x "$(command -v xclip)" ]]; then
+  alias copy='xclip -selection clipboard'
+else
+  alias copy='wl-copy'
+fi
 alias cd='z'
 alias rm='trash'
 alias trs='trash-restore'
