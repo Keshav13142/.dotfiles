@@ -140,15 +140,15 @@ in
           wayland = true;
         };
       };
+      layout = "us";
+      libinput.enable = true;
       # X11 + i3
       # displayManager = {
       #   defaultSession = "none+i3";
       #   gdm.wayland = false;
       # };
-      # layout = "us";
       # xkbOptions = "caps:escape_shifted_capslock";
       # xkbVariant = "";
-      # libinput.enable = true;
       # windowManager.i3.enable = true;
     };
     # For nautilus to work properly
