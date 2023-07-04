@@ -53,11 +53,11 @@ tooltip label {
 }
 
 #workspaces button {
-  color: @color6;
+  color: @color15;
 }
 
 #workspaces button.active {
-  color: @color15;
+  color: @color6;
 }
 
 #workspaces button:hover {
