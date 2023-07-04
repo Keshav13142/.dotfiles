@@ -1,9 +1,13 @@
 #!/usr/bin/env bash
 
-rand_wall=$(find ~/Pictures/wallpapers/ -type f -name "*.jpg" | shuf -n 1 | head -n 1)
-swww img "$rand_wall" --transition-type grow --transition-pos "$(hyprctl cursorpos)" --transition-duration 1
-wal -qtsni "$rand_wall" >/dev/null 2>&1 &
+if [ -z "$1" ]; then
+	wall=$(find ~/Pictures/wallpapers/ -type f -name "*.jpg" | shuf -n 1 | head -n 1)
+else
+	wall=$1
+fi
+swww img "$wall" --transition-type grow --transition-pos "$(hyprctl cursorpos)" --transition-duration 1
+wal -qtsni "$wall" >/dev/null 2>&1 &
 disown
 sleep 1
-~/.config/waybar/scripts/launch      # Reload waybar
-ln -sf "$rand_wall" /tmp/lock_bg.jpg # Update lockscreen wallpaper
+~/.config/waybar/scripts/launch # Reload waybar
+ln -sf "$wall" /tmp/lock_bg.jpg # Update lockscreen wallpaper
