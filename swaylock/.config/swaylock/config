@@ -1,23 +1,40 @@
 daemonize
 show-failed-attempts
 ignore-empty-password
-clock
-image=~/Pictures/wallpapers/0131.jpg
+text-caps-lock-color=""
+font="JetBrainsMono Nerd Font"
 
+# Animation
+grace=0
+grace-no-mouse
+grace-no-touch
+fade-in=0
+
+# Indicator
+indicator
+indicator-radius=150
+indicator-thickness=10
+
+# Clock
+clock
+datestr=%a, %B %e
+timestr=%I:%M %p
+
+# Bg
+image=/tmp/lock_bg.jpg
+
+# Image Effects
 effect-blur=9x5
 effect-vignette=0.5:0.5
+
+# Colors
 color=1f1d2e80
-font="Inter"
-indicator
-indicator-radius=200
-indicator-thickness=20
 line-color=1f1d2e
 ring-color=191724
 inside-color=1f1d2e
 key-hl-color=eb6f92
 separator-color=00000000
 text-color=e0def4
-text-caps-lock-color=""
 line-ver-color=eb6f92
 ring-ver-color=eb6f92
 inside-ver-color=1f1d2e
@@ -31,9 +48,3 @@ ring-clear-color=9ccfd8
 line-clear-color=1f1d2e
 line-wrong-color=1f1d2e
 bs-hl-color=31748f
-grace=0
-grace-no-mouse
-grace-no-touch
-datestr=%a, %B %e
-timestr=%I:%M %p
-fade-in=0
