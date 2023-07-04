@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
 
-echo $1
-swww img "$1" --transition-type grow --transition-pos "$(hyprctl cursorpos)" --transition-duration 2
+rand_wall=$(find ~/Pictures/wallpapers/ -type f -name "*.jpg" | shuf -n 1 | head -n 1)
+swww img "$rand_wall" --transition-type grow --transition-pos "$(hyprctl cursorpos)" --transition-duration 2
+wal -qtsni "$rand_wall" >/dev/null 2>&1 &
+disown
+sleep 1
+~/.config/waybar/scripts/launch
