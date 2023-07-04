@@ -1,6 +1,6 @@
+@import url("/home/keshav/.cache/wal/colors-waybar.css");
+
 * {
-  border: none;
-  border-radius: 0;
   font-family: "JetBrainsMono Nerd Font";
   font-weight: bold;
   font-size: 15px;
@@ -8,37 +8,28 @@
 }
 
 window#waybar {
-  background: rgba(21, 18, 27, 0);
-  color: #f6f7fc;
+  background: transparent;
+  color: @foreground;
 }
 
 tooltip {
-  background: #1e1e2e;
+  background: @background;
   opacity: 0.8;
   border-radius: 10px;
-  border-width: 2px;
-  border-style: solid;
-  border-color: #11111b;
+  border: 1px solid @color5;
 }
 
 tooltip label {
-  color: #cdd6f4;
+  color: @foreground;
 }
 
-#workspaces button {
-  padding: 5px;
-  color: #f6f7fc;
-  margin-right: 5px;
-}
-
-#workspaces button.active {
-  color: #a6e3a1;
-  background: transparent;
-}
-
-#workspaces button:hover {
-  color: #cdd6f4;
-  background: transparent;
+.modules-left,
+.modules-right,
+.modules-center {
+  background: @background;
+  border: 1px solid @color12;
+  border-radius: 10px;
+  padding: 2px 7px;
 }
 
 #custom-lock_screen,
@@ -57,19 +48,17 @@ tooltip label {
 #workspaces,
 #idle_inhibitor,
 #backlight {
-  background: rgba(21, 18, 27, 0);
-  opacity: 1;
-  padding: 0px 10px;
-  border: 0px;
+  margin: 0px 10px;
 }
 
-#workspaces {
-  padding-right: 0px;
-  padding-left: 5px;
+#workspaces button {
+  color: @color6;
 }
 
-#window {
-  border-radius: 10px;
-  margin-left: 0px;
-  margin-right: 0px;
+#workspaces button.active {
+  color: @color15;
+}
+
+#workspaces button:hover {
+  color: @color10;
 }

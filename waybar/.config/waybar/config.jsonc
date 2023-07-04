@@ -7,17 +7,15 @@
   "height": 20,
   "margin": "5 5 0 5",
   "modules-left": ["wlr/workspaces", "cpu", "memory", "disk"],
-  "modules-center": ["custom/playpause", "custom/playerlabel"],
-  "modules-right": [
+  "modules-center": [
+    "custom/power_btn",
+    "custom/lock_screen",
     "tray",
     "pulseaudio#microphone",
-    "backlight",
-    "pulseaudio",
-    "battery",
-    "clock",
-    "custom/lock_screen",
-    "custom/power_btn"
+    "custom/playerlabel",
+    "custom/playpause"
   ],
+  "modules-right": ["backlight", "pulseaudio", "battery", "clock"],
 
   "idle_inhibitor": {
     "format": "{icon}",
