@@ -81,6 +81,7 @@
         helix
         mysql-workbench
         nodejs
+        nodePackages.prettier
         python310Packages.pip
         python3Full
         shellcheck
