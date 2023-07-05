@@ -1,11 +1,14 @@
 lvim.plugins = {
-	"ray-x/lsp_signature.nvim",
 	"folke/zen-mode.nvim",
+	-- Search and replace
 	"windwp/nvim-spectre",
-	"kylechui/nvim-surround",
-	"tpope/vim-speeddating",
+	-- Pairs of handy bracket mappings
 	"tpope/vim-unimpaired",
+	-- Better vim repeat
 	"tpope/vim-repeat",
+	-- extended incrementing/decrementing
+	"tpope/vim-speeddating",
+	-- Play with delimiters
 	{
 		"kylechui/nvim-surround",
 		version = "*", -- Use for stability; omit to use `main` branch for the latest features
@@ -16,89 +19,25 @@ lvim.plugins = {
 			})
 		end,
 	},
+	-- Additional typescript functionalities
 	{
 		"jose-elias-alvarez/typescript.nvim",
 		config = function()
 			require("typescript").setup({
 				disable_commands = false, -- prevent the plugin from creating Vim commands
 				debug = false, -- enable debug logging for commands
-				go_to_source_definition = {
-					fallback = true, -- fall back to standard LSP definition on failure
-				},
+				go_to_source_definition = {},
+				fallback = true, -- fall back to standard LSP definition on failure
 				server = {},
 			})
 		end,
 	},
-	{
-		"nvim-treesitter/nvim-treesitter-context",
-		config = function()
-			require("treesitter-context").setup({
-				enable = false, -- Enable this plugin (Can be enabled/disabled later via commands)
-				max_lines = 0, -- How many lines the window should span. Values <= 0 mean no limit.
-				min_window_height = 0, -- Minimum editor window height to enable context. Values <= 0 mean no limit.
-				line_numbers = true,
-				multiline_threshold = 20, -- Maximum number of lines to collapse for a single context line
-				trim_scope = "outer", -- Which context lines to discard if `max_lines` is exceeded. Choices: 'inner', 'outer'
-				mode = "cursor", -- Line used to calculate context. Choices: 'cursor', 'topline'
-				separator = nil,
-				zindex = 20,
-				on_attach = nil, -- (fun(buf: integer): boolean) return false to disable attaching
-				patterns = { -- Match patterns for TS nodes. These get wrapped to match at word boundaries.
-					default = {
-						"class",
-						"function",
-						"method",
-						-- 'for', -- These won't appear in the context
-						-- 'while',
-						-- 'if',
-						-- 'switch',
-						-- 'case',
-					},
-				},
-			})
-		end,
-	},
+	-- Use Ctrl + h,j,k,l to navigate across vim and tmux
 	{
 		"christoomey/vim-tmux-navigator",
 		lazy = false,
 	},
-	{
-		"sQVe/sort.nvim",
-		config = function()
-			require("sort").setup({})
-		end,
-	},
-	{
-		"catppuccin/nvim",
-		lazy = false,
-		priority = 1000,
-		config = function()
-			require("catppuccin").setup({
-				flavour = "mocha", -- latte, frappe, macchiato, mocha
-				term_colors = true,
-				transparent_background = false,
-				no_italic = false,
-				no_bold = false,
-				color_overrides = {
-					mocha = {
-						base = "#000000",
-						mantle = "#000000",
-						crust = "#000000",
-					},
-				},
-				highlight_overrides = {
-					mocha = function(C)
-						return {
-							TabLineSel = { bg = C.pink },
-							CmpBorder = { fg = C.surface2 },
-							Pmenu = { bg = C.none },
-							TelescopeBorder = { link = "FloatBorder" },
-						}
-					end,
-				},
-			})
-		end,
-	},
+	-- Hop to stuff
 	{
 		"phaazon/hop.nvim",
 		event = "BufRead",
@@ -108,6 +47,7 @@ lvim.plugins = {
 			vim.api.nvim_set_keymap("n", "S", ":HopWord<cr>", { silent = true })
 		end,
 	},
+	-- View nicer diagnostics
 	{
 		"folke/trouble.nvim",
 		dependencies = "nvim-tree/nvim-web-devicons",
@@ -119,7 +59,9 @@ lvim.plugins = {
 			})
 		end,
 	},
-	{ "ellisonleao/glow.nvim", ft = { "markdown" } },
+	-- Preview markdown using glow
+	{ "ellisonleao/glow.nvim", config = true, cmd = "Glow" },
+	-- View colors in files
 	{
 		"NvChad/nvim-colorizer.lua",
 		opts = {
@@ -128,6 +70,7 @@ lvim.plugins = {
 			},
 		},
 	},
+	-- Show tailwind colors
 	{
 		"roobert/tailwindcss-colorizer-cmp.nvim",
 		config = function()
@@ -136,7 +79,7 @@ lvim.plugins = {
 			})
 		end,
 	},
-	{ "sindrets/diffview.nvim", dependencies = "nvim-lua/plenary.nvim" },
+	-- Highlight todo's and other markers
 	{
 		"folke/todo-comments.nvim",
 		dependencies = "nvim-lua/plenary.nvim",
@@ -144,38 +87,49 @@ lvim.plugins = {
 			require("todo-comments").setup({})
 		end,
 	},
+	-- Pick up where you left off
+	{
+		"ethanholz/nvim-lastplace",
+		event = "BufRead",
+		config = function()
+			require("nvim-lastplace").setup({
+				lastplace_ignore_buftype = { "quickfix", "nofile", "help" },
+				lastplace_ignore_filetype = {
+					"gitcommit",
+					"gitrebase",
+					"svn",
+					"hgcommit",
+				},
+				lastplace_open_folds = true,
+			})
+		end,
+	},
+	-- adds highlights for text filetypes, like markdown
 	{
 		"lukas-reineke/headlines.nvim",
 		dependencies = "nvim-treesitter/nvim-treesitter",
 		config = true,
 	},
-	{
-		"tpope/vim-fugitive",
-		cmd = {
-			"G",
-			"Git",
-			"Gdiffsplit",
-			"Gread",
-			"Gwrite",
-			"Ggrep",
-			"GMove",
-			"GDelete",
-			"GBrowse",
-			"GRemove",
-			"GRename",
-			"Glgrep",
-			"Gedit",
-		},
-		ft = { "fugitive" },
-	},
-	{
-		"felipec/vim-sanegx",
-		event = "BufRead",
-	},
+	-- Sync-edit html/jsx tags
 	{
 		"windwp/nvim-ts-autotag",
 		config = function()
 			require("nvim-ts-autotag").setup()
 		end,
 	},
+	-- Comment stuff in jsx/tsx correctly
+	{
+		"JoosepAlviste/nvim-ts-context-commentstring",
+		event = "BufRead",
+	},
+	-- Show function signature when you type
+	{
+		"ray-x/lsp_signature.nvim",
+		event = "BufRead",
+		config = function()
+			require("lsp_signature").on_attach()
+		end,
+	},
+	-- open url with gx
+	{ "felipec/vim-sanegx", event = "BufRead" },
 }
