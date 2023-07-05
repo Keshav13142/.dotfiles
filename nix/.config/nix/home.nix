@@ -34,11 +34,6 @@
         gcc
         gnumake
 
-        # Nix language support
-        deadnix
-        nixpkgs-fmt
-        statix
-
         # Utils
         cava
         fd
@@ -81,15 +76,24 @@
         helix
         mysql-workbench
         nodejs
-        nodePackages.prettier
         python310Packages.pip
         python3Full
-        shellcheck
-        stylua
         vscode
         watchman
         xdg-desktop-portal
         xdg-desktop-portal-gtk
+
+        # Language support
+        deadnix
+        gofumpt
+        gotools
+        nixpkgs-fmt
+        nodePackages.eslint
+        nodePackages.prettier
+        shellcheck
+        shfmt
+        statix
+        stylua
 
         # Desktop
         brillo
