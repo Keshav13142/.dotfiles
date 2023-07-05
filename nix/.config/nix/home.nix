@@ -78,6 +78,7 @@
         docker
         docker-compose
         go
+        helix
         mysql-workbench
         nodejs
         python310Packages.pip

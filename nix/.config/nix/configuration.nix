@@ -267,6 +267,13 @@ in
     extraConfig = ''
       DefaultTimeoutStopSec=10s
     '';
+    #For lvim lsp modules to work
+    tmpfiles = {
+      rules = [
+        "L+ /lib/${builtins.baseNameOf pkgs.stdenv.cc.bintools.dynamicLinker} - - - - ${pkgs.stdenv.cc.bintools.dynamicLinker}"
+        "L+ /lib64 - - - - /lib"
+      ];
+    };
   };
 
   # Nix Package Manager settings
