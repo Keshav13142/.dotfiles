@@ -74,6 +74,7 @@
         android-studio
         android-tools
         cargo
+        diff-so-fancy
         docker
         docker-compose
         go
@@ -81,6 +82,7 @@
         nodejs
         python310Packages.pip
         python3Full
+        stylua
         vscode
         watchman
         xdg-desktop-portal
