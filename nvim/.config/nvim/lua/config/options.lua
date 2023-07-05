@@ -9,6 +9,9 @@ if fn.executable("rg") then
   vim.cmd([[autocmd QuickFixCmdPost [^l]* nested cwindow]])
 end
 
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 local options = {
   backspace = "indent,eol,start",
   backup = false, -- creates a backup file

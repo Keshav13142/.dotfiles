@@ -62,7 +62,6 @@ require('lazy').setup({
 
           nls.builtins.code_actions.statix,
           nls.builtins.code_actions.eslint,
-          nls.builtins.code_actions.statix,
 
           nls.builtins.diagnostics.eslint,
           nls.builtins.diagnostics.shellcheck,

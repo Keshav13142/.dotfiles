@@ -83,6 +83,7 @@
         nodejs
         python310Packages.pip
         python3Full
+        shellcheck
         stylua
         vscode
         watchman

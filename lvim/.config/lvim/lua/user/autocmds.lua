@@ -9,6 +9,12 @@ au("BufWritePost", {
 	command = "execute 'silent !tmux source <afile> --silent'",
 })
 
+-- For nvim-tree to use cwd instead of root
+au("BufEnter", {
+	pattern = { "*" },
+	command = "silent! lcd %:p:h",
+})
+
 au("BufWritePost", {
 	pattern = { ".skhdrc" },
 	command = "!killall -q sxhkd && sxhkd &",
