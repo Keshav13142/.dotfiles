@@ -5,25 +5,27 @@
   "passthrough": false,
   "gtk-layer-shell": true,
   "height": 20,
+  "margin": "5 5 0 5",
   "modules-left": [
     "wlr/workspaces",
     "cpu",
     "memory",
-    "disk"
+    "disk",
+    "custom/lock_screen",
+    "custom/power_btn",
   ],
   "modules-center": [
-    "custom/power_btn",
-    "custom/lock_screen",
-    "tray",
-    "pulseaudio#microphone",
     "custom/playerlabel",
-    "custom/playpause"
+    "custom/playpause",
   ],
   "modules-right": [
+    "custom/wallpaper",
+    "pulseaudio#microphone",
     "backlight",
     "pulseaudio",
     "battery",
-    "clock"
+    "clock",
+    "tray",
   ],
   "idle_inhibitor": {
     "format": "{icon}",
@@ -40,7 +42,6 @@
     "format-alt": " {:%d/%m}"
   },
   "cava": {
-    "cava_config": "/home/keshav/.config/cava/config",
     "framerate": 60,
     "autosens": 1,
     "sensitivity": 100,
@@ -49,7 +50,7 @@
     "higher_cutoff_freq": 10000,
     "method": "pulse",
     "source": "auto",
-    "stereo": true,
+    "stereo": false,
     "reverse": false,
     "bar_delimiter": 0,
     "monstercat": false,
@@ -185,7 +186,8 @@
       "󰃠"
     ],
     "on-scroll-up": "brillo -A 5 -q -u 150000",
-    "on-scroll-down": "brillo -U 5 -q -u 150000"
+    "on-scroll-down": "brillo -U 5 -q -u 150000",
+    "tooltip": false
   },
   "tray": {
     "icon-size": 16,
@@ -202,18 +204,24 @@
     "tooltip": false
   },
   "custom/playerlabel": {
-    "format": "<span>{}</span>",
-    "return-type": "json",
+    "format": "{}",
     "max-length": 30,
-    "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+    "exec": "playerctl -a metadata --format \"{{artist}} - {{title}}\"",
     "on-click-middle": "playerctl play-pause",
     "on-click": "playerctl previous",
-    "on-click-right": "playerctl next"
+    "on-click-right": "playerctl next",
+    "interval": 1,
   },
   "custom/playpause": {
     "format": "<span>{}</span>",
     "exec": "$HOME/.config/waybar/scripts/music",
     "on-click": "playerctl play-pause",
-    "interval": 1
+    "interval": 1,
+    "tooltip": false
+  },
+  "custom/wallpaper": {
+    "format": "󰸉",
+    "on-click": "set_wall",
+    "tooltip": false
   }
 }

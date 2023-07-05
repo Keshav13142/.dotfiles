@@ -8,8 +8,11 @@
 }
 
 window#waybar {
-  background: transparent;
+  /* background: transparent; */
   color: @foreground;
+  background: @background;
+  border: 1px solid @color12;
+  border-radius: 10px;
 }
 
 tooltip {
@@ -23,33 +26,31 @@ tooltip label {
   color: @foreground;
 }
 
+.modules-center,
 .modules-left,
-.modules-right,
-.modules-center {
-  background: @background;
-  border: 1px solid @color12;
-  border-radius: 10px;
+.modules-right {
   padding: 2px 7px;
-  margin: 5px 5px 0px 5px;
 }
 
-#taskbar,
-#custom-lock_screen,
-#custom-power_btn,
-#custom-playpause,
-#custom-playerlabel,
-#window,
-#cpu,
-#disk,
-#custom-updates,
-#memory,
-#clock,
+#backlight,
 #battery,
-#pulseaudio,
-#tray,
-#workspaces,
+#cava,
+#clock,
+#cpu,
+#custom-lock_screen,
+#custom-playerlabel,
+#custom-playpause,
+#custom-power_btn,
+#custom-updates,
+#custom-wallpaper,
+#disk,
 #idle_inhibitor,
-#backlight {
+#memory,
+#pulseaudio,
+#taskbar,
+#tray,
+#window,
+#workspaces {
   margin: 0px 10px;
 }
 
