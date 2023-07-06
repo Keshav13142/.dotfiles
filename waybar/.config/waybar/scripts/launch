@@ -9,8 +9,6 @@ fi
 CONFIG="$HOME/.config/waybar/config.jsonc"
 STYLE="$HOME/.config/waybar/style.css"
 
-echo $style
-
 ln -sf "$HOME/.config/waybar/configs/$style.jsonc" "$HOME/.config/waybar/margin.jsonc"
 ln -sf "$HOME/.config/waybar/styles/$style.css" "$HOME/.config/waybar/margin.css"
 

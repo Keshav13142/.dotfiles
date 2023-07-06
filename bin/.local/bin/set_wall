@@ -5,7 +5,8 @@ if [ -z "$1" ]; then
 else
 	wall=$1
 fi
-swww img "$wall" --transition-type grow --transition-pos "$(hyprctl cursorpos)" --transition-duration 1
+
+swww img "$wall" --transition-type=wave --transition-fps=144 --transition-duration 1
 wal -qtsni "$wall" >/dev/null 2>&1 &
 disown
 sleep 1
