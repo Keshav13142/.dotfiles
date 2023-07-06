@@ -50,6 +50,7 @@
         pciutils
         polkit_gnome
         powertop
+        pulseaudioFull
         qemu
         ripgrep
         stdenv
