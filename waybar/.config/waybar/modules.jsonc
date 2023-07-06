@@ -183,6 +183,7 @@
     "on-click": "playerctl previous",
     "on-click-right": "playerctl next",
     "interval": 1,
+    "tooltip": false
   },
   "custom/playpause": {
     "format": "<span>{}</span>",
