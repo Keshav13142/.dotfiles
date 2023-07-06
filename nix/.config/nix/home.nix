@@ -242,7 +242,7 @@
             format = "ssh";
             ssh.allowedSignersFile = "~/.ssh/allowed_signers";
           };
-          user.signingKey = "~/.ssh/id_rsa.pub";
+          user.signingKey = "~/.ssh/git_signing.pub";
           core = {
             excludesFile = "~/.gitignore";
             editor = "nvim";
