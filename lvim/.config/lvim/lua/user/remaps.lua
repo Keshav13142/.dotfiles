@@ -75,5 +75,8 @@ nmap("<down>", "<C-w>j")
 nmap("<up>", "<C-w>k")
 nmap("<right>", "<C-w>l")
 
+-- Make current file executable
+nmap("<leader>x", "<cmd>!chmod +x %<CR>")
+
 -- open floating terminal inside lvim
 lvim.builtin.terminal.open_mapping = "<C-t>"
