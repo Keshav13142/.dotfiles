@@ -154,7 +154,7 @@
     "format-muted": "",
     "on-click": "pamixer -t",
     "on-click-right": "pavucontrol",
-    "on-scroll-up": "pamixer -i 5",
+    "on-scroll-up": "pamixer -i 5 --allow-boost",
     "on-scroll-down": "pamixer -d 5",
     "scroll-step": 5,
     "format-icons": {
