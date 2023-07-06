@@ -1,0 +1,199 @@
+{
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "󰛐",
+      "deactivated": "󰛑"
+    },
+    "tooltip": false
+  },
+  "clock": {
+    "format": " {:%a, %b %d %I:%M}",
+    "tooltip": "true",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": " {:%d/%m}"
+  },
+  "cava": {
+    "framerate": 60,
+    "autosens": 1,
+    "sensitivity": 100,
+    "bars": 20,
+    "lower_cutoff_freq": 50,
+    "higher_cutoff_freq": 10000,
+    "method": "pulse",
+    "source": "auto",
+    "stereo": false,
+    "reverse": false,
+    "bar_delimiter": 0,
+    "monstercat": false,
+    "waves": false,
+    "noise_reduction": 0.77,
+    "input_delay": 2,
+    "format-icons": [
+      "▁",
+      "▂",
+      "▃",
+      "▄",
+      "▅",
+      "▆",
+      "▇",
+      "█"
+    ],
+    "actions": {
+      "on-click-right": "mode"
+    }
+  },
+  "wlr/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "on-click": "activate",
+    "persistent_workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": [],
+      "6": [],
+      "7": [],
+      "8": [],
+      "9": [],
+      "10": []
+    }
+  },
+  "wlr/taskbar": {
+    "format": "{icon}",
+    "icon-size": 14,
+    "icon-theme": "Numix-Circle",
+    "tooltip-format": "{title}",
+    "on-click": "activate",
+    "on-click-middle": "close",
+    "ignore-list": [
+      "kitty"
+    ],
+    "app_ids-mapping": {
+      "firefoxdeveloperedition": "firefox-developer-edition"
+    }
+  },
+  "cpu": {
+    "interval": 2,
+    "max-length": 10,
+    "format": " {usage}%",
+    "on-click": "kitty --start-as=fullscreen --title btop sh -c 'btop'"
+  },
+  "memory": {
+    "interval": 2,
+    "format": "{percentage}% 󰆼",
+    "format-alt": "󰍛 {used}/{total} GiB",
+    "max-length": 10,
+    "on-click": "kitty --start-as=fullscreen --title btop sh -c 'btop'"
+  },
+  "disk": {
+    "format": "{percentage_used}% 󰋊",
+    "format-alt": "󰋊 {used}/{total}",
+    "interval": 5,
+    "path": "/"
+  },
+  "hyprland/window": {
+    "format": "{}",
+    "max-length": "30",
+    "separate-outputs": true
+  },
+  "battery": {
+    "states": {
+      "good": 80,
+      "warning": 30,
+      "critical": 20
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-icons": [
+      "󰂎",
+      "󰁺",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹"
+    ]
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "",
+    "on-click": "pamixer -t",
+    "on-click-right": "pavucontrol",
+    "on-scroll-up": "pamixer -i 5 --allow-boost",
+    "on-scroll-down": "pamixer -d 5",
+    "scroll-step": 5,
+    "format-icons": {
+      "default": [
+        "",
+        "",
+        ""
+      ]
+    },
+    "tooltip": false
+  },
+  "pulseaudio#microphone": {
+    "format": "{format_source}",
+    "format-source": " {volume}%",
+    "format-source-muted": "",
+    "on-click": "pamixer --default-source -t",
+    "on-click-right": "pavucontrol",
+    "on-scroll-up": "pamixer --default-source -i 5",
+    "on-scroll-down": "pamixer --default-source -d 5",
+    "scroll-step": 5,
+    "tooltip": false
+  },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon} {percent}%",
+    "format-icons": [
+      "󰃞",
+      "󰃟",
+      "󰃠"
+    ],
+    "on-scroll-up": "brillo -A 5 -q -u 150000",
+    "on-scroll-down": "brillo -U 5 -q -u 150000",
+    "tooltip": false
+  },
+  "tray": {
+    "icon-size": 16,
+    "spacing": 10
+  },
+  "custom/power_btn": {
+    "format": "",
+    "on-click": "wlogout --buttons-per-row 4 -c 20 --margin 400 -p layer-shell",
+    "tooltip": false
+  },
+  "custom/lock_screen": {
+    "format": "",
+    "on-click": "swaylock",
+    "tooltip": false
+  },
+  "custom/playerlabel": {
+    "format": "{}",
+    "max-length": 30,
+    "exec": "playerctl -a metadata --format \"{{artist}} - {{title}}\"",
+    "on-click-middle": "playerctl play-pause",
+    "on-click": "playerctl previous",
+    "on-click-right": "playerctl next",
+    "interval": 1,
+  },
+  "custom/playpause": {
+    "format": "<span>{}</span>",
+    "exec": "$HOME/.config/waybar/scripts/music",
+    "on-click": "playerctl play-pause",
+    "interval": 1,
+    "tooltip": false
+  },
+  "custom/wallpaper": {
+    "format": "󰸉",
+    "on-click": "set_wall",
+    "tooltip": false
+  }
+}

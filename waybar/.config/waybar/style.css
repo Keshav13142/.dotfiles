@@ -1,18 +1,11 @@
 @import url("/home/keshav/.cache/wal/colors-waybar.css");
+@import url("/home/keshav/.config/waybar/margin.css");
 
 * {
   font-family: "JetBrainsMono Nerd Font";
   font-weight: bold;
   font-size: 15px;
   min-height: 0;
-}
-
-window#waybar {
-  /* background: transparent; */
-  color: @foreground;
-  background: @background;
-  border: 1px solid @color12;
-  border-radius: 10px;
 }
 
 tooltip {
