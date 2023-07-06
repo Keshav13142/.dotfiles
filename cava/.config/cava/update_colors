@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+\cp -f $HOME/.cache/wal/colors-cava.conf $HOME/.config/cava/config
