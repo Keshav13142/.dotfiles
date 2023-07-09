@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+if [ -z "$1" ]; then
+	echo "Enter a time"
+else
+	echo "$1 minutes" | lolcat
+	timer "$1"m
+	spd-say "Time over"
+fi

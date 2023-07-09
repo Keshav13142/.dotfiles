@@ -33,6 +33,8 @@
         coreutils
         gcc
         gnumake
+        lolcat
+        timer
 
         # Utils
         cava
@@ -53,6 +55,7 @@
         pulseaudioFull
         qemu
         ripgrep
+        speechd
         stdenv
         stow
         stylua
