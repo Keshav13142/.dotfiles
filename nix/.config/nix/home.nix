@@ -7,8 +7,8 @@
       homeDirectory = "/home/${user}";
       packages = with pkgs; [
         # Applications
-        authy
         amberol
+        authy
         bitwarden
         brave
         espanso
@@ -24,17 +24,17 @@
         figlet
         glow
         gum
+        lolcat
         neofetch
         ninja
         tig
+        timer
 
         # Build tools?
         clang-tools_9
         coreutils
         gcc
         gnumake
-        lolcat
-        timer
 
         # Utils
         cava
