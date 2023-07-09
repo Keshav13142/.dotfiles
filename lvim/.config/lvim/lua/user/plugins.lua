@@ -1,4 +1,5 @@
 lvim.plugins = {
+	-- zen mode in vim
 	"folke/zen-mode.nvim",
 	-- Search and replace
 	"windwp/nvim-spectre",
