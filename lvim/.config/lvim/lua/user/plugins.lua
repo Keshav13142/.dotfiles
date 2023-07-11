@@ -1,14 +1,20 @@
 lvim.plugins = {
 	-- zen mode in vim
 	"folke/zen-mode.nvim",
-	-- Search and replace
-	"windwp/nvim-spectre",
 	-- Pairs of handy bracket mappings
 	"tpope/vim-unimpaired",
 	-- Better vim repeat
 	"tpope/vim-repeat",
 	-- extended incrementing/decrementing
 	"tpope/vim-speeddating",
+	-- Search and replace
+	{
+		"windwp/nvim-spectre",
+		event = "BufRead",
+		config = function()
+			require("spectre").setup()
+		end,
+	},
 	-- Play with delimiters
 	{
 		"kylechui/nvim-surround",
