@@ -74,10 +74,9 @@ in
       fonts = [
         "JetBrainsMono"
         "NerdFontsSymbolsOnly"
-        "Iosevka"
-        "IBMPlexMono"
-        "CascadiaCode"
-        "FiraCode"
+        "FiraMono"
+        "SpaceMono"
+        "Meslo"
       ];
     })
   ];
