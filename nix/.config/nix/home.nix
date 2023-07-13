@@ -37,6 +37,7 @@
         gnumake
 
         # Utils
+        alsa-lib
         cava
         fd
         ffmpeg
@@ -48,6 +49,7 @@
         killall
         lf
         libnotify
+        libpcap
         nfs-utils
         pciutils
         polkit_gnome
@@ -67,6 +69,7 @@
         unzip
         usbutils
         wget
+        xdg-ninja
         zip
 
         # Dev

@@ -88,6 +88,7 @@ in
   programs = {
     zsh.enable = true;
     dconf.enable = true;
+    sniffnet.enable = true;
     hyprland = {
       xwayland.enable = true;
       enable = true;
