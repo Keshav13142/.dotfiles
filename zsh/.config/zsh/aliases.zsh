@@ -11,6 +11,8 @@ fi
 
 alias bg='batgrep'
 alias wt="curl -4 wttr.in/avadi"
+# Get largest files/folder in current dir
+alias sz="du -hsx * | sort -rh | head -10"
 
 # use exa if available
 if [[ -x "$(command -v exa)" ]]; then
@@ -26,9 +28,9 @@ fi
 alias rmf="rm -rf"
 alias lg='lazygit'
 if [[ -x "$(command -v xclip)" ]]; then
-  alias copy='xclip -selection clipboard'
+	alias copy='xclip -selection clipboard'
 else
-  alias copy='wl-copy'
+	alias copy='wl-copy'
 fi
 alias cd='z'
 alias rm='trash'

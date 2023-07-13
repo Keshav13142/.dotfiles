@@ -1,6 +1,7 @@
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_STATE_HOME="$HOME/.local/state"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export ZIM_HOME="$XDG_DATA_HOME/zim"
 export REPORTTIME=10
@@ -33,6 +34,12 @@ else
 	export BROWSER=brave
 	export VISUAL=code
 fi
+
+export CARGO_HOME="$XDG_DATA_HOME/cargo"
+export GOPATH="$XDG_DATA_HOME/go"
+export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
+export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
+export XCOMPOSECACHE="$XDG_CACHE_HOME/X11/xcompose"
 
 export FZF_DEFAULT_COMMAND='fd --type f --color=never --hidden'
 export FZF_DEFAULT_OPTS='--layout=reverse --height 40%'
