@@ -74,9 +74,6 @@ in
       fonts = [
         "JetBrainsMono"
         "NerdFontsSymbolsOnly"
-        "FiraMono"
-        "SpaceMono"
-        "Meslo"
       ];
     })
   ];

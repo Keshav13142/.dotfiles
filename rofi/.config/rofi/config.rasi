@@ -9,7 +9,7 @@ configuration {
 	icon-theme: "Dracula";
 	steal-focus: false;
 	terminal: "kitty";
-  font: "SpaceMono Nerd Font 13";
+  font: "JetBrainsMono Nerd Font 13";
 	click-to-exit: true;
 
 	/*---------- Other settings ----------*/
