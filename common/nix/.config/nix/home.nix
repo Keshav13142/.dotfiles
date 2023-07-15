@@ -15,6 +15,7 @@
         gimp
         libreoffice-qt
         mpv
+        obsidian
         spotify
         virt-manager
 
@@ -179,6 +180,7 @@
       enable = true;
       musicDirectory = "/run/media/keshav/Media/Music/";
     };
+    syncthing.enable = true;
     # Xorg X11
     # betterlockscreen.enable = true;
     # flameshot.enable = true;
