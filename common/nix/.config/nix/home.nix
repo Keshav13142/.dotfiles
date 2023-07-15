@@ -13,6 +13,7 @@
         brave
         espanso
         gimp
+        gnome.seahorse # gui secrets manager
         libreoffice-qt
         mpv
         obsidian
