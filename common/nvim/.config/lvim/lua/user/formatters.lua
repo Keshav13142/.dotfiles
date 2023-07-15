@@ -1,6 +1,6 @@
 local formatters = require("lvim.lsp.null-ls.formatters")
 formatters.setup({
-	{ command = "prettier", filetypes = { "css" } },
+	{ command = "prettierd", filetypes = { "css" } },
 	{ command = "shfmt", filetypes = { "sh", "zsh", "bash" } },
 	{ command = "stylua", filetypes = { "lua" } },
 	{ command = "goimports", filetypes = { "go" } },
@@ -10,7 +10,7 @@ formatters.setup({
 
 local linters = require("lvim.lsp.null-ls.linters")
 linters.setup({
-	{ command = "eslint", filetypes = { "javascript", "typescript" } },
+	{ command = "eslint_d", filetypes = { "javascript", "typescript" } },
 	{ command = "deadnix", filetypes = { "nix" } },
 	{ command = "shellcheck", filetypes = { "sh", "zsh", "bash" } },
 })
