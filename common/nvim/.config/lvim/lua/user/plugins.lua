@@ -7,6 +7,8 @@ lvim.plugins = {
 	"tpope/vim-repeat",
 	-- extended incrementing/decrementing
 	"tpope/vim-speeddating",
+	-- multi line editing
+	"mg979/vim-visual-multi",
 	-- Search and replace
 	{
 		"windwp/nvim-spectre",

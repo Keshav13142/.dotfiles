@@ -35,6 +35,14 @@ lvim.builtin.which_key.mappings["L"] = {
 		"Edit config.lua",
 	},
 	u = { "<cmd>LvimUpdate<cr>", "Update LunarVim" },
+	f = {
+		"<cmd>lua require('lvim.core.telescope.custom-finders').find_lunarvim_files()<cr>",
+		"Find LunarVim files",
+	},
+	g = {
+		"<cmd>lua require('lvim.core.telescope.custom-finders').grep_lunarvim_files()<cr>",
+		"Grep LunarVim files",
+	},
 }
 
 lvim.builtin.which_key.mappings["s"] = {
