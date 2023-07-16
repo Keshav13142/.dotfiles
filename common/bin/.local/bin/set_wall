@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [ -z "$1" ]; then
-	wall=$(find ~/Pictures/wallpapers/ -type f -name "*.jpg" | shuf -n 1 | head -n 1)
+	wall=$(find ~/Pictures/wallpapers -type f -name "*.jpg" -not -path "*/mobile/*" -o -name "*.png" | shuf -n 1 | head -n 1)
 else
 	wall=$1
 fi
@@ -9,7 +9,7 @@ fi
 swww img "$wall" --transition-type=wave --transition-fps=144 --transition-duration 1
 wal -qtsni "$wall" >/dev/null 2>&1 &
 disown
-sleep 2
+sleep 1
 ~/.config/cava/update_colors && pkill -USR2 cava # Update cava colors
 ln -sf "$wall" /tmp/lock_bg.jpg                  # Update lockscreen wallpaper
 ~/.config/waybar/scripts/launch                  # Reload waybar
