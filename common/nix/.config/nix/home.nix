@@ -198,7 +198,16 @@
     mpv.enable = true;
     neovim.enable = true;
     obs-studio.enable = true;
-    ssh.enable = true;
+    ssh = {
+      enable = true;
+      matchBlocks = {
+        "mobile" = {
+          hostname = "192.168.0.123";
+          port = 8022;
+          identityFile = "~/.ssh/mobile";
+        };
+      };
+    };
     yt-dlp.enable = true;
     zathura.enable = true;
     java = {
