@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [ -z "$1" ]; then
-	wall=$(find ~/Pictures/wallpapers -type f -name "*.jpg" -not -path "*/mobile/*" -o -name "*.png" | shuf -n 1 | head -n 1)
+	wall=$(find ~/Pictures/wallpapers -type f -path "*/mobile/*" -prune -o -path "*/pfp/*" -prune -o -print | shuf -n 1 | head -n 1)
 else
 	wall=$1
 fi
