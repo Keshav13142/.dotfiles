@@ -9,6 +9,8 @@ lvim.plugins = {
 	"tpope/vim-speeddating",
 	-- multi line editing
 	"mg979/vim-visual-multi",
+	-- Gruvbox theme
+	"sainnhe/gruvbox-material",
 	-- Search and replace
 	{
 		"windwp/nvim-spectre",
