@@ -92,6 +92,7 @@ in
       package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
       # nvidiaPatches = true;
     };
+    kdeconnect.enable = true;
   };
 
   users.defaultUserShell = pkgs.zsh;
