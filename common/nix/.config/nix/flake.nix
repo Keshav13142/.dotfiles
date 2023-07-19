@@ -8,11 +8,14 @@
     };
 
     hyprland.url = "github:hyprwm/Hyprland";
+
+    spicetify-nix.url = "github:the-argus/spicetify-nix";
   };
 
   outputs =
     { self
     , nixpkgs
+    , spicetify-nix
     , home-manager
     , ...
     } @ inputs:
@@ -37,7 +40,7 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = {
-                inherit user;
+                inherit user spicetify-nix;
               };
               home-manager.users.${user} = {
                 imports = [

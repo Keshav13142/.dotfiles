@@ -1,6 +1,9 @@
-{ config, pkgs, user, ... }:
-
+{ config, pkgs, user, spicetify-nix, ... }:
+let
+  spicePkgs = spicetify-nix.packages.${pkgs.system}.default;
+in
 {
+  imports = [ spicetify-nix.homeManagerModule ];
   home =
     {
       username = "${user}";
@@ -17,7 +20,6 @@
         libreoffice-qt
         mpv
         obsidian
-        spotify
         virt-manager
 
         # Cli looks nice
@@ -198,6 +200,10 @@
     mpv.enable = true;
     neovim.enable = true;
     obs-studio.enable = true;
+    spicetify = {
+      enable = true;
+      theme = spicePkgs.themes.Onepunch;
+    };
     ssh = {
       enable = true;
       matchBlocks = {
