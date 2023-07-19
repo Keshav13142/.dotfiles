@@ -126,6 +126,7 @@ in
         rofimoji
         wlsunset
         xfce.thunar
+        gnome.nautilus
 
         # Wayland
         cliphist
