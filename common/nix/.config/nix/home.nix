@@ -112,6 +112,7 @@ in
         dracula-icon-theme
         dracula-theme
         dunst
+        gnome.cheese
         gnome.nautilus
         gtk3
         kitty
@@ -126,7 +127,6 @@ in
         rofimoji
         wlsunset
         xfce.thunar
-        gnome.nautilus
 
         # Wayland
         cliphist
