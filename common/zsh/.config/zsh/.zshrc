@@ -6,7 +6,9 @@ source "$ZDOTDIR/options.zsh"
 source "$ZDOTDIR/aliases.zsh"
 source "$ZDOTDIR/functions.zsh"
 
-compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
+if [[ -x "$(command -v compinit)" ]]; then
+  compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
+fi
 
 # Adding stuff to path
 if ! [[ -x "$(command -v nixos-version)" ]]; then
@@ -23,8 +25,13 @@ path+=("$HOME/go/bin")
 path+=("$HOME/.local/.cargo/bin")
 export PATH
 
-eval "$(fnm env --use-on-cd)"
-eval "$(zoxide init zsh)"
+if [[ -x "$(command -v fnm)" ]]; then
+  eval "$(fnm env --use-on-cd)"
+fi
+
+if [[ -x "$(command -v zoxide)" ]]; then
+  eval "$(zoxide init zsh)"
+fi
 
 # manage plugins using zim
 zstyle ':zim:zmodule' use 'degit'
