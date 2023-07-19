@@ -2,10 +2,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-source "$ZDOTDIR/options.zsh"
-source "$ZDOTDIR/aliases.zsh"
-source "$ZDOTDIR/functions.zsh"
-
 if [[ -x "$(command -v compinit)" ]]; then
   compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
 fi
@@ -53,5 +49,9 @@ source ${ZIM_HOME}/init.zsh
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 autopair-init
+
+source "$ZDOTDIR/options.zsh"
+source "$ZDOTDIR/aliases.zsh"
+source "$ZDOTDIR/functions.zsh"
 
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
