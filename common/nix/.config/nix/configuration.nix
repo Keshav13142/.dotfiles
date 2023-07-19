@@ -132,7 +132,26 @@ in
       # videoDrivers = [ "nvidia" ];
       enable = true;
       displayManager = {
-        lightdm.enable = true;
+        lightdm = {
+          enable = true;
+          background = "/tmp/back.jpg";
+          greeters.slick = {
+            enable = true;
+            theme = {
+              package = pkgs.gruvbox-gtk-theme;
+              name = "Gruvbox-Dark-BL";
+            };
+            iconTheme = {
+              package = pkgs.gruvbox-dark-icons-gtk;
+              name = "oomox-gruvbox-dark";
+            };
+            cursorTheme = {
+              package = pkgs.capitaine-cursors-themed;
+              name = "Capitaine Cursors (Gruvbox) - White";
+            };
+            extraConfig = "clock-format=%a, %-e %b %-l:%M %p ";
+          };
+        };
         gdm = {
           enable = false;
           wayland = true;
