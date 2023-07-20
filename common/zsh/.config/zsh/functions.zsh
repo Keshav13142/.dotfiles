@@ -27,6 +27,8 @@ fkill() {
 fh() {
   print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed -E 's/ *[0-9]*\*? *//' | sed -E 's/\\/\\\\/g')
 }
+bindkey '^h' fh
+zle -N fh
 
 # f mv # To move files. You can write the destination after selecting the files.
 f() {
@@ -36,7 +38,7 @@ f() {
 
 # b - browse chrome bookmarks
 b() {
-  bookmarks_path=~/.config/BraveSoftware/Brave-Browser-Beta/Default/Bookmarks
+  bookmarks_path=~/.config/BraveSoftware/Brave-Browser/Default/Bookmarks
 
   jq_script='
     def ancestors: while(. | length >= 2; del(.[-1,-2]));
@@ -115,14 +117,15 @@ is_in_git_repo() {
   git rev-parse HEAD > /dev/null 2>&1
 }
 
-fgst() {
+# open modified files in a git dir
+fgm() {
   # "Nothing to see here, move along"
   is_in_git_repo || return
 
   local cmd="${FZF_CTRL_T_COMMAND:-"command git status -s"}"
 
   eval "$cmd" | FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} --reverse $FZF_DEFAULT_OPTS $FZF_CTRL_T_OPTS" fzf -m "$@" | while read -r item; do
-    echo "$item" | awk '{print $2}'
+    echo "$item" | awk '{print $2}' | xargs $EDITOR
   done
   echo
 }
@@ -147,30 +150,18 @@ ftpane() {
   fi
 }
 
-fman() {
-  batman="man {1} | col -bx | batcat --language=man --plain"
-  battldr="tldr {1} | col -bx | batcat --language=man --plain"
-   man -k . | sort \
-   | awk -v cyan=$(tput setaf 6) -v blue=$(tput setaf 4) -v res=$(tput sgr0) -v bld=$(tput bold) '{ $1=cyan bld $1; $2=res blue;} 1' \
-   | fzf  \
-      -q "$1" \
-      --ansi \
-      --tiebreak=begin \
-      --prompt=' Man > '  \
-      --preview-window '50%,rounded,<50(up,85%,border-bottom)' \
-      --preview "${batman}" \
-      --bind "enter:execute(man {1})" \
-      --bind "alt-m:+change-preview(${batman})+change-prompt(󰗚 Man > )" \
-      --bind "alt-M:+change-preview(${battldr})+change-prompt( TLDR > )"
-  zle reset-prompt
-}
-bindkey '^h' fman
-zle -N fman
-
 # run npm script (requires jq)
 fns() {
-  local script
-  script=$(cat package.json | jq -r '.scripts | keys[] ' | sort | fzf) && npm run $(echo "$script")
+  if test -f "package.json"; then
+    local script
+    script=$(cat package.json | jq -r '.scripts | keys[] ' | sort | fzf) && npm run $(echo "$script")
+  else
+    echo "Your are not in a node project.... Exiting!!!"
+  fi
+}
+
+fcd(){
+  cd $(find . -type d -print | fzf) || exit
 }
 
 # ----------------FUNCTIONS-------------------

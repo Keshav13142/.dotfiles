@@ -50,6 +50,7 @@ in
         gparted
         graphicsmagick
         imagemagick
+        jq
         killall
         lf
         libnotify
