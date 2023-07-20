@@ -129,10 +129,11 @@ in
   services = {
     # Xserver config
     xserver = {
-      # videoDrivers = [ "nvidia" ];
       enable = true;
+
       displayManager = {
         lightdm = {
+          # Lightdm custom theme
           enable = true;
           background = "/tmp/back.jpg";
           greeters.slick = {
@@ -152,13 +153,14 @@ in
             extraConfig = "clock-format=%a, %-e %b %-l:%M %p ";
           };
         };
-        gdm = {
-          enable = false;
-          wayland = true;
-        };
+
+        # Enable wayland
+        gdm.wayland = true;
       };
+
       layout = "us";
       libinput.enable = true;
+
       # X11 + i3
       # displayManager = {
       #   defaultSession = "none+i3";
@@ -168,61 +170,68 @@ in
       # xkbVariant = "";
       # windowManager.i3.enable = true;
     };
-    # For nautilus to work properly
+
+    # For filemanagers to work properly?
     gvfs.enable = true;
-    printing.enable = true;
-    flatpak.enable = true;
-    cron.enable = true;
+
+    # printing.enable = true;
+    # flatpak.enable = true;
+    # cron.enable = true;
+
     gnome.gnome-keyring.enable = true;
+
     dbus = {
       enable = true;
       packages = with pkgs; [ dconf ];
     };
+
+    ###### POWER MANAGEEMENT ############
+    power-profiles-daemon.enable = false;
+
     thermald.enable = true;
+
     tlp = {
-      enable = true;
       # Followed https://knowledgebase.frame.work/en_us/optimizing-fedora-battery-life-r1baXZh
+      enable = true;
       settings = {
-        INTEL_GPU_MIN_FREQ_ON_AC = 100;
-        INTEL_GPU_MIN_FREQ_ON_BAT = 100;
-        INTEL_GPU_MAX_FREQ_ON_AC = 1500;
-        INTEL_GPU_MAX_FREQ_ON_BAT = 800;
-        INTEL_GPU_BOOST_FREQ_ON_AC = 1500;
-        INTEL_GPU_BOOST_FREQ_ON_BAT = 1000;
-        WIFI_PWR_ON_AC = "off";
-        WIFI_PWR_ON_BAT = "on";
-        WOL_DISABLE = "Y";
-        PCIE_ASPM_ON_AC = "default";
-        PCIE_ASPM_ON_BAT = "powersupersave";
-        RUNTIME_PM_ON_AC = 0;
-        RUNTIME_PM_ON_BAT = 1;
-        CPU_SCALING_GOVERNOR_ON_AC = "performance";
-        CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
-        CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
-        CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
-        CPU_MIN_PERF_ON_AC = 0;
-        CPU_MAX_PERF_ON_AC = 100;
-        CPU_MIN_PERF_ON_BAT = 0;
-        CPU_MAX_PERF_ON_BAT = 30;
         CPU_BOOST_ON_AC = 1;
         CPU_BOOST_ON_BAT = 0;
+        CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
+        CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
         CPU_HWP_DYN_BOOST_ON_AC = 1;
         CPU_HWP_DYN_BOOST_ON_BAT = 0;
-        SCHED_POWERSAVE_ON_AC = 0;
-        SCHED_POWERSAVE_ON_BAT = 1;
+        CPU_MAX_PERF_ON_AC = 100;
+        CPU_MAX_PERF_ON_BAT = 60;
+        CPU_MIN_PERF_ON_AC = 0;
+        CPU_MIN_PERF_ON_BAT = 0;
+        CPU_SCALING_GOVERNOR_ON_AC = "performance";
+        CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
         NMI_WATHCDOG = 0;
+        PCIE_ASPM_ON_AC = "default";
+        PCIE_ASPM_ON_BAT = "powersupersave";
         PLATFORM_PROFILE_ON_AC = "performance";
         PLATFORM_PROFILE_ON_BAT = "low-power";
+        RUNTIME_PM_ON_AC = 0;
+        RUNTIME_PM_ON_BAT = 1;
+        SCHED_POWERSAVE_ON_AC = 0;
+        SCHED_POWERSAVE_ON_BAT = 1;
+        START_CHARGE_THRESH_BAT0 = 40;
+        STOP_CHARGE_THRESH_BAT0 = 80;
         USB_AUTOSUSPEND = 1;
         USE_EXCLUDE_AUDIO = 1;
         USE_EXCLUDE_BTUSB = 0;
         USE_EXCLUDE_PHONE = 0;
         USE_EXCLUDE_WWAN = 0;
-        START_CHARGE_THRESH_BAT0 = 40;
-        STOP_CHARGE_THRESH_BAT0 = 80;
+        WIFI_PWR_ON_AC = "off";
+        WIFI_PWR_ON_BAT = "on";
+        WOL_DISABLE = "Y";
       };
     };
+
+    # Bluetooth
     blueman.enable = true;
+
+    # Audio
     pipewire = {
       enable = true;
       alsa.enable = true;
@@ -231,6 +240,7 @@ in
       jack.enable = true;
       wireplumber.enable = true;
     };
+
     # To allow polybar and other scripts to set brightness
     udev.extraRules = ''
       ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="intel_backlight", MODE="0666", RUN+="${pkgs.coreutils}/bin/chmod a+w /sys/class/backlight/%k/brightness"
@@ -253,18 +263,6 @@ in
       driSupport = true;
       driSupport32Bit = true;
     };
-    # nvidia = {
-    #   open = false;
-    #   # package = config.boot.kernelPackages.nvidiaPackages.stable;
-    #   forceFullCompositionPipeline = true;
-    #   modesetting.enable = true;
-    #   powerManagement.enable = true;
-    #   prime = {
-    #     reverseSync.enable = true;
-    #     nvidiaBusId = "PCI:1:0:0";
-    #     intelBusId = "PCI:0:2:0";
-    #   };
-    # };
   };
 
   systemd = {
@@ -281,9 +279,11 @@ in
         TimeoutStopSec = 10;
       };
     };
+
     extraConfig = ''
       DefaultTimeoutStopSec=10s
     '';
+
     #For lvim lsp modules to work
     tmpfiles = {
       rules = [
@@ -303,11 +303,13 @@ in
       allowed-users = [ "@wheel" ];
       warn-dirty = false;
     };
+
     gc = {
       automatic = true;
       dates = "weekly";
       options = "--delete-older-than 2d";
     };
+
     # Enable nixFlakes on system
     package = pkgs.nixVersions.unstable;
     extraOptions = ''
@@ -322,17 +324,20 @@ in
       polybar = pkgs.polybar.override {
         i3Support = true;
       };
+
       # When using X11
       # rofi = pkgs.rofi.override {
       #   plugins = [
       #     pkgs.rofi-calc
       #   ];
       # };
+
       rofi-wayland = pkgs.rofi-wayland.override {
         plugins = [
           pkgs.rofi-calc
         ];
       };
+
       # TO enable hyprland support
       waybar = pkgs.waybar.overrideAttrs (oldAttrs: {
         mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];

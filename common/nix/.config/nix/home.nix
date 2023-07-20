@@ -119,14 +119,12 @@ in
         kitty
         networkmanagerapplet
         pamixer
-        papirus-icon-theme
         pavucontrol
         playerctl
         pywal
         qogir-icon-theme
         qogir-theme
         rofimoji
-        wlsunset
         xfce.thunar
 
         # Wayland
@@ -181,11 +179,13 @@ in
     };
 
   services = {
-    mpd = {
-      enable = true;
-      musicDirectory = "/run/media/keshav/Media/Music/";
-    };
     syncthing.enable = true;
+
+    # mpd = {
+    #   enable = true;
+    #   musicDirectory = "/run/media/keshav/Media/Music/";
+    # };
+
     # Xorg X11
     # betterlockscreen.enable = true;
     # flameshot.enable = true;
@@ -197,15 +197,18 @@ in
     alacritty.enable = true;
     btop.enable = true;
     exa.enable = true;
-    # feh.enable = true;
     lazygit.enable = true;
     mpv.enable = true;
     neovim.enable = true;
     obs-studio.enable = true;
+    yt-dlp.enable = true;
+    zathura.enable = true;
+
     spicetify = {
       enable = true;
       theme = spicePkgs.themes.Onepunch;
     };
+
     ssh = {
       enable = true;
       matchBlocks = {
@@ -216,12 +219,12 @@ in
         };
       };
     };
-    yt-dlp.enable = true;
-    zathura.enable = true;
+
     java = {
       enable = true;
       package = pkgs.jdk11;
     };
+
     bat = {
       enable = true;
       extraPackages = with pkgs.bat-extras; [ batman batgrep ];
@@ -230,26 +233,32 @@ in
         style = "plain"; # no line numbers, git status, etc... more like cat with colors
       };
     };
+
     nix-index.enable = true;
+
     zoxide = {
       enable = true;
       enableZshIntegration = true;
     };
+
     direnv = {
       enable = true;
       enableZshIntegration = true;
       nix-direnv.enable = true;
     };
+
     fzf = {
       enable = true;
       enableZshIntegration = true;
       tmux.enableShellIntegration = true;
       defaultCommand = "fd --type f --color=never --hidden";
     };
+
     git = {
       enable = true;
       userName = "Keshav";
       userEmail = "s.keshav13142@gmail.com";
+
       aliases = {
         s = "status";
         co = "checkout";
@@ -263,28 +272,33 @@ in
         ls = "ls-files";
         d = "diff";
       };
+
       extraConfig =
         {
-          gpg = {
-            format = "ssh";
-            ssh.allowedSignersFile = "~/.ssh/allowed_signers";
-          };
           user.signingKey = "~/.ssh/git_signing.pub";
-          core = {
-            excludesFile = "~/.gitignore";
-            editor = "nvim";
-            fileMode = false;
-          };
           github.user = "keshav13142";
           color.ui = true;
           init.defaultBranch = "main";
           http.sslVerify = true;
           pull.rebase = true;
+
+          gpg = {
+            format = "ssh";
+            ssh.allowedSignersFile = "~/.ssh/allowed_signers";
+          };
+
+          core = {
+            excludesFile = "~/.gitignore";
+            editor = "nvim";
+            fileMode = false;
+          };
+
           commit = {
             verbose = true;
             gpgsign = true;
           };
         };
+
       # Really nice looking diffs
       delta = {
         enable = false;
@@ -295,6 +309,7 @@ in
           side-by-side = true;
         };
       };
+
       # intelligent diffs that are syntax parse tree aware per language
       difftastic = {
         enable = true;
@@ -305,17 +320,21 @@ in
 
   gtk = {
     enable = true;
+
     theme = {
       name = "Qogir";
       package = pkgs.qogir-theme;
     };
+
     iconTheme = {
       name = "Dracula";
       package = pkgs.dracula-icon-theme;
     };
+
     gtk3.extraConfig = {
       gtk-application-prefer-dark-theme = 1;
     };
+
     gtk4.extraConfig = {
       gtk-application-prefer-dark-theme = 1;
     };

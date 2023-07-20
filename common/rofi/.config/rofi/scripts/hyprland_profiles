@@ -9,6 +9,8 @@ case $chosen in
 	~/.config/waybar/scripts/launch
 	hyprctl reload
 	swww init
+	dbus-launch kdeconnect-cli
+	syncthing serve --no-browser
 	notify-send "Animations Enabled @144Hz" -u low
 	;;
 󱟢)
@@ -22,6 +24,8 @@ case $chosen in
         keyword general:border_size 1;\
         keyword decoration:rounding 0"
 	swww kill
+	pkill syncthing
+	pkill kdeconnect
 	notify-send "Animations Disabled @60Hz" -u low
 	;;
 esac
