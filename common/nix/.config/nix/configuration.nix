@@ -341,6 +341,8 @@ in
     allowUnfree = true;
   };
 
+  documentation.man.generateCaches = true;
+
   system = {
     autoUpgrade.enable = true;
     autoUpgrade.allowReboot = true;
