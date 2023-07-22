@@ -61,6 +61,7 @@ in
         powertop
         pulseaudioFull
         qemu
+        quickemu
         ripgrep
         speechd
         stdenv
