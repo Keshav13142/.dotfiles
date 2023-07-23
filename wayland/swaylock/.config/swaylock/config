@@ -21,7 +21,7 @@ datestr=%a, %B %e
 timestr=%I:%M %p
 
 # Bg
-image=/tmp/lock_bg.jpg
+image=/tmp/background.jpg
 
 # Image Effects
 effect-blur=9x5

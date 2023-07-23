@@ -135,7 +135,7 @@ in
         lightdm = {
           # Lightdm custom theme
           enable = true;
-          background = "/tmp/back.jpg";
+          background = "/tmp/background.jpg";
           greeters.slick = {
             enable = true;
             theme = {
