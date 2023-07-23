@@ -148,7 +148,7 @@ in
             };
             cursorTheme = {
               package = pkgs.capitaine-cursors-themed;
-              name = "Capitaine Cursors (Gruvbox) - White";
+              name = "Capitaine Cursors (Gruvbox)";
             };
             extraConfig = "clock-format=%a, %-e %b %-l:%M %p ";
           };
