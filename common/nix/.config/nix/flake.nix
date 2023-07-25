@@ -21,35 +21,25 @@
     } @ inputs:
     let
       user = "keshav";
-      system = "x86_64-linux";
       pkgs = import nixpkgs {
-        inherit system;
         config.allowUnfree = true;
       };
       lib = nixpkgs.lib;
     in
     {
-      nixosConfigurations = {
-        laptop = lib.nixosSystem {
-          inherit system;
-          specialArgs = { inherit inputs; };
-          modules = [
-            ./configuration.nix
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = {
-                inherit user spicetify-nix;
-              };
-              home-manager.users.${user} = {
-                imports = [
-                  ./home.nix
-                ];
-              };
-            }
-          ];
-        };
-      };
+      # NixOS configurations
+      nixosConfigurations = (
+        import ./nixos {
+          inherit inputs home-manager lib nixpkgs pkgs spicetify-nix user;
+        }
+      );
+
+      # Home-manager configurations
+      homeConfigurations = (
+        # Non-NixOS configurations
+        import./nix {
+          inherit inputs home-manager lib nixpkgs pkgs user;
+        }
+      );
     };
 }
