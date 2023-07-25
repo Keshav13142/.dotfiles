@@ -1,8 +1,16 @@
-# ------------GENERAL----------------
+# General
 alias cl='clear'
+alias et='exit'
+alias mkdir='mkdir -p'
+alias clera='clear'
+alias clea='clear'
+alias chmox='chmod'
+
+# Tmux
 alias tm='tmux'
 alias tn='tmux new -s $(pwd | sed "s/.*\///g")'
-alias et='exit'
+alias ta='tmux attach -t'
+alias tl='tmux list-sessions'
 
 # use batman if available
 if [[ -x "$(command -v batman)" ]]; then
@@ -16,10 +24,10 @@ alias sz="du -hsx * | sort -rh | head -10"
 
 # use exa if available
 if [[ -x "$(command -v exa)" ]]; then
-	alias l='exa --icons -F --extended -l'
-	alias ll='exa --icons -F --extended -l'
+	alias l='exa --icons -alF --extended -l'
+	alias ll='exa --icons -aF --extended -l'
 	alias ls='exa --icons -F --extended'
-	alias llt='exa --icons -F --extended -lT'
+	alias llt='exa --icons -alTF --extended'
 else
 	alias l="ls -lah ${colorflag}"
 	alias ll="ls -lFh ${colorflag}"

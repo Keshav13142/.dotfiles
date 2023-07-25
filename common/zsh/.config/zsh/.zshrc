@@ -55,8 +55,11 @@ fi
 # Initialize modules.
 source ${ZIM_HOME}/init.zsh
 
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
+bindkey '^P' history-search-backward
+bindkey '^N' history-search-forward
+bindkey '^X' backward-kill-word
+bindkey '^j' beginning-of-line
+bindkey '^k' end-of-line
 autopair-init
 
 source "$ZDOTDIR/options.zsh"

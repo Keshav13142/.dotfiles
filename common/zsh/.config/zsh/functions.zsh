@@ -27,8 +27,6 @@ fkill() {
 fh() {
   print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed -E 's/ *[0-9]*\*? *//' | sed -E 's/\\/\\\\/g')
 }
-bindkey '^h' fh
-zle -N fh
 
 # f mv # To move files. You can write the destination after selecting the files.
 f() {
@@ -197,3 +195,14 @@ lfcd() {
 		[ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
 	fi
 }
+
+# Make CTRL-Z background things and unbackground them.
+fg-bg() {
+	if [[ $#BUFFER -eq 0 ]]; then
+		fg
+	else
+		zle push-input
+	fi
+}
+zle -N fg-bg
+bindkey '^Z' fg-bg
