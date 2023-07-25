@@ -1,4 +1,4 @@
-{ pkgs, user }:
+{ pkgs, user, ... }:
 {
 
   # Set your time zone.
@@ -55,6 +55,8 @@
       keep-derivations      = true
     '';
   };
+
+  nixpkgs.config.allowUnfree = true;
 
   documentation.man.generateCaches = true;
 

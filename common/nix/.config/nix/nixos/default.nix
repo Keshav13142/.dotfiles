@@ -1,4 +1,4 @@
-{ lib, user, inputs, home-manager, spicetify-nix, system }:
+{ lib, user, inputs, home-manager, spicetify-nix, system, ... }:
 {
   laptop = lib.nixosSystem {
     inherit system;
