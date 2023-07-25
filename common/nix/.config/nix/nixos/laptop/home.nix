@@ -47,7 +47,6 @@ in
         docker-compose
         mysql-workbench
         vscode
-        watchman
 
         # Desktop
         brillo

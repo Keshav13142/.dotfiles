@@ -4,36 +4,35 @@
   home =
     {
       packages = with pkgs; [
-        # Cli looks nice
-        cmatrix
+        # Cli utils
         cowsay
         figlet
         glow
         gum
+        lf
         lolcat
         neofetch
         ninja
+        speechd
         tig
         timer
+        tmatrix
+        xdg-ninja
 
-        # Build tools?
-        clang-tools_9
+        # Core utils
+        cmake
         coreutils
+        curl
+        fd
+        fzf
+        gawk
         gcc
         gnumake
-
-        # Utils
-        fd
-        fnm
-        gitmux
         jq
         killall
-        lf
         ripgrep
-        speechd
         stdenv
         stow
-        stylua
         tldr
         tmux
         trash-cli
@@ -41,29 +40,36 @@
         unrar
         unzip
         wget
-        xdg-ninja
         zip
 
         # Dev
         cargo
         diff-so-fancy
+        fnm
+        gitmux
         go
         helix
+        nodePackages.typescript
         nodejs
         python310Packages.pip
         python3Full
         watchman
 
         # Language support
-        deadnix
+        # Go
         gofumpt
         gotools
-        nixpkgs-fmt
+        # Web-dev
         nodePackages.eslint
         nodePackages.prettier
+        # Shell
         shellcheck
         shfmt
+        # Nix
+        deadnix
+        nixpkgs-fmt
         statix
+        #Lua
         stylua
 
       ];
