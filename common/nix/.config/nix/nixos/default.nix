@@ -1,7 +1,4 @@
-{ lib, user, inputs, home-manager, spicetify-nix }:
-let
-  system = "x86_64-linux";
-in
+{ lib, user, inputs, home-manager, spicetify-nix, system }:
 {
   laptop = lib.nixosSystem {
     inherit system;

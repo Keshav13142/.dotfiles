@@ -47,8 +47,6 @@
         # Dev
         cargo
         diff-so-fancy
-        docker
-        docker-compose
         go
         helix
         nodejs

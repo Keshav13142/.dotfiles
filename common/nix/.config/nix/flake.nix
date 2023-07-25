@@ -21,7 +21,9 @@
     } @ inputs:
     let
       user = "keshav";
+      system = "x86_64-linux";
       pkgs = import nixpkgs {
+        inherit system;
         config.allowUnfree = true;
       };
       lib = nixpkgs.lib;
@@ -30,15 +32,14 @@
       # NixOS configurations
       nixosConfigurations = (
         import ./nixos {
-          inherit inputs home-manager lib nixpkgs pkgs spicetify-nix user;
+          inherit inputs home-manager lib nixpkgs pkgs spicetify-nix user system;
         }
       );
 
-      # Home-manager configurations
+      # Non-NixOS configurations
       homeConfigurations = (
-        # Non-NixOS configurations
         import ./nix {
-          inherit inputs home-manager lib nixpkgs pkgs user;
+          inherit inputs home-manager nixpkgs user pkgs;
         }
       );
     };

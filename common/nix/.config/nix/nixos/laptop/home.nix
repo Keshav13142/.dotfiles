@@ -48,8 +48,6 @@ in
         mysql-workbench
         vscode
         watchman
-        xdg-desktop-portal
-        xdg-desktop-portal-gtk
 
         # Desktop
         brillo
@@ -70,6 +68,8 @@ in
         qogir-theme
         rofimoji
         xfce.thunar
+        xdg-desktop-portal
+        xdg-desktop-portal-gtk
 
         # Wayland
         cliphist
