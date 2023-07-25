@@ -37,7 +37,7 @@
       # Home-manager configurations
       homeConfigurations = (
         # Non-NixOS configurations
-        import./nix {
+        import ./nix {
           inherit inputs home-manager lib nixpkgs pkgs user;
         }
       );

@@ -1,6 +1,5 @@
 { user, home-manager, pkgs, ... }:
 {
-
   wsl = home-manager.lib.homeManagerConfiguration {
     inherit pkgs user;
     modules = [
