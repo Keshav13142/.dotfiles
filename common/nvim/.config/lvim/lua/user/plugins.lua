@@ -11,7 +11,7 @@ lvim.plugins = {
 	"mg979/vim-visual-multi",
 	-- Gruvbox theme
 	"sainnhe/gruvbox-material",
-  -- Get good at vim
+	-- Get good at vim
 	"ThePrimeagen/vim-be-good",
 	-- Search and replace
 	{

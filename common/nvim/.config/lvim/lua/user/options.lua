@@ -1,4 +1,4 @@
-# Disable netrw
+-- Disable netrw
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
@@ -36,11 +36,11 @@ lvim.builtin.treesitter.autotag.enable = true
 lvim.builtin.treesitter.auto_install = true
 lvim.builtin.treesitter.ensure_installed = {
 	"bash",
-  "comment",
+	"comment",
 	"css",
-  "gitcommit",
-  "git_config",
-  "gitignore",
+	"gitcommit",
+	"git_config",
+	"gitignore",
 	"go",
 	"html",
 	"java",
