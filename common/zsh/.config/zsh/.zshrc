@@ -29,6 +29,15 @@ if [[ -x "$(command -v zoxide)" ]]; then
   eval "$(zoxide init zsh)"
 fi
 
+# Use lunarvim or fallback to neovim
+if [ "$(command -v lvim)" ]; then
+	export EDITOR="lvim"
+else
+	export EDITOR="nvim"
+fi
+export SUDO_EDITOR="$EDITOR"
+export GIT_EDITOR="$EDITOR";
+
 # manage plugins using zim
 zstyle ':zim:zmodule' use 'degit'
 

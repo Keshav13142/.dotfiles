@@ -10,17 +10,8 @@ export KEYTIMEOUT=1 # 10ms delay for key sequences
 export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}"/npm/npmrc
 export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
 
-# Use lunarvim or fallback to neovim
-if [ $(command -v lvim) ]; then
-	export EDITOR=$(which lvim)
-else
-	export EDITOR=$(which nvim)
-fi
-export SUDO_EDITOR="$EDITOR"
-export GIT_EDITOR="$EDITOR";
-
-export TERMINAL="alacritty"
-export TERMINAL_PROG="alacritty"
+export TERMINAL="kitty"
+export TERMINAL_PROG="kitty"
 export GTK_THEME=Dracula:dark
 
 export ANDROID_HOME="$HOME/Android/Sdk"
