@@ -21,6 +21,12 @@ path+=("$HOME/go/bin")
 path+=("$HOME/.local/.cargo/bin")
 export PATH
 
+if [[ $(grep microsoft /proc/version) ]]; then
+  path+=("/mnt/c/Windows/System32")
+  path+=("/mnt/c/Windows/SysWOW64")
+  path+=("/mnt/c/Program Files/Neovim/bin")
+fi
+
 if [[ -x "$(command -v fnm)" ]]; then
   eval "$(fnm env --use-on-cd)"
 fi

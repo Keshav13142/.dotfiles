@@ -33,13 +33,18 @@ else
 	alias ll="ls -lFh ${colorflag}"
 fi
 
-alias rmf="rm -rf"
 alias lg='lazygit'
+
 if [[ -x "$(command -v xclip)" ]]; then
 	alias copy='xclip -selection clipboard'
-else
+fi
+if [[ -x "$(command -v wl-copy)" ]]; then
 	alias copy='wl-copy'
 fi
+if [[ -x "$(command -v clip.exe)" ]]; then
+	alias copy='clip.exe'
+fi
+
 alias cd='z'
 alias rm='trash'
 alias trs='trash-restore'
