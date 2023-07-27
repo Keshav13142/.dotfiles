@@ -45,6 +45,10 @@ if [[ -x "$(command -v clip.exe)" ]]; then
 	alias copy='clip.exe'
 fi
 
+share() {
+	curl -sF"file=@$1" https://0x0.st | copy
+}
+
 alias cd='z'
 alias rm='trash'
 alias trs='trash-restore'
