@@ -51,8 +51,6 @@ in
         # Desktop
         brillo
         dmenu
-        dracula-icon-theme
-        dracula-theme
         dunst
         gnome.cheese
         gnome.nautilus
@@ -63,8 +61,6 @@ in
         pavucontrol
         playerctl
         pywal
-        qogir-icon-theme
-        qogir-theme
         rofimoji
         xfce.thunar
         xdg-desktop-portal
@@ -127,8 +123,8 @@ in
 
       pointerCursor = {
         gtk.enable = true;
-        package = pkgs.qogir-icon-theme;
-        name = "Qogir";
+        package = pkgs.capitaine-cursors-themed;
+        name = "Capitaine Cursors (Gruvbox)";
         size = 16;
       };
     };
@@ -171,13 +167,13 @@ in
     enable = true;
 
     theme = {
-      name = "Qogir";
-      package = pkgs.qogir-theme;
+      name = "Gruvbox-Dark-BL";
+      package = pkgs.gruvbox-gtk-theme;
     };
 
     iconTheme = {
-      name = "Dracula";
-      package = pkgs.dracula-icon-theme;
+      name = "Gruvbox_Dark";
+      package = pkgs.gruvbox-gtk-theme;
     };
 
     gtk3.extraConfig = {
@@ -193,7 +189,7 @@ in
     enable = true;
     settings = {
       "org/gnome/desktop/interface" = {
-        gtk-key-theme = "Qogir";
+        gtk-key-theme = "Gruvbox-Dark-BL";
         color-scheme = "prefer-dark";
       };
     };
