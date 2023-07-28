@@ -60,8 +60,9 @@
         gofumpt
         gotools
         # Web-dev
-        nodePackages.eslint
-        nodePackages.prettier
+        nodePackages_latest.eslint_d
+        nodePackages_latest.prettier
+        nodePackages_latest.typescript-language-server
         # Shell
         shellcheck
         shfmt
