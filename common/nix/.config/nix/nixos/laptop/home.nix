@@ -76,14 +76,20 @@ in
         grim
         hyprpicker
         libsForQt5.qt5.qtwayland
-        rofi-wayland
+        (rofi-wayland.override {
+          plugins = [
+            pkgs.rofi-calc
+          ];
+        })
         slurp
         swappy
         swayidle
         swaylock-effects
         swww
         wev
-        waybar
+        (waybar.overrideAttrs (oldAttrs: {
+          mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+        }))
         wayland-protocols
         wl-clipboard
         wlogout
@@ -94,8 +100,14 @@ in
         # xorg.xev
         # lxappearance
         # picom
-        # polybar
-        # rofi
+        # (polybar.override {
+        #   i3Support = true;
+        # })
+        # (rofi.override {
+        #   plugins = [
+        #     pkgs.rofi-calc
+        #   ];
+        # })
         # sxhkd
         # xdotool
         # xorg.libX11

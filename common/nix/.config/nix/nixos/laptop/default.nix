@@ -1,4 +1,4 @@
-{ user, inputs, config, pkgs, ... }:
+{ user, inputs, pkgs, ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -256,32 +256,6 @@
         "L+ /lib/${builtins.baseNameOf pkgs.stdenv.cc.bintools.dynamicLinker} - - - - ${pkgs.stdenv.cc.bintools.dynamicLinker}"
         "L+ /lib64 - - - - /lib"
       ];
-    };
-  };
-
-  nixpkgs.config = {
-    packageOverrides = pkgs: {
-      polybar = pkgs.polybar.override {
-        i3Support = true;
-      };
-
-      # When using X11
-      # rofi = pkgs.rofi.override {
-      #   plugins = [
-      #     pkgs.rofi-calc
-      #   ];
-      # };
-
-      rofi-wayland = pkgs.rofi-wayland.override {
-        plugins = [
-          pkgs.rofi-calc
-        ];
-      };
-
-      # TO enable hyprland support
-      waybar = pkgs.waybar.overrideAttrs (oldAttrs: {
-        mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-      });
     };
   };
 }
