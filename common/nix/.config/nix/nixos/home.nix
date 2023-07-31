@@ -139,9 +139,7 @@
         };
 
         core = {
-          excludesFile = "~/.gitignore";
           editor = "nvim";
-          fileMode = false;
         };
 
         commit = {
