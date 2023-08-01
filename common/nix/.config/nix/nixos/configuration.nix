@@ -40,13 +40,11 @@
       allowed-users = [ "@wheel" ];
       warn-dirty = false;
     };
-
     gc = {
       automatic = true;
       dates = "weekly";
       options = "--delete-older-than 2d";
     };
-
     # Enable nixFlakes on system
     package = pkgs.nixVersions.unstable;
     extraOptions = ''
@@ -56,14 +54,13 @@
     '';
   };
 
-  nixpkgs.config.allowUnfree = true;
-
-  documentation.man.generateCaches = true;
-
   system = {
     autoUpgrade.enable = true;
     autoUpgrade.allowReboot = true;
     autoUpgrade.channel = "https://channels.nixos.org/nixos-23.05";
     stateVersion = "23.05";
   };
+
+  nixpkgs.config.allowUnfree = true;
+  documentation.man.generateCaches = true;
 }

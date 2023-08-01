@@ -45,9 +45,6 @@
     ];
   };
 
-  # Enable sound
-  sound.enable = true;
-
   # Set zsh as the default shell
   programs = {
     zsh.enable = true;
@@ -61,9 +58,7 @@
     };
     kdeconnect.enable = true;
   };
-
   users.defaultUserShell = pkgs.zsh;
-
   security = {
     rtkit.enable = true;
     polkit.enable = true;
@@ -90,14 +85,10 @@
     libvirtd.enable = true;
   };
 
-  # Add ~/.local/bin/ to $PATH
-  environment.localBinInPath = true;
-
   services = {
     # Xserver config
     xserver = {
       enable = true;
-
       displayManager = {
         lightdm = {
           # Lightdm custom theme
@@ -120,14 +111,11 @@
             extraConfig = "clock-format=%a, %-e %b %-l:%M %p ";
           };
         };
-
         # Enable wayland
         gdm.wayland = true;
       };
-
       layout = "us";
       libinput.enable = true;
-
       # X11 + i3
       # displayManager = {
       #   defaultSession = "none+i3";
@@ -140,23 +128,14 @@
 
     # For filemanagers to work properly?
     gvfs.enable = true;
-
-    # printing.enable = true;
-    # flatpak.enable = true;
-    # cron.enable = true;
-
     gnome.gnome-keyring.enable = true;
-
     dbus = {
       enable = true;
       packages = with pkgs; [ dconf ];
     };
-
-    ###### POWER MANAGEEMENT ############
+    # Power managerment
     power-profiles-daemon.enable = false;
-
     thermald.enable = true;
-
     tlp = {
       # Followed https://knowledgebase.frame.work/en_us/optimizing-fedora-battery-life-r1baXZh
       enable = true;
@@ -194,10 +173,8 @@
         WOL_DISABLE = "Y";
       };
     };
-
     # Bluetooth
     blueman.enable = true;
-
     # Audio
     pipewire = {
       enable = true;
@@ -207,7 +184,6 @@
       jack.enable = true;
       wireplumber.enable = true;
     };
-
     # To allow polybar and other scripts to set brightness
     udev.extraRules = ''
       ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="intel_backlight", MODE="0666", RUN+="${pkgs.coreutils}/bin/chmod a+w /sys/class/backlight/%k/brightness"
@@ -231,6 +207,11 @@
     };
   };
 
+  # Enable sound
+  sound.enable = true;
+  # Add ~/.local/bin/ to $PATH
+  environment.localBinInPath = true;
+
   systemd = {
     user.services.polkit-gnome-authentication-agent-1 = {
       description = "polkit-gnome-authentication-agent-1";
@@ -245,11 +226,9 @@
         TimeoutStopSec = 10;
       };
     };
-
     extraConfig = ''
       DefaultTimeoutStopSec=10s
     '';
-
     #For lvim lsp modules to work
     tmpfiles = {
       rules = [

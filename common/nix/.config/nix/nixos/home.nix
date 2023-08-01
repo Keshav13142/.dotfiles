@@ -82,35 +82,29 @@
     neovim.enable = true;
     ssh.enable = true;
     nix-index.enable = true;
-
     java = {
       enable = true;
       package = pkgs.jdk11;
     };
-
     bat = {
       enable = true;
       extraPackages = with pkgs.bat-extras; [ batman batgrep ];
     };
-
     direnv = {
       enable = true;
       enableZshIntegration = true;
       nix-direnv.enable = true;
     };
-
     fzf = {
       enable = true;
       enableZshIntegration = true;
       tmux.enableShellIntegration = true;
       defaultCommand = "fd --type f --color=never --hidden";
     };
-
     git = {
       enable = true;
       userName = "Keshav";
       userEmail = "s.keshav13142@gmail.com";
-
       aliases = {
         s = "status";
         co = "checkout";
@@ -124,7 +118,6 @@
         ls = "ls-files";
         d = "diff";
       };
-
       extraConfig = {
         user.signingKey = "~/.ssh/git_signing.pub";
         github.user = "keshav13142";
@@ -132,22 +125,18 @@
         init.defaultBranch = "main";
         http.sslVerify = true;
         pull.rebase = true;
-
         gpg = {
           format = "ssh";
           ssh.allowedSignersFile = "~/.ssh/allowed_signers";
         };
-
         core = {
           editor = "nvim";
         };
-
         commit = {
           verbose = true;
           gpgsign = true;
         };
       };
-
       # Really nice looking diffs
       delta = {
         enable = false;
@@ -157,7 +146,6 @@
           side-by-side = true;
         };
       };
-
       # intelligent diffs that are syntax parse tree aware per language
       difftastic = {
         enable = true;

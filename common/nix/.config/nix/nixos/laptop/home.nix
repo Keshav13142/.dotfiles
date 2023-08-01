@@ -120,7 +120,6 @@ in
       ];
 
       stateVersion = "23.05";
-
       pointerCursor = {
         gtk.enable = true;
         package = pkgs.capitaine-cursors-themed;
@@ -151,12 +150,10 @@ in
     obs-studio.enable = true;
     yt-dlp.enable = true;
     zathura.enable = true;
-
     spicetify = {
       enable = true;
       theme = spicePkgs.themes.Onepunch;
     };
-
     zoxide = {
       enable = true;
       enableZshIntegration = true;
@@ -165,21 +162,17 @@ in
 
   gtk = {
     enable = true;
-
     theme = {
       name = "Gruvbox-Dark-BL";
       package = pkgs.gruvbox-gtk-theme;
     };
-
     iconTheme = {
       name = "Gruvbox_Dark";
       package = pkgs.gruvbox-gtk-theme;
     };
-
     gtk3.extraConfig = {
       gtk-application-prefer-dark-theme = 1;
     };
-
     gtk4.extraConfig = {
       gtk-application-prefer-dark-theme = 1;
     };

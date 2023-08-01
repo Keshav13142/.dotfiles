@@ -17,7 +17,6 @@
 
           stateVersion = "22.05";
         };
-
         nixpkgs.config.allowUnfreePredicate = _: true;
       }
     ];
