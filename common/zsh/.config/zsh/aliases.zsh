@@ -24,13 +24,14 @@ alias sz="du -hsx * | sort -rh | head -10"
 
 # use exa if available
 if [[ -x "$(command -v exa)" ]]; then
-	alias l='exa --icons -alF --extended -l'
-	alias ll='exa --icons -aF --extended -l'
-	alias ls='exa --icons -F --extended'
+	alias l='exa --icons -alF --extended -l --group-directories-first'
+	alias ll='exa --icons -aF --extended -l --group-directories-first'
+	alias ls='exa --icons -F --extended --group-directories-first'
 	alias llt='exa --icons -alTF --extended'
 else
-	alias l="ls -lah ${colorflag}"
-	alias ll="ls -lFh ${colorflag}"
+	alias ls="ls -Fh ${colorflag} --group-directories-first"
+	alias ll="ls -lFh ${colorflag} --group-directories-first"
+  alias l="ll"
 fi
 
 alias lg='lazygit'
