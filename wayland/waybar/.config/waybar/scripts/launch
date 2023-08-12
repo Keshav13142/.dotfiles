@@ -1,16 +1,7 @@
 #!/usr/bin/env bash
 
-if [ -z "$1" ]; then
-	style=gaps
-else
-	style=$1
-fi
-
 CONFIG="$HOME/.config/waybar/config.jsonc"
 STYLE="$HOME/.config/waybar/style.css"
-
-ln -sf "$HOME/.config/waybar/configs/$style.jsonc" "$HOME/.config/waybar/margin.jsonc"
-ln -sf "$HOME/.config/waybar/styles/$style.css" "$HOME/.config/waybar/margin.css"
 
 pkill waybar
 waybar -c "$CONFIG" -s "$STYLE" >/dev/null 2>&1 &

@@ -4,23 +4,16 @@
   "exclusive": true,
   "passthrough": false,
   "gtk-layer-shell": true,
-  "height": 20,
-  "include": [
-    "$HOME/.config/waybar/margin.jsonc",
-    "$HOME/.config/waybar/modules.jsonc"
-  ],
+  "include": ["$HOME/.config/waybar/modules.jsonc"],
   "modules-left": [
     "wlr/workspaces",
     "cpu",
     "memory",
     "disk",
     "custom/lock_screen",
-    "custom/power_btn",
+    "custom/power_btn"
   ],
-  "modules-center": [
-    "custom/playerlabel",
-    "custom/playpause",
-  ],
+  "modules-center": ["custom/playerlabel", "custom/playpause"],
   "modules-right": [
     "custom/wallpaper",
     "pulseaudio#microphone",
@@ -28,6 +21,6 @@
     "pulseaudio",
     "battery",
     "clock",
-    "tray",
-  ],
+    "tray"
+  ]
 }
