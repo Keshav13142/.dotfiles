@@ -21,10 +21,12 @@ path+=("$HOME/go/bin")
 path+=("$HOME/.local/.cargo/bin")
 export PATH
 
+windows_user="skesh"
 if [[ $(grep microsoft /proc/version) ]]; then
   path+=("/mnt/c/Windows/System32")
   path+=("/mnt/c/Windows/SysWOW64")
   path+=("/mnt/c/Program Files/Neovim/bin")
+  path+=("/mnt/c/Users/$windows_user/AppData/Local/Programs/Microsoft VS Code/bin")
 fi
 
 if [[ -x "$(command -v fnm)" ]]; then
