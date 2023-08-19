@@ -44,6 +44,7 @@
 
         # Dev
         cargo
+        rustc
         diff-so-fancy
         fnm
         gitmux
