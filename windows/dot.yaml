@@ -9,12 +9,12 @@ windows:
 
     git/.gitconfig: ~/.gitconfig
 
-    komorebi/komorebi.json : ~/.config/komorebi/komorebi.json
+    komorebi/komorebi.json: ~/.config/komorebi/komorebi.json
 
     starship/starship.toml: ~/.config/starship.toml
 
     AutoHotkey/shortcuts.ahk: ~/Documents/AutoHotkey/shortcuts.ahk
 
     powershell/Profile.ps1:
-      - ~/Documents/PowerShell/Profile.ps1
-      - ~/Documents/WindowsPowerShell/Profile.ps1
+      - ~/Documents/PowerShell/Microsoft.PowerShell_profile.ps1
+      - ~/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1
