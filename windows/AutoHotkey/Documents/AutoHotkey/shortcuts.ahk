@@ -44,11 +44,5 @@ LocalPath(path) {
 ; Remap Caps to Esc
 CapsLock::Escape
 
-; Arrow keys on home row
-!+J:: Send "{Down}"
-!+K:: Send "{Up}"
-!+L:: Send "{Right}"
-!+H:: Send "{Left}"
-
 ; Reload current script
 !+r:: Reload
