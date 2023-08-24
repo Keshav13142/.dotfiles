@@ -1,0 +1,45 @@
+[alias]
+	br = "branch"
+	cl = "clone"
+	co = "checkout"
+	d = "diff"
+	lg = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --topo-order --date=relative"
+	lp = "log -p"
+	ls = "ls-files"
+	rl = "reflog"
+	s = "status"
+	st = "status -sb"
+	wtf = "!git-wtf"
+
+[color]
+	ui = true
+
+[commit]
+	gpgsign = true
+	verbose = true
+
+[core]
+	editor = "code"
+
+[github]
+	user = "keshav13142"
+
+[gpg]
+	format = "ssh"
+
+[gpg "ssh"]
+	allowedSignersFile = "~/.ssh/allowed_signers"
+
+[http]
+	sslVerify = true
+
+[init]
+	defaultBranch = "main"
+
+[pull]
+	rebase = true
+
+[user]
+	email = "s.keshav13142@gmail.com"
+	name = "Keshav"
+	signingKey = "~/.ssh/git_signing.pub"
