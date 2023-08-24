@@ -1,0 +1,6 @@
+linux:
+  links:
+    hypr: ~/.config/hypr
+    swaylock: ~/.config/swaylock
+    waybar: ~/.config/waybar
+    wlogout: ~/.config/wlogout

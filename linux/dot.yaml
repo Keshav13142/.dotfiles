@@ -1,0 +1,19 @@
+linux:
+  links:
+    bin/pomo: ~/.local/bin/pomo
+    bin/set_wall: ~/.local/bin/set_wall
+    cava: ~/.config/cava
+    dunst: ~/.config/dunst
+    fd/.fdignore: ~/.fdignore
+    lf: ~/.config/lf
+    neofetch: ~/.config/neofetch
+    nix: ~/.config/nix
+    npm: ~/.config/npm
+    rofi/config: ~/.config/rofi
+    rofi/rofimoji.rc: ~/.config/rofimoji.rc
+    scripts: ~/.config/scripts
+    swappy: ~/.config/swappy
+    tmux: ~/.config/tmux
+    wal: ~/.config/wal
+    zsh/config: ~/.config/zsh
+    zsh/.zshenv: ~/.zshenv

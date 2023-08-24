@@ -1,0 +1,12 @@
+windows:
+  links:
+    starship/starship.toml: ~/.config/starship.toml
+    vscode/keybindings.json: ~\AppData\Roaming\Code\User\keybindings.json
+    vscode/settings.json: ~\AppData\Roaming\Code\User\settings.json
+    git/.gitconfig: ~/.gitconfig
+
+linux:
+  links:
+    kanata/maps.kbd: ~/.config/kanata/maps.kbd
+    lazygit: ~/.config/lazygit
+    kitty: ~/.config/kitty
