@@ -30,6 +30,18 @@ Function Install-Choco {
   }
 }
 
+# Setup scoop
+Function Install-Scoop {
+  if (Get-Command -Name scoop -ErrorAction Ignore) {
+    Write-Host "Scoop is Already Installed" -ForegroundColor Green
+  }
+  else {
+    Write-Host "scoop is not installed. Installing scoop...." -ForegroundColor Yellow
+    Invoke-Expression "& {$(Invoke-RestMethod get.scoop.sh)} -RunAsAdmin"
+    scoop bucket add extras
+  }
+}
+
 Function Install-PwshModules {
   Write-Host "#### Installing PowerShell Modules ####" -ForegroundColor Yellow
   Write-Host "Installing PowerShellGet.."-ForegroundColor Cyan
@@ -78,6 +90,12 @@ Function Install-Pkgs ($obj) {
       choco install $pkg -y --limit-output
     }
   }
+  if ($obj.Scoop) {
+    foreach ($pkg in $obj.Scoop) {
+      Write-Host "Installing $pkg ..." -ForegroundColor Cyan
+      scoop install $pkg
+    }
+  }
   Write-Host ""
 }
 
@@ -99,6 +117,8 @@ $pkgs =
   "Twilio.Authy",
   "VideoLAN.VLC",
   "voidtools.Everything.Alpha"
+  Scoop  =
+  "kanata"
 },
 [PSCustomObject]@{
   Type   = "Utils"
@@ -169,6 +189,7 @@ $pkgs =
 # Check if Package managers are installed
 Install-Choco
 Install-Winget
+Install-Scoop
 
 Write-Host "
 Choose what to install
