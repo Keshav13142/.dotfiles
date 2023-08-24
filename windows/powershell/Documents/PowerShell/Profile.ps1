@@ -240,11 +240,6 @@ function rm_remmap {
 ######################## Exports #########################
 Set-Environment "KOMOREBI_CONFIG_HOME" "$ENV:USERPROFILE\.config\komorebi"
 
-# Variables for Dotfiles management
-$DotFilesPath = "$ENV:USERPROFILE\.dotfiles-windows"
-$DotFilesAutodetect = $true
-$DotFilesAllowNestedSymlinks = $true
-
 ######################## Other stuff #########################
 # Autocompletion for winget commands
 Register-ArgumentCompleter -Native -CommandName winget -ScriptBlock {
