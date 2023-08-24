@@ -39,6 +39,7 @@ in
         qemu
         quickemu
         usbutils
+        kanata
 
         # Dev
         android-studio

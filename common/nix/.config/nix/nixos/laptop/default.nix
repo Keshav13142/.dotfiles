@@ -213,7 +213,20 @@
   environment.localBinInPath = true;
 
   systemd = {
+    services = {
+      kanata = {
+        enable = true;
+        description = "Kanata keyboard remapper";
+        serviceConfig = {
+          Type = "simple";
+          ExecStart = "${pkgs.kanata}/bin/kanata --cfg /home/${user}/.config/kanata/maps.kbd";
+          Restart = "no";
+        };
+        wantedBy = [ "default.target" ];
+      };
+    };
     user.services.polkit-gnome-authentication-agent-1 = {
+      enable = true;
       description = "polkit-gnome-authentication-agent-1";
       wantedBy = [ "graphical-session.target" ];
       wants = [ "graphical-session.target" ];
