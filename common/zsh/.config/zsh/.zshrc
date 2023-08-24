@@ -18,7 +18,8 @@ path+=("$HOME/.local/bin")
 path+=("$XDG_CONFIG_HOME/tmux/plugins/t-smart-tmux-session-manager/bin")
 path+=("/usr/local/go/bin")
 path+=("$HOME/go/bin")
-path+=("$HOME/.local/.cargo/bin")
+path+=("$XDG_DATA_HOME/cargo/bin")
+path+=("$XDG_DATA_HOME/go/bin")
 export PATH
 
 windows_user="skesh"
