@@ -1,0 +1,20 @@
+windows:
+  links:
+    winfetch/config.ps1: ~/.config/winfetch/config.ps1
+
+    whkd/whkdrc: ~/.config/whkdrc
+
+    vscode/keybindings.json: ~\AppData\Roaming\Code\User\keybindings.json
+    vscode/settings.json: ~\AppData\Roaming\Code\User\settings.json
+
+    git/.gitconfig: ~/.gitconfig
+
+    komorebi/komorebi.json : ~/.config/komorebi/komorebi.json
+
+    starship/starship.toml: ~/.config/starship.toml
+
+    AutoHotkey/shortcuts.ahk: ~/Documents/AutoHotkey/shortcuts.ahk
+
+    powershell/Profile.ps1:
+      - ~/Documents/PowerShell/Profile.ps1
+      - ~/Documents/WindowsPowerShell/Profile.ps1
