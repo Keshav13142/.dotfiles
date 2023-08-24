@@ -1,5 +1,5 @@
-# Dotfiles for my Windows and NixOs setup
+## All my dotfiles
 
-### Nix configuration can be found [here](common/nix/.config/nix)
-
-### Windows specific config [here](windows/)
+- NixOs configuration can be found [here](linux/nix)
+- Windows specific config [here](windows/)
+- Managed using [rots](https://github.com/volllly/rotz)
