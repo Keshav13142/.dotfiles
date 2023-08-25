@@ -5,19 +5,16 @@
 (defsrc
   caps
               h   j    k    l
-  lsft rsft
 )
 
 (deflayer default
   @cap
               _   _    _    _
-  _    _
 )
 
 (deflayer arrows
   _
               left down up rght
-  _    _
 )
 
 (defalias
