@@ -178,7 +178,7 @@
   "vim.leader": "<space>",
   "vim.mouseSelectionGoesIntoVisualMode": true,
   "vim.neovimPath": "/etc/profiles/per-user/keshav/bin/nvim",
-  "vim.normalModeKeyBindings": [
+  "vim.normalModeKeyBindingsNonRecursive": [
     // Splits
     { "before": ["leader", "v"], "commands": [":vsplit"], "silent": true },
     { "before": ["leader", "V"], "commands": [":split"], "silent": true },
@@ -252,13 +252,6 @@
       "silent": true
     },
 
-    // Does this fix the esc problem?
-    {
-      "before": ["<esc>"],
-      "after": ["shift", "<esc>"],
-      "silent": true
-    },
-
     // Cycle through diagnostics
     {
       "before": ["[", "d"],
@@ -270,6 +263,7 @@
       "commands": ["editor.action.marker.next"],
       "silent": true
     },
+
     // Cycle through tabs
     { "before": ["H"], "commands": [":bprev"], "silent": true },
     { "before": ["L"], "commands": [":bnext"], "silent": true },
@@ -336,8 +330,12 @@
     { "before": ["K"], "commands": ["editor.action.moveLinesUpAction"] },
     { "before": ["J"], "commands": ["editor.action.moveLinesDownAction"] },
 
-    // Select next occurence of selected word
-    { "before": ["<c-n>"], "after": ["g", "b"] }
+    // Go to start/end of line
+    { "after": ["^"], "before": ["g", "h"], "silent": true },
+    { "after": ["$"], "before": ["g", "l"], "silent": true }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    { "before": ["<c-n>"], "after": ["g", "b"] } // Select next occurence of selected word
   ],
   "vim.visualstar": true,
 
