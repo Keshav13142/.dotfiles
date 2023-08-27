@@ -22,6 +22,8 @@ Set-PSReadLineOption -PredictionViewStyle ListView
 # Fzf
 Import-Module PSFzf
 Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+f' -PSReadlineChordReverseHistory 'Ctrl+r'
+Set-PsFzfOption -EnableFd:$true
+Set-PsFzfOption -TabExpansion
 
 Invoke-Expression (& {
     $hook = if ($PSVersionTable.PSVersion.Major -lt 6) {
@@ -128,6 +130,41 @@ function Set-Environment([String] $variable, [String] $value) {
   Invoke-Expression "`$env:${variable} = `"$value`""
 }
 
+# PSFzf aliases
+function Invoke-FuzzySetLocation2() {
+  param($Directory = $null)
+
+  if ($null -eq $Directory) {
+    $Directory = $PWD.Path
+  }
+
+  $result = $null
+
+  # Color output from fd to fzf if running in Windows Terminal
+  $script:RunningInWindowsTerminal = [bool]($env:WT_Session)
+  $script:DefaultFileSystemFdCmd = "fd.exe --color always . {0}"
+
+  # Wrap $Directory in quotes if there is space (to be passed in fd)
+  if ($Directory.Contains(' ')) {
+    $strDir = """$Directory"""
+  }
+  else {
+    $strDir = $Directory
+  }
+
+  # Call fd to get directory list and pass to fzf
+  Invoke-Expression (($script:DefaultFileSystemFdCmd -f '--type directory {0} --max-depth 1') -f $strDir) | Invoke-Fzf | ForEach-Object { $result = $_ }
+
+  if ($null -ne $result) {
+    Set-Location $result
+  }
+}
+
+New-Alias -Scope Global -Name fcd -Value Invoke-FuzzySetLocation2 -ErrorAction Ignore
+New-Alias -Scope Global -Name fe -Value Invoke-FuzzyEdit -ErrorAction Ignore
+New-Alias -Scope Global -Name fh -Value Invoke-FuzzyHistory -ErrorAction Ignore
+New-Alias -Scope Global -Name fkill -Value Invoke-FuzzyKillProcess -ErrorAction Ignore
+
 #################### Aliases ###########################
 # General
 ${function:debloat} = { Invoke-WebRequest christitus.com/win | Invoke-Expression }
@@ -191,7 +228,7 @@ ${function:nh} = {
   Write-Host "nr  => npm run {name}"
 }
 
-# Github
+# Git
 ${function:gitAdd} = { git add $args }
 ${function:gitLog} = { git log }
 ${function:gitRefLog} = { git reflog }
@@ -237,9 +274,6 @@ function rm_remmap {
   Remove-ItemProperty -Path $reg_path -Name $reg_name
 }
 
-######################## Exports #########################
-Set-Environment "KOMOREBI_CONFIG_HOME" "$ENV:USERPROFILE\.config\komorebi"
-
 ######################## Other stuff #########################
 # Autocompletion for winget commands
 Register-ArgumentCompleter -Native -CommandName winget -ScriptBlock {
@@ -269,3 +303,6 @@ Set-PSReadLineKeyHandler -Key Ctrl+V `
     [Microsoft.PowerShell.PSConsoleReadLine]::Ding()
   }
 }
+
+######################## Exports #########################
+Set-Environment "KOMOREBI_CONFIG_HOME" "$ENV:USERPROFILE\.config\komorebi"
