@@ -4,7 +4,6 @@
     "key": "ctrl+k",
     "command": "workbench.action.focusActiveEditorGroup"
   },
-
   // Navigate splits/panes
   {
     "key": "ctrl+h",
@@ -26,7 +25,6 @@
     "command": "workbench.action.navigateRight",
     "when": "!codeActionMenuVisible && !inQuickOpen && !suggestWidgetVisible && !parameterHintsVisible && !isInDiffEditor"
   },
-
   // Move splits around
   {
     "key": "ctrl+shift+h",
@@ -48,7 +46,6 @@
     "command": "workbench.action.moveEditorToRightGroup",
     "when": "editorTextFocus"
   },
-
   // Terminal
   {
     "key": "ctrl+shift+n",
@@ -80,7 +77,6 @@
     "command": "workbench.action.terminal.focusPrevious",
     "when": "terminalFocus"
   },
-
   // Resize terminal
   {
     "key": "ctrl+[",
@@ -92,7 +88,6 @@
     "command": "workbench.action.terminal.resizePaneUp",
     "when": "terminalFocus"
   },
-
   // Create new file
   {
     "key": "ctrl+shift+n",
@@ -103,7 +98,6 @@
     "key": "ctrl+n",
     "command": "-workbench.action.files.newUntitledFile"
   },
-
   // Cycle between tabs
   {
     "key": "ctrl+tab",
@@ -113,7 +107,6 @@
     "key": "ctrl+shift+tab",
     "command": "workbench.action.previousEditor"
   },
-
   // Use Ctrl + number to go to that tab
   {
     "key": "ctrl+1",
@@ -135,13 +128,11 @@
     "key": "ctrl+5",
     "command": "workbench.action.openEditorAtIndex4"
   },
-
   // Close tabs with Ctrl + w
   {
     "key": "ctrl+w",
     "command": "workbench.action.closeActiveEditor"
   },
-
   // Pin/unpin tabs
   {
     "key": "ctrl+q",
@@ -162,7 +153,6 @@
     "command": "workbench.action.unpinEditor",
     "when": "activeEditorIsPinned"
   },
-
   // use this to toggle sidebar
   {
     "key": "ctrl+shift+b",
@@ -173,7 +163,6 @@
     "command": "-workbench.action.tasks.build",
     "when": "taskCommandsRegistered"
   },
-
   // Use ctrl + p/n to navigate command pallete
   {
     "key": "ctrl+n",
@@ -185,13 +174,11 @@
     "command": "workbench.action.quickOpenSelectPrevious",
     "when": "inQuickOpen"
   },
-
   // Open project manager
   {
     "command": "projectManager.listGitProjects#sideBarGit",
     "key": "ctrl+shift+o"
   },
-
   // Smart selection grow/shrink
   {
     "key": "ctrl+=",
@@ -203,7 +190,6 @@
     "command": "editor.action.smartSelect.shrink",
     "when": "editorTextFocus && editorHasSelection"
   },
-
   // File explorer
   {
     "key": "a",
@@ -226,16 +212,40 @@
     "when": "filesExplorerFocus && !inputFocus"
   },
   {
+    "key": "x",
+    "command": "filesExplorer.cut",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
     "key": "p",
     "command": "filesExplorer.paste",
     "when": "filesExplorerFocus && !inputFocus"
   },
   {
     "key": "d",
+    "command": "moveFileToTrash",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "shift+d",
     "command": "deleteFile",
     "when": "filesExplorerFocus && !inputFocus"
   },
-
+  {
+    "key": "u",
+    "command": "undo",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "e",
+    "command": "list.expand",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "shift+e",
+    "command": "list.collapseAll",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
   // Remove vscode related mappings for <C-o> so that I can use that for vim motions
   {
     "key": "ctrl+o",
