@@ -3,6 +3,7 @@ windows:
     starship/starship.toml: ~/.config/starship.toml
     vscode/keybindings.json: ~\AppData\Roaming\Code\User\keybindings.json
     vscode/settings.json: ~\AppData\Roaming\Code\User\settings.json
+    nvim: ~\AppData\Local\nvim
     git/.gitconfig: ~/.gitconfig
     kanata/maps.kbd: ~/.config/kanata/maps.kbd
     wezterm/.wezterm.lua: ~/.wezterm.lua
@@ -12,5 +13,6 @@ linux:
     kanata/maps.kbd: ~/.config/kanata/maps.kbd
     lazygit: ~/.config/lazygit
     kitty: ~/.config/kitty
+    nvim: ~/.config/nvim
     vscode/keybindings.json: ~/.config/Code/User/keybindings.json
     vscode/settings.json: ~/.config/Code/User/settings.json
