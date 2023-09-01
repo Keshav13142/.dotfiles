@@ -125,6 +125,9 @@
   "markdown.validate.enabled": true,
 
   "powershell.promptToUpdatePowerShell": false,
+  "powershell.powerShellAdditionalExePaths": {
+    "Powershell 7": "/etc/profiles/per-user/keshav/bin/pwsh" // For some reason it does not auto-detect in nixos
+  },
 
   "projectManager.git.baseFolders": ["$home"],
   "projectManager.sortList": "Recent",
