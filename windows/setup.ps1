@@ -4,13 +4,17 @@ if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]:
   exit
 }
 
+Function Print($content, $color) {
+  Write-Host $content -ForegroundColor $color
+}
+
 # Setup winget
 Function Install-Winget {
   if (Test-Path ~\AppData\Local\Microsoft\WindowsApps\winget.exe) {
-    Write-Host "Winget Already Installed" -ForegroundColor Green
+    Print("Winget Already Installed", "Green")
   }
   else {
-    Write-Host "Winget is not installed. Installing Winget...." -ForegroundColor Yellow
+    Print("Winget is not installed. Installing Winget....", "Yellow")
     Invoke-WebRequest https://raw.githubusercontent.com/asheroto/winget-install/master/winget-install.ps1 -UseBasicParsing | Invoke-Expression
   }
 }
@@ -18,81 +22,81 @@ Function Install-Winget {
 # Setup chocolatey
 Function Install-Choco {
   if ((Get-Command -Name choco -ErrorAction Ignore) -and (Get-Item "$env:ChocolateyInstall\choco.exe" -ErrorAction Ignore).VersionInfo.ProductVersion) {
-    Write-Host "Chocolatey Already Installed" -ForegroundColor Green
+    Print("Chocolatey Already Installed", "Green")
   }
   else {
-    Write-Host "Chocolatey is not installed. Installing chocolatey...." -ForegroundColor Yellow
+    Print("Chocolatey is not installed. Installing chocolatey....", "Yellow")
     Set-ExecutionPolicy Bypass -Scope Process -Force
     Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1')) -ErrorAction Stop
     powershell choco feature enable -n allowGlobalConfirmation
 
-    Write-Host "Chocolatey installed!" -ForegroundColor Green
+    Print("Chocolatey installed!", "Green")
   }
 }
 
 # Setup scoop
 Function Install-Scoop {
   if (Get-Command -Name scoop -ErrorAction Ignore) {
-    Write-Host "Scoop is Already Installed" -ForegroundColor Green
+    Print("Scoop is Already Installed", "Green")
   }
   else {
-    Write-Host "scoop is not installed. Installing scoop...." -ForegroundColor Yellow
+    Print("scoop is not installed. Installing scoop....", "Yellow")
     Invoke-Expression "& {$(Invoke-RestMethod get.scoop.sh)} -RunAsAdmin"
     scoop bucket add extras
   }
 }
 
 Function Install-PwshModules {
-  Write-Host "#### Installing PowerShell Modules ####" -ForegroundColor Yellow
-  Write-Host "Installing PowerShellGet.."-ForegroundColor Cyan
+  Print("#### Installing PowerShell Modules ####", "Yellow")
+  Print("Installing PowerShellGet..", "Cyan")
   Install-Module PowerShellGet -Force -AllowClobber
-  Write-Host "Installing PSReadLine.." -ForegroundColor Cyan
+  Print("Installing PSReadLine..", "Cyan")
   Install-Module PSReadLine -AllowPrerelease -Force
-  Write-Host "Installing PSFzf.." -ForegroundColor Cyan
+  Print("Installing PSFzf..", "-ForegroundColor")
   Install-Module -Name PSFzf -Force
-  Write-Host "Installing PSDotFiles.." -ForegroundColor Cyan
+  Print("Installing PSDotFiles..", "Cyan")
   Install-Module -Name PSDotFiles -Force
 }
 
 Function Install-Wsl {
-  Write-Host "#### Setting up WSL ####" -ForegroundColor Yellow
+  Print("#### Setting up WSL ####", "Yellow")
   If (Get-Command -Name wsl -ErrorAction Ignore) {
-    Write-Host "WSL is already installed..." -ForegroundColor Green
+    Print("WSL is already installed...", "Green")
   }
   Else {
     wsl --install --no-distribution
   }
   wsl --set-default-version 2
   If ((wsl -l -v) -replace "`0" | Select-String -Pattern "Ubuntu-22.04") {
-    Write-Host "Ubuntu 22.04 already installed..." -ForegroundColor Green
+    Print("Ubuntu 22.04 already installed...", "Green")
   }
   Else {
-    Write-Host "Installing Ubuntu 22.04.." -ForegroundColor Cyan
+    Print("Installing Ubuntu 22.04..", "Cyan")
     wsl --install Ubuntu-22.04
   }
 }
 
 Function Install-Pkgs ($obj) {
   if (!$obj) {
-    Write-Host "Invalid selection" -ForegroundColor red
+    Print("Invalid selection", "-ForegroundColor")
     return
   }
-  Write-Host "#### Installing $($obj.Type) ####" -ForegroundColor Yellow
+  Print("#### Installing $($obj.Type) ####", "Yellow")
   if ($obj.Winget) {
     foreach ($pkg in $obj.Winget) {
-      Write-Host "Installing $($pkg.split(".")[1]) ..." -ForegroundColor Cyan
+      Print(")[1]) ...", "Installing")
       winget install --id=$pkg --source winget --exact --silent --accept-package-agreements
     }
   }
   if ($obj.Choco) {
     foreach ($pkg in $obj.Choco) {
-      Write-Host "Installing $pkg ..." -ForegroundColor Cyan
+      Print("Installing $pkg ...", "-ForegroundColor")
       choco install $pkg -y --limit-output
     }
   }
   if ($obj.Scoop) {
     foreach ($pkg in $obj.Scoop) {
-      Write-Host "Installing $pkg ..." -ForegroundColor Cyan
+      Print("Installing $pkg ...", "-ForegroundColor")
       scoop install $pkg
     }
   }
@@ -191,7 +195,7 @@ Install-Choco
 Install-Winget
 Install-Scoop
 
-Write-Host "
+Print("
 Choose what to install
 1. Essentials
 2. Utils
@@ -202,12 +206,12 @@ Choose what to install
 7. Install WSL
 0. (ALL)
 
-" -ForegroundColor Blue
+" , "Blue")
 $selected = Read-Host "Enter Choice (eg: 1,2) "
 Write-Host ""
 
 If ($selected -eq "") {
-  Write-Host "Invalid Option" -ForegroundColor Red
+  Print("Invalid Option", "-ForegroundColor")
 }
 ElseIf ($selected.Length -gt 1) {
   $selected = $selected.split(",")
