@@ -42,7 +42,7 @@ tooltip label {
 #tray,
 #window,
 #workspaces {
-  margin: 0px 10px;
+  margin: 5px 10px;
 }
 
 #workspaces button {
