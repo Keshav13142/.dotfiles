@@ -62,6 +62,7 @@
         gotools
         # Web-dev
         nodePackages_latest.eslint_d
+        nodePackages_latest.pnpm
         nodePackages_latest.prettier
         nodePackages_latest.typescript-language-server
         # Shell
