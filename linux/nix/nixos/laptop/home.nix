@@ -146,7 +146,7 @@ in
   programs = {
     alacritty.enable = true;
     btop.enable = true;
-    exa.enable = true;
+    eza.enable = true;
     mpv.enable = true;
     obs-studio.enable = true;
     yt-dlp.enable = true;

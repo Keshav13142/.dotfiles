@@ -10,7 +10,7 @@
           username = "${user}";
           homeDirectory = "/home/${user}";
           packages = with pkgs; [
-            exa
+            eza
             zoxide
             zsh
           ];
