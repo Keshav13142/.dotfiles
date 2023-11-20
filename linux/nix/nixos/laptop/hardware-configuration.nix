@@ -12,14 +12,13 @@
 
   fileSystems."/" =
     {
-      device = "/dev/disk/by-uuid/c556803c-4265-4f80-8177-f7cbcf3cbe7b";
-      fsType = "btrfs";
-      options = [ "subvol=@" ];
+      device = "/dev/disk/by-uuid/64651d54-5477-485c-a1b8-5a1f6ed7bf79";
+      fsType = "ext4";
     };
 
   fileSystems."/boot" =
     {
-      device = "/dev/disk/by-uuid/8125-2D9E";
+      device = "/dev/disk/by-uuid/EC2D-8BD8";
       fsType = "vfat";
     };
 
