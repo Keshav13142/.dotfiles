@@ -168,7 +168,7 @@ in
       package = pkgs.gruvbox-gtk-theme;
     };
     iconTheme = {
-      name = "Gruvbox_Dark";
+      name = "Gruvbox-Dark";
       package = pkgs.gruvbox-gtk-theme;
     };
     gtk3.extraConfig = {
@@ -178,19 +178,4 @@ in
       gtk-application-prefer-dark-theme = 1;
     };
   };
-
-  dconf = {
-    enable = true;
-    settings = {
-      "org/gnome/desktop/interface" = {
-        gtk-key-theme = "Gruvbox-Dark-BL";
-        color-scheme = "prefer-dark";
-      };
-    };
-  };
-
-  xdg.systemDirs.data = [
-    "${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}"
-    "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}"
-  ];
 }
