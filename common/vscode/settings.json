@@ -350,8 +350,6 @@
   "window.menuBarVisibility": "toggle",
   "window.openFoldersInNewWindow": "on",
   "window.restoreFullscreen": true,
-
-  "workbench.activityBar.visible": false,
   "workbench.colorTheme": "Gruvbox Material Dark",
   "workbench.editorAssociations": { "*.docx": "default" },
   "workbench.editor.enablePreview": true,
@@ -359,7 +357,6 @@
   "workbench.editor.pinnedTabSizing": "compact",
   "workbench.editor.tabCloseButton": "off",
   "workbench.editor.tabSizing": "shrink",
-  "workbench.editor.untitled.hint": "hidden",
   "workbench.editor.untitled.labelFormat": "content",
   "workbench.editor.wrapTabs": true,
   "workbench.layoutControl.enabled": false,
@@ -380,5 +377,7 @@
       "url": "https://raw.githubusercontent.com/LGUG2Z/komorebi/master/schema.json"
     }
   ],
-  "AutoHotkey2.InterpreterPath": "C:\\Users\\skesh\\AppData\\Local\\Programs\\AutoHotkey\\v2\\AutoHotkey64.exe"
+  "AutoHotkey2.InterpreterPath": "C:\\Users\\skesh\\AppData\\Local\\Programs\\AutoHotkey\\v2\\AutoHotkey64.exe",
+  "workbench.activityBar.location": "hidden",
+  "workbench.editor.empty.hint": "hidden"
 }
