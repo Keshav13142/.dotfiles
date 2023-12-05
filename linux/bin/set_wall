@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [ -z "$1" ]; then
-	wall=$(find ~/Pictures/wallpapers -type f -path "*/mobile/*" -prune -o -path "*/pfp/*" -prune -o -print | shuf -n 1 | head -n 1)
+	wall=$(find ~/Sync/wallpapers/ -type f -path "*/mobile/*" -prune -o -path "*/pfp/*" -prune -o -print | shuf -n 1 | head -n 1)
 else
 	wall=$1
 fi
@@ -11,5 +11,6 @@ wal -qtsni "$wall" >/dev/null 2>&1 &
 disown
 sleep 1
 ~/.config/cava/update_colors && pkill -USR2 cava # Update cava colors
-cp -f "$wall" /tmp/background.jpg
+rm -rf /tmp/background.jpg
+cp "$wall" /tmp/background.jpg
 ~/.config/waybar/scripts/launch # Reload waybar
