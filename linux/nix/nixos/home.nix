@@ -13,6 +13,7 @@
         lolcat
         neofetch
         ninja
+        pistol
         speechd
         tig
         timer

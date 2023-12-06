@@ -1,5 +1,5 @@
-set previewer ~/.config/lf/lf_kitty_preview
-set cleaner ~/.config/lf/lf_kitty_clean
+set previewer ~/.config/lf/lf_previewer
+set cleaner ~/.config/lf/lf_cleaner
 
 # Basic Settings
 set hidden false
