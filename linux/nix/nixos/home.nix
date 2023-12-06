@@ -7,6 +7,8 @@
         # Cli utils
         cowsay
         figlet
+        fontpreview
+        ghostscript
         glow
         gum
         lf
