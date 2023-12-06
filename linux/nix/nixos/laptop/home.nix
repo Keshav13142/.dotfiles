@@ -20,6 +20,7 @@ in
         libreoffice-qt
         mpv
         obsidian
+        picard
         virt-manager
 
         # Utils
