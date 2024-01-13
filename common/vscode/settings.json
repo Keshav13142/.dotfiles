@@ -22,10 +22,10 @@
   "editor.acceptSuggestionOnEnter": "on",
   "editor.bracketPairColorization.enabled": true,
   "editor.codeActionsOnSave": {
-    "source.addMissingImports": true,
-    "source.fixAll": true,
-    "source.organizeimports": false,
-    "source.sortimports": true
+    "source.addMissingImports": "explicit",
+    "source.fixAll": "explicit",
+    "source.organizeimports": "never",
+    "source.sortimports": "explicit"
   },
   "editor.cursorBlinking": "solid",
   "editor.cursorSmoothCaretAnimation": "on",
@@ -58,7 +58,7 @@
   "editor.minimap.showSlider": "always",
   "editor.mouseWheelScrollSensitivity": 1.5,
   "editor.mouseWheelZoom": true,
-  "editor.occurrencesHighlight": false,
+  "editor.occurrencesHighlight": "off",
   "editor.overviewRulerBorder": false,
   "editor.padding.top": 2,
   "editor.quickSuggestionsDelay": 0,
@@ -357,7 +357,7 @@
   "workbench.editor.enablePreview": true,
   "workbench.editor.limit.enabled": true,
   "workbench.editor.pinnedTabSizing": "compact",
-  "workbench.editor.tabCloseButton": "off",
+  "workbench.editor.tabActionCloseVisibility": false,
   "workbench.editor.tabSizing": "shrink",
   "workbench.editor.untitled.labelFormat": "content",
   "workbench.editor.wrapTabs": true,
