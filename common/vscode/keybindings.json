@@ -163,7 +163,7 @@
     "command": "-workbench.action.tasks.build",
     "when": "taskCommandsRegistered"
   },
-  // Use ctrl + p/n to navigate command pallete
+  // Use ctrl + p/n to navigate options
   {
     "key": "ctrl+n",
     "command": "workbench.action.quickOpenSelectNext",
@@ -173,6 +173,16 @@
     "key": "ctrl+p",
     "command": "workbench.action.quickOpenSelectPrevious",
     "when": "inQuickOpen"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "selectNextCodeAction",
+    "when": "codeActionMenuVisible"
+  },
+  {
+    "key": "ctrl+p",
+    "command": "selectPrevCodeAction",
+    "when": "codeActionMenuVisible"
   },
   // Open project manager
   {
