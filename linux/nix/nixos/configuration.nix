@@ -61,6 +61,11 @@
     stateVersion = "23.05";
   };
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    permittedInsecurePackages = [
+      "electron-25.9.0"
+    ];
+  };
   documentation.man.generateCaches = true;
 }
