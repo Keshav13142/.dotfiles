@@ -60,24 +60,19 @@
         watchman
 
         # Language support
-        # Go
+        deadnix
         gofumpt
         gotools
-        # Web-dev
-        nodePackages_latest.eslint_d
-        nodePackages_latest.pnpm
-        nodePackages_latest.prettier
-        nodePackages_latest.typescript-language-server
-        # Shell
+        nixpkgs-fmt
+        nodePackages.eslint_d
+        nodePackages.pnpm
+        nodePackages.prettier
+        powershell
+        rust-analyzer
         shellcheck
         shfmt
-        # Nix
-        deadnix
-        nixpkgs-fmt
         statix
-        #Lua
         stylua
-        powershell
 
       ];
     };
