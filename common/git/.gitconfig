@@ -43,3 +43,5 @@
 	email = "s.keshav13142@gmail.com"
 	name = "Keshav"
 	signingKey = "~/.ssh/git_signing.pub"
+[safe]
+	directory = *
