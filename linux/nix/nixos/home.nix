@@ -48,16 +48,17 @@
 
         # Dev
         cargo
-        rustc
         diff-so-fancy
         fnm
         gitmux
         go
         helix
-        nodePackages.typescript
+        lazydocker
         nodejs
+        nodePackages.typescript
         python310Packages.pip
         python3Full
+        rustc
         watchman
 
         # Language support

@@ -45,9 +45,9 @@ in
         # Dev
         android-studio
         android-tools
+        dbeaver
         docker
         docker-compose
-        mysql-workbench
         vscode
 
         # Desktop
