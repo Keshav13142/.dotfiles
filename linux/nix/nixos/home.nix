@@ -16,6 +16,7 @@
         neofetch
         ninja
         pistol
+        slides
         speechd
         tig
         timer
