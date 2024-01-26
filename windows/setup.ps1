@@ -142,8 +142,7 @@ $pkgs =
   "Oracle.VirtualBox",
   "qBittorrent.qBittorrent",
   "StefanSundin.Superf4",
-  "TechPowerUp.NVCleanstall",
-  "valinet.ExplorerPatcher"
+  "TechPowerUp.NVCleanstall"
 },
 [PSCustomObject]@{
   Type   = "Dev Packages"

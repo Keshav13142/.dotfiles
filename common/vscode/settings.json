@@ -353,7 +353,6 @@
   "window.restoreFullscreen": true,
   "workbench.activityBar.location": "hidden",
   "workbench.colorTheme": "Gruvbox Material Dark",
-  "workbench.editorAssociations": { "*.docx": "default" },
   "workbench.editor.empty.hint": "hidden",
   "workbench.editor.enablePreview": true,
   "workbench.editor.limit.enabled": true,
@@ -362,6 +361,8 @@
   "workbench.editor.tabSizing": "shrink",
   "workbench.editor.untitled.labelFormat": "content",
   "workbench.editor.wrapTabs": true,
+  "workbench.editorAssociations": { "*.docx": "default" },
+  "workbench.iconTheme": "material-icon-theme",
   "workbench.layoutControl.enabled": false,
   "workbench.list.smoothScrolling": true,
   "workbench.settings.editor": "json",
@@ -380,5 +381,6 @@
       "url": "https://raw.githubusercontent.com/LGUG2Z/komorebi/master/schema.json"
     }
   ],
-  "AutoHotkey2.InterpreterPath": "C:\\Users\\skesh\\AppData\\Local\\Programs\\AutoHotkey\\v2\\AutoHotkey64.exe"
+  "AutoHotkey2.InterpreterPath": "C:\\Users\\skesh\\AppData\\Local\\Programs\\AutoHotkey\\v2\\AutoHotkey64.exe",
+  "redhat.telemetry.enabled": false
 }
