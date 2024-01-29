@@ -4,7 +4,9 @@
   "exclusive": true,
   "passthrough": false,
   "gtk-layer-shell": true,
-  "include": ["$HOME/.config/waybar/modules.jsonc"],
+  "include": [
+    "$HOME/.config/waybar/modules.jsonc"
+  ],
   "modules-left": [
     "wlr/workspaces",
     "cpu",
@@ -13,7 +15,10 @@
     "custom/lock_screen",
     "custom/power_btn"
   ],
-  "modules-center": ["custom/playerlabel", "custom/playpause"],
+  "modules-center": [
+    "custom/playerlabel",
+    "custom/playpause"
+  ],
   "modules-right": [
     "custom/wallpaper",
     "pulseaudio#microphone",
