@@ -50,7 +50,7 @@ tooltip label {
 }
 
 #workspaces button.active {
-  color: @color6;
+  color: @color11;
 }
 
 #workspaces button:hover {

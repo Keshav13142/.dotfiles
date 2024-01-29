@@ -8,7 +8,7 @@
     "$HOME/.config/waybar/modules.jsonc"
   ],
   "modules-left": [
-    "wlr/workspaces",
+    "hyprland/workspaces",
     "cpu",
     "memory",
     "disk",
