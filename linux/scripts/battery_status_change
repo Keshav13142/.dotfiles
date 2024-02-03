@@ -1,31 +1,25 @@
-#!/usr/bin/env bash
+#!/bin/sh
+
+export PATH=/run/wrappers/bin:/run/current-system/sw/bin:/etc/profiles/per-user/keshav/bin:$PATH
+export WAYLAND_DISPLAY=$(grep -o 'wayland-[0-9]' '$(find /tmp/hypr -print0 -name '*.log' | xargs -0 stat -c '%Y %n' - | sort -rn | head -n 1 | cut -d ' ' -f2)' | head -n 1)
+export HYPRLAND_INSTANCE_SIGNATURE=$(find /tmp/hypr -print0 -name '*.log' | xargs -0 stat -c '%Y %n' - | sort -rn | head -n 1 | cut -d ' ' -f2 | awk -F '/' '{print $4}' | sed 's/\.lock$//')
+export DISPLAY=":1"
 
 case $1 in
 ac)
 	hyprctl keyword monitor "eDP-1,1920x1080@144,0x0,1"
-	~/.config/waybar/scripts/launch
 	hyprctl reload
-	swww init
-	dbus-launch kdeconnect-cli
-	syncthing serve --no-browser
-	notify-send "Animations Enabled, running @144Hz" -u low
 	;;
 bat)
 	hyprctl keyword monitor "eDP-1,1920x1080@60,0x0,1"
-	~/.config/waybar/scripts/launch
 	hyprctl --batch "\
         keyword animations:enabled 0;\
-        keyword decoration:blur 0;\
+        keyword decoration:blur:enabled 0;\
         keyword general:gaps_in 0;\
         keyword general:gaps_out 0;\
         keyword general:border_size 1;\
         keyword decoration:rounding "
-	swww kill
 	pkill syncthing
 	pkill kdeconnect
-	notify-send "Animations Disabled running @60Hz" -u low
-	;;
-*)
-	notify-send "Invalid option" -u low
 	;;
 esac

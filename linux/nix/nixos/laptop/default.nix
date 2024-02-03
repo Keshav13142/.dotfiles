@@ -95,6 +95,18 @@
       powerEventCommands = ''
         systemctl suspend
       '';
+      acEventCommands = ''
+        rm /tmp/output
+        vals=($1)  # space separated string to array of multiple values
+        case ''${vals[3]} in
+            00000000)
+              /home/keshav/.config/scripts/battery_status_change bat > /tmp/output 2>&1
+                ;;
+            00000001)
+              /home/keshav/.config/scripts/battery_status_change ac > /tmp/output 2>&1
+                ;;
+        esac
+      '';
     };
     # Xserver config
     xserver = {
