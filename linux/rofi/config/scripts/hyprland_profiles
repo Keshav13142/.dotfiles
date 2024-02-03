@@ -3,29 +3,11 @@
 rofi_command="rofi -theme $HOME/.config/rofi/config/profiles.rasi"
 
 chosen="$(echo -e "󱐌\n󱟢" | $rofi_command -dmenu -selected-row 0)"
-case $chosen in
+case "$chosen" in
 󱐌)
-	hyprctl keyword monitor "eDP-1,1920x1080@144,0x0,1"
-	~/.config/waybar/scripts/launch
-	hyprctl reload
-	swww init
-	dbus-launch kdeconnect-cli
-	syncthing serve --no-browser
-	notify-send "Animations Enabled @144Hz" -u low
+	. "$HOME"/.config/scripts/battery_status_change "ac"
 	;;
 󱟢)
-	hyprctl keyword monitor "eDP-1,1920x1080@60,0x0,1"
-	~/.config/waybar/scripts/launch
-	hyprctl --batch "\
-        keyword animations:enabled 0;\
-        keyword decoration:blur 0;\
-        keyword general:gaps_in 0;\
-        keyword general:gaps_out 0;\
-        keyword general:border_size 1;\
-        keyword decoration:rounding 0"
-	swww kill
-	pkill syncthing
-	pkill kdeconnect
-	notify-send "Animations Disabled @60Hz" -u low
+	. "$HOME"/.config/scripts/battery_status_change "bat"
 	;;
 esac
