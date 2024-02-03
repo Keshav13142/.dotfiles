@@ -24,6 +24,7 @@ in
         virt-manager
 
         # Utils
+        acpi
         alsa-lib
         cava
         ffmpeg

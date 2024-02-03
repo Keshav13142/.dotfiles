@@ -86,6 +86,16 @@
   };
 
   services = {
+    # Don't shutdown on powerBtn press
+    logind.extraConfig = ''
+      HandlePowerKey = ignore
+    '';
+    acpid = {
+      enable = true;
+      powerEventCommands = ''
+        systemctl suspend
+      '';
+    };
     # Xserver config
     xserver = {
       enable = true;
