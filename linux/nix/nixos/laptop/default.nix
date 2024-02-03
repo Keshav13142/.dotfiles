@@ -114,7 +114,7 @@
         # Enable wayland
         gdm.wayland = true;
       };
-      layout = "us";
+      xkb.layout = "us";
       libinput.enable = true;
       # X11 + i3
       # displayManager = {
