@@ -15,6 +15,7 @@ in
         bitwarden
         brave
         espanso
+        floorp
         gimp
         gnome.seahorse # gui secrets manager
         libreoffice-qt

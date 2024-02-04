@@ -86,6 +86,7 @@
   };
 
   services = {
+    flatpak.enable = true;
     # Don't shutdown on powerBtn press
     logind.extraConfig = ''
       HandlePowerKey = ignore
