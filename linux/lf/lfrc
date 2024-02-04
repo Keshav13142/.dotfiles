@@ -20,9 +20,7 @@ cmd mkfile ${{
 }}
 
 cmd setwallpaper ${{
-    cp "$f" ~/Pictures/wallpapers/wall.jpg
-    xwallpaper --zoom "$f"
-    betterlockscreen -u "$f" --fx
+  set_wall "$f"
 }}
 
 # Archive bindings
@@ -81,7 +79,7 @@ map C clear
 # Movement
 map gD cd ~/Documents
 map gd cd ~/Downloads
-map gs cd ~/Pictures/screenshots
-map gw cd ~/Pictures/wallpapers
+map gs cd ~/Sync/screenshots
+map gw cd ~/Sync/wallpapers
 map gt cd ~/.local/share/Trash/files
 # vim: ft=sh

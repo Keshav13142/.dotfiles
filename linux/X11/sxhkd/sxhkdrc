@@ -10,7 +10,7 @@ super + e
   ~/.config/rofi/scripts/powermenu
 
 super + w
-  wal -i ~/Pictures/wallpapers/ &
+  wal -i ~/Sync/wallpapers/ &
 
 super + m
   ~/.config/scripts/toggle_mic.sh
@@ -160,16 +160,16 @@ super + slash
 
 # printscreen
 @Print
- flameshot full -p ~/Pictures/screenshots/
+ flameshot full -p ~/Sync/screenshots/
 
 super + @Print
- flameshot gui -p ~/Pictures/screenshots/
+ flameshot gui -p ~/Sync/screenshots/
 
 super + s
- flameshot full -p ~/Pictures/screenshots/
+ flameshot full -p ~/Sync/screenshots/
 
 super + shift + s
- flameshot gui -p ~/Pictures/screenshots/
+ flameshot gui -p ~/Sync/screenshots/
 
 # Reload polybar
 super + Escape

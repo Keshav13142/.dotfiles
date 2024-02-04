@@ -1,5 +1,5 @@
 [Default]
-save_dir=$HOME/Pictures/screenshots/
+save_dir=$HOME/Sync/screenshots/
 save_filename_format=%a-%d-%b-%y_%I-%M-%S-%p.png
 show_panel=true
 line_size=5
