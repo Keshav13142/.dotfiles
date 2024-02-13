@@ -109,36 +109,33 @@
       userName = "Keshav";
       userEmail = "s.keshav13142@gmail.com";
       aliases = {
-        s = "status";
-        co = "checkout";
-        cl = "clone";
         br = "branch";
-        st = "status -sb";
-        wtf = "!git-wtf";
+        c = "commit -m";
+        cl = "clone";
+        co = "checkout";
+        d = "diff";
+        fpush = "push --force-with-lease";
         lg = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --topo-order --date=relative";
         lp = "log -p";
-        rl = "reflog";
         ls = "ls-files";
-        d = "diff";
+        rl = "reflog";
+        s = "status";
+        st = "status -sb";
+        wtf = "!git-wtf";
       };
       extraConfig = {
-        user.signingKey = "~/.ssh/git_signing.pub";
-        github.user = "keshav13142";
+        branch.sort = "-commmiterdate";
         color.ui = true;
-        init.defaultBranch = "main";
+        column.ui = "always";
+        commit = { verbose = true; gpgsign = true; };
+        core = { editor = "nvim"; };
+        github.user = "keshav13142";
+        gpg = { format = "ssh"; ssh.allowedSignersFile = "~/.ssh/allowed_signers"; };
         http.sslVerify = true;
+        init.defaultBranch = "main";
         pull.rebase = true;
-        gpg = {
-          format = "ssh";
-          ssh.allowedSignersFile = "~/.ssh/allowed_signers";
-        };
-        core = {
-          editor = "nvim";
-        };
-        commit = {
-          verbose = true;
-          gpgsign = true;
-        };
+        rerere = { enabled = true; autoUpdate = true; };
+        user.signingKey = "~/.ssh/git_signing.pub";
       };
       # Really nice looking diffs
       delta = {
