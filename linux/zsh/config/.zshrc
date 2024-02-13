@@ -11,9 +11,6 @@ if ! [[ -x "$(command -v nixos-version)" ]]; then
 	path+=("$XDG_DATA_HOME/fnm")
   path+=("$HOME/softwares/apache-maven-3.9.2/bin")
 fi
-path+=("$ANDROID_HOME/emulator")
-path+=("$ANDROID_HOME/tools")
-path+=("$ANDROID_HOME/platform-tools")
 path+=("$HOME/.local/bin")
 path+=("$XDG_CONFIG_HOME/tmux/plugins/t-smart-tmux-session-manager/bin")
 path+=("/usr/local/go/bin")

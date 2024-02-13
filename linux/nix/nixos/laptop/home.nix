@@ -45,8 +45,6 @@ in
         kanata
 
         # Dev
-        android-studio
-        android-tools
         dbeaver
         docker
         docker-compose
@@ -66,9 +64,9 @@ in
         playerctl
         pywal
         rofimoji
-        xfce.thunar
         xdg-desktop-portal
         xdg-desktop-portal-gtk
+        xfce.thunar
 
         # Wayland
         cliphist

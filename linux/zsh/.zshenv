@@ -14,8 +14,6 @@ export TERMINAL="kitty"
 export TERMINAL_PROG="kitty"
 export GTK_THEME=Dracula:dark
 
-export ANDROID_HOME="$HOME/Android/Sdk"
-
 if ! [[ -x "$(command -v nixos-version)" ]]; then
 	export CARGO_HOME=$HOME/.local/.cargo
 	export RUSTUP_HOME=$HOME/.local/.rustup
