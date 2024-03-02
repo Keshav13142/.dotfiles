@@ -8,7 +8,7 @@ configuration {
 	show-icons: true;
 	icon-theme: "Dracula";
 	steal-focus: false;
-	terminal: "kitty";
+	terminal: "wezterm";
   font: "JetBrainsMono Nerd Font 13";
 	click-to-exit: true;
 

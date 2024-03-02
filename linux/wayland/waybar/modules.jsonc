@@ -82,7 +82,8 @@
     "on-click": "activate",
     "on-click-middle": "close",
     "ignore-list": [
-      "kitty"
+      "kitty",
+      "wezterm"
     ],
     "app_ids-mapping": {
       "firefoxdeveloperedition": "firefox-developer-edition"

@@ -10,8 +10,8 @@ export KEYTIMEOUT=1 # 10ms delay for key sequences
 export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}"/npm/npmrc
 export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
 
-export TERMINAL="kitty"
-export TERMINAL_PROG="kitty"
+export TERMINAL="wezterm"
+export TERMINAL_PROG="wezterm"
 export GTK_THEME=Dracula:dark
 
 if ! [[ -x "$(command -v nixos-version)" ]]; then
