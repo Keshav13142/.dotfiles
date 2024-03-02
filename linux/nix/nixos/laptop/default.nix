@@ -50,6 +50,7 @@
     zsh.enable = true;
     dconf.enable = true;
     sniffnet.enable = true;
+    nix-ld.enable = true;
     hyprland = {
       xwayland.enable = true;
       enable = true;
