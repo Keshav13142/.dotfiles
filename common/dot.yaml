@@ -14,3 +14,4 @@ linux:
     kitty: ~/.config/kitty
     vscode/keybindings.json: ~/.config/Code/User/keybindings.json
     vscode/settings.json: ~/.config/Code/User/settings.json
+    wezterm/.wezterm.lua: ~/.config/wezterm/wezterm.lua
