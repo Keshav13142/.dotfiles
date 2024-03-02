@@ -65,16 +65,8 @@
         deadnix
         gofumpt
         gotools
-        nixpkgs-fmt
-        nodePackages.eslint_d
         nodePackages.pnpm
-        nodePackages.prettier
-        powershell
-        rust-analyzer
-        shellcheck
-        shfmt
         statix
-        stylua
 
       ];
     };

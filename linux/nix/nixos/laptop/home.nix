@@ -64,6 +64,7 @@ in
         playerctl
         pywal
         rofimoji
+        wezterm
         xdg-desktop-portal
         xdg-desktop-portal-gtk
         xfce.thunar
