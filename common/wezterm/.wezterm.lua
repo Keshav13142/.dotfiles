@@ -57,17 +57,11 @@ local function split_nav(resize_or_move, key)
 end
 
 local function isLinux()
-	-- ask LuaJIT first
-	if jit then
-		return jit.os == "Linux" and true or false
-	end
+	local separator = package.config:sub(1, 1)
 
-	-- Unix, Linux variants
-	local fh, err = assert(io.popen("uname -o 2>/dev/null", "r"))
-	if fh then
+	if separator == "/" then
 		return true
 	end
-
 	return false
 end
 
@@ -112,7 +106,7 @@ return {
 
 	-- Window
 	adjust_window_size_when_changing_font_size = false,
-	window_background_opacity = 0.75,
+	window_background_opacity = isLinux() and 0.75 or 0.95,
 	window_close_confirmation = "NeverPrompt",
 	window_padding = {
 		left = 0,
