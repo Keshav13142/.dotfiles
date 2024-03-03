@@ -17,7 +17,10 @@ path+=("/usr/local/go/bin")
 path+=("$HOME/go/bin")
 path+=("$XDG_DATA_HOME/cargo/bin")
 path+=("$XDG_DATA_HOME/go/bin")
-export PATH
+
+path+=("$ANDROID_HOME/emulator")
+path+=("$ANDROID_HOME/tools")
+path+=("$ANDROID_HOME/platform-tools")
 
 windows_user="skesh"
 if [[ $(grep microsoft /proc/version) ]]; then
@@ -26,6 +29,7 @@ if [[ $(grep microsoft /proc/version) ]]; then
   path+=("/mnt/c/Program Files/Neovim/bin")
   path+=("/mnt/c/Users/$windows_user/AppData/Local/Programs/Microsoft VS Code/bin")
 fi
+export PATH
 
 if [[ -x "$(command -v fnm)" ]]; then
   eval "$(fnm env --use-on-cd)"

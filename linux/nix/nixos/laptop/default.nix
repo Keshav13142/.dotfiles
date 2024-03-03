@@ -51,6 +51,7 @@
     dconf.enable = true;
     sniffnet.enable = true;
     nix-ld.enable = true;
+    virt-manager.enable = true;
     hyprland = {
       xwayland.enable = true;
       enable = true;
