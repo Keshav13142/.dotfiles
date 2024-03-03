@@ -39,6 +39,10 @@ if [[ -x "$(command -v zoxide)" ]]; then
   eval "$(zoxide init zsh)"
 fi
 
+if [[ -x "$(command -v direnv)" ]]; then
+  eval "$(direnv hook zsh)"
+fi
+
 # Use lunarvim or fallback to neovim
 if [ "$(command -v lvim)" ]; then
 	export EDITOR="lvim"
