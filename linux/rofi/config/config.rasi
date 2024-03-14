@@ -1,6 +1,5 @@
 configuration {
 	/*---------- General setting ----------*/
-  modi: "drun,calc";
 	case-sensitive: false;
 	cycle: true;
 	filter: "";
@@ -9,7 +8,7 @@ configuration {
 	icon-theme: "Dracula";
 	steal-focus: false;
 	terminal: "wezterm";
-  font: "JetBrainsMono Nerd Font 13";
+	font: "JetBrainsMono Nerd Font 13";
 	click-to-exit: true;
 
 	/*---------- Other settings ----------*/
