@@ -55,11 +55,13 @@
         helix
         lazydocker
         nodejs
+        nodePackages.pnpm
         nodePackages.typescript
         python310Packages.pip
         python3Full
         rustc
         watchman
+        yarn
 
         # Language support
         deadnix
