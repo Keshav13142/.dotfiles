@@ -48,6 +48,7 @@ in
         android-studio
         android-tools
         dbeaver
+        mysql-workbench
         docker
         docker-compose
         vscode

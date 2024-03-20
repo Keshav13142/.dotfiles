@@ -88,6 +88,10 @@
   };
 
   services = {
+    mysql = {
+      enable = true;
+      package = pkgs.mariadb;
+    };
     flatpak.enable = true;
     # Don't shutdown on powerBtn press
     logind.extraConfig = ''
