@@ -128,8 +128,8 @@ in
       stateVersion = "23.05";
       pointerCursor = {
         gtk.enable = true;
-        package = pkgs.capitaine-cursors-themed;
-        name = "Capitaine Cursors (Gruvbox)";
+        package = pkgs.gnome.adwaita-icon-theme;
+        name = "Adwaita";
         size = 16;
       };
     };

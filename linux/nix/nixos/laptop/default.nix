@@ -55,8 +55,7 @@
     hyprland = {
       xwayland.enable = true;
       enable = true;
-      package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-      # nvidiaPatches = true;
+      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     };
     kdeconnect.enable = true;
   };
