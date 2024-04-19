@@ -17,6 +17,7 @@ path+=("/usr/local/go/bin")
 path+=("$HOME/go/bin")
 path+=("$XDG_DATA_HOME/cargo/bin")
 path+=("$XDG_DATA_HOME/go/bin")
+path+=("$XDG_DATA_HOME/npm/bin")
 
 path+=("$ANDROID_HOME/emulator")
 path+=("$ANDROID_HOME/tools")
