@@ -35,6 +35,7 @@
         gnumake
         jq
         killall
+        libsecret
         ripgrep
         stdenv
         stow
