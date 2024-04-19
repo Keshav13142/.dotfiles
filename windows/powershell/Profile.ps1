@@ -188,6 +188,7 @@ ${function:touch} = { New-Item $args }
 
 Set-Alias -Name cat -Value betterCat -Force
 Set-Alias -Name c -Value code
+Set-Alias -Name q -Value exit
 Set-Alias -Name cd -Value z -Force -Option AllScope
 Set-Alias -Name cl -Value clear
 Set-Alias -Name copy -Value clip -Force -Option AllScope

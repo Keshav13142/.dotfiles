@@ -1,5 +1,6 @@
 # General
 alias cl='clear'
+alias q='exit'
 alias et='exit'
 alias mkdir='mkdir -p'
 alias clera='clear'
@@ -61,6 +62,7 @@ alias ...='cd ../../'
 alias v="$EDITOR"
 alias vim="$EDITOR"
 alias g='git'
+alias gs='git status'
 alias gc='git commit -m'
 alias nup='pushd ~/.config/nix ; sudo nixos-rebuild switch --flake .#laptop ; popd'
 alias nfu='pushd ~/.config/nix ; nix flake update ; popd'
