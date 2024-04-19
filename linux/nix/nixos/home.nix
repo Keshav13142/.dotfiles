@@ -14,6 +14,7 @@
         lf
         lolcat
         neofetch
+        nh
         ninja
         pistol
         slides

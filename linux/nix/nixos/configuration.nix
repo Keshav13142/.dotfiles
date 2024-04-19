@@ -33,10 +33,11 @@
   # Nix Package Manager settings
   nix = {
     settings = {
-      substituters = [ "https://hyprland.cachix.org" ];
-      trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
-      auto-optimise-store = true; # Optimise syslinks
       trusted-users = [ "${user}" "root" ];
+      substituters = [
+        "https://cache.nixos.org"
+      ];
+      auto-optimise-store = true; # Optimise syslinks
       max-jobs = "auto";
       cores = 0; # use them all
       allowed-users = [ "@wheel" ];
@@ -61,6 +62,10 @@
     autoUpgrade.allowReboot = true;
     autoUpgrade.channel = "https://channels.nixos.org/nixos-23.05";
     stateVersion = "23.05";
+  };
+
+  environment.sessionVariables = {
+    FLAKE = "/home/keshav/.dotfiles/linux/nix";
   };
 
   nixpkgs.config = {
