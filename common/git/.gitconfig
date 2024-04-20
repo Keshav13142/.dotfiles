@@ -19,7 +19,7 @@
 	verbose = true
 
 [core]
-	editor = "code"
+	editor = nvim
 
 [github]
 	user = "keshav13142"
