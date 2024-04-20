@@ -1,6 +1,7 @@
 windows:
   links:
     winfetch/config.ps1: ~/.config/winfetch/config.ps1
+    glazewm/config.yaml: ~/.glaze-wm/config.yaml
     whkd/whkdrc: ~/.config/whkdrc
     komorebi/komorebi.json: ~/.config/komorebi/komorebi.json
     AutoHotkey/shortcuts.ahk: ~/Documents/AutoHotkey/shortcuts.ahk

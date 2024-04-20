@@ -1,0 +1,243 @@
+general:
+  focus_follows_cursor: true
+  cursor_follows_focus: true
+  toggle_workspace_on_refocus: false
+  show_floating_on_top: false
+  floating_window_move_amount: "5%"
+  center_new_floating_windows: true
+  window_animations: false
+
+gaps:
+  inner_gap: 0
+  outer_gap: 0
+
+# only works on win 11
+focus_borders:
+  active:
+    enabled: true
+    color: "#0000ff"
+
+  inactive:
+    enabled: false
+
+bar:
+  height: "25px"
+  position: "top"
+  opacity: 0.8
+  background: "#202424"
+  foreground: "#ffffff"
+  font_family: "JetBrainsMono Nerd Font Mono"
+  font_size: "13px"
+  padding: "4px 6px"
+  offset_x: 0
+  offset_y: 0
+  border_radius: 0
+  components_left:
+    - type: "workspaces"
+      focused_workspace_background: "#ffffff33"
+      displayed_workspace_background: "#00000033"
+      default_workspace_background: "transparent"
+    - type: "cpu"
+      margin: "0 0 0 15px"
+      label: "CPU: {percent_usage}%"
+      refresh_interval_ms: 1000
+    - type: "gpu"
+      margin: "0 0 0 15px"
+      label: "GPU: {percent_usage}%"
+      refresh_interval_ms: 1000
+    - type: "memory"
+      margin: "0 0 0 15px"
+      label: "RAM: {percent_usage}%"
+      refresh_interval_ms: 1000
+  components_center:
+    - type: "music"
+      label_not_playing: ""
+      label_paused: "{song_title} - {artist_name} "
+      label_playing: "{song_title} - {artist_name} "
+      max_title_length: 20
+      max_artist_length: 20
+  components_right:
+    - type: "system tray"
+    - type: "tiling direction"
+      label_horizontal: "⮂"
+      label_vertical: "⮁"
+      background: "#ffffff33"
+      margin: "0 0 0 15px"
+      padding: "0 8px"
+    - type: "binding mode"
+      background: "#ffffff33"
+      margin: "0 4px 0 0"
+      padding: "0 8px"
+    - type: "battery"
+      margin: "0 0 0 15px"
+      label_draining: "{battery_level}% 󱊢"
+      label_power_saver: "{battery_level}% 󰂃"
+      label_charging: "{battery_level}% 󰂄"
+    - type: "volume"
+      margin: "0 0 0 15px"
+      label_low: "󰖀 {volume_level}%"
+      label_medium: "󰖀 {volume_level}%"
+      label_high: "󰕾 {volume_level}%"
+      label_mute: "󰖁 {volume_level}%"
+    - type: "clock"
+      margin: "0 0 0 15px"
+      time_formatting: "hh:mm tt  ddd MMM d"
+
+workspaces:
+  - name: "1"
+  - name: "2"
+  - name: "3"
+  - name: "4"
+  - name: "5"
+  - name: "6"
+  - name: "7"
+  - name: "8"
+  - name: "9"
+
+window_rules:
+  - command: "ignore"
+    match_process_name: "/Taskmgr|ScreenClippingHost/"
+
+  # Launches system dialogs as floating by default (eg. File Explorer save/open dialog).
+  - command: "set floating"
+    match_class_name: "#32770"
+
+  # Do not manage picture-in-picture
+  - command: "ignore"
+    match_title: "[Pp]icture.in.[Pp]icture"
+    match_class_name: "Chrome_WidgetWin_1|MozillaDialogClass"
+
+  - command: "resize borders 0px -7px -7px -7px"
+    match_process_name: "steam"
+
+binding_modes:
+  - name: "resize"
+    keybindings:
+      - command: "resize width -2%"
+        bindings: ["H", "Left"]
+      - command: "resize width +2%"
+        bindings: ["L", "Right"]
+      - command: "resize height +2%"
+        bindings: ["J", "Up"]
+      - command: "resize height -2%"
+        bindings: ["K", "Down"]
+      # Press enter/escape to return to default keybindings.
+      - command: "binding mode none"
+        bindings: ["Escape", "Enter"]
+
+keybindings:
+  # Shift focus in a given direction.
+  - command: "focus left"
+    bindings: ["Alt+H", "Alt+Left"]
+  - command: "focus right"
+    bindings: ["Alt+L", "Alt+Right"]
+  - command: "focus up"
+    bindings: ["Alt+K", "Alt+Up"]
+  - command: "focus down"
+    bindings: ["Alt+J", "Alt+Down"]
+
+  # Move focused window in a given direction.
+  - command: "move left"
+    bindings: ["Alt+Shift+H", "Alt+Shift+Left"]
+  - command: "move right"
+    bindings: ["Alt+Shift+L", "Alt+Shift+Right"]
+  - command: "move up"
+    bindings: ["Alt+Shift+K", "Alt+Shift+Up"]
+  - command: "move down"
+    bindings: ["Alt+Shift+J", "Alt+Shift+Down"]
+
+  # Resize focused window by a percentage or pixel amount.
+  - command: "resize width -2%"
+    binding: "Ctrl+Alt+L"
+  - command: "resize width +2%"
+    binding: "Ctrl+Alt+H"
+  - command: "resize height +2%"
+    binding: "Ctrl+Alt+J"
+  - command: "resize height -2%"
+    binding: "Ctrl+Alt+K"
+
+  # As an alternative to the resize keybindings above, resize mode enables resizing via
+  # HJKL or arrow keys. The binding mode is defined above with the name "resize".
+  - command: "binding mode resize"
+    binding: "Alt+R"
+
+  # Change tiling direction. This determines where new tiling windows will be inserted.
+  - command: "tiling direction toggle"
+    binding: "Alt+V"
+
+  # Change focus between floating / tiling windows.
+  - command: "focus mode toggle"
+    binding: "Ctrl+Alt+Space"
+
+  # Change the focused window to be floating / tiling.
+  - command: "toggle floating"
+    binding: "Alt+Shift+Space"
+
+  # Change the focused window to be maximized / unmaximized.
+  - command: "toggle maximized"
+    binding: "Alt+F"
+
+  # Minimize focused window.
+  - command: "set minimized"
+    binding: "Alt+M"
+
+  # Close focused window.
+  - command: "close"
+    binding: "Alt+Q"
+
+  # Kill GlazeWM process safely.
+  - command: "exit wm"
+    binding: "Alt+Shift+E"
+
+  # Re-evaluate configuration file.
+  - command: "reload config"
+    binding: "Alt+Shift+R"
+
+  - command: "exec wt"
+    binding: "Alt+Enter"
+
+  - command: "exec brave"
+    binding: "Alt+W"
+
+  - command: "exec explorer"
+    binding: "Alt+E"
+
+  # Change focus to a workspace defined in `workspaces` config.
+  - command: "focus workspace 1"
+    binding: "Alt+1"
+  - command: "focus workspace 2"
+    binding: "Alt+2"
+  - command: "focus workspace 3"
+    binding: "Alt+3"
+  - command: "focus workspace 4"
+    binding: "Alt+4"
+  - command: "focus workspace 5"
+    binding: "Alt+5"
+  - command: "focus workspace 6"
+    binding: "Alt+6"
+  - command: "focus workspace 7"
+    binding: "Alt+7"
+  - command: "focus workspace 8"
+    binding: "Alt+8"
+  - command: "focus workspace 9"
+    binding: "Alt+9"
+
+  # Move focused window to a workspace defined in `workspaces` config.
+  - commands: ["move to workspace 1", "focus workspace 1"]
+    binding: "Alt+Shift+1"
+  - commands: ["move to workspace 2", "focus workspace 2"]
+    binding: "Alt+Shift+2"
+  - commands: ["move to workspace 3", "focus workspace 3"]
+    binding: "Alt+Shift+3"
+  - commands: ["move to workspace 4", "focus workspace 4"]
+    binding: "Alt+Shift+4"
+  - commands: ["move to workspace 5", "focus workspace 5"]
+    binding: "Alt+Shift+5"
+  - commands: ["move to workspace 6", "focus workspace 6"]
+    binding: "Alt+Shift+6"
+  - commands: ["move to workspace 7", "focus workspace 7"]
+    binding: "Alt+Shift+7"
+  - commands: ["move to workspace 8", "focus workspace 8"]
+    binding: "Alt+Shift+8"
+  - commands: ["move to workspace 9", "focus workspace 9"]
+    bindings: ["Alt+Shift+9"]
