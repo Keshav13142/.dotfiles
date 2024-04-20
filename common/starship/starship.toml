@@ -3,7 +3,10 @@
 [aws]
 disabled=true
 
-[character] 
+[java]
+disabled=true
+
+[character]
 success_symbol = '[➜](#a89982) '
 
 [directory]
@@ -15,13 +18,15 @@ format = '[@$localipv4](#5f5f5f) '
 disabled = true
 
 [cmd_duration]
-min_time = 2000 
+min_time = 2000
 format = " took [$duration]($style)"
 
 [git_branch]
+disabled = false
 format = '[\($branch\)](#98971a) '
 
 [git_status]
+disabled = false
 conflicted = "⚔️"
 untracked = "❌"
 stashed = "📦"
@@ -37,10 +42,11 @@ style = "bold white"
 disabled = false
 
 [git_state]
+disabled = false
 format = '[\($state( $progress_current of $progress_total)\)]($style) '
 
 [hostname]
-ssh_only = true 
+ssh_only = true
 format = "[$hostname](#bdae93) "
 trim_at = "-"
 style = "dimmed gray"
