@@ -41,6 +41,7 @@ in
       quickemu
       usbutils
       kanata
+      lshw
 
       # Dev
       android-studio
@@ -50,6 +51,7 @@ in
       docker-compose
       jetbrains.idea-ultimate
       mysql-workbench
+      ollama
       vscode
 
       # Desktop
