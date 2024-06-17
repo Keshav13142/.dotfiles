@@ -1,4 +1,4 @@
-{ user, inputs, pkgs, ... }:
+{ user, inputs, pkgs, config, ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -117,40 +117,12 @@
     # Xserver config
     xserver = {
       enable = true;
+      autorun = false;
+      videoDrivers = [ "nvidia" ];
       displayManager = {
-        lightdm = {
-          # Lightdm custom theme
-          enable = true;
-          background = "/tmp/background.jpg";
-          greeters.slick = {
-            enable = true;
-            theme = {
-              package = pkgs.gruvbox-gtk-theme;
-              name = "Gruvbox-Dark-BL";
-            };
-            iconTheme = {
-              package = pkgs.gruvbox-dark-icons-gtk;
-              name = "oomox-gruvbox-dark";
-            };
-            cursorTheme = {
-              package = pkgs.capitaine-cursors-themed;
-              name = "Capitaine Cursors (Gruvbox)";
-            };
-            extraConfig = "clock-format=%a, %-e %b %-l:%M %p ";
-          };
-        };
-        # Enable wayland
-        gdm.wayland = true;
+        startx.enable = true;
       };
       xkb.layout = "us";
-      # X11 + i3
-      # displayManager = {
-      #   defaultSession = "none+i3";
-      #   gdm.wayland = false;
-      # };
-      # xkbOptions = "caps:escape_shifted_capslock";
-      # xkbVariant = "";
-      # windowManager.i3.enable = true;
     };
     libinput.enable = true;
 
@@ -232,13 +204,33 @@
       enable = true;
       driSupport = true;
       driSupport32Bit = true;
+      # extraPackages = with pkgs; [
+      #   nvidia-vaapi-driver
+      #   vaapiVdpau
+      #   libvdpau-va-gl
+      # ];
+    };
+    nvidia = {
+      modesetting.enable = true;
+      powerManagement.enable = false;
+      powerManagement.finegrained = false;
+      open = false;
+      nvidiaSettings = true;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
+      # prime = {
+      #   sync.enable = true;
+      #   intelBusId = "PCI:0:2:0";
+      #   nvidiaBusId = "PCI:1:0:0";
+      # };
     };
   };
 
   # Enable sound
   sound.enable = true;
-  # Add ~/.local/bin/ to $PATH
-  environment.localBinInPath = true;
+  environment = {
+    localBinInPath = true; # Add ~/.local/bin/ to $PATH
+    sessionVariables.NIXOS_OZONE_WL = "1"; # This variable fixes electron apps in wayland
+  };
 
   systemd = {
     services = {
