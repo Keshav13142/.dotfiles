@@ -59,8 +59,7 @@
         nodejs
         nodePackages.pnpm
         nodePackages.typescript
-        python310Packages.pip
-        python3Full
+        python3
         rustc
         watchman
         yarn

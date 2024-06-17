@@ -49,7 +49,7 @@
       options = "--delete-older-than 2d";
     };
     # Enable nixFlakes on system
-    package = pkgs.nixVersions.unstable;
+    package = pkgs.nixVersions.latest;
     extraOptions = ''
       experimental-features = nix-command flakes
       keep-outputs          = true

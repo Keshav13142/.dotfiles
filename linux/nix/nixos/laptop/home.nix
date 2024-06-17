@@ -10,11 +10,10 @@ in
     packages = with pkgs; [
       # Applications
       amberol
-      authy
       bitwarden
       brave
       espanso
-      floorp
+      # floorp
       gimp
       gnome.seahorse # gui secrets manager
       libreoffice-qt
@@ -46,10 +45,11 @@ in
       # Dev
       android-studio
       android-tools
-      dbeaver
-      mysql-workbench
+      dbeaver-bin
       docker
       docker-compose
+      jetbrains.idea-ultimate
+      mysql-workbench
       vscode
 
       # Desktop

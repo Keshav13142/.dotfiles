@@ -143,7 +143,6 @@
         gdm.wayland = true;
       };
       xkb.layout = "us";
-      libinput.enable = true;
       # X11 + i3
       # displayManager = {
       #   defaultSession = "none+i3";
@@ -153,6 +152,7 @@
       # xkbVariant = "";
       # windowManager.i3.enable = true;
     };
+    libinput.enable = true;
 
     # For filemanagers to work properly?
     gvfs.enable = true;
