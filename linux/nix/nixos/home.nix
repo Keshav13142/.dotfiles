@@ -82,7 +82,7 @@
     nix-index.enable = true;
     java = {
       enable = true;
-      package = pkgs.jdk11;
+      package = pkgs.jdk21;
     };
     bat = {
       enable = true;
