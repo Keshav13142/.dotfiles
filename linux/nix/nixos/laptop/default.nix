@@ -124,7 +124,19 @@
       };
       xkb.layout = "us";
     };
-    libinput.enable = true;
+    libinput = {
+      enable = true;
+      touchpad = {
+        horizontalScrolling = true;
+        accelSpeed = "0";
+        accelProfile = "flat";
+      };
+      mouse = {
+        horizontalScrolling = true;
+        accelSpeed = "0";
+        accelProfile = "flat";
+      };
+    };
 
     # For filemanagers to work properly?
     gvfs.enable = true;
