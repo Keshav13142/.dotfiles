@@ -67,6 +67,7 @@ alias gc='git commit -m'
 alias nup='pushd ~/.config/nix ; sudo nixos-rebuild switch --flake .#laptop ; popd'
 alias nfu='pushd ~/.config/nix ; nix flake update ; popd'
 alias ncl='sudo nix-collect-garbage -d'
+alias yl='yt-dlp'
 
 bindkey -s ^f "tmux-sessionizer\n"
 

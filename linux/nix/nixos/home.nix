@@ -23,6 +23,7 @@
         timer
         tmatrix
         xdg-ninja
+        mediainfo
 
         # Core utils
         cmake
