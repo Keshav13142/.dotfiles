@@ -96,24 +96,6 @@
     logind.extraConfig = ''
       HandlePowerKey = ignore
     '';
-    acpid = {
-      enable = true;
-      powerEventCommands = ''
-        systemctl suspend
-      '';
-      acEventCommands = ''
-        rm /tmp/output
-        vals=($1)  # space separated string to array of multiple values
-        case ''${vals[3]} in
-            00000000)
-              /home/keshav/.config/scripts/battery_status_change bat > /tmp/output 2>&1
-                ;;
-            00000001)
-              /home/keshav/.config/scripts/battery_status_change ac > /tmp/output 2>&1
-                ;;
-        esac
-      '';
-    };
     # Xserver config
     xserver = {
       enable = true;
@@ -124,19 +106,7 @@
       };
       xkb.layout = "us";
     };
-    libinput = {
-      enable = true;
-      touchpad = {
-        horizontalScrolling = true;
-        accelSpeed = "0";
-        accelProfile = "flat";
-      };
-      mouse = {
-        horizontalScrolling = true;
-        accelSpeed = "0";
-        accelProfile = "flat";
-      };
-    };
+    libinput.enable = true;
 
     # For filemanagers to work properly?
     gvfs.enable = true;
@@ -228,12 +198,12 @@
       powerManagement.finegrained = false;
       open = false;
       nvidiaSettings = true;
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
-      # prime = {
-      #   sync.enable = true;
-      #   intelBusId = "PCI:0:2:0";
-      #   nvidiaBusId = "PCI:1:0:0";
-      # };
+      package = config.boot.kernelPackages.nvidiaPackages.beta;
+      prime = {
+        sync.enable = true;
+        intelBusId = "PCI:0:2:0";
+        nvidiaBusId = "PCI:1:0:0";
+      };
     };
   };
 
