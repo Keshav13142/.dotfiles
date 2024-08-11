@@ -55,7 +55,7 @@
     hyprland = {
       xwayland.enable = true;
       enable = true;
-      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+      package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     };
     kdeconnect.enable = true;
   };
@@ -100,7 +100,6 @@
     xserver = {
       enable = true;
       autorun = false;
-      videoDrivers = [ "nvidia" ];
       displayManager = {
         startx.enable = true;
       };
@@ -182,29 +181,6 @@
   hardware = {
     pulseaudio.enable = false;
     bluetooth.enable = true;
-    opengl = {
-      enable = true;
-      # driSupport = true;
-      # driSupport32Bit = true;
-      # extraPackages = with pkgs; [
-      #   nvidia-vaapi-driver
-      #   vaapiVdpau
-      #   libvdpau-va-gl
-      # ];
-    };
-    nvidia = {
-      modesetting.enable = true;
-      powerManagement.enable = false;
-      powerManagement.finegrained = false;
-      open = false;
-      nvidiaSettings = true;
-      package = config.boot.kernelPackages.nvidiaPackages.beta;
-      prime = {
-        sync.enable = true;
-        intelBusId = "PCI:0:2:0";
-        nvidiaBusId = "PCI:1:0:0";
-      };
-    };
   };
 
   # Enable sound

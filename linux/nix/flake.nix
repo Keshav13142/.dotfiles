@@ -5,11 +5,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland = {
-      type = "git";
-      url = "https://github.com/hyprwm/Hyprland";
-      submodules = true;
-    };
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     spicetify-nix.url = "github:the-argus/spicetify-nix";
   };
 
