@@ -25,10 +25,10 @@ alias sz="du -hsx * | sort -rh | head -10"
 
 # use exa if available
 if [[ -x "$(command -v exa)" ]]; then
-	alias l='exa --icons -alF --extended -l --group-directories-first'
-	alias ll='exa --icons -aF --extended -l --group-directories-first'
+	alias l='exa --icons -lF --extended -l --group-directories-first'
+	alias ll='exa --icons -F --extended -l --group-directories-first'
 	alias ls='exa --icons -F --extended --group-directories-first'
-	alias llt='exa --icons -alTF --extended'
+	alias llt='exa --icons -lTF --extended'
 else
 	alias ls="ls -Fh ${colorflag} --group-directories-first"
 	alias ll="ls -lFh ${colorflag} --group-directories-first"

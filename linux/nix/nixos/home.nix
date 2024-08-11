@@ -58,12 +58,12 @@
         helix
         lazydocker
         nodejs
+        bun
         nodePackages.pnpm
         nodePackages.typescript
         python3
         rustc
         watchman
-        yarn
 
         # Language support
         deadnix
