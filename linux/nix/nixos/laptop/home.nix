@@ -97,33 +97,6 @@ in
       wl-clipboard
       wlogout
       wlr-randr
-
-      # Xorg/X11
-      # xclip
-      # xorg.xev
-      # lxappearance
-      # picom
-      # (polybar.override {
-      #   i3Support = true;
-      # })
-      # (rofi.override {
-      #   plugins = [
-      #     pkgs.rofi-calc
-      #   ];
-      # })
-      # sxhkd
-      # xdotool
-      # xorg.libX11
-      # xorg.libX11.dev
-      # xorg.libxcb
-      # xorg.libXft
-      # xorg.libXinerama
-      # xorg.xbacklight
-      # xorg.xinit
-      # xorg.xinput
-      # xorg.xkill
-      # xorg.xmodmap
-      # xsel
     ];
 
     stateVersion = "23.05";
@@ -137,16 +110,6 @@ in
 
   services = {
     syncthing.enable = true;
-
-    # mpd = {
-    #   enable = true;
-    #   musicDirectory = "/run/media/keshav/Media/Music/";
-    # };
-
-    # Xorg X11
-    # betterlockscreen.enable = true;
-    # flameshot.enable = true;
-    # clipmenu.enable = true;
   };
 
   programs = {
