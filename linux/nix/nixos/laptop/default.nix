@@ -183,8 +183,6 @@
     bluetooth.enable = true;
   };
 
-  # Enable sound
-  sound.enable = true;
   environment = {
     localBinInPath = true; # Add ~/.local/bin/ to $PATH
     sessionVariables.NIXOS_OZONE_WL = "1"; # This variable fixes electron apps in wayland

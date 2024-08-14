@@ -13,9 +13,9 @@ in
       bitwarden
       brave
       espanso
-      # floorp
+      floorp
       gimp
-      gnome.seahorse # gui secrets manager
+      seahorse # gui secrets manager
       libreoffice-qt
       mpv
       obsidian
@@ -58,8 +58,8 @@ in
       brillo
       dmenu
       dunst
-      gnome.cheese
-      gnome.nautilus
+      cheese
+      nautilus
       gtk3
       kitty
       networkmanagerapplet
@@ -102,7 +102,7 @@ in
     stateVersion = "23.05";
     pointerCursor = {
       gtk.enable = true;
-      package = pkgs.gnome.adwaita-icon-theme;
+      package = pkgs.adwaita-icon-theme;
       name = "Adwaita";
       size = 16;
     };
@@ -121,7 +121,7 @@ in
     yt-dlp.enable = true;
     zathura.enable = true;
     spicetify = {
-      enable = true;
+      enable = false;
       theme = spicePkgs.themes.Onepunch;
     };
     zoxide = {

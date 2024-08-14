@@ -55,7 +55,6 @@
         fnm
         gitmux
         go
-        helix
         lazydocker
         nodejs
         bun
@@ -71,6 +70,7 @@
         gotools
         nodePackages.pnpm
         statix
+        hyprls
 
       ];
     };
