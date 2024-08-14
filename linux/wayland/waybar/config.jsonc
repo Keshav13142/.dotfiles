@@ -13,7 +13,7 @@
     "memory",
     "disk",
     "custom/lock_screen",
-    "custom/power_btn"
+    "custom/power_btn",
   ],
   "modules-center": [
     "custom/playerlabel",
@@ -26,6 +26,6 @@
     "pulseaudio",
     "battery",
     "clock",
-    "tray"
-  ]
+    "tray",
+  ],
 }
