@@ -66,13 +66,9 @@
   },
   "hyprland/workspaces": {
     "all-outputs": false,
-    "active-only": true,
+    "active-only": false,
     "on-click": "activate",
-    "persistent_workspaces": {
-      "1": [],
-      "2": [],
-      "3": []
-    }
+    "sort-by-number": true
   },
   "wlr/taskbar": {
     "format": "{icon}",
