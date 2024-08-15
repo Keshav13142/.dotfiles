@@ -184,7 +184,7 @@
   },
   "custom/lock_screen": {
     "format": "",
-    "on-click": "swaylock",
+    "on-click": "hyprlock -q",
     "tooltip": false,
   },
   "custom/playerlabel": {

@@ -78,6 +78,7 @@ in
       glib
       grim
       hyprpicker
+      hyprlock
       libsForQt5.qt5.qtwayland
       (rofi-wayland.override {
         plugins = [
@@ -87,7 +88,6 @@ in
       slurp
       swappy
       swayidle
-      swaylock-effects
       swww
       wev
       (waybar.overrideAttrs (oldAttrs: {

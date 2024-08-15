@@ -67,11 +67,6 @@
       enable = true;
       execWheelOnly = true;
     };
-    pam.services.swaylock = {
-      text = ''
-        auth include login
-      '';
-    };
   };
 
   virtualisation = {
