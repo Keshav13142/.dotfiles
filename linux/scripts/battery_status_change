@@ -5,6 +5,7 @@ ac)
 	hyprctl keyword monitor "eDP-1,1920x1080@144,0x0,1"
 	hyprctl reload
 	dunstify "Switched to AC mode" --urgency=0
+	swww init
 	;;
 bat)
 	hyprctl keyword monitor "eDP-1,1920x1080@60,0x0,1"
@@ -17,6 +18,7 @@ bat)
 	       keyword decoration:rounding "
 	pkill syncthing
 	pkill kdeconnect
+	pkill swww
 	dunstify "Switched to Battery mode" --urgency=0
 	;;
 esac
