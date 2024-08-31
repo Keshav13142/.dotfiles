@@ -15,11 +15,12 @@ in
       espanso
       floorp
       gimp
-      seahorse # gui secrets manager
       libreoffice-qt
       mpv
       obsidian
       picard
+      seahorse # gui secrets manager
+      spotify
       virt-manager
 
       # Utils

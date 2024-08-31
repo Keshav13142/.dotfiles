@@ -51,6 +51,7 @@
 
         # Dev
         cargo
+        cargo-binstall
         diff-so-fancy
         fnm
         gitmux
