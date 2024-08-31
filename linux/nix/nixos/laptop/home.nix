@@ -70,9 +70,6 @@ in
       pywal
       rofimoji
       wezterm
-      xdg-desktop-portal
-      xdg-desktop-portal-gtk
-      xfce.thunar
 
       # Wayland
       cliphist
@@ -101,12 +98,6 @@ in
     ];
 
     stateVersion = "23.05";
-    pointerCursor = {
-      gtk.enable = true;
-      package = pkgs.adwaita-icon-theme;
-      name = "Adwaita";
-      size = 16;
-    };
   };
 
   services = {
@@ -131,21 +122,23 @@ in
     };
   };
 
+  home.pointerCursor = {
+    gtk.enable = true;
+    package = pkgs.capitaine-cursors-themed;
+    name = "Capitaine Cursors (Gruvbox)";
+    size = 16;
+  };
+
+  qt = {
+    enable = true;
+    platformTheme.name = "gtk";
+  };
+
   gtk = {
     enable = true;
     theme = {
-      name = "Gruvbox-Dark-BL";
-      package = pkgs.gruvbox-gtk-theme;
-    };
-    iconTheme = {
       name = "Gruvbox-Dark";
       package = pkgs.gruvbox-gtk-theme;
-    };
-    gtk3.extraConfig = {
-      gtk-application-prefer-dark-theme = 1;
-    };
-    gtk4.extraConfig = {
-      gtk-application-prefer-dark-theme = 1;
     };
   };
 }
