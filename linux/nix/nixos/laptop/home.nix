@@ -1,6 +1,14 @@
 { pkgs, user, spicetify-nix, ... }:
 let
   spicePkgs = spicetify-nix.packages.${pkgs.system}.default;
+  zed-fhs = pkgs.buildFHSUserEnv {
+    name = "zed";
+    targetPkgs = pkgs:
+      with pkgs; [
+        zed-editor
+      ];
+    runScript = "zed";
+  };
 in
 {
   imports = [ spicetify-nix.homeManagerModule ];
@@ -22,6 +30,7 @@ in
       seahorse # gui secrets manager
       spotify
       virt-manager
+      zed-fhs
 
       # Utils
       acpi
