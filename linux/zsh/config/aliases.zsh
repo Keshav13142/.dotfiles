@@ -64,6 +64,7 @@ alias vim="$EDITOR"
 alias g='git'
 alias gs='git status'
 alias gc='git commit -m'
+alias gl='g lg'
 alias nup='pushd ~/.config/nix ; sudo nixos-rebuild switch --flake .#laptop ; popd'
 alias nfu='pushd ~/.config/nix ; nix flake update ; popd'
 alias ncl='sudo nix-collect-garbage -d'
