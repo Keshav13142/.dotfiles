@@ -87,3 +87,9 @@ cargo install rotz
   ```sh
   chsh -s $(which zsh)
   ```
+
+- Setup zsh history file
+
+  ```sh
+  mkdir -p ~/.local/state/zsh/ && touch ~/.local/state/zsh/history
+  ```
