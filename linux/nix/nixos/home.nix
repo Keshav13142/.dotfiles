@@ -88,7 +88,7 @@
     };
     bat = {
       enable = true;
-      extraPackages = with pkgs.bat-extras; [ batman batgrep batdiff ];
+      extraPackages = with pkgs.bat-extras; [ batman batgrep batdiff batpipe batwatch prettybat ];
     };
     direnv = {
       enable = true;

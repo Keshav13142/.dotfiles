@@ -44,6 +44,10 @@ if [[ -x "$(command -v direnv)" ]]; then
   eval "$(direnv hook zsh)"
 fi
 
+if [[ -x "$(command -v batpipe)" ]]; then
+  eval "$(batpipe)"
+fi
+
 # Use lunarvim or fallback to neovim
 if [ "$(command -v lvim)" ]; then
 	export EDITOR="lvim"
