@@ -24,6 +24,7 @@
         tmatrix
         xdg-ninja
         mediainfo
+        yazi
 
         # Core utils
         cmake
