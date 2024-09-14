@@ -2,13 +2,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-if [[ -x "$(command -v compinit)" ]]; then
-  compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
-fi
-
 # Adding stuff to path
 if ! [[ -x "$(command -v nixos-version)" ]]; then
-	path+=("$XDG_DATA_HOME/fnm")
+  path+=("$XDG_DATA_HOME/fnm")
   path+=("$HOME/softwares/apache-maven-3.9.2/bin")
 fi
 path+=("$HOME/.local/bin")

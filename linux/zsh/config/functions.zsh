@@ -206,3 +206,9 @@ fg-bg() {
 }
 zle -N fg-bg
 bindkey '^Z' fg-bg
+
+open_tmux(){
+  ~/.config/tmux/plugins/t-smart-tmux-session-manager/bin/t
+}
+zle -N open_tmux
+bindkey '^F' open_tmux
