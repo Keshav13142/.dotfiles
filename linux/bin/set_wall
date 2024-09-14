@@ -6,7 +6,8 @@ else
 	wall=$1
 fi
 
-swww img "$wall" --transition-type=wave --transition-fps=144 --transition-duration 1
+# Transition type => none, simple, left, right, top, bottom, wipe, grow, center, outer, any, wave, random, fade
+swww img "$wall" --transition-type=fade --transition-fps=144 --transition-duration 1
 wal -qtsni "$wall" >/dev/null 2>&1 &
 disown
 sleep 1
