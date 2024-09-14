@@ -4,6 +4,7 @@ windows:
     git/.gitconfig: ~/.gitconfig
     kanata/maps.kbd: ~/.config/kanata/maps.kbd
     wezterm/.wezterm.lua: ~/.wezterm.lua
+    zed: ~/.config/zed
 
 linux:
   links:
@@ -11,3 +12,4 @@ linux:
     lazygit: ~/.config/lazygit
     kitty: ~/.config/kitty
     wezterm/.wezterm.lua: ~/.config/wezterm/wezterm.lua
+    zed: ~/.config/zed
