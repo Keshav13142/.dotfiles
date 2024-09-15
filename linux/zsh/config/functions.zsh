@@ -207,11 +207,21 @@ fg-bg() {
 zle -N fg-bg
 bindkey '^Z' fg-bg
 
-open_tmux(){
-  ~/.config/tmux/plugins/t-smart-tmux-session-manager/bin/t
+function sesh-sessions() {
+  {
+    exec </dev/tty
+    exec <&1
+    local session
+    session=$(sesh list | fzf --height 40% --reverse --border-label ' sesh ' --border --prompt '⚡  ')
+    [[ -z "$session" ]] && return
+    sesh connect $session
+  }
 }
-zle -N open_tmux
-bindkey '^F' open_tmux
+
+zle     -N            sesh-sessions
+bindkey -M emacs '^F' sesh-sessions
+bindkey -M vicmd '^F' sesh-sessions
+bindkey -M viins '^F' sesh-sessions
 
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"

@@ -25,6 +25,7 @@
         xdg-ninja
         mediainfo
         yazi
+        sesh
 
         # Core utils
         cmake
