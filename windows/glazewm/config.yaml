@@ -183,12 +183,8 @@ keybindings:
   - commands: ["shell-exec explorer"]
     bindings: ["alt+e"]
 
-  - commands:
-      [
-        "shell-exec C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
-      ]
+  - commands: ["shell-exec brave"]
     bindings: ["alt+w"]
-  # "C:\Program Files\WindowsApps\MSTeams_24215.1007.3082.1590_x64__8wekyb3d8bbwe\ms-teams.exe"
 
   - commands: ["shell-exec wt"]
     bindings: ["alt+enter"]
