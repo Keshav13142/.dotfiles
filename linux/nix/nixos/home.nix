@@ -59,7 +59,7 @@
         gitmux
         go
         lazydocker
-        nodejs
+        nodejs_22
         bun
         nodePackages.pnpm
         nodePackages.typescript
