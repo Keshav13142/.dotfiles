@@ -2,5 +2,6 @@ linux:
   links:
     hypr: ~/.config/hypr
     swaylock: ~/.config/swaylock
+    swaync: ~/.config/swaync
     waybar: ~/.config/waybar
     wlogout: ~/.config/wlogout

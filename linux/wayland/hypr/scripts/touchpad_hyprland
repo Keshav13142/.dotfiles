@@ -12,13 +12,13 @@ fi
 
 enable_touchpad() {
 	printf "true" >"$STATUS_FILE"
-	dunstify --urgency=0 "Enabled Touchpad"
+	notify-send "Enabled Touchpad"
 	hyprctl keyword $HYPRLAND_VARIABLE true
 }
 
 disable_touchpad() {
 	printf "false" >"$STATUS_FILE"
-	dunstify --urgency=0 "Disabled Touchpad"
+	notify-send "Disabled Touchpad"
 	hyprctl keyword $HYPRLAND_VARIABLE false
 }
 

@@ -1,6 +1,6 @@
 { pkgs, user, spicetify-nix, ... }:
 let
-  spicePkgs = spicetify-nix.packages.${pkgs.system}.default;
+  spicePkgs = spicetify-nix.legacyPackages.${pkgs.system};
   zed-fhs = pkgs.buildFHSUserEnv {
     name = "zed";
     targetPkgs = pkgs:
@@ -11,7 +11,7 @@ let
   };
 in
 {
-  imports = [ spicetify-nix.homeManagerModule ];
+  imports = [ spicetify-nix.homeManagerModules.default ];
   home = {
     username = "${user}";
     homeDirectory = "/home/${user}";
@@ -28,7 +28,7 @@ in
       obsidian
       picard
       seahorse # gui secrets manager
-      spotify
+      # spotify
       virt-manager
       zed-fhs
 
@@ -67,7 +67,7 @@ in
       # Desktop
       brillo
       dmenu
-      dunst
+      # dunst
       cheese
       nautilus
       gtk3
@@ -87,6 +87,8 @@ in
       hyprpicker
       hyprlock
       hypridle
+      hyprshot
+      swaynotificationcenter
       libsForQt5.qt5.qtwayland
       (rofi-wayland.override {
         plugins = [
@@ -122,8 +124,8 @@ in
     yt-dlp.enable = true;
     zathura.enable = true;
     spicetify = {
-      enable = false;
-      theme = spicePkgs.themes.Onepunch;
+      enable = true;
+      theme = spicePkgs.themes.lucid; # staryNight text comfy lucid hazy onepunch
     };
     zoxide = {
       enable = true;

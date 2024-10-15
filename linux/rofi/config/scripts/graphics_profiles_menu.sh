@@ -5,15 +5,15 @@ chosen=$(printf 'Integrated\nHybrid\nNvidia\n%s (active)' "$(system76-power grap
 case "$chosen" in
 "Integrated")
 	system76-power graphics integrated
-	dunstify "Integrated graphics selected" "This change will take effect after restarting"
+	notify-send "Integrated graphics selected" "This change will take effect after restarting"
 	;;
 "Hybrid")
 	system76-power graphics hybrid
-	dunstify "Hybrid graphics selected" "This change will take effect after restarting"
+	notify-send "Hybrid graphics selected" "This change will take effect after restarting"
 	;;
 "Nvidia")
 	system76-power graphics nvidia
-	dunstify "Nvidia graphics selected" "This change will take effect after restarting"
+	notify-send "Nvidia graphics selected" "This change will take effect after restarting"
 	;;
 *)
 	exit 1

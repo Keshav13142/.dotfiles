@@ -6,15 +6,15 @@ case "$chosen" in
 "  Battery")
 	system76-power profile battery
 	xrandr -s 1920x1080 -r 60
-	dunstify " Battery saver mode activated"
+	notify-send " Battery saver mode activated"
 	;;
 "  Balanced")
 	system76-power profile balanced
-	dunstify " Balanced mode activated"
+	notify-send " Balanced mode activated"
 	;;
 "  Performance")
 	system76-power profile performance
-	dunstify " Performance mode activated"
+	notify-send " Performance mode activated"
 	;;
 *) exit 1 ;;
 esac
