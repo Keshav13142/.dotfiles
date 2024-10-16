@@ -62,5 +62,17 @@ if status is-interactive
     source ~/.config/fish/aliases.fish
     source ~/.config/fish/functions.fish
 
+    # Emulates vim's cursor shape behavior
+    set fish_cursor_default block
+    set fish_cursor_insert line
+    set fish_cursor_replace_one underscore
+    set fish_cursor_replace underscore
+    set fish_cursor_external line
+    set fish_cursor_visual block
+
+    function fish_mode_prompt
+        # Disabling the vi mode indicator
+    end
+
     cd ~/ #idk for some reason it defaults to ~/.config/fish
 end
