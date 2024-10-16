@@ -87,7 +87,6 @@ in
       hyprpicker
       hyprlock
       hypridle
-      hyprshot
       swaynotificationcenter
       libsForQt5.qt5.qtwayland
       (rofi-wayland.override {
