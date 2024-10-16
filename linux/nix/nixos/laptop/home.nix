@@ -125,7 +125,7 @@ in
     zathura.enable = true;
     spicetify = {
       enable = true;
-      theme = spicePkgs.themes.lucid; # staryNight text comfy lucid hazy onepunch
+      theme = spicePkgs.themes.onepunch; # starryNight text comfy lucid hazy onepunch
     };
     zoxide = {
       enable = true;
