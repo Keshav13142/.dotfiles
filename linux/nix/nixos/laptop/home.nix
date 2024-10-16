@@ -28,9 +28,9 @@ in
       obsidian
       picard
       seahorse # gui secrets manager
-      # spotify
       virt-manager
       zed-fhs
+      easyeffects
 
       # Utils
       acpi
