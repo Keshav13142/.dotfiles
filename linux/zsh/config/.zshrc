@@ -53,22 +53,23 @@ fi
 export SUDO_EDITOR="$EDITOR"
 export GIT_EDITOR="$EDITOR";
 
-# manage plugins using zim
-zstyle ':zim:zmodule' use 'degit'
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+source "${ZINIT_HOME}/zinit.zsh"
 
-# Download zimfw plugin manager if missing.
-if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
-  curl -fsSL --create-dirs -o ${ZIM_HOME}/zimfw.zsh \
-      https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
-fi
+zinit light zsh-users/zsh-completions
+zinit light zdharma-continuum/fast-syntax-highlighting
+zinit light zsh-users/zsh-history-substring-search
+zinit light zdharma-continuum/history-search-multi-word
+zinit light zsh-users/zsh-autosuggestions
+zinit light hlissner/zsh-autopair
+zinit light jeffreytse/zsh-vi-mode
+zinit light wfxr/forgit
+zinit light Aloxaf/fzf-tab
 
-# Install missing modules, and update ${ZIM_HOME}/init.zsh if missing or outdated.
-if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZDOTDIR:-${HOME}}/.zimrc ]]; then
-  source ${ZIM_HOME}/zimfw.zsh init -q
-fi
-
-# Initialize modules.
-source ${ZIM_HOME}/init.zsh
+zinit ice depth"1" # git clone depth
+zinit light romkatv/powerlevel10k
 
 bindkey '^P' history-search-backward
 bindkey '^N' history-search-forward

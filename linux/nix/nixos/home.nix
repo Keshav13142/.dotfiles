@@ -26,6 +26,7 @@
         mediainfo
         yazi
         sesh
+        zinit
 
         # Core utils
         cmake
