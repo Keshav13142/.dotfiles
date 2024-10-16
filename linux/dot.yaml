@@ -5,6 +5,7 @@ linux:
     cava: ~/.config/cava
     dunst: ~/.config/dunst
     fd/.fdignore: ~/.fdignore
+    fish: ~/.config/fish
     lf: ~/.config/lf
     neofetch: ~/.config/neofetch
     nix: ~/.config/nix

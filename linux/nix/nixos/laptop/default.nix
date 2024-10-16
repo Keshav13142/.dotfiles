@@ -47,7 +47,7 @@
 
   # Set zsh as the default shell
   programs = {
-    zsh.enable = true;
+    fish.enable = true;
     dconf.enable = true;
     sniffnet.enable = true;
     nix-ld.enable = true;
@@ -59,7 +59,7 @@
     };
     kdeconnect.enable = true;
   };
-  users.defaultUserShell = pkgs.zsh;
+  users.defaultUserShell = pkgs.fish;
   security = {
     rtkit.enable = true;
     polkit.enable = true;
