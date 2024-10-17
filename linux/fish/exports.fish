@@ -18,4 +18,5 @@ set -gx GTK2_RC_FILES $XDG_CONFIG_HOME/gtk-2.0/gtkrc
 set -gx LESSHISTFILE $XDG_CACHE_HOME/less/history
 set -gx XCOMPOSECACHE $XDG_CACHE_HOME/X11/xcompose
 set -gx FZF_DEFAULT_COMMAND 'fd --type f --color=never --hidden'
-set -gx FZF_DEFAULT_OPTS '--layout=reverse --height 40%'set -gx JAVA_HOME (dirname (dirname (readlink -f (command -s java))))
+set -gx FZF_DEFAULT_OPTS '--layout=reverse --height 40%'
+set -gx JAVA_HOME (dirname (dirname (readlink -f (command -s java))))

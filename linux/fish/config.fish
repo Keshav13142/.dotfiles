@@ -1,4 +1,4 @@
-source ~/.config/fish/exports.fish
+source $XDG_CONFIG_HOME/fish/exports.fish
 
 if status is-interactive
     set -g fish_greeting # Disable greeting
@@ -59,8 +59,8 @@ if status is-interactive
     set -gx SUDO_EDITOR $EDITOR
     set -gx GIT_EDITOR $EDITOR
 
-    source ~/.config/fish/aliases.fish
-    source ~/.config/fish/functions.fish
+    source $XDG_CONFIG_HOME/fish/aliases.fish
+    source $XDG_CONFIG_HOME/fish/functions.fish
 
     # Emulates vim's cursor shape behavior
     set fish_cursor_default block
@@ -74,5 +74,5 @@ if status is-interactive
         # Disabling the vi mode indicator
     end
 
-    cd ~/ #idk for some reason it defaults to ~/.config/fish
+    cd $HOME #idk for some reason it defaults to ~/.config/fish
 end
