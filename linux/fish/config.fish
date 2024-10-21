@@ -1,4 +1,4 @@
-source $XDG_CONFIG_HOME/fish/exports.fish
+source ~/.config/fish/exports.fish
 
 if status is-interactive
     set -g fish_greeting # Disable greeting
