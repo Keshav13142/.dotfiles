@@ -170,7 +170,7 @@ New-Alias -Scope Global -Name fkill -Value Invoke-FuzzyKillProcess -ErrorAction 
 
 #################### Aliases ###########################
 # General
-${function:debloat} = { Invoke-WebRequest christitus.com/win | Invoke-Expression }
+${function:winutil} = { Invoke-WebRequest christitus.com/win | Invoke-Expression }
 ${function:cmatrix} = { Invoke-WebRequest https://raw.githubusercontent.com/matriex/cmatrix/master/cmatrix.psm1 | Invoke-Expression }
 ${function:admin} = { Start-Process wezterm-gui -Verb runAs }
 ${function:betterCat} = { bat -p $args }
