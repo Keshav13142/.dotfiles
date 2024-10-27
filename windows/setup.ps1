@@ -53,13 +53,11 @@ Function Install-Scoop {
 Function Install-PwshModules {
   Print "#### Installing PowerShell Modules ####" Yellow
   Print "Installing PowerShellGet.." Cyan
-  Install-Module PowerShellGet -Force -AllowClobber
+  Install-Module -Name PowerShellGet -AllowPrerelease -Force
   Print "Installing PSReadLine.."  Cyan
-  Install-Module PSReadLine -AllowPrerelease -Force
+  Install-Module PSReadLine -Force
   Print "Installing PSFzf.." Cyan
   Install-Module -Name PSFzf -Force
-  Print "Installing PSDotFiles.." Cyan
-  Install-Module -Name PSDotFiles -Force
 }
 
 Function Install-Wsl {
@@ -120,12 +118,11 @@ $pkgs =
   "Google.Drive",
   "Microsoft.PowerToys",
   "Notepad++.Notepad++",
-  "Obsidian.Obsidian",
   "OBSProject.OBSStudio",
   "SyncTrayzor.SyncTrayzor",
-  "Twilio.Authy",
   "VideoLAN.VLC",
-  "voidtools.Everything.Alpha"
+  "voidtools.Everything.Alpha",
+  "seerge.g-helper"
   Scoop  =
   "kanata"
 },
@@ -133,16 +130,19 @@ $pkgs =
   Type   = "Utils"
   Winget =
   "AntibodySoftware.WizTree",
-  "AutoHotkey.AutoHotkey",
-  "BleachBit.BleachBit",
-  "code51.Carnac", # Screen key
+  "Wagnardsoft.DisplayDriverUninstaller",
+  "CPUID.HWMonitor",
+  #"AutoHotkey.AutoHotkey",
+  #"BleachBit.BleachBit",
+  #"code51.Carnac", # Screen key
   "Espanso.Espanso",
-  "geeksoftwareGmbH.PDF23Creator",
-  "GIMP.GIMP",
+  #"geeksoftwareGmbH.PDF23Creator",
+  #"GIMP.GIMP",
   "Oracle.VirtualBox",
   "qBittorrent.qBittorrent",
   "StefanSundin.Superf4",
-  "TechPowerUp.NVCleanstall"
+  "TechPowerUp.NVCleanstall",
+  "DEVCOM.JetBrainsMonoNerdFont"
 },
 [PSCustomObject]@{
   Type   = "Dev Packages"
@@ -154,9 +154,7 @@ $pkgs =
   "Microsoft.VisualStudioCode",
   "Microsoft.WindowsTerminal",
   "Neovim.Neovim",
-  "OpenJS.NodeJS",
-  "Python.Python.3.12",
-  "Rustlang.Rust.MSVC",
+  "Rustlang.Rustup",
   "Schniz.fnm",
   "wez.wezterm"
   Choco  =
