@@ -62,21 +62,8 @@ Function Install-PwshModules {
 
 Function Install-Wsl {
   Print "#### Setting up WSL ####" Yellow
-  If (Get-Command -Name wsl -ErrorAction Ignore) {
-    Print "WSL is already installed..." Green
-  }
-  Else {
-    wsl --install --no-distribution
-  }
-  $v = "22.04"
+  wsl --install --no-distribution
   wsl --set-default-version 2
-  If ((wsl -l -v) -replace "`0" | Select-String -Pattern "Ubuntu-${v}") {
-    Print "Ubuntu ${v} already installed..." Green
-  }
-  Else {
-    Print "Installing Ubuntu 22.04.." Cyan
-    wsl --install "Ubuntu-${v}"
-  }
 }
 
 Function Install-Pkgs ($obj) {
@@ -105,144 +92,157 @@ Function Install-Pkgs ($obj) {
   }
   Write-Host ""
 }
-
 $pkgs =
 [PSCustomObject]@{
-  Type   = "Essentials"
+  Type   = "System Utilities"
   Winget =
-  "7zip.7zip",
-  "Bitwarden.Bitwarden",
-  "Brave.Brave",
-  "File-New-Project.EarTrumpet",
-  "Flameshot.Flameshot",
-  "Google.Drive",
-  "Microsoft.PowerToys",
-  "Notepad++.Notepad++",
-  "OBSProject.OBSStudio",
-  "SyncTrayzor.SyncTrayzor",
-  "VideoLAN.VLC",
-  "voidtools.Everything.Alpha",
-  "seerge.g-helper"
-  Scoop  =
-  "kanata"
+  "7zip.7zip",  # File compression
+  "AntibodySoftware.WizTree",  # Disk space analyzer
+  "CodeSector.TeraCopy",  # File transfer
+  "File-New-Project.EarTrumpet",  # Audio control
+  "Microsoft.PowerToys",  # System enhancements
+  "voidtools.Everything.Alpha",  # File search
+  "glzr-io.glazewm",  # Window management
+  "glzr-io.zebar",  # Status bar
+  "StefanSundin.Superf4",  # Process killer
+  "Microsoft.OpenSSH.Beta"
 },
 [PSCustomObject]@{
-  Type   = "Utils"
+  Type   = "Media & Communication"
   Winget =
-  "AntibodySoftware.WizTree",
-  "Wagnardsoft.DisplayDriverUninstaller",
-  "CPUID.HWMonitor",
-  #"AutoHotkey.AutoHotkey",
-  #"BleachBit.BleachBit",
-  #"code51.Carnac", # Screen key
-  "Espanso.Espanso",
-  #"geeksoftwareGmbH.PDF23Creator",
-  #"GIMP.GIMP",
-  "Oracle.VirtualBox",
-  "qBittorrent.qBittorrent",
-  "StefanSundin.Superf4",
-  "TechPowerUp.NVCleanstall",
+  "VideoLAN.VLC",  # Media player
+  "OBSProject.OBSStudio",  # Screen recording
+  "Spotify.Spotify",  # Music
+  "Discord.Discord",  # Communication
+  "Flameshot.Flameshot"  # Screenshot
+},
+[PSCustomObject]@{
+  Type   = "Productivity & Documents"
+  Winget =
+  "Notepad++.Notepad++",
+  "Bitwarden.Bitwarden",  # Password manager
+  "TheDocumentFoundation.LibreOffice",
+  "Brave.Brave",  # Browser
+  "Espanso.Espanso",  # Text expander
   "DEVCOM.JetBrainsMonoNerdFont"
 },
 [PSCustomObject]@{
-  Type   = "Dev Packages"
+  Type   = "Cloud & Sync"
+  Winget =
+  "Google.Drive",
+  "Google.GoogleDrive",
+  "SyncTrayzor.SyncTrayzor"
+},
+[PSCustomObject]@{
+  Type   = "Development Environment"
   Winget =
   "Git.Git",
-  "GoLang.Go",
-  "JesseDuffield.lazygit",
   "Microsoft.PowerShell",
   "Microsoft.VisualStudioCode",
   "Microsoft.WindowsTerminal",
   "Neovim.Neovim",
+  "wez.wezterm",
+  "JesseDuffield.lazygit"
+},
+[PSCustomObject]@{
+  Type   = "Programming Languages & SDKs"
+  Winget =
+  "GoLang.Go",
   "Rustlang.Rustup",
-  "Schniz.fnm",
-  "wez.wezterm"
+  "Schniz.fnm"  # Node.js version manager
   Choco  =
   "make",
   "mingw"
 },
 [PSCustomObject]@{
-  Type   = "CLI Packages"
+  Type   = "CLI Tools"
   Winget =
-  "ajeetdsouza.zoxide",
-  "BurntSushi.ripgrep.MSVC",
-  "junegunn.fzf",
-  "o2sh.onefetch",
-  "sharkdp.bat",
-  "sharkdp.fd",
-  "Starship.Starship"
+  "ajeetdsouza.zoxide",  # Directory jumper
+  "BurntSushi.ripgrep.MSVC",  # Search tool
+  "junegunn.fzf",  # Fuzzy finder
+  "o2sh.onefetch",  # Git repo summary
+  "sharkdp.bat",  # Cat alternative
+  "sharkdp.fd",  # Find alternative
+  "Starship.Starship"  # Shell prompt
   Choco  =
-  "lsd",
-  "winfetch"
+  "lsd",  # ls alternative
+  "winfetch"  # System info
+  Scoop  =
+  "kanata"  # Keyboard customization
 },
 [PSCustomObject]@{
-  Type   = "Gaming Packges"
+  Type   = "Hardware & Diagnostics"
+  Winget =
+  "Wagnardsoft.DisplayDriverUninstaller",
+  "CPUID.HWMonitor",
+  "TechPowerUp.NVCleanstall",
+  "seerge.g-helper"  # ASUS ROG control
+},
+[PSCustomObject]@{
+  Type   = "Virtualization & Downloads"
+  Winget =
+  "Oracle.VirtualBox",
+  "qBittorrent.qBittorrent"
+},
+[PSCustomObject]@{
+  Type   = "Gaming"
   Winget =
   "EpicGames.EpicGamesLauncher",
   "Valve.Steam"
 }
 
-## Other useful pkgs ##
-# "CPUID.CPU-Z"
-# "Rufus.Rufus_Microsoft.Winget.Source_7wekyb3d8bbwe"
-# "UderzoSoftware.SpaceSniffer"
-# "Safing.Portmaster"
-# "Wagnardsoft.DisplayDriverUninstaller"
-# "CPUID.HWMonitor"
-# "Balena.Etcher"
-# "xanderfrangos.twinkletray"
-
-# Check if Package managers are installed
-Install-Choco
-Install-Winget
-Install-Scoop
-
+# Rest of the script remains the same, but update the menu options:
 Print "
 Choose what to install
-1. Essentials
-2. Utils
-3. Dev
-4. CLI
-5. Gaming
-6. PowerShell Modules
-7. Install WSL
+1. System Utilities
+2. Media & Communication
+3. Productivity & Documents
+4. Cloud & Sync
+5. Development Environment
+6. Programming Languages & SDKs
+7. CLI Tools
+8. Hardware & Diagnostics
+9. Virtualization & Downloads
+10. Gaming
+11. PowerShell Modules
+12. Install WSL
 0. (ALL)
-
 "  Blue
+
 $selected = Read-Host "Enter Choice (eg: 1,2) "
 Write-Host ""
 
-If ($selected -eq "") {
-  Print "Invalid Option" Red
+If ([string]::IsNullOrWhiteSpace($selected)) {
+    Print "No selection provided. Please select at least one option." Red
 }
 ElseIf ($selected.Length -gt 1) {
-  $selected = $selected.split(",")
-  ForEach ($i in $selected) {
-    If ($i -eq 6) {
-      Install-PwshModules
+    $selected = $selected.split(",")
+    ForEach ($i in $selected) {
+        If ($i -eq 11) {
+            Install-PwshModules
+        }
+        Else {
+            Install-Pkgs($pkgs[$i - 1])
+        }
     }
-    Else {
-      Install-Pkgs($pkgs[$i - 1])
-    }
-  }
 }
 Else {
-  switch ($selected) {
-    0 {
-      ForEach ($obj in $pkgs) {
-        Install-Pkgs($obj)
-      }
-      Install-PwshModules
-      Install-Wsl
+    switch ($selected) {
+        0 {
+            ForEach ($obj in $pkgs) {
+                Install-Pkgs($obj)
+            }
+            Install-PwshModules
+            Install-Wsl
+        }
+        11 {
+            Install-PwshModules
+        }
+        12 {
+            Install-Wsl
+        }
+        Default {
+            Install-Pkgs($pkgs[$selected - 1])
+        }
     }
-    6 {
-      Install-PwshModules
-    }
-    7 {
-      Install-Wsl
-    }
-    Default {
-      Install-Pkgs($pkgs[$selected - 1])
-    }
-  }
 }
