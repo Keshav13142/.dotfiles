@@ -66,6 +66,12 @@ local function isLinux()
 end
 
 return {
+	window_decorations = "NONE | RESIZE",
+	front_end = "WebGpu",
+	max_fps = 144,
+	animation_fps = 1,
+	prefer_egl = true,
+
 	default_prog = not isLinux() and { "pwsh", "-nologo" } or nil,
 	enable_wayland = false, -- to get it working on wayland :)
 
