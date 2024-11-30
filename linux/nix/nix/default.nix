@@ -12,7 +12,7 @@
           packages = with pkgs; [
             eza
             zoxide
-            zsh
+            fish
           ];
 
           stateVersion = "22.05";
