@@ -156,7 +156,7 @@ return {
 
 	-- Keymaps
 	disable_default_key_bindings = false,
-	leader = { key = " ", mods = "CTRL", timeout_milliseconds = 1000 },
+	leader = { key = ";", mods = "CTRL", timeout_milliseconds = 1000 },
 	keys = {
 		-- Splits
 		{
