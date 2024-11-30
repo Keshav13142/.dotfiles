@@ -1,4 +1,10 @@
-source ~/.config/fish/exports.fish
+function is_wsl
+    if test -n "$WSL_DISTRO_NAME"
+        return 0
+    else
+        return 1
+    end
+end
 
 if status is-interactive
     set -g fish_greeting # Disable greeting
@@ -7,6 +13,10 @@ if status is-interactive
     if not type -q nixos-version
         set -gx PATH $XDG_DATA_HOME/fnm $PATH
         set -gx PATH $HOME/softwares/apache-maven-3.9.2/bin $PATH
+    end
+
+    if is_wsl
+        set -gx PATH $HOME/.nix-profile/bin $PATH
     end
 
     set -gx PATH $HOME/.local/bin $PATH
@@ -76,3 +86,5 @@ if status is-interactive
 
     cd $HOME #idk for some reason it defaults to ~/.config/fish
 end
+
+source ~/.config/fish/exports.fish
