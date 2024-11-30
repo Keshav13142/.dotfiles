@@ -17,6 +17,7 @@ if status is-interactive
 
     if is_wsl
         set -gx PATH $HOME/.nix-profile/bin $PATH
+        set -gx PATH /nix/var/nix/profiles/default/bin $PATH
     end
 
     set -gx PATH $HOME/.local/bin $PATH
