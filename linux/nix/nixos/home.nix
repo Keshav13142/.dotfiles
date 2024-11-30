@@ -75,7 +75,7 @@
         nodePackages.pnpm
         statix
         hyprls
-
+        fish-lsp
       ];
     };
 
