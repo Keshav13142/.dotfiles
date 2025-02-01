@@ -180,6 +180,20 @@ return {
 		-- Enter copy mode
 		{ key = "v", mods = "LEADER", action = act.ActivateCopyMode },
 
+		-- Rename tabs
+		{
+			key = "r",
+			mods = "LEADER",
+			action = act.PromptInputLine({
+				description = "Enter new name for tab",
+				action = wezterm.action_callback(function(window, pane, line)
+					if line then
+						window:active_tab():set_title(line)
+					end
+				end),
+			}),
+		},
+
 		-- Navigate tabs
 		{ key = "1", mods = "CTRL", action = act.ActivateTab(0) },
 		{ key = "2", mods = "CTRL", action = act.ActivateTab(1) },
