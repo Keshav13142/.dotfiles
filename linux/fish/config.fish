@@ -6,6 +6,8 @@ function is_wsl
     end
 end
 
+source ~/.config/fish/exports.fish
+
 if status is-interactive
     set -g fish_greeting # Disable greeting
 
@@ -87,5 +89,3 @@ if status is-interactive
 
     cd $HOME #idk for some reason it defaults to ~/.config/fish
 end
-
-source ~/.config/fish/exports.fish
