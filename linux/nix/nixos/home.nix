@@ -16,17 +16,17 @@
         neofetch
         nh
         ninja
-        pistol
+        pistol #pistol-bin
         slides
-        speechd
+        speechd #libspeechd
         tig
         timer
         tmatrix
         xdg-ninja
         mediainfo
         yazi
-        sesh
-        zinit
+        sesh #sesh-bin
+        # zinit
 
         # Core utils
         cmake
@@ -73,8 +73,8 @@
         gofumpt
         gotools
         nodePackages.pnpm
-        statix
-        hyprls
+        statix # statix-git
+        hyprls #hyprls-git
         fish-lsp
       ];
     };

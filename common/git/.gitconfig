@@ -1,47 +1,69 @@
+[user]
+    name = Keshav
+    email = s.keshav13142@gmail.com
+    signingKey = ~/.ssh/git_signing.pub
+
 [alias]
-	br = "branch"
-	cl = "clone"
-	co = "checkout"
-	d = "diff"
-	lg = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --topo-order --date=relative"
-	lp = "log -p"
-	ls = "ls-files"
-	rl = "reflog"
-	s = "status"
-	st = "status -sb"
-	wtf = "!git-wtf"
+    br = branch
+    c = commit -m
+    cl = clone
+    co = checkout
+    d = diff
+    fpush = push --force-with-lease
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --topo-order --date=relative
+    lp = log -p
+    ls = ls-files
+    rl = reflog
+    s = status
+    st = status -sb
+    wtf = !git-wtf
+
+[branch]
+    sort = -commmiterdate
 
 [color]
-	ui = true
+    ui = true
+
+[column]
+    ui = always
 
 [commit]
-	gpgsign = true
-	verbose = true
+    verbose = true
+    gpgsign = true
 
 [core]
-	editor = nvim
+    editor = nvim
 
 [github]
-	user = "keshav13142"
+    user = keshav13142
 
 [gpg]
-	format = "ssh"
+    format = ssh
 
 [gpg "ssh"]
-	allowedSignersFile = "~/.ssh/allowed_signers"
+    allowedSignersFile = ~/.ssh/allowed_signers
 
 [http]
-	sslVerify = true
+    sslVerify = true
 
 [init]
-	defaultBranch = "main"
+    defaultBranch = main
 
 [pull]
-	rebase = true
+    rebase = true
 
-[user]
-	email = "s.keshav13142@gmail.com"
-	name = "Keshav"
-	signingKey = "~/.ssh/git_signing.pub"
-[safe]
-	directory = *
+[rerere]
+    enabled = true
+    autoUpdate = true
+
+[diff]
+    tool = difftastic
+
+[difftool]
+    prompt = false
+
+[difftool "difftastic"]
+    cmd = difft "$LOCAL" "$REMOTE"
+
+[pager]
+    difftool = true

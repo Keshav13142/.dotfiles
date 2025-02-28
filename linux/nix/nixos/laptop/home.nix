@@ -76,7 +76,7 @@ in
       pamixer
       pavucontrol
       playerctl
-      pywal
+      pywal # python-pywal
       rofimoji
       wezterm
 
