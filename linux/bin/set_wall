@@ -10,7 +10,7 @@ fi
 swww img "$wall" --transition-type=wipe --transition-fps=144 --transition-duration 1
 wal -qtsni "$wall" >/dev/null 2>&1 &
 disown
-sleep 1
+sleep 2
 ~/.config/cava/update_colors && pkill -USR2 cava # Update cava colors
 rm -rf /tmp/background.jpg
 cp "$wall" /tmp/background.jpg
