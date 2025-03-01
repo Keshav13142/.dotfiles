@@ -1,4 +1,4 @@
-@define-color cc-bg #32302f;
+@define-color cc-bg rgba(50, 48, 47, 0.8);
 @define-color noti-border-color #32302f;
 @define-color noti-bg #3c3836;
 @define-color noti-bg-darker #3c3836;
@@ -34,7 +34,7 @@
 .notification-content {
   background: @cc-bg;
   padding: 7px;
-  border-radius: 0px;
+  border-radius: 10px;
   border: 2px solid #85796f;
   margin: 0;
 }

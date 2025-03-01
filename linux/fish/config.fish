@@ -6,7 +6,7 @@ function is_wsl
     end
 end
 
-source $XDG_CONFIG_HOME/fish/exports.fish
+source $HOME/.config/fish/exports.fish
 
 if status is-interactive
     set -g fish_greeting # Disable greeting
