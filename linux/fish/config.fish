@@ -6,7 +6,7 @@ function is_wsl
     end
 end
 
-source ~/.config/fish/exports.fish
+source $XDG_CONFIG_HOME/fish/exports.fish
 
 if status is-interactive
     set -g fish_greeting # Disable greeting
@@ -33,7 +33,7 @@ if status is-interactive
     set -gx PATH $ANDROID_HOME/tools $PATH
     set -gx PATH $ANDROID_HOME/platform-tools $PATH
 
-    set -g windows_user "skesh"
+    set -g windows_user skesh
 
     if grep -q microsoft /proc/version
         set -gx PATH /mnt/c/Windows/System32 $PATH
@@ -64,9 +64,9 @@ if status is-interactive
 
     # Use LunarVim or fallback to Neovim
     if type -q lvim
-        set -gx EDITOR "lvim"
+        set -gx EDITOR lvim
     else
-        set -gx EDITOR "nvim"
+        set -gx EDITOR nvim
     end
 
     set -gx SUDO_EDITOR $EDITOR
@@ -82,6 +82,13 @@ if status is-interactive
     set fish_cursor_replace underscore
     set fish_cursor_external line
     set fish_cursor_visual block
+
+    bind -M insert \ca beginning-of-line
+    bind -M insert \ce end-of-line
+    bind -M insert \cr _fzf_search_history
+    bind -M insert \cp history-search-backward
+    bind -M insert \cn history-search-forward
+    bind -M insert \cc kill-whole-line repaint
 
     function fish_mode_prompt
         # Disabling the vi mode indicator
