@@ -88,7 +88,7 @@ if status is-interactive
     bind -M insert \cr _fzf_search_history
     bind -M insert \cp history-search-backward
     bind -M insert \cn history-search-forward
-    bind -M insert \cc kill-whole-line repaint
+    # bind -M insert \cc kill-whole-line repaint
 
     # ctrl+alt+v -> variables
     # ctrl+f -> dir
@@ -98,6 +98,8 @@ if status is-interactive
     # ctrl+l -> git log
     fzf_configure_bindings --directory=\cf --variables=\e\cv --git_status=\cg --git_log=\cl
     set fzf_diff_highlighter diff-so-fancy
+    # set fzf_diff_highlighter delta --paging=never --width=20
+    set fzf_history_time_format %d-%b-%y %I:%M %p
 
     function fish_mode_prompt
         # Disabling the vi mode indicator
