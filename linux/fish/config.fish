@@ -90,9 +90,16 @@ if status is-interactive
     bind -M insert \cn history-search-forward
     bind -M insert \cc kill-whole-line repaint
 
+    # ctrl+alt+v -> variables
+    # ctrl+f -> dir
+    # ctrl+r -> history
+    # ctrl+alt+p -> processes
+    # ctrl+g -> git status
+    # ctrl+l -> git log
+    fzf_configure_bindings --directory=\cf --variables=\e\cv --git_status=\cg --git_log=\cl
+    set fzf_diff_highlighter diff-so-fancy
+
     function fish_mode_prompt
         # Disabling the vi mode indicator
     end
-
-    cd $HOME #idk for some reason it defaults to ~/.config/fish
 end
