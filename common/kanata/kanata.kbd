@@ -18,5 +18,5 @@
 )
 
 (defalias
-  cap (tap-hold-press 200 200 caps (layer-toggle arrows))
+  cap (tap-hold-press 200 200 esc (layer-toggle arrows))
 )

@@ -2,13 +2,13 @@ windows:
   links:
     starship/starship.toml: ~/.config/starship.toml
     git/.gitconfig: ~/.gitconfig
-    kanata/maps.kbd: ~/.config/kanata/maps.kbd
+    kanata/kanata.kbd: ~/.config/kanata/kanata.kbd
     wezterm/.wezterm.lua: ~/.wezterm.lua
     zed: ~/.config/zed
 
 linux:
   links:
-    kanata/maps.kbd: ~/.config/kanata/maps.kbd
+    kanata/kanata.kbd: ~/.config/kanata/kanata.kbd
     lazygit: ~/.config/lazygit
     kitty: ~/.config/kitty
     wezterm/.wezterm.lua: ~/.config/wezterm/wezterm.lua
