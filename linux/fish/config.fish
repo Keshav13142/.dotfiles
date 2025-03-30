@@ -96,7 +96,7 @@ if status is-interactive
     # ctrl+alt+p -> processes
     # ctrl+g -> git status
     # ctrl+l -> git log
-    fzf_configure_bindings --directory=\cf --variables=\e\cv --git_status=\cg --git_log=\cl
+    fzf_configure_bindings --directory=\cf --variables=\e\cv --git_status=\cg
     set fzf_diff_highlighter diff-so-fancy
     # set fzf_diff_highlighter delta --paging=never --width=20
     set fzf_history_time_format %d-%b-%y %I:%M %p
