@@ -2,7 +2,7 @@
 
 - NixOs configuration can be found [here](linux/nix)
 - Windows specific config [here](windows/)
-- Managed using [rots](https://github.com/volllly/rotz)
+- Managed using [rotz](https://github.com/volllly/rotz)
 
 ## Arch setup (partial)
 
@@ -12,4 +12,9 @@ hyprlock wlogout grip slurp
 pnpm unzip brave-bin os-prober kitty firefox zoxide git neovim tmux go python lazygit
 
 sudo usermod -aG audio,disk,input,kvm,power,render,video,wheel keshav
-fnm - website
+fnm - install from the website?
+
+## TODO
+
+- [ ] Prepare docs or install script for arch/non-nix distros
+- [ ] Find out a way to automate installing rotz more effectively across platforms
