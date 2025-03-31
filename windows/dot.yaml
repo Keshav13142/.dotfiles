@@ -4,7 +4,7 @@ windows:
     glazewm/config.yaml: ~/.glzr/glazewm/config.yaml
     zebar/config.yaml: ~/.glzr/zebar/config.yaml
     whkd/whkdrc: ~/.config/whkdrc
-    komorebi/komorebi.json: ~/.config/komorebi/komorebi.json
+    komorebi: ~/.config/komorebi
     AutoHotkey/shortcuts.ahk: ~/Documents/AutoHotkey/shortcuts.ahk
     powershell/Profile.ps1:
       - ~/Documents/PowerShell/Microsoft.PowerShell_profile.ps1
