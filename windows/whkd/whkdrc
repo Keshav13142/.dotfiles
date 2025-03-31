@@ -4,7 +4,7 @@
 alt + q                 : komorebic close
 alt + f                 : komorebic toggle-maximize
 alt + shift + c         : taskkill /f /im whkd.exe && Start-Process whkd -WindowStyle hidden # Reload whkd configuration
-alt + shift + r         : komorebic retile
+alt + shift + r         : start "C:\Users\User\.config\komorebi\restart.ps1"
 alt + shift + m         : komorebic manage
 alt + shift + q         : komorebic stop
 alt + shift + space     : komorebic toggle-float
@@ -13,9 +13,8 @@ alt + shift + space     : komorebic toggle-float
 alt + w                 : start brave
 alt + e                 : start explorer
 alt + return            : start wezterm-gui
-alt + o                 : start "C:\Users\skesh\AppData\Local\Obsidian\Obsidian.exe"
-alt + a 								: start "C:\Users\skesh\AppData\Local\authy\Authy Desktop.exe"
-alt + b 								: start "C:\Users\skesh\AppData\Local\Programs\Bitwarden\Bitwarden.exe"
+alt + o                 : start "C:\Users\User\AppData\Local\Obsidian\Obsidian.exe"
+alt + b 								: start "C:\Users\User\AppData\Local\Programs\Bitwarden\Bitwarden.exe"
 alt + shift + f 				: start "C:\Program Files\Everything 1.5a\Everything64.exe"
 
 # Focus windows
