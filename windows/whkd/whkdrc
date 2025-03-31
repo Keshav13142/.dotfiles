@@ -15,7 +15,7 @@ alt + e                 : start explorer
 alt + return            : start wezterm-gui
 alt + o                 : start "C:\Users\User\AppData\Local\Obsidian\Obsidian.exe"
 alt + b 								: start "C:\Users\User\AppData\Local\Programs\Bitwarden\Bitwarden.exe"
-alt + shift + f 				: start "C:\Program Files\Everything 1.5a\Everything64.exe"
+alt + shift + e 				: start "C:\Program Files\Everything 1.5a\Everything64.exe"
 
 # Focus windows
 alt + h                 : komorebic focus left
@@ -52,7 +52,6 @@ alt + t                 : komorebic toggle-float
 alt + shift + f         : komorebic toggle-monocle
 
 # Window manager options
-alt + shift + r         : komorebic retile
 alt + p                 : komorebic toggle-pause
 
 # Layouts

@@ -3,10 +3,10 @@
   "app_specific_configuration_path": "$Env:KOMOREBI_CONFIG_HOME/applications.json",
   "window_hiding_behaviour": "Cloak",
   "cross_monitor_move_behaviour": "Insert",
-  "default_workspace_padding": 0,
-  "default_container_padding": 0,
+  "default_workspace_padding": 5,
+  "default_container_padding": 5,
   "border": true,
-  "border_width": 0,
+  "border_width": 3,
   "border_offset": -1,
   "theme": {
     "palette": "Base16",
@@ -15,10 +15,11 @@
     "bar_accent": "Base0D"
   },
   "stackbar": {
-    "height": 40,
+    "height": 20,
     "mode": "OnStack",
+    "label": "Title",
     "tabs": {
-      "width": 300
+      "width": 250
     }
   },
   "monitors": [
