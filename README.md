@@ -20,3 +20,4 @@ fnm - install from the website?
 - [ ] Find out a way to automate installing rotz more effectively across platforms
 - [ ] Checkout [this](https://github.com/khaneliman/dotfiles) for automated setup across different platforms
 - [ ] Checkout rotz config for enhancements
+- [ ] Fix komorebi border colors
