@@ -1,0 +1,13 @@
+[Unit]
+Name = "masir"
+Description = "Focus follows mouse for Windows"
+
+[Service]
+Kind = "Simple"
+Restart = "Never"
+
+[Service.ExecStart]
+Executable = "masir.exe"
+
+[Service.Healthcheck.Process]
+DelaySec = 1

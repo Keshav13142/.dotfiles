@@ -1,0 +1,36 @@
+[Unit]
+Name = "komorebi"
+Description = "Tiling window management for Windows"
+Requires = [
+    "whkd",
+    "kanata",
+    "masir",
+]
+
+[Service]
+Kind = "Simple"
+Restart = "Never"
+
+[Service.ExecStart]
+Executable = "komorebi.exe"
+Arguments = [
+    "--config",
+    "$USERPROFILE/.config/komorebi/komorebi.json",
+]
+Environment = [[
+    "KOMOREBI_CONFIG_HOME",
+    "$USERPROFILE/.config/komorebi",
+]]
+
+[[Service.ExecStop]]
+Executable = "komorebic.exe"
+Arguments = ["stop"]
+
+[[Service.ExecStopPost]]
+Executable = "komorebic.exe"
+Arguments = ["restore-windows"]
+
+[Service.Healthcheck.Command]
+Executable = "komorebic.exe"
+Arguments = ["state"]
+DelaySec = 1

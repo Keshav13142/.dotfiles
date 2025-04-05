@@ -5,6 +5,7 @@ windows:
     zebar/config.yaml: ~/.glzr/zebar/config.yaml
     whkd/whkdrc: ~/.config/whkdrc
     komorebi: ~/.config/komorebi
+    wpm: ~/.config/wpm
     AutoHotkey/shortcuts.ahk: ~/Documents/AutoHotkey/shortcuts.ahk
     powershell/Profile.ps1:
       - ~/Documents/PowerShell/Microsoft.PowerShell_profile.ps1

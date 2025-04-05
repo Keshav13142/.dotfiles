@@ -1,0 +1,17 @@
+[Unit]
+Name = "kanata"
+Description = "Software keyboard remapper"
+
+[Service]
+Kind = "Simple"
+Restart = "Never"
+
+[Service.ExecStart]
+Executable = "kanata.exe"
+Arguments = [
+    "-c",
+    "$USERPROFILE/.config/kanata/kanata.kbd",
+]
+
+[Service.Healthcheck.Process]
+DelaySec = 1

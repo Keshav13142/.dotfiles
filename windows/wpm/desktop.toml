@@ -1,0 +1,15 @@
+[Unit]
+Name = "desktop"
+Description = "Everything I need to work on Windows"
+Requires = [
+    "komorebi",
+    "komorebi-bar",
+]
+
+[Service]
+Kind = "Oneshot"
+Autostart = true
+Restart = "Never"
+
+[Service.ExecStart]
+Executable = "rundll32" # An exe that does nothing apparently (when given no args)
