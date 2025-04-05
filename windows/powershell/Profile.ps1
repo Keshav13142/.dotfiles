@@ -14,7 +14,7 @@ Import-Module PSReadLine
 Set-PSReadLineOption -PredictionSource History
 Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
-Set-PSReadLineOption -EditMode Windows
+Set-PSReadLineOption -EditMode Vi
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 Set-PSReadLineOption -BellStyle None
 Set-PSReadLineOption -PredictionViewStyle ListView

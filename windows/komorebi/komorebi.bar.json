@@ -8,6 +8,13 @@
     "name": "Ashes",
     "accent": "Base0D"
   },
+  "transparency_alpha": 0,
+  "grouping": {
+    "kind": "Widget",
+    "style": "Default",
+    "transparency_alpha": 200,
+    "rounding": 10
+  },
   "left_widgets": [
     {
       "Komorebi": {
@@ -25,17 +32,19 @@
       }
     }
   ],
-  "right_widgets": [
+  "center_widgets": [
     {
       "Update": {
-        "enable": true
+        "enable": false
       }
     },
     {
       "Media": {
         "enable": true
       }
-    },
+    }
+  ],
+  "right_widgets": [
     {
       "Storage": {
         "enable": true
