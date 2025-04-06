@@ -102,6 +102,10 @@ return {
 
 	-- General
 	audible_bell = "Disabled",
+	visual_bell = {
+		fade_in_duration_ms = 0,
+		fade_out_duration_ms = 0,
+	},
 	pane_focus_follows_mouse = true,
 	automatically_reload_config = true,
 	exit_behavior = "Close",

@@ -7,8 +7,8 @@ $env.config.completions.algorithm = "fuzzy"
 $env.config.cursor_shape.vi_normal = "block"
 $env.config.rm.always_trash = true
 $env.config.table.header_on_separator = true
-# $env.config.datetime_format.normal = "%d/%m/%y %I:%M:%S %p"
-# $env.config.datetime_format.table = "%d/%m/%y %I:%M:%S %p"
+$env.config.datetime_format.normal = "%d/%m/%y %I:%M:%S %p"
+$env.config.datetime_format.table = "%d/%m/%y %I:%M:%S %p"
 
 alias et = exit
 alias ll = ls -l
@@ -21,7 +21,14 @@ alias vim = nvim
 alias gs = git status
 alias gc = git commit -m
 alias ga = git add
+alias reload = exec nu
 
 source ~/.zoxide.nu
 
 alias cd = z
+
+mkdir ($nu.data-dir | path join "vendor/autoload")
+starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
+
+fnm env --json | from json | load-env
+$env.PATH ++= [($env.FNM_MULTISHELL_PATH)]
