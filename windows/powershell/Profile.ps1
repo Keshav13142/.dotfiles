@@ -18,6 +18,10 @@ Set-PSReadLineOption -EditMode Vi
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 Set-PSReadLineOption -BellStyle None
 Set-PSReadLineOption -PredictionViewStyle ListView
+Set-PSReadlineOption -HistoryNoDuplicates
+Set-PSReadLineOption -HistorySearchCursorMovesToEnd
+Set-PSReadLineOption -ShowToolTips
+Set-PSReadLineOption -Colors @{ InlinePrediction = "`e[3;2;6m" }
 
 # Fzf
 Import-Module PSFzf
@@ -69,12 +73,18 @@ function find-file($name) {
   }
 }
 
-function grep($regex, $dir) {
-  if ( $dir ) {
-    Get-ChildItem $dir | select-string $regex
+function winGrep($regex, $dir) {
+  if ($dir) {
+    Get-ChildItem $dir | Select-String $regex
     return
   }
-  $input | select-string $regex
+  $input | Select-String $regex
+}
+
+if (Get-Command rg -ErrorAction SilentlyContinue) {
+  Set-Alias grep rg
+} else {
+  Set-Alias grep winGrep
 }
 
 function Unzip([string]$zipfile, [string]$outpath) {
