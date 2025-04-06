@@ -72,7 +72,7 @@ return {
 	animation_fps = 1,
 	prefer_egl = true,
 
-	default_prog = not isLinux() and { "pwsh", "-nologo" } or nil,
+	default_prog = not isLinux() and { "nu" } or nil,
 	enable_wayland = false, -- to get it working on wayland :)
 
 	-- WSL
