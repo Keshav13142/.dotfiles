@@ -21,6 +21,8 @@ alias vim = nvim
 alias gs = git status
 alias gc = git commit -m
 alias ga = git add
+alias gl = git log --oneline
+alias man = help
 alias reload = exec nu
 
 source ~/.zoxide.nu
