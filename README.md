@@ -14,6 +14,8 @@ pnpm unzip brave-bin os-prober kitty firefox zoxide git neovim tmux go python la
 sudo usermod -aG audio,disk,input,kvm,power,render,video,wheel keshav
 fnm - install from the website?
 
+yay -S powershell-bin starship --noconfirm
+
 ## TODO
 
 - [ ] Prepare docs or install script for arch/non-nix distros
