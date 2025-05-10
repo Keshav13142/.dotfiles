@@ -4,17 +4,17 @@
 
 (defsrc
   caps
-              h   j    k    l
+              h   j    k    l   [   ]   ;   '
 )
 
 (deflayer default
   @cap
-              _   _    _    _
+              _   _    _    _   _   _   _   _
 )
 
 (deflayer arrows
   _
-              left down up rght
+              left down up rght  home end del bspc
 )
 
 (defalias
