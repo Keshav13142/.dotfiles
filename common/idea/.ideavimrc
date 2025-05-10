@@ -1,7 +1,12 @@
-"source ~/.vimrc
-" Find more examples here: https://jb.gg/share-ideavimrc
-
 let mapleader=" "
+
+sethandler <c-j> a:vim
+sethandler <c-k> a:vim
+sethandler <c-h> a:vim
+sethandler <c-l> a:vim
+sethandler <c-w> a:ide
+sethandler <c-f> a:ide
+
 
 " Don't use Ex mode, use Q for formatting.
 map Q gq
@@ -16,49 +21,76 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
-set gdefault
+" set gdefault
 set notimeout
 set timeoutlen=5000
 set showmode
 
+" Plugins
 set highlightedyank
 set NERDTree
 set sneak
+set commentary
+set surround
 set easymotion
+set exchange
+set ideajoin
+set ideastrictmode
+set quickscope
+let g:qs_highlight_on_keys = [ 'f', 'F', 't', 'T' ]
 
-"let g:NERDTreeWinSize=30
-"let g:NERDTreeMapPreview = 'O'
-nmap <leader>e :NERDTreeToggle<CR>
-nmap <leader>E :NERDTreeFocus<CR>
+xnoremap p P
+
+" camel case motion
+map w [w
+map e ]w
+map b [b
+
+nmap <leader>e :NERDTreeFocus<CR>
+nmap <leader>E :NERDTreeToggle<CR>
 
 nnoremap <c-d> <c-d>zz
 nnoremap <c-u> <c-u>zz
+nnoremap <c-o> <c-o>zz
+nnoremap <c-i> <c-i>zz
+nnoremap n nzz
+nnoremap <s-n> <s-n>zz
 
 " continuous shift
 xnoremap < <gv
 xnoremap > >gv
 
+" Copy file name/path
+nmap <leader>ca :action CopyAbsolutePath<CR>
+nmap <leader>cf :action CopyFileName<CR>
+
 nmap <leader>h :nohlsearch<CR>
 
-nmap <c-w> :close<CR>
+"nmap <c-w> :close<CR>
 nmap <leader>q :close<CR>
+nmap <leader>Q :action CloseAllEditorsButActive<CR>
 nmap <leader>w :action SaveDocument<CR>
 nmap <leader><s-w> :action CloseAllUnmodifiedEditors<CR>
 nmap <leader>f :action ReformatCode<CR>
 
-""" Window navigation
+" Split navigation
 nnoremap <c-\> :action SplitVertically<CR>
-nnoremap <c--> :action SplitHorizontally<CR>
+nnoremap <c-s-\> :action SplitHorizontally<CR>
 nnoremap <c-=> :action Unsplit<CR>
 nnoremap <c-m> :action MoveEditorToOppositeTabGroup<CR>
 nnoremap <c-z> :action ToggleDistractionFreeMode<CR>
+
+" Split navigation
+nnoremap <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
 
 " Tab navigation
 nnoremap <S-l> :action NextTab<CR>
 nnoremap <S-h> :action PreviousTab<CR>
 nmap <C-Tab> :action PreviousTab<CR>
 nmap <Tab> :action NextTab<CR>
-nmap <leader>t :action GotoTest<CR>
 
 " Move selected line / block of text in visual mode
 xnoremap J :m '>+1<CR>gv=gv
@@ -66,11 +98,15 @@ xnoremap K :m '<-2<CR>gv=gv
 
 " Finding things
 nnoremap <leader>sg :action FindInPath<CR>
+nnoremap <leader>st :action Vcs.Show.Log<CR>
 nnoremap <leader>sf :action GotoFile<CR>
+nnoremap <leader>sa :action GotoAction<CR>
 nnoremap <leader>sd :action GotoSymbol<CR>
 nnoremap <leader>ls :action ActivateStructureToolWindow<CR>
 noremap <leader>fs :action FileStructurePopup<CR>
 nnoremap <leader>o :action RecentFiles<CR>
+
+map <leader>pp :action TextEditorWithPreview.Layout.EditorAndPreview<CR>
 
 " Code completion
 nnoremap <c-s-a> :action GotoAction<CR>
@@ -81,8 +117,6 @@ nnoremap <c-g> :action Generate<CR>
 nnoremap <leader><Tab> :action ShowNavBar<CR>
 
 " Jump
-nmap [b :action PreviousTab<CR>
-nmap ]b :action NextTab<CR>
 nmap [d :action GotoPreviousError<CR>
 nmap ]d :action GotoNextError<CR>
 nmap [u :action GotoPrevElementUnderCaretUsage<CR>
@@ -91,17 +125,19 @@ nmap [o :action PreviousOccurence<CR>
 nmap ]o :action NextOccurence<CR>
 nmap [m :action MethodUp<CR>
 nmap ]m :action MethodDown<CR>
-nmap [c :action JumpToLastChange<CR>
-nmap ]c :action JumpToNextChange<CR>
+nmap [g :action JumpToLastChange<CR>
+nmap ]g :action JumpToNextChange<CR>
 
 " LSP
 nnoremap <leader>r :action RenameElement<CR>
 nnoremap <leader>lR :action RenameFile<CR>
 nnoremap <leader>lf :action ReformatCode<CR>
-nnoremap <leader>r :action Refactorings.QuickListPopupAction<CR>
+nnoremap <leader>R :action Refactorings.QuickListPopupAction<CR>
 nnoremap <leader>la :action ShowIntentionActions<CR>
 nnoremap <leader>ll :action ActivateProblemsViewToolWindow<CR>
-" gotos
+nmap K :action ShowHoverInfo<CR>
+
+" go-to
 nmap <leader>a :action GotoAction<CR>
 nmap ga :action GotoAction<CR>
 nmap gf :action GotoFile<CR>
@@ -114,9 +150,16 @@ nmap gi :action GotoImplementation<CR>
 nmap gI :action QuickImplementations<CR>
 nmap gn :action ShowNavBar<CR>
 nmap gr :action FindUsages<CR>
+nmap <leader>t :action GotoTest<CR>
 
 " Todo
 nmap <leader>to :action ActivateTODOToolWindow<CR>
+
+" Toggle stuff
+nmap <leader>tm :action ViewMainMenu<CR>
+nmap <leader>tt :action ViewToolBar<CR>
+nmap <leader>tb :action ViewToolButtons<CR>
+nmap <leader>ts :action ViewStatusBar<CR>
 
 " Menu
 nmap <leader>mm :action MainMenu<CR>
@@ -129,10 +172,31 @@ nmap <leader>ms :action ScopeViewPopupMenu<CR>
 nmap <leader>mt :action EditorTabPopupMenu<CR>
 nmap <leader>mw :action ToolWindowsGroup<CR>
 
-sethandler <c-j> a:vim
-sethandler <c-k> a:vim
+nnoremap <leader>ti :action Terminal.OpenInTerminal<CR>
+nnoremap <leader>o :action OptimizeImports<CR>
 
-Plug 'preservim/nerdtree'
-Plug 'easymotion/vim-easymotion'
-Plug 'tpope/vim-commentary'
-Plug 'machakann/vim-highlightedyank'
+nmap <C-n> <Plug>NextWholeOccurrence
+xmap <C-n> <Plug>NextWholeOccurrence
+nmap g<C-n> <Plug>NextOccurrence
+xmap g<C-n> <Plug>NextOccurrence
+xmap <C-x> <Plug>SkipOccurrence
+xmap <C-p> <Plug>RemoveOccurrence
+
+map U <c-r>
+
+map <leader>nf <Action>(NewFile)
+map <leader>nb <Action>(NewScratchBuffer)
+
+" Run stuff
+nnoremap ,r :action ContextRun<CR>
+nnoremap ,c :action RunClass<CR>
+nnoremap ,f :action ChooseRunConfiguration<CR>
+nnoremap ,t :action ActivateRunToolWindow<CR>
+nnoremap ,u :action Rerun<CR>
+
+" Open/reload config
+nnoremap \e :e ~/.ideavimrc<CR>
+nnoremap \r :action IdeaVim.ReloadVimRc.reload<CR>
+
+map [[ <Action>(MethodUp)
+map ]] <Action>(MethodDown)
