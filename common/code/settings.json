@@ -1,31 +1,33 @@
 {
   // Default formatters
   "[css]": { "editor.suggest.insertMode": "replace" },
+  "[dockerfile]": { "editor.defaultFormatter": "foxundermoon.shell-format" },
+  "[dotenv]": { "editor.defaultFormatter": "foxundermoon.shell-format" },
   "[go]": { "editor.defaultFormatter": "golang.go" },
   "[html]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[ignore]": { "editor.defaultFormatter": "foxundermoon.shell-format" },
   "[java]": { "editor.defaultFormatter": "redhat.java" },
   "[javascript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "[nix]": { "editor.defaultFormatter": "jnoortheen.nix-ide" },
   "[powershell]": { "editor.defaultFormatter": "ms-vscode.powershell" },
   "[prisma]": { "editor.defaultFormatter": "Prisma.prisma" },
+  "[python]": { "editor.defaultFormatter": "ms-python.black-formatter" },
   "[rust]": { "editor.defaultFormatter": "rust-lang.rust-analyzer" },
-  "[xml]": { "editor.defaultFormatter": "DotJoshJohnson.xml" },
   "[shellscript]": { "editor.defaultFormatter": "foxundermoon.shell-format" },
-  "[ignore]": { "editor.defaultFormatter": "foxundermoon.shell-format" },
-  "[dotenv]": { "editor.defaultFormatter": "foxundermoon.shell-format" },
+  "[typescript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[xml]": { "editor.defaultFormatter": "DotJoshJohnson.xml" },
 
   "accessibility.signals.lineHasInlineSuggestion": {
     "sound": "off"
   },
 
-  "AutoHotkey2.InterpreterPath": "C:\\Users\\skesh\\AppData\\Local\\Programs\\AutoHotkey\\v2\\AutoHotkey64.exe",
+  "AutoHotkey2.InterpreterPath": "%LOCALAPPDATA%\\Programs\\AutoHotkey\\v2\\AutoHotkey64.exe",
 
   "breadcrumbs.enabled": false,
   "breadcrumbs.filePath": "off",
   "breadcrumbs.symbolPath": "on",
 
   "diffEditor.codeLens": false,
-  "merge-conflict.codeLens.enabled": true,
   "diffEditor.ignoreTrimWhitespace": false,
 
   // Editor
@@ -33,10 +35,10 @@
   "editor.bracketPairColorization.enabled": true,
   "editor.codeActionsOnSave": {
     "quickfix.biome": "explicit",
-    "source.organizeImports.biome": "explicit",
     "source.addMissingImports": "explicit",
     "source.fixAll": "explicit",
     "source.organizeimports": "never",
+    "source.organizeImports.biome": "explicit",
     "source.sortimports": "explicit"
   },
   "editor.codeLens": false,
@@ -48,9 +50,9 @@
   "editor.find.cursorMoveOnType": true,
   "editor.folding": true,
   "editor.foldingHighlight": false,
-  "editor.fontFamily": "'JetBrainsMono Nerd Font Mono',Consolas, 'Courier New', monospace",
+  "editor.fontFamily": "'JetBrainsMono Nerd Font Mono','JetBrains Mono Regular',Consolas, 'Courier New', monospace",
   "editor.fontLigatures": true,
-  "editor.fontSize": 14,
+  "editor.fontSize": 15,
   "editor.fontWeight": "normal",
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
@@ -136,8 +138,8 @@
     "**/node_modules/*/**": true
   },
 
-  "git.openRepositoryInParentFolders": "never",
   "git.mergeEditor": true,
+  "git.openRepositoryInParentFolders": "never",
 
   "javascript.format.semicolons": "insert",
   "javascript.preferences.importModuleSpecifier": "non-relative",
@@ -151,12 +153,15 @@
       "url": "https://raw.githubusercontent.com/LGUG2Z/komorebi/master/schema.json"
     }
   ],
+
   "liveServer.settings.donotShowInfoMsg": true,
   "liveServer.settings.donotVerifyTags": true,
 
   "markdown-preview-enhanced.previewTheme": "monokai.css",
   "markdown.preview.lineHeight": 1.5,
   "markdown.validate.enabled": true,
+
+  "merge-conflict.codeLens.enabled": true,
 
   "powershell.powerShellAdditionalExePaths": {
     "Powershell 7": "/etc/profiles/per-user/keshav/bin/pwsh" // For some reason it does not auto-detect in nixos
@@ -175,6 +180,7 @@
   "search.seedWithNearestWord": true,
   "search.showLineNumbers": true,
 
+  "security.allowedUNCHosts": ["wsl.localhost"],
   "security.workspace.trust.banner": "never",
   "security.workspace.trust.untrustedFiles": "open",
 
@@ -184,13 +190,22 @@
   "terminal.integrated.confirmOnExit": "hasChildProcesses",
   "terminal.integrated.copyOnSelection": true,
   "terminal.integrated.cursorStyle": "line",
-  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "terminal.integrated.defaultProfile.linux": "nu",
+  "terminal.integrated.defaultProfile.windows": "nu",
   "terminal.integrated.enableMultiLinePasteWarning": "never",
-  "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font Mono",
-  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font Mono','JetBrains Mono Regular',Consolas, 'Courier New', monospace",
+  "terminal.integrated.fontSize": 15,
   "terminal.integrated.fontWeight": "normal",
   "terminal.integrated.gpuAcceleration": "on",
+  "terminal.integrated.profiles.linux": {
+    "fish": { "path": "fish" },
+    "nu": { "path": "nu" }
+  },
   "terminal.integrated.profiles.windows": {
+    "nu": {
+      "icon": "terminal-bash",
+      "path": "nu"
+    },
     "PowerShell": {
       "icon": "terminal-powershell",
       "source": "PowerShell"
@@ -238,6 +253,11 @@
       "silent": true
     },
     // Search
+    {
+      "before": ["leader", "s", "r"],
+      "commands": ["workbench.action.openRecent"],
+      "silent": true
+    },
     {
       "before": ["leader", "s", "f"],
       "commands": ["workbench.action.quickOpen"],
@@ -497,14 +517,16 @@
 
   "window.autoDetectHighContrast": false,
   "window.commandCenter": false,
-  "window.enableMenuBarMnemonics": false,
   "window.customMenuBarAltFocus": false,
-  "window.titleBarStyle": "custom",
+  "window.enableMenuBarMnemonics": false,
   "window.menuBarVisibility": "hidden",
   "window.openFoldersInNewWindow": "on",
   "window.restoreFullscreen": true,
+  "window.titleBarStyle": "custom",
+  "window.zoomLevel": 0,
 
   "workbench.activityBar.location": "hidden",
+  "workbench.colorTheme": "Gruvbox Dark Medium",
   "workbench.editor.empty.hint": "hidden",
   "workbench.editor.enablePreview": true,
   "workbench.editor.limit.enabled": true,
@@ -527,31 +549,5 @@
   "workbench.tree.renderIndentGuides": "none",
 
   "zenMode.fullScreen": false,
-  "zenMode.hideLineNumbers": false,
-  "[dockerfile]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
-  },
-  "prisma.showPrismaDataPlatformNotification": false,
-  "[python]": {
-    "editor.defaultFormatter": "ms-python.black-formatter"
-  },
-  "supermaven.enable": {
-    "*": false
-  },
-  "security.allowedUNCHosts": ["wsl.localhost"],
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "terminal.integrated.profiles.linux": {
-    "fish": {
-      "path": "host-spawn",
-      "args": ["fish"]
-    },
-    "nu": {
-      "path": "host-spawn",
-      "args": ["nu"]
-    }
-  },
-  "terminal.integrated.defaultProfile.linux": "nu (2)",
-  "workbench.colorTheme": "Gruvbox Dark Medium"
+  "zenMode.hideLineNumbers": false
 }
