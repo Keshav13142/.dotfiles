@@ -1,0 +1,557 @@
+{
+  // Default formatters
+  "[css]": { "editor.suggest.insertMode": "replace" },
+  "[go]": { "editor.defaultFormatter": "golang.go" },
+  "[html]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[java]": { "editor.defaultFormatter": "redhat.java" },
+  "[javascript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[nix]": { "editor.defaultFormatter": "jnoortheen.nix-ide" },
+  "[powershell]": { "editor.defaultFormatter": "ms-vscode.powershell" },
+  "[prisma]": { "editor.defaultFormatter": "Prisma.prisma" },
+  "[rust]": { "editor.defaultFormatter": "rust-lang.rust-analyzer" },
+  "[xml]": { "editor.defaultFormatter": "DotJoshJohnson.xml" },
+  "[shellscript]": { "editor.defaultFormatter": "foxundermoon.shell-format" },
+  "[ignore]": { "editor.defaultFormatter": "foxundermoon.shell-format" },
+  "[dotenv]": { "editor.defaultFormatter": "foxundermoon.shell-format" },
+
+  "accessibility.signals.lineHasInlineSuggestion": {
+    "sound": "off"
+  },
+
+  "AutoHotkey2.InterpreterPath": "C:\\Users\\skesh\\AppData\\Local\\Programs\\AutoHotkey\\v2\\AutoHotkey64.exe",
+
+  "breadcrumbs.enabled": false,
+  "breadcrumbs.filePath": "off",
+  "breadcrumbs.symbolPath": "on",
+
+  "diffEditor.codeLens": false,
+  "merge-conflict.codeLens.enabled": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+
+  // Editor
+  "editor.acceptSuggestionOnEnter": "on",
+  "editor.bracketPairColorization.enabled": true,
+  "editor.codeActionsOnSave": {
+    "quickfix.biome": "explicit",
+    "source.organizeImports.biome": "explicit",
+    "source.addMissingImports": "explicit",
+    "source.fixAll": "explicit",
+    "source.organizeimports": "never",
+    "source.sortimports": "explicit"
+  },
+  "editor.codeLens": false,
+  "editor.cursorBlinking": "solid",
+  "editor.cursorSmoothCaretAnimation": "off",
+  "editor.cursorSurroundingLines": 4,
+  "editor.cursorWidth": 3,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.find.cursorMoveOnType": true,
+  "editor.folding": true,
+  "editor.foldingHighlight": false,
+  "editor.fontFamily": "'JetBrainsMono Nerd Font Mono',Consolas, 'Courier New', monospace",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 14,
+  "editor.fontWeight": "normal",
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnSaveMode": "file",
+  "editor.glyphMargin": true,
+  "editor.gotoLocation.multipleDefinitions": "goto",
+  "editor.guides.bracketPairs": false,
+  "editor.guides.highlightActiveBracketPair": false,
+  "editor.guides.highlightActiveIndentation": false,
+  "editor.guides.indentation": true,
+  "editor.inlayHints.enabled": "on",
+  "editor.inlineSuggest.enabled": true,
+  "editor.lightbulb.enabled": "off",
+  "editor.lineHeight": 24,
+  "editor.lineNumbers": "relative",
+  "editor.linkedEditing": true,
+  "editor.matchBrackets": "never",
+  "editor.minimap.autohide": true,
+  "editor.minimap.enabled": false,
+  "editor.minimap.renderCharacters": false,
+  "editor.minimap.scale": 2,
+  "editor.minimap.showSlider": "always",
+  "editor.mouseWheelScrollSensitivity": 1.5,
+  "editor.mouseWheelZoom": false,
+  "editor.occurrencesHighlight": "off",
+  "editor.overviewRulerBorder": false,
+  "editor.padding.top": 2,
+  "editor.quickSuggestionsDelay": 0,
+  "editor.renderLineHighlight": "none",
+  "editor.scrollbar.horizontal": "auto",
+  "editor.scrollbar.vertical": "hidden",
+  "editor.semanticHighlighting.enabled": true,
+  "editor.showFoldingControls": "always",
+  "editor.smoothScrolling": true,
+  "editor.stickyScroll.enabled": false,
+  "editor.stickyTabStops": true,
+  "editor.suggest.insertMode": "replace",
+  "editor.suggest.localityBonus": true,
+  "editor.suggest.matchOnWordStartOnly": false,
+  "editor.suggest.preview": false,
+  "editor.suggest.shareSuggestSelections": true,
+  "editor.suggest.showInlineDetails": true,
+  "editor.suggest.snippetsPreventQuickSuggestions": false,
+  "editor.suggestSelection": "recentlyUsedByPrefix",
+  "editor.tabCompletion": "off",
+  "editor.tabSize": 2,
+  "editor.wordWrap": "on",
+
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "emmet.useInlineCompletions": false,
+
+  // Error lens
+  "errorLens.enabled": true,
+  "errorLens.enabledDiagnosticLevels": ["error", "info"],
+  "errorLens.fontWeight": "100",
+  "errorLens.scrollbarHackEnabled": true,
+
+  "explorer.compactFolders": false,
+  "explorer.confirmDelete": false,
+  "explorer.fileNesting.enabled": true,
+  "explorer.incrementalNaming": "smart",
+
+  "extensions.autoUpdate": "onlyEnabledExtensions",
+  "extensions.ignoreRecommendations": false,
+
+  "files.associations": {
+    "*.ahk": "ahk2"
+  },
+  "files.defaultLanguage": "markdown",
+  "files.eol": "auto",
+  "files.exclude": {
+    "**/node_modules": true,
+    "package-lock.json": true
+  },
+  "files.hotExit": "onExitAndWindowClose",
+  "files.trimTrailingWhitespace": true,
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/.hg/store/**": true,
+    "**/node_modules/*/**": true
+  },
+
+  "git.openRepositoryInParentFolders": "never",
+  "git.mergeEditor": true,
+
+  "javascript.format.semicolons": "insert",
+  "javascript.preferences.importModuleSpecifier": "non-relative",
+  "javascript.suggest.completeFunctionCalls": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+
+  "json.format.enable": false,
+  "json.schemas": [
+    {
+      "fileMatch": ["komorebi.json"],
+      "url": "https://raw.githubusercontent.com/LGUG2Z/komorebi/master/schema.json"
+    }
+  ],
+  "liveServer.settings.donotShowInfoMsg": true,
+  "liveServer.settings.donotVerifyTags": true,
+
+  "markdown-preview-enhanced.previewTheme": "monokai.css",
+  "markdown.preview.lineHeight": 1.5,
+  "markdown.validate.enabled": true,
+
+  "powershell.powerShellAdditionalExePaths": {
+    "Powershell 7": "/etc/profiles/per-user/keshav/bin/pwsh" // For some reason it does not auto-detect in nixos
+  },
+  "powershell.promptToUpdatePowerShell": false,
+
+  "projectManager.git.baseFolders": ["$home"],
+  "projectManager.sortList": "Recent",
+
+  "redhat.telemetry.enabled": false,
+
+  "search.collapseResults": "auto",
+  "search.defaultViewMode": "list",
+  "search.quickOpen.includeHistory": false,
+  "search.searchEditor.doubleClickBehaviour": "openLocationToSide",
+  "search.seedWithNearestWord": true,
+  "search.showLineNumbers": true,
+
+  "security.workspace.trust.banner": "never",
+  "security.workspace.trust.untrustedFiles": "open",
+
+  "settingsSync.keybindingsPerPlatform": false,
+
+  // Terminal
+  "terminal.integrated.confirmOnExit": "hasChildProcesses",
+  "terminal.integrated.copyOnSelection": true,
+  "terminal.integrated.cursorStyle": "line",
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "terminal.integrated.enableMultiLinePasteWarning": "never",
+  "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font Mono",
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.fontWeight": "normal",
+  "terminal.integrated.gpuAcceleration": "on",
+  "terminal.integrated.profiles.windows": {
+    "PowerShell": {
+      "icon": "terminal-powershell",
+      "source": "PowerShell"
+    }
+  },
+  "terminal.integrated.shellIntegration.decorationsEnabled": "never",
+  "terminal.integrated.showExitAlert": false,
+  "terminal.integrated.smoothScrolling": true,
+  "terminal.integrated.tabs.enableAnimation": false,
+
+  "timeline.pageOnScroll": true,
+
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "typescript.suggest.completeFunctionCalls": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+
+  "update.showReleaseNotes": false,
+
+  // Vim
+  "vim.enableNeovim": true,
+  "vim.foldfix": true,
+  "vim.handleKeys": {
+    "<C-d>": true,
+    "<C-f>": false,
+    "<C-s>": false,
+    "<C-z>": false
+  },
+  "vim.highlightedyank.duration": 40,
+  "vim.highlightedyank.enable": true,
+  "vim.hlsearch": false,
+  "vim.incsearch": true,
+  "vim.leader": "<space>",
+  "vim.mouseSelectionGoesIntoVisualMode": true,
+  "vim.neovimPath": "/etc/profiles/per-user/keshav/bin/nvim",
+  "vim.normalModeKeyBindingsNonRecursive": [
+    // Splits
+    {
+      "before": ["leader", "v"],
+      "commands": [":vsplit"],
+      "silent": true
+    },
+    {
+      "before": ["leader", "V"],
+      "commands": [":split"],
+      "silent": true
+    },
+    // Search
+    {
+      "before": ["leader", "s", "f"],
+      "commands": ["workbench.action.quickOpen"],
+      "silent": true
+    },
+    {
+      "before": ["leader", "s", "t"],
+      "commands": ["workbench.action.showEditorsInActiveGroup"],
+      "silent": true
+    },
+    {
+      "before": ["leader", "s", "m"],
+      "commands": ["workbench.action.gotoSymbol"],
+      "silent": true
+    },
+    {
+      "before": ["leader", "m", "d"],
+      "commands": ["markdown-preview-enhanced.openPreviewToTheSide"],
+      "silent": true
+    },
+    {
+      "before": ["leader", "o"],
+      "commands": ["editor.action.organizeImports"],
+      "silent": true
+    },
+    // Save with or without formatting
+    {
+      "before": ["leader", "w"],
+      "commands": ["workbench.action.files.save"],
+      "silent": true
+    },
+    {
+      "before": ["leader", "W"],
+      "commands": ["workbench.action.files.saveWithoutFormatting"],
+      "silent": true
+    },
+    // Nice to haves
+    {
+      "before": ["leader", "w"],
+      "commands": [":w!"],
+      "silent": true
+    },
+    {
+      "before": ["leader", "q"],
+      "commands": [":q!"],
+      "silent": true
+    },
+    {
+      "before": ["leader", "x"],
+      "commands": [":x!"],
+      "silent": true
+    },
+    {
+      "before": ["leader", "X"],
+      "commands": ["workbench.action.closeOtherEditors"],
+      "silent": true
+    },
+    // Navigate splits
+    {
+      "before": ["leader", "j"],
+      "commands": ["workbench.action.focusBelowGroup"],
+      "silent": true
+    },
+    {
+      "before": ["leader", "k"],
+      "commands": ["workbench.action.focusAboveGroup"],
+      "silent": true
+    },
+    // TODO: Paste without copying selection (Does not work as of now)
+    {
+      "after": ["\"_", "d", "P"],
+      "before": ["leader", "p"],
+      "silent": true
+    },
+    // Select next occurence of selected word
+    {
+      "after": ["g", "b"],
+      "before": ["<c-n>"],
+      "silent": true
+    },
+    // FIXME: Todo tree does not seem to work
+    {
+      "before": ["leader", "t", "d"],
+      "commands": ["todo-tree-view.focus"],
+      "silent": true
+    },
+    {
+      "before": ["leader", "t", "r"],
+      "commands": ["workbench.action.problems.focus"],
+      "silent": true
+    },
+    // Cycle through diagnostics
+    {
+      "before": ["[", "d"],
+      "commands": ["editor.action.marker.prev"],
+      "silent": true
+    },
+    {
+      "before": ["]", "d"],
+      "commands": ["editor.action.marker.next"],
+      "silent": true
+    },
+    {
+      "before": ["[", "g"],
+      "commands": ["workbench.action.editor.previousChange"],
+      "silent": true
+    },
+    {
+      "before": ["]", "g"],
+      "commands": ["workbench.action.editor.nextChange"],
+      "silent": true
+    },
+    // Cycle through tabs
+    {
+      "before": ["H"],
+      "commands": [":bprev"],
+      "silent": true
+    },
+    {
+      "before": ["L"],
+      "commands": [":bnext"],
+      "silent": true
+    },
+    // Go to start/end of line
+    {
+      "after": ["^"],
+      "before": ["g", "h"],
+      "silent": true
+    },
+    {
+      "after": ["$"],
+      "before": ["g", "l"],
+      "silent": true
+    },
+    // Center cursor
+    {
+      "after": ["<c-d>", "z", "z"],
+      "before": ["<c-d>"],
+      "silent": true
+    },
+    {
+      "after": ["<c-u>", "z", "z"],
+      "before": ["<c-u>"],
+      "silent": true
+    },
+    {
+      "after": ["n", "z", "z"],
+      "before": ["n"],
+      "silent": true
+    },
+    {
+      "after": ["N", "z", "z"],
+      "before": ["N"],
+      "silent": true
+    },
+    {
+      "after": ["*", "z", "z"],
+      "before": ["*"],
+      "silent": true
+    },
+    {
+      "after": ["#", "z", "z"],
+      "before": ["#"],
+      "silent": true
+    },
+    {
+      "after": ["g*", "z", "z"],
+      "before": ["g*"],
+      "silent": true
+    },
+    {
+      "after": ["g#", "z", "z"],
+      "before": ["g#"],
+      "silent": true
+    },
+    // Toggle boolean
+    {
+      "before": ["leader", "i"],
+      "commands": ["extension.toggleBool"],
+      "silent": true
+    },
+    // Open/toggle file explorer
+    {
+      "before": ["leader", "e"],
+      "commands": ["workbench.action.toggleSidebarVisibility"],
+      "silent": true
+    },
+    // Lsp stuff
+    {
+      "before": ["leader", "r"],
+      "commands": ["editor.action.rename"],
+      "silent": true
+    },
+    {
+      "before": ["<leader>", "c", "a"],
+      "commands": ["editor.action.quickFix"],
+      "silent": true
+    },
+    {
+      "before": ["K"],
+      "commands": ["editor.action.showDefinitionPreviewHover"],
+      "silent": true
+    },
+    {
+      "before": ["g", "D"],
+      "commands": ["editor.action.revealDefinitionAside"],
+      "silent": true
+    }
+  ],
+  "vim.sneak": true,
+  "vim.surround": true,
+  "vim.useCtrlKeys": true,
+  "vim.useSystemClipboard": true,
+  "vim.visualModeKeyBindings": [
+    {
+      "before": ["<leader>", "c", "a"],
+      "commands": ["editor.action.quickFix"],
+      "silent": true
+    },
+    // Indent continuosly
+    {
+      "before": ["<"],
+      "commands": ["editor.action.outdentLines"]
+    },
+    {
+      "before": [">"],
+      "commands": ["editor.action.indentLines"]
+    },
+    // Move lines up/down
+    {
+      "before": ["K"],
+      "commands": ["editor.action.moveLinesUpAction"]
+    },
+    {
+      "before": ["J"],
+      "commands": ["editor.action.moveLinesDownAction"]
+    },
+    // Go to start/end of line
+    {
+      "after": ["^"],
+      "before": ["g", "h"],
+      "silent": true
+    },
+    {
+      "after": ["$"],
+      "before": ["g", "l"],
+      "silent": true
+    }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "after": ["g", "b"],
+      "before": ["<c-n>"]
+    } // Select next occurence of selected word
+  ],
+  "vim.visualstar": true,
+
+  "window.autoDetectHighContrast": false,
+  "window.commandCenter": false,
+  "window.enableMenuBarMnemonics": false,
+  "window.customMenuBarAltFocus": false,
+  "window.titleBarStyle": "custom",
+  "window.menuBarVisibility": "hidden",
+  "window.openFoldersInNewWindow": "on",
+  "window.restoreFullscreen": true,
+
+  "workbench.activityBar.location": "hidden",
+  "workbench.editor.empty.hint": "hidden",
+  "workbench.editor.enablePreview": true,
+  "workbench.editor.limit.enabled": true,
+  "workbench.editor.pinnedTabSizing": "compact",
+  "workbench.editor.showTabs": "multiple",
+  "workbench.editor.tabActionCloseVisibility": false,
+  "workbench.editor.tabSizing": "shrink",
+  "workbench.editor.untitled.labelFormat": "content",
+  "workbench.editor.wrapTabs": true,
+  "workbench.editorAssociations": {
+    "*.docx": "default"
+  },
+  "workbench.layoutControl.enabled": false,
+  "workbench.list.smoothScrolling": true,
+  "workbench.settings.editor": "json",
+  "workbench.sideBar.location": "right",
+  "workbench.startupEditor": "none",
+  "workbench.statusBar.visible": true,
+  "workbench.tree.indent": 12,
+  "workbench.tree.renderIndentGuides": "none",
+
+  "zenMode.fullScreen": false,
+  "zenMode.hideLineNumbers": false,
+  "[dockerfile]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "prisma.showPrismaDataPlatformNotification": false,
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
+  "supermaven.enable": {
+    "*": false
+  },
+  "security.allowedUNCHosts": ["wsl.localhost"],
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "terminal.integrated.profiles.linux": {
+    "fish": {
+      "path": "host-spawn",
+      "args": ["fish"]
+    },
+    "nu": {
+      "path": "host-spawn",
+      "args": ["nu"]
+    }
+  },
+  "terminal.integrated.defaultProfile.linux": "nu (2)",
+  "workbench.colorTheme": "Gruvbox Dark Medium"
+}
