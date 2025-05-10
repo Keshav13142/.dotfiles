@@ -5,7 +5,7 @@
   "cross_monitor_move_behaviour": "Insert",
   "default_workspace_padding": 5,
   "default_container_padding": 5,
-  "border": true,
+  "border": false,
   "border_width": 3,
   "border_offset": -1,
   "theme": {
