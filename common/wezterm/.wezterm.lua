@@ -38,7 +38,7 @@ local direction_keys = {
 local function split_nav(resize_or_move, key)
 	return {
 		key = key,
-		mods = resize_or_move == "resize" and "CTRL|SHIFT" or "CTRL",
+		mods = resize_or_move == "resize" and "CTRL|SHIFT" or "LEADER",
 		action = wezterm.action_callback(function(win, pane)
 			if is_vim(pane) then
 				-- pass the keys through to vim/nvim
@@ -190,7 +190,7 @@ return {
 			mods = "LEADER",
 			action = act.PromptInputLine({
 				description = "Enter new name for tab",
-				action = wezterm.action_callback(function(window, pane, line)
+				action = wezterm.action_callback(function(window, _, line)
 					if line then
 						window:active_tab():set_title(line)
 					end
