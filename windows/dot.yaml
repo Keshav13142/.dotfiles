@@ -4,6 +4,8 @@ windows:
     glazewm/config.yaml: ~/.glzr/glazewm/config.yaml
     zebar/config.yaml: ~/.glzr/zebar/config.yaml
     whkd/whkdrc: ~/.config/whkdrc
+    yasb/config.yaml: ~/.config/yasb/config.toml
+    yasb/styles.css: ~/.config/yasb/styles.css
     komorebi: ~/.config/komorebi
     wpm: ~/.config/wpm
     AutoHotkey/shortcuts.ahk: ~/Documents/AutoHotkey/shortcuts.ahk
