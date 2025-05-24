@@ -3,16 +3,16 @@
   "app_specific_configuration_path": "$Env:KOMOREBI_CONFIG_HOME/applications.json",
   "window_hiding_behaviour": "Cloak",
   "cross_monitor_move_behaviour": "Insert",
-  "default_workspace_padding": 5,
-  "default_container_padding": 5,
-  "border": false,
-  "border_width": 3,
+  "default_workspace_padding": 0,
+  "default_container_padding": 0,
+  "border": true,
+  "border_width": 1,
   "border_offset": -1,
+  "border_style": "Square",
+  "border_implementation": "Komorebi",
   "theme": {
     "palette": "Base16",
-    "name": "Ashes",
-    "unfocused_border": "Base03",
-    "bar_accent": "Base0D"
+    "name": "GruvboxDarkMedium"
   },
   "stackbar": {
     "height": 20,

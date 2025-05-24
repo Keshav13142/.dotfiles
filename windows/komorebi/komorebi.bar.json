@@ -2,18 +2,18 @@
   "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/v0.1.35/schema.bar.json",
   "monitor": 0,
   "font_family": "JetBrains Mono",
-  "height": 30,
+  "height": 0,
   "theme": {
     "palette": "Base16",
-    "name": "Ashes",
+    "name": "GruvboxMaterialDarkMedium",
     "accent": "Base0D"
   },
-  "transparency_alpha": 0,
+  "transparency_alpha": 255,
   "grouping": {
     "kind": "Widget",
     "style": "Default",
-    "transparency_alpha": 200,
-    "rounding": 10
+    "transparency_alpha": 255,
+    "rounding": 0
   },
   "left_widgets": [
     {
