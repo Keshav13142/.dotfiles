@@ -3,6 +3,7 @@ windows:
     winfetch/config.ps1: ~/.config/winfetch/config.ps1
     glazewm/config.yaml: ~/.glzr/glazewm/config.yaml
     zebar/config.yaml: ~/.glzr/zebar/config.yaml
+    scripts: ~/.config/scripts
     whkd/whkdrc: ~/.config/whkdrc
     yasb/config.yaml: ~/.config/yasb/config.toml
     yasb/styles.css: ~/.config/yasb/styles.css
@@ -11,4 +12,3 @@ windows:
     AutoHotkey/shortcuts.ahk: ~/Documents/AutoHotkey/shortcuts.ahk
     powershell/Profile.ps1:
       - ~/Documents/PowerShell/Microsoft.PowerShell_profile.ps1
-      - ~/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1
