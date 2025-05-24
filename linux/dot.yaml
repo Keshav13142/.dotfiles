@@ -2,7 +2,6 @@ linux:
   links:
     bin/pomo: ~/.local/bin/pomo
     bin/set_wall: ~/.local/bin/set_wall
-    cava: ~/.config/cava
     dunst: ~/.config/dunst
     fd/.fdignore: ~/.fdignore
     fish: ~/.config/fish
