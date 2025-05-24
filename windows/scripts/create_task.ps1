@@ -23,11 +23,10 @@ $Settings = New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries `
   -DontStopIfGoingOnBatteries `
   -RunOnlyIfNetworkAvailable:$false `
   -ExecutionTimeLimit ([System.TimeSpan]::Zero) `
-  -MultipleInstances IgnoreNew
+  -MultipleInstances IgnoreNew -Compatibility Win8
 
 $Principal = New-ScheduledTaskPrincipal -UserId $LogonUser `
   -LogonType Interactive `
-  -RunLevel Highest
 
 $Task = New-ScheduledTask -Action $Action `
   -Trigger $Trigger `
