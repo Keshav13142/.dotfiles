@@ -4,7 +4,8 @@
 alt + q                 : komorebic close
 alt + f                 : komorebic toggle-maximize
 alt + shift + c         : taskkill /f /im whkd.exe && Start-Process whkd -WindowStyle hidden # Reload whkd configuration
-alt + shift + r         : start "C:\Users\User\.config\komorebi\restart.bat" # Find a better way to do this
+alt + shift + r         : pwsh -NoProfile -WindowStyle Hidden -Command '& "$env:USERPROFILE\.config\scripts\restart_all.ps1"'
+ctrl + alt + h          : shutdown /h # Hibernate
 alt + shift + y         : yasbc reload
 alt + shift + m         : komorebic manage
 alt + shift + q         : komorebic stop
