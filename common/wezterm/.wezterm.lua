@@ -116,7 +116,7 @@ return {
 
 	-- Window
 	adjust_window_size_when_changing_font_size = false,
-	window_background_opacity = isLinux() and 0.75 or 0.95,
+	window_background_opacity = 0.75,
 	window_close_confirmation = "NeverPrompt",
 	window_padding = {
 		left = 0,
