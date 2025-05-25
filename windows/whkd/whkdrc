@@ -5,6 +5,7 @@ alt + q                 : komorebic close
 alt + f                 : komorebic toggle-maximize
 alt + shift + c         : taskkill /f /im whkd.exe && Start-Process whkd -WindowStyle hidden # Reload whkd configuration
 alt + shift + r         : start "C:\Users\User\.config\komorebi\restart.bat" # Find a better way to do this
+alt + shift + y         : yasbc reload
 alt + shift + m         : komorebic manage
 alt + shift + q         : komorebic stop
 alt + shift + space     : komorebic toggle-float
