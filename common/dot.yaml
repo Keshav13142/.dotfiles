@@ -5,7 +5,7 @@ windows:
     git/.gitconfig: ~/.gitconfig
     kanata/kanata.kbd: ~/.config/kanata/kanata.kbd
     wezterm/.wezterm.lua: ~/.wezterm.lua
-    cava: ~/.config/cava
+    cava/config: ~/.config/cava/config
     zed: ~/.config/zed
     code/settings.json: ~/AppData/Roaming/Code/User/settings.json
     code/keybindings.json: ~/AppData/Roaming/Code/User/keybindings.json
@@ -17,7 +17,8 @@ linux:
     lazygit: ~/.config/lazygit
     kitty: ~/.config/kitty
     wezterm/.wezterm.lua: ~/.config/wezterm/wezterm.lua
-    cava: ~/.config/cava
+    cava/config: ~/.config/cava/config
+    cava/update_colors: ~/.config/cava/update_colors
     zed: ~/.config/zed
     nushell: ~/.config/nushell
     starship/starship.toml: ~/.config/starship.toml
