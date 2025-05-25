@@ -5,7 +5,7 @@ windows:
     zebar/config.yaml: ~/.glzr/zebar/config.yaml
     scripts: ~/.config/scripts
     whkd/whkdrc: ~/.config/whkdrc
-    yasb/config.yaml: ~/.config/yasb/config.toml
+    yasb/config.yaml: ~/.config/yasb/config.yaml
     yasb/styles.css: ~/.config/yasb/styles.css
     komorebi: ~/.config/komorebi
     wpm: ~/.config/wpm
