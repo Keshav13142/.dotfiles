@@ -278,11 +278,6 @@
       "commands": ["markdown-preview-enhanced.openPreviewToTheSide"],
       "silent": true
     },
-    {
-      "before": ["leader", "o"],
-      "commands": ["editor.action.organizeImports"],
-      "silent": true
-    },
     // Save with or without formatting
     {
       "before": ["leader", "w"],
@@ -291,7 +286,17 @@
     },
     {
       "before": ["leader", "W"],
-      "commands": ["workbench.action.files.saveWithoutFormatting"],
+      "commands": ["editor.action.formatDocument"],
+      "silent": true
+    },
+    {
+      "before": ["leader", "f"],
+      "commands": ["editor.action.formatDocument"],
+      "silent": true
+    },
+    {
+      "before": ["leader", "o"],
+      "commands": ["editor.action.organizeImports"],
       "silent": true
     },
     // Nice to haves
