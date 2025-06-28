@@ -32,6 +32,7 @@ if status is-interactive
     set -gx PATH $ANDROID_HOME/emulator $PATH
     set -gx PATH $ANDROID_HOME/tools $PATH
     set -gx PATH $ANDROID_HOME/platform-tools $PATH
+    set -gx PATH $XDG_CACHE_HOME/.bun/bin $PATH
 
     set -g windows_user skesh
 
