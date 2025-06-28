@@ -17,7 +17,7 @@ fnm - install from the website?
 yay -S powershell-bin starship --noconfirm
 yay -S docker sqlc docker-compose lazydocker bun-bin discord
 curl -s "https://get.sdkman.io" | bash
-yay -S mongodb-bin mongodb-tools-bin mongosh-bin
+yay -S mongodb-bin mongodb-tools-bin mongosh-bin mongodb-compass-bin
 
 ## TODO
 
