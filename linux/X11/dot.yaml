@@ -1,0 +1,7 @@
+linux:
+  links:
+    i3: ~/.config/i3
+    i3status: ~/.config/i3status
+    picom: ~/.config/picom
+    polybar: ~/.config/polybar
+    sxhkd: ~/.config/sxhkd

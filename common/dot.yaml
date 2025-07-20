@@ -15,6 +15,7 @@ linux:
   links:
     kanata/kanata.kbd: ~/.config/kanata/kanata.kbd
     lazygit: ~/.config/lazygit
+    git/.gitconfig: ~/.gitconfig
     kitty: ~/.config/kitty
     wezterm/.wezterm.lua: ~/.config/wezterm/wezterm.lua
     cava/config: ~/.config/cava/config
