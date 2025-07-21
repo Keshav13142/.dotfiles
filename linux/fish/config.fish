@@ -17,6 +17,13 @@ if status is-interactive
         set -gx PATH $HOME/softwares/apache-maven-3.9.2/bin $PATH
     end
 
+    if type -q pnpm
+        set -gx PNPM_HOME "/home/keshav/.local/share/pnpm"
+        if not string match -q -- $PNPM_HOME $PATH
+        set -gx PATH "$PNPM_HOME" $PATH
+        end
+    end
+
     if is_wsl
         set -gx PATH $HOME/.nix-profile/bin $PATH
         set -gx PATH /nix/var/nix/profiles/default/bin $PATH
