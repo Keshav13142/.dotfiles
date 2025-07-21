@@ -18,10 +18,10 @@ super + m
 ######################## APPLICATION KEYBINDINGS ###################
 
 alt + w
-  "$BROWSER"
+  brave
 
 alt + shift + w
-  "$BROWSER" --incognito
+  brave --incognito
 
 alt + e
   nautilus
@@ -72,7 +72,7 @@ XF86MonBrightnessUp
  brillo -A 5 -q -u 150000
 
 XF86MonBrightnessDown
-  brillo -U 5 -q -u 150000
+ brillo -U 5 -q -u 150000
 
 ####################### I3 #############################
 
@@ -108,7 +108,7 @@ alt+shift+{0,1,2,3,4,5,6,7,8,9}
     i3-msg move container to workspace number {10,11,12,13,14,15,16,17,18,19}
 
 alt + Return
-   kitty
+   alacritty
 
 ## OTHERS
 
@@ -127,7 +127,7 @@ alt + shift + s
 alt + shift + t
  i3-msg layout tabbed
 
-alt + ctrl + {l,k,j,h}
+alt + ctrl + {h,k,j,l}
  i3-msg resize {grow width 5 px or 5 ppt, shrink height 5 px or 5 ppt, grow height 5 px or 5 ppt, shrink width 5 px or 5 ppt}
 
 ################# GENERAL ##################################
