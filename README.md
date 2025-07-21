@@ -6,18 +6,40 @@
 
 ## Arch setup (partial)
 
-yay -S amberol bitwarden espanso gimp libreoffice-fresh seahorse mpv zed easyeffects picard graphicsmagick yt-dlp imagemagick powertop kanata brillo dmenu cheese nautilus pamixer pavucontrol playerctl rofimoji rofi-calc wezterm btop obs-studio obsidian zathura cowsay figlet fontpreview ghostscript glow gum lf lolcat ninja pistol-bin slides libspeechd tig timer tmatrix xdg-ninja mediainfo yazi sesh fd jq libsecret tldr trash-cli stow tree unrar zip statix-git gofumpt hyprls-git fish-lsp
-cliphist glib hyprpicker hypridle rofi-wayland swappy swww wev wayland-protocols wl-clipboard wlr-randr
-hyprlock wlogout grip slurp
-pnpm unzip brave-bin os-prober kitty firefox zoxide git neovim tmux go python lazygit
+```sh
+yay -S amberol bitwarden espanso gimp libreoffice-fresh seahorse mpv zed easyeffects picard graphicsmagick yt-dlp imagemagick powertop kanata dmenu cheese nautilus pamixer pavucontrol playerctl rofimoji rofi-calc wezterm btop obs-studio obsidian zathura cowsay figlet fontpreview ghostscript glow gum lf lolcat ninja pistol-bin slides libspeechd tig timer tmatrix xdg-ninja mediainfo yazi sesh fd jq tldr trash-cli stow tree unrar zip statix-git gofumpt fish-lsp glib pnpm unzip brave-bin kitty firefox zoxide git neovim tmux go python lazygit brillo steam spotify sxhkd kde-connect network-manager-applet clipmenu cargo-binstall syncthing obs-studio flameshot wallust code intellij-idea-community-edition
+
+yay -S hyprpicker hypridle rofi-wayland swappy swww wev wayland-protocols wl-clipboard wlr-randr cliphist libsecret hyprlock wlogout grip slurp os-prober hyprls-git cava visual-studio-code-bin
 
 sudo usermod -aG audio,disk,input,kvm,power,render,video,wheel keshav
-fnm - install from the website?
 
+curl -fsSL https://fnm.vercel.app/install | bash
 yay -S powershell-bin starship --noconfirm
 yay -S docker sqlc docker-compose lazydocker bun-bin discord
 curl -s "https://get.sdkman.io" | bash
 yay -S mongodb-bin mongodb-tools-bin mongosh-bin mongodb-compass-bin
+
+curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+
+systemctl --user start syncthing.service
+systemctl --user enable syncthing.service
+
+fnm install --lts
+fnm default "$(fnm current)"
+
+npm install -g corepack
+corepack enable
+yarn set version stable
+curl -fsSL https://get.pnpm.io/install.sh | sh -
+
+sdk install maven
+sdk install gradle
+
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/*
+chmod 644 ~/.ssh/*.pub
+```
 
 ## TODO
 
