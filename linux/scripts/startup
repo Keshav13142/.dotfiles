@@ -1,5 +1,14 @@
 #!/usr/bin/env bash
 
+EXTERNAL="DP-1"
+INTERNAL="eDP-1"
+
+if xrandr | grep -q "^${EXTERNAL} connected"; then
+    xrandr --output "$INTERNAL" --off --output "$EXTERNAL" --mode 2560x1440 --rate 165 --primary
+else
+    xrandr --output "$EXTERNAL" --off --output "$INTERNAL" --auto --primary
+fi
+
 # Set env vars for sxhkd
 if ! [[ -x "$(command -v nixos-version)" ]]; then
 	export BROWSER=brave-browser-beta
@@ -7,7 +16,7 @@ else
 	export BROWSER=brave
 fi
 
-feh --bg-fill ~/tmp/wallpaper
+feh --bg-fill /tmp/wallpaper
 xinput set-prop "ELAN1205:00 04F3:30E9 Touchpad" "libinput Tapping Enabled" 1
 ~/.config/scripts/fix_scrolling
 picom &
@@ -15,4 +24,8 @@ sxhkd &
 kanata &
 clipmenud &
 nm-applet &
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+/usr/lib/kdeconnectd &
 ~/.config/polybar/launch.sh
+greenclip daemon &
+mkfifo /tmp/xobpipe && tail -f /tmp/xobpipe | xob -t 2170 & disown
