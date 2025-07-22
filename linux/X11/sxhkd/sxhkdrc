@@ -10,18 +10,21 @@ super + e
   ~/.config/rofi/scripts/powermenu
 
 super + w
-  wal -i ~/Sync/wallpapers/ &
+  $HOME/.local/bin/set_wall
 
 super + m
   ~/.config/scripts/toggle_mic.sh
 
+super + v
+  rofi -modi "clipboard:greenclip print" -show clipboard
+
 ######################## APPLICATION KEYBINDINGS ###################
 
 alt + w
-  brave
+  "$BROWSER"
 
 alt + shift + w
-  brave --incognito
+  "$BROWSER" --incognito
 
 alt + e
   nautilus
@@ -143,7 +146,7 @@ alt + t
  polybar-msg cmd toggle
 
 # LOCK SCREEN
-alt + o
+super + l
   betterlockscreen -l
 
 ## EMOJI PICKER
