@@ -7,9 +7,9 @@
 ## Arch setup (partial)
 
 ```sh
-yay -S amberol bitwarden espanso gimp libreoffice-fresh seahorse mpv zed easyeffects picard graphicsmagick yt-dlp imagemagick powertop kanata dmenu cheese nautilus pamixer pavucontrol playerctl rofimoji rofi-calc wezterm btop obs-studio obsidian zathura cowsay figlet fontpreview ghostscript glow gum lf lolcat ninja pistol-bin slides libspeechd tig timer tmatrix xdg-ninja mediainfo yazi sesh fd jq tldr trash-cli stow tree unrar zip statix-git gofumpt fish-lsp glib pnpm unzip brave-bin kitty firefox zoxide git neovim tmux go python lazygit brillo steam spotify sxhkd kde-connect network-manager-applet clipmenu cargo-binstall syncthing obs-studio flameshot wallust code intellij-idea-community-edition
+yay -S amberol bitwarden espanso gimp libreoffice-fresh seahorse mpv zed easyeffects picard graphicsmagick yt-dlp imagemagick powertop kanata dmenu cheese nautilus pamixer pavucontrol playerctl rofimoji rofi-calc wezterm btop obs-studio obsidian zathura cowsay figlet fontpreview ghostscript glow gum lf lolcat ninja pistol-bin slides libspeechd tig timer tmatrix xdg-ninja mediainfo yazi sesh fd jq tldr trash-cli stow tree unrar zip statix-git gofumpt fish-lsp glib pnpm unzip brave-bin kitty firefox zoxide git neovim tmux go python lazygit brillo steam spotify sxhkd kde-connect network-manager-applet cargo-binstall syncthing obs-studio flameshot wallust code intellij-idea-community-edition cava visual-studio-code-bin redshift betterlockscreen python-pywal greenclip xorg-xev acpid xorg-xsetroot
 
-yay -S hyprpicker hypridle rofi-wayland swappy swww wev wayland-protocols wl-clipboard wlr-randr cliphist libsecret hyprlock wlogout grip slurp os-prober hyprls-git cava visual-studio-code-bin
+yay -S hyprpicker hypridle rofi-wayland swappy swww wev wayland-protocols wl-clipboard wlr-randr cliphist libsecret hyprlock wlogout grip slurp os-prober hyprls-git
 
 sudo usermod -aG audio,disk,input,kvm,power,render,video,wheel keshav
 
@@ -24,6 +24,7 @@ curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fi
 
 systemctl --user start syncthing.service
 systemctl --user enable syncthing.service
+sudo systemctl enable --now acpid
 
 fnm install --lts
 fnm default "$(fnm current)"
