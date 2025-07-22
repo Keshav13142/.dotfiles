@@ -5,6 +5,7 @@ linux:
     dunst: ~/.config/dunst
     fd/.fdignore: ~/.fdignore
     fish: ~/.config/fish
+    greenclip/greenclip.toml: ~/.config/greenclip.toml
     lf: ~/.config/lf
     neofetch: ~/.config/neofetch
     nix: ~/.config/nix
