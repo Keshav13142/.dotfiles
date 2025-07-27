@@ -22,13 +22,13 @@
         xrandr --output "$INTERNAL" --mode 1920x1080 --rate "$refresh_rate" --primary
     fi
 
-    if [[ $is_on_battery -eq 0 ]]; then
+    if [[ $is_on_battery -eq 1 ]]; then
+        echo "On battery"
+        pkill picom
+    else
         echo "AC power connected"
         picom &
         feh --bg-fill /var/tmp/wallpaper
-    else
-        echo "On battery"
-        pkill picom
     fi
 
     ~/.config/polybar/launch.sh > /dev/null 2>&1

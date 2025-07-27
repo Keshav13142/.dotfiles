@@ -9,6 +9,9 @@ alt + space
 super + e
   $HOME/.config/rofi/scripts/powermenu
 
+super + shift + d
+  $HOME/.config/scripts/display_setup.sh
+
 super + w
   $HOME/.local/bin/set_wall
 
