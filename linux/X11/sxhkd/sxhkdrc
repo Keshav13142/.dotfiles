@@ -4,10 +4,10 @@ alt + d
   i3-dmenu-desktop
 
 alt + space
-  ~/.config/rofi/scripts/launcher
+  $HOME/.config/rofi/scripts/launcher
 
 super + e
-  ~/.config/rofi/scripts/powermenu
+  $HOME/.config/rofi/scripts/powermenu
 
 super + w
   $HOME/.local/bin/set_wall
@@ -41,14 +41,14 @@ XF86AudioMute
   pactl set-sink-mute 0 toggle # mute sound
 
 # Fn media keys dont work in nixos 😿😿
-alt + equal
-  amixer -q set Master 5%+ unmute
+super + equal
+  pactl set-sink-volume 0 +5%
 
-alt + minus
-  amixer -q set Master 5%- unmute
+super + minus
+  pactl set-sink-volume 0 -5%
 
-alt + BackSpace
-  amixer -q set Master toggle # mute sound
+super + BackSpace
+  pactl set-sink-mute 0 toggle # mute sound
 
 XF86Launch3
     playerctl play-pause
@@ -67,6 +67,15 @@ XF86AudioPrev
 
 XF86AudioStop
     playerctl stop
+
+super + p
+    playerctl play-pause
+
+super + bracketright
+    playerctl next
+
+super + bracketleft
+    playerctl previous
 
 ################ BRIGHTNESS CONTROLS ####################
 
@@ -130,7 +139,7 @@ alt + shift + s
 alt + shift + t
  i3-msg layout tabbed
 
-alt + ctrl + {h,k,j,l}
+alt + ctrl + {l,k,j,h}
  i3-msg resize {grow width 5 px or 5 ppt, shrink height 5 px or 5 ppt, grow height 5 px or 5 ppt, shrink width 5 px or 5 ppt}
 
 ################# GENERAL ##################################
@@ -140,9 +149,6 @@ super + shift + d
 
 super + t
   toggle_touchpad
-
-alt + p
-  clipmenu
 
 ## TOGGLE POLYBAR
 alt + t
