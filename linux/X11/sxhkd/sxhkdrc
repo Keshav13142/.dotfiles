@@ -13,18 +13,18 @@ super + w
   $HOME/.local/bin/set_wall
 
 super + m
-  ~/.config/scripts/toggle_mic.sh
+  $HOME/.config/scripts/toggle_mic.sh
 
 super + v
-  rofi -modi "clipboard:greenclip print" -show clipboard
+  $HOME/.config/rofi/scripts/greenclip.sh
 
 ######################## APPLICATION KEYBINDINGS ###################
 
 alt + w
-  "$BROWSER"
+  brave
 
 alt + shift + w
-  "$BROWSER" --incognito
+  brave --incognito
 
 alt + e
   nautilus
@@ -134,6 +134,9 @@ alt + ctrl + {h,k,j,l}
  i3-msg resize {grow width 5 px or 5 ppt, shrink height 5 px or 5 ppt, grow height 5 px or 5 ppt, shrink width 5 px or 5 ppt}
 
 ################# GENERAL ##################################
+
+super + shift + d
+  $HOME/.config/scripts/check_monitors.sh
 
 super + t
   toggle_touchpad
