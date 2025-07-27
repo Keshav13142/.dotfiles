@@ -6,17 +6,17 @@ else
 	wall=$1
 fi
 
+wal -qtsni "$wall" >/dev/null
+$HOME/.config/cava/update_colors && pkill -USR2 cava # Update cava colors
+cp -f "$wall" /var/tmp/wallpaper
+
 if [[ $XDG_SESSION_TYPE = "x11" ]]; then
 	feh --bg-fill "$wall"
+	i3-msg reload
 	betterlockscreen -u "$wall"
 else
 	# Transition type => none, simple, left, right, top, bottom, wipe, grow, center, outer, any, wave, random, fade
 	swww img "$wall" --transition-type=wipe --transition-fps=144 --transition-duration 1
+	~/.config/waybar/scripts/launch # Reload waybar
 fi
 
-wal -qtsni "$wall" >/dev/null 2>&1 &
-disown
-sleep 2
-$HOME/.config/cava/update_colors && pkill -USR2 cava # Update cava colors
-cp -f "$wall" /var/tmp/wallpaper
-~/.config/waybar/scripts/launch # Reload waybar
