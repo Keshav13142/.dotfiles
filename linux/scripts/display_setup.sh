@@ -7,8 +7,8 @@
         echo "$arg"
     done
 
-    EXTERNAL="DP-1"
-    INTERNAL="eDP-1"
+    EXTERNAL="DP1"
+    INTERNAL="eDP1"
     refresh_rate=60
 
     cat /sys/class/power_supply/AC*/online | grep -q 1
