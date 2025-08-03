@@ -20,7 +20,7 @@ cmd mkfile ${{
 }}
 
 cmd setwallpaper ${{
-  set_wall "$f"
+  set_wall "$f" &
 }}
 
 # Archive bindings
