@@ -80,6 +80,9 @@ super + bracketright
 super + bracketleft
     playerctl previous
 
+super + shift + p
+  pavucontrol
+
 ################ BRIGHTNESS CONTROLS ####################
 
 # -q is logarithmic, -u is fade duration in micro_secs
