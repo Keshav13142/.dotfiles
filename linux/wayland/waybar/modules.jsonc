@@ -89,14 +89,14 @@
     "interval": 2,
     "max-length": 10,
     "format": " {usage}%",
-    "on-click": "kitty --start-as=fullscreen --title btop sh -c 'btop'",
+    "on-click": "kitty --title btop sh -c 'btop'",
   },
   "memory": {
     "interval": 2,
     "format": "{percentage}% 󰆼",
     "format-alt": "󰍛 {used}/{total} GiB",
     "max-length": 10,
-    "on-click": "kitty --start-as=fullscreen --title btop sh -c 'btop'",
+    "on-click": "kitty --title btop sh -c 'btop'",
   },
   "disk": {
     "format": "{percentage_used}% 󰋊",

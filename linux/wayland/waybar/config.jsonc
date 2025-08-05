@@ -17,7 +17,8 @@
   ],
   "modules-center": [
     "custom/playerlabel",
-    "custom/playpause"
+    "custom/playpause",
+    "clock",
   ],
   "modules-right": [
     "custom/wallpaper",
@@ -25,7 +26,6 @@
     "backlight",
     "pulseaudio",
     "battery",
-    "clock",
     "tray",
   ],
 }

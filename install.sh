@@ -15,11 +15,11 @@ cd ~
 # paru -Syu
 # For steam choose the lib nvida provder
 
-paru -S --noconfirm --needed --skipreview --cleanafter amberol bitwarden gimp libreoffice-fresh seahorse mpv zed graphicsmagick yt-dlp imagemagick powertop kanata-bin dmenu cheese nautilus playerctl rofimoji btop obs-studio obsidian zathura cowsay figlet ghostscript glow gum lf lolcat ninja pistol-bin slides-bin libspeechd tig mediainfo sesh fd jq tldr trash-cli stow tree unrar zip statix-git gofumpt glib pnpm unzip brave-bin kitty firefox zoxide git neovim tmux go python lazygit brillo kdeconnect cargo-binstall syncthing flameshot intellij-idea-community-edition cava visual-studio-code-bin redshift python-pywal acpid blueman cups cups-pdf cups-filters system-config-printer gnome-themes-extra kvantum-qt5 clang mise mariadb-libs postgresql-libs lazydocker-bin wget curl inetutils eza fzf ripgrep bat fastfetch man less whois plocate bash-completion gnome-calculator localsend-bin bun-bin discord ufw powershell-bin starship docker sqlc docker-compose mongodb-bin mongodb-tools-bin mongodb-compass-bin flatpak optimus-manager nvtop libva-utils ttf-jetbrains-mono-nerd ttf-nerd-fonts-symbols networkmanager network-manager-applet nm-connection-editor wireless_tools wpa_supplicant fish
+paru -S --noconfirm --needed --skipreview --cleanafter amberol bitwarden gimp libreoffice-fresh seahorse mpv zed graphicsmagick yt-dlp imagemagick powertop kanata-bin dmenu cheese nautilus playerctl rofimoji btop obs-studio obsidian zathura cowsay figlet ghostscript glow gum lf lolcat ninja pistol-bin slides-bin libspeechd tig mediainfo sesh fd jq tldr trash-cli stow tree unrar zip statix-git gofumpt glib pnpm unzip brave-bin kitty firefox zoxide git neovim tmux go python lazygit brillo kdeconnect cargo-binstall syncthing flameshot intellij-idea-community-edition cava visual-studio-code-bin redshift python-pywal acpid blueman cups cups-pdf cups-filters system-config-printer gnome-themes-extra kvantum-qt5 clang mise mariadb-libs postgresql-libs lazydocker-bin wget curl inetutils eza fzf ripgrep bat fastfetch man less whois plocate bash-completion gnome-calculator localsend-bin bun-bin discord ufw powershell-bin starship docker sqlc docker-compose mongodb-bin mongodb-tools-bin mongodb-compass-bin flatpak optimus-manager nvtop libva-utils ttf-jetbrains-mono-nerd ttf-nerd-fonts-symbols networkmanager network-manager-applet nm-connection-editor wireless_tools wpa_supplicant fish pavucontrol pamixer
 
-paru -S xorg-xev polybar picom sxhkd
+paru -S xorg-xev polybar picom sxhkd greenclip betterlockscreen
 
-paru -S fontpreview fish-lsp spotify betterlockscreen greenclip ufw-docker mongosh-bin optimus-manager-qt auto-cpufreq
+paru -S fontpreview fish-lsp spotify ufw-docker mongosh-bin optimus-manager-qt auto-cpufreq
 
 sudo systemctl enable NetworkManager
 sudo systemctl start NetworkManager
