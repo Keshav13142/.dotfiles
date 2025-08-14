@@ -13,12 +13,12 @@
     "memory",
     "disk",
     "custom/lock_screen",
-    "custom/power_btn",
+    "custom/power_btn"
   ],
   "modules-center": [
-    "custom/playerlabel",
-    "custom/playpause",
-    "clock",
+    // "custom/playerlabel",
+    // "custom/playpause",
+    "clock"
   ],
   "modules-right": [
     "custom/wallpaper",
@@ -26,6 +26,6 @@
     "backlight",
     "pulseaudio",
     "battery",
-    "tray",
-  ],
+    "tray"
+  ]
 }
