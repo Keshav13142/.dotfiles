@@ -118,7 +118,7 @@
   "explorer.incrementalNaming": "smart",
 
   "extensions.autoUpdate": "onlyEnabledExtensions",
-  "extensions.ignoreRecommendations": false,
+  "extensions.ignoreRecommendations": true,
 
   "files.associations": {
     "*.ahk": "ahk2"
