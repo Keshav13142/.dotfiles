@@ -1,23 +1,32 @@
 #!/usr/bin/env bash
 
-{
-	if [ -z "$1" ]; then
-		wall=$(find ~/Sync/wallpapers/ -type f -path "*/mobile/*" -prune -o -path "*/pfp/*" -prune -o -print | shuf -n 1 | head -n 1)
-	else
-		wall=$1
-	fi
+WALL_DIR="$HOME/Sync/wallpapers"
 
-	wal -qtsni "$wall" >/dev/null
-	"$HOME/.config/cava/update_colors" && pkill -USR2 cava # Update cava colors
-	cp -f "$wall" /var/tmp/wallpaper
+if [ -z "$1" ]; then
+	wall=$(fd -t f . "$WALL_DIR" --exclude mobile --exclude pfp | shuf -n 1)
+else
+	wall="$1"
+fi
 
-	if [[ $XDG_SESSION_TYPE = "x11" ]]; then
-		feh --bg-fill "$wall"
-		i3-msg reload
-		betterlockscreen -u "$wall"
-	else
-		# Transition type => none, simple, left, right, top, bottom, wipe, grow, center, outer, any, wave, random, fade
-		swww img "$wall" --transition-type=wipe --transition-fps=144 --transition-duration 1
-		~/.config/waybar/scripts/launch # Reload waybar
-	fi
-} > /dev/null 2>&1
+if [ -z "$wall" ]; then
+	echo "No wallpaper found." >&2
+	exit 1
+fi
+
+cp -f "$wall" /var/tmp/wallpaper
+
+if [[ $XDG_SESSION_TYPE == "x11" ]]; then
+	feh --bg-fill "$wall"
+else
+	swww img "$wall" --transition-type=fade --transition-fps=144 --transition-duration=2
+fi
+
+wal -qetsni "$wall" &> /dev/null
+
+cp -f "$HOME/.cache/wal/colors-cava.conf" "$HOME/.config/cava/config" && pkill -USR2 cava
+
+if [[ $XDG_SESSION_TYPE == "x11" ]]; then
+	betterlockscreen -u "$wall"
+else
+	~/.config/waybar/scripts/launch
+fi
