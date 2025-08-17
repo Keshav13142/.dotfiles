@@ -12,7 +12,7 @@
   "ui_font_family": "JetBrainsMono Nerd Font Mono",
   "theme": {
     "mode": "system",
-    "light": "One Light",
+    "light": "Gruvbox Dark Soft",
     "dark": "Gruvbox Dark"
   },
   "languages": {
@@ -33,9 +33,8 @@
     "git_diff": true,
     "search_results": true,
     "selected_symbol": true,
-    "diagnostics": true
+    "diagnostics": "none"
   },
-  "default_dock_anchor": "right",
   "tab_bar": {
     "show": true,
     "show_nav_history_buttons": false
@@ -79,9 +78,6 @@
     "line_height": "comfortable",
     "option_as_meta": true,
     "button": false,
-    "toolbar": {
-      "title": false
-    },
     "working_directory": "current_project_directory"
   },
   "project_panel": {
@@ -97,12 +93,6 @@
     "scrollbar": {
       "show": "always"
     }
-  },
-  "assistant": {
-    "enabled": false,
-    "button": false,
-    "dock": "bottom",
-    "version": "2"
   },
   "features": {
     "edit_prediction_provider": "supermaven"
