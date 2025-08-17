@@ -100,6 +100,7 @@ sdk install gradle
 # chmod 644 ~/.ssh/*.pub
 
 curl -fsSL https://tailscale.com/install.sh | sh
+sudo tailscale set --operator=$USER
 
 curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
 curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher

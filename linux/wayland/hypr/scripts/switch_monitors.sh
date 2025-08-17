@@ -1,13 +1,21 @@
 #!/usr/bin/env bash
 
-INTERNAL_MONITOR="eDP-1"
-EXTERNAL_MONITOR="DP-1"
+external="DP-1"
+internal="eDP-1"
+refresh_rate=60
+all_monitors="hyprctl monitors all -j"
 
-NUM_MONITORS_ACTIVE=$(wlr-randr | grep -E --count "\bDP-1")
+cat /sys/class/power_supply/AC*/online | grep -q 0
+is_on_battery=$?
 
-if [ "$NUM_MONITORS_ACTIVE" -ge 1 ]; then
-    [ "$(wlr-randr | grep "eDP-1" -A 5 | grep "Enabled" | awk -F":" '{print $2}' | xargs)" = "yes" ] && hyprctl keyword monitor "$INTERNAL_MONITOR,disable"
-    [ "$(wlr-randr | grep "DP-1" -A 5 | grep "Enabled" | awk -F":" '{print $2}' | xargs)" = "yes" ] && hyprctl keyword monitor "$EXTERNAL_MONITOR,2560x1440@144,0x0,1"
+is_laptop_monitor_disabled=$($all_monitors | jq '.[] | select(.name==$internal) | .disabled' --arg internal $internal)
+external_connected=$($all_monitors | jq '.[] | select(.name==$external and .disabled==false) | .name' --arg external $external -e)
+
+if [ ! -z "$external_connected" ]; then
+    [ "$is_laptop_monitor_disabled" = 'false' ] && hyprctl keyword monitor "$internal,disable"
+    [ $is_on_battery = 1 ] && refresh_rate=165
+    hyprctl keyword monitor "$external,2560x1440@$refresh_rate,0x0,1"
 else
-    hyprctl keyword monitor "$INTERNAL_MONITOR,1920x1080@144,0x0,1"
+    [ $is_on_battery = 1 ] && refresh_rate=144
+    hyprctl keyword monitor "$internal,1920x1080@$refresh_rate,0x0,1"
 fi

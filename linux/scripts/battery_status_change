@@ -1,14 +1,17 @@
 #!/bin/sh
 
+$HOME/.config/hypr/scripts/switch_monitors.sh
+
 case $1 in
 ac)
-	hyprctl keyword monitor "eDP-1,1920x1080@144,0x0,1"
+	swww-daemon
+	kdeconnectd
+	systemctl --user start syncthing.service
+	tailscale up
 	hyprctl reload
 	notify-send "Switched to AC mode"
-	swww init
 	;;
 bat)
-	hyprctl keyword monitor "eDP-1,1920x1080@60,0x0,1"
 	hyprctl --batch "\
 	       keyword animations:enabled 0;\
 	       keyword decoration:blur:enabled 0;\
@@ -17,6 +20,7 @@ bat)
 	       keyword general:border_size 1;\
 	       keyword decoration:rounding "
 	pkill syncthing
+	tailscale down
 	pkill kdeconnect
 	pkill swww
 	notify-send "Switched to Battery mode" --urgency=0
