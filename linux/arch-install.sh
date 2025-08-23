@@ -94,7 +94,7 @@ install_core_packages() {
         # Development tools
         clang mise mariadb-libs postgresql-libs
         docker docker-compose
-        pnpm unzip
+        pnpm unzip sqlitebrowser sqlite
     )
 
     paru -S --noconfirm --needed --skipreview --cleanafter "${core_packages[@]}"
