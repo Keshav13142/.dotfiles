@@ -112,11 +112,11 @@ install_hyprland_desktop() {
         # Wayland utilities
         rofi-wayland swappy swww wev
         wayland-protocols wl-clipboard wlr-randr
-        cliphist grim slurp nwg-displays waybar
+        cliphist grim slurp nwg-displays nwg-look waybar
         hyprpolkitagent swaync
 
         # SDDM
-        sddm qt6-svg qt6-virtualkeyboard qt6-multimedia-ffmpeg
+        sddm qt6-svg qt6-virtualkeyboard qt6-multimedia-ffmpeg qt5ct qt6ct
 
         # X11 compatibility (if needed)
         # xorg-xev polybar picom sxhkd greenclip betterlockscreen
@@ -162,6 +162,9 @@ install_applications() {
 
         # Theming
         gnome-themes-extra kvantum-qt5
+        nordic-theme orchis-theme
+        papirus-icon-theme la-capitaine-icon-theme numix-circle-icon-theme-git
+        capitaine-cursors
         lxappearance
 
         # Fonts
