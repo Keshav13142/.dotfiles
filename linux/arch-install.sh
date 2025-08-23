@@ -73,7 +73,7 @@ install_core_packages() {
         # System utilities
         git neovim tmux go python lazygit
         brillo kdeconnect cargo-binstall syncthing
-        flameshot acpid blueman
+        flameshot acpid blueman notepadnext-bin
 
         # Network and security
         networkmanager network-manager-applet
@@ -136,8 +136,8 @@ install_applications() {
 
         # Media
         amberol mpv vlc qbittorrent
-        gimp imagemagick graphicsmagick
-        yt-dlp mediainfo cava
+        imv loupe gimp imagemagick graphicsmagick
+        yt-dlp mediainfo cava easyeffects lsp-plugins
 
         # Productivity
         libreoffice-fresh obsidian zathura
