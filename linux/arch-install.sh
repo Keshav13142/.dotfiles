@@ -392,7 +392,7 @@ setup_development_runtimes() {
     if [[ ! -d "$HOME/.local/share/omf" ]]; then
         log_info "Installing Oh My Fish..."
         curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
-        fish -c "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher"
+        fish -c 'omf install sdk fzf vi-mode'
     fi
 
     # Cargo binstall tools

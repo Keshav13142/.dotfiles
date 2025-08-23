@@ -20,7 +20,7 @@ if status is-interactive
     if type -q pnpm
         set -gx PNPM_HOME "/home/keshav/.local/share/pnpm"
         if not string match -q -- $PNPM_HOME $PATH
-        set -gx PATH "$PNPM_HOME" $PATH
+            set -gx PATH "$PNPM_HOME" $PATH
         end
     end
 
@@ -98,16 +98,7 @@ if status is-interactive
     bind -M insert \cn history-search-forward
     # bind -M insert \cc kill-whole-line repaint
 
-    # ctrl+alt+v -> variables
-    # ctrl+f -> dir
-    # ctrl+r -> history
-    # ctrl+alt+p -> processes
-    # ctrl+g -> git status
-    # ctrl+l -> git log
-    fzf_configure_bindings --directory=\cf --variables=\e\cv --git_status=\cg
-    set fzf_diff_highlighter diff-so-fancy
-    # set fzf_diff_highlighter delta --paging=never --width=20
-    set fzf_history_time_format %d-%b-%y %I:%M %p
+    set -U FZF_COMPLETE 1
 
     function fish_mode_prompt
         # Disabling the vi mode indicator
