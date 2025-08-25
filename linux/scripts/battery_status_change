@@ -1,6 +1,6 @@
 #!/bin/sh
 
-$HOME/.config/hypr/scripts/switch_monitors.sh
+$HOME/.config/hypr/scripts/generate_monitor_config.sh
 
 case $1 in
 ac)
