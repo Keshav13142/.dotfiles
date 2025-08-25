@@ -169,10 +169,22 @@ install_applications() {
 
         # Fonts
         ttf-jetbrains-mono-nerd ttf-nerd-fonts-symbols
+
+        # Virtualization
+        libvirt qemu-full virt-manager dnsmasq dmidecode
+
+        # virt-viewer vde2 bridge-utils openbsd-netcat ebtables iptables libguestfs
+
     )
 
     paru -S --noconfirm --needed --skipreview --cleanafter "${app_packages[@]}"
     log_success "Applications installed"
+
+    log_info "Enabling services for virtualization"
+    sudo usermod -aG libvirt "$USER"
+    sudo systemctl enable --now libvirtd.service virtlogd.service
+    sudo virsh net-autostart default
+    sudo virsh net-start default
 }
 
 # Development tools and runtime managers
