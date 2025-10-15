@@ -1,0 +1,43 @@
+[
+  {
+    "context": "Workspace",
+    "bindings": {}
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      "j k": "vim::NormalBefore"
+    }
+  },
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      "space w": "workspace::Save",
+      "space W": "workspace::SaveWithoutFormat",
+      "space f": "editor::Format",
+      "space v": "pane::SplitRight",
+      "space V": "pane::SplitDown",
+      "space q": "pane::CloseActiveItem",
+      "space Q": "pane::CloseOtherItems",
+
+      "space s f": "file_finder::Toggle",
+      "space s g": "workspace::NewSearch"
+    }
+  },
+  {
+    "context": "Editor || vim_mode == normal || ProjectPanel",
+    "bindings": {
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown"
+    }
+  },
+  {
+    "context": "vim_mode == normal || vim_mode == visual",
+    "bindings": {
+      "s": "vim::PushSneak",
+      "shift-s": "vim::PushSneakBackward"
+    }
+  }
+]
