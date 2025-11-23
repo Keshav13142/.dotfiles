@@ -26,6 +26,16 @@
       "language_servers": ["typescript-language-server", "!vtsls"]
     }
   },
+  "git": {
+    "inline_blame": {
+      "enabled": false
+    }
+  },
+  "current_line_highlight": "none",
+  "indent_guides": {
+    "enabled": false
+  },
+  "colorize_brackets": false,
   "cursor_blink": false,
   "scrollbar": {
     "show": "never",
