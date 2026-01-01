@@ -59,6 +59,13 @@ sudo systemctl enable --now cups.service
 
 paru -S hyprpicker hypridle rofi-wayland swappy swww wev wayland-protocols wl-clipboard wlr-randr cliphist libsecret hyprlock wlogout grim slurp nwg-displays waybar hyprpolkitagent gnome-keyring sddm qt6-svg qt6-virtualkeyboard qt6-multimedia-ffmpeg vicinae-git
 
+## HYPRLAND MODS
+paru -S hyprdynamicmonitors-bin
+# Plugins
+hyprpm update
+hyprpm add https://github.com/hyprwm/hyprland-plugins
+hyprpm enable hyprexpo
+
 # Sddm astronaut theme setup
 sudo git clone -b master --depth 1 https://github.com/keyitdev/sddm-astronaut-theme.git /usr/share/sddm/themes/sddm-astronaut-theme
 sudo cp -r /usr/share/sddm/themes/sddm-astronaut-theme/Fonts/* /usr/share/fonts/
@@ -106,3 +113,7 @@ curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install 
 curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
 
 cargo-binstall rotz
+
+## Utils/apps
+filelight # KDE GUI utility for viewing disk utilization
+detox # Cleanup whitespace/special chars from filenames

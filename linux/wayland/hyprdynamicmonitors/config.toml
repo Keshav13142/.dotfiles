@@ -1,0 +1,66 @@
+[general]
+destination = "$HOME/.config/hypr/conf/monitor.conf"
+
+[power_events]
+
+[power_events.dbus_query_object]
+path = "/org/freedesktop/UPower/devices/line_power_AC0"
+
+[[power_events.dbus_signal_match_rules]]
+object_path = "/org/freedesktop/UPower/devices/line_power_AC0"
+
+## LAPTOP-ONLY-BAT
+[profiles.laptop-only-bat]
+config_file = "/home/keshav/.config/hyprdynamicmonitors/hyprconfigs/laptop-only-bat.go.tmpl"
+config_file_type = "template"
+
+[profiles.laptop-only-bat.conditions]
+power_state = "BAT"
+lid_state = "Opened"
+
+[[profiles.laptop-only-bat.conditions.required_monitors]]
+name = "eDP-1"
+description = "Chimei Innolux Corporation 0x1521"
+monitor_tag = "monitor0"
+
+## MONITOR-ONLY-BAT
+[profiles.monitor-only-bat]
+config_file = "/home/keshav/.config/hyprdynamicmonitors/hyprconfigs/monitor-only-bat.go.tmpl"
+config_file_type = "template"
+
+[profiles.monitor-only-bat.conditions]
+power_state = "BAT"
+lid_state = "Closed"
+
+[[profiles.monitor-only-bat.conditions.required_monitors]]
+name = "DP-1"
+description = "Lenovo Group Limited R27q-30 U533MLPB"
+monitor_tag = "monitor1"
+
+## MONITOR-ONLY-AC
+[profiles.monitor-only-ac]
+config_file = "/home/keshav/.config/hyprdynamicmonitors/hyprconfigs/monitor-only-ac.go.tmpl"
+config_file_type = "template"
+
+[profiles.monitor-only-ac.conditions]
+power_state = "AC"
+lid_state = "Closed"
+
+[[profiles.laptop-only-ac.conditions.required_monitors]]
+name = "DP-1"
+description = "Lenovo Group Limited R27q-30 U533MLPB"
+monitor_tag = "monitor1"
+
+## LAPTOP-ONLY-AC
+[profiles.laptop-only-ac]
+config_file = "/home/keshav/.config/hyprdynamicmonitors/hyprconfigs/laptop-only-ac.go.tmpl"
+config_file_type = "template"
+
+[profiles.laptop-only-ac.conditions]
+power_state = "AC"
+lid_state = "Opened"
+
+[[profiles.monitor-only-ac.conditions.required_monitors]]
+name = "eDP-1"
+description = "Chimei Innolux Corporation 0x1521"
+monitor_tag = "monitor0"

@@ -5,3 +5,4 @@ linux:
     swaync: ~/.config/swaync
     waybar: ~/.config/waybar
     wlogout: ~/.config/wlogout
+    hyprdynamicmonitors: ~/.config/hyprdynamicmonitors

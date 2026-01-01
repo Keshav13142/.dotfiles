@@ -35,7 +35,7 @@
   "indent_guides": {
     "enabled": false
   },
-  "colorize_brackets": false,
+
   "cursor_blink": false,
   "scrollbar": {
     "show": "never",
@@ -108,5 +108,18 @@
   },
   "features": {
     "edit_prediction_provider": "supermaven"
+  },
+  "lsp": {
+    "jdtls": {
+      "settings": {
+        "java_home": "/home/keshav/.sdkman/candidates/java/25.0.1-open",
+        "lombok_support": true
+      }
+    }
+  },
+  "selection_highlight": false,
+  "experimental.theme_overrides": {
+    "editor.document_highlight.bracket_background": "#ffffff00",
+    // "editor..": "#ffffff00"
   }
 }
