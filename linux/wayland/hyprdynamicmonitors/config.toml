@@ -11,8 +11,8 @@ object_path = "/org/freedesktop/UPower/devices/line_power_AC0"
 
 ## LAPTOP-ONLY-BAT
 [profiles.laptop-only-bat]
-config_file = "/home/keshav/.config/hyprdynamicmonitors/hyprconfigs/laptop-only-bat.go.tmpl"
-config_file_type = "template"
+config_file = "hyprconfigs/laptop-only-bat.conf"
+config_file_type = "static"
 
 [profiles.laptop-only-bat.conditions]
 power_state = "BAT"
@@ -25,8 +25,8 @@ monitor_tag = "monitor0"
 
 ## MONITOR-ONLY-BAT
 [profiles.monitor-only-bat]
-config_file = "/home/keshav/.config/hyprdynamicmonitors/hyprconfigs/monitor-only-bat.go.tmpl"
-config_file_type = "template"
+config_file = "hyprconfigs/monitor-only-bat.conf"
+config_file_type = "static"
 
 [profiles.monitor-only-bat.conditions]
 power_state = "BAT"
@@ -39,8 +39,8 @@ monitor_tag = "monitor1"
 
 ## MONITOR-ONLY-AC
 [profiles.monitor-only-ac]
-config_file = "/home/keshav/.config/hyprdynamicmonitors/hyprconfigs/monitor-only-ac.go.tmpl"
-config_file_type = "template"
+config_file = "hyprconfigs/monitor-only-ac.conf"
+config_file_type = "static"
 
 [profiles.monitor-only-ac.conditions]
 power_state = "AC"
@@ -53,8 +53,8 @@ monitor_tag = "monitor1"
 
 ## LAPTOP-ONLY-AC
 [profiles.laptop-only-ac]
-config_file = "/home/keshav/.config/hyprdynamicmonitors/hyprconfigs/laptop-only-ac.go.tmpl"
-config_file_type = "template"
+config_file = "hyprconfigs/laptop-only-ac.conf"
+config_file_type = "static"
 
 [profiles.laptop-only-ac.conditions]
 power_state = "AC"
