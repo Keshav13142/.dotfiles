@@ -343,16 +343,6 @@ configure_firewall() {
     log_success "Firewall configured"
 }
 
-# GNOME settings
-configure_gnome_settings() {
-    log_info "Configuring GNOME settings..."
-
-    gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"
-    gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
-
-    log_success "GNOME settings configured"
-}
-
 # Docker configuration
 configure_docker() {
     log_info "Configuring Docker..."

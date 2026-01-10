@@ -12,7 +12,6 @@ export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
 
 export TERMINAL="wezterm"
 export TERMINAL_PROG="wezterm"
-export GTK_THEME=Dracula:dark
 
 export ANDROID_HOME="$HOME/Android/Sdk"
 
@@ -28,7 +27,6 @@ fi
 
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export GOPATH="$XDG_DATA_HOME/go"
-export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
 export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
 export XCOMPOSECACHE="$XDG_CACHE_HOME/X11/xcompose"
 

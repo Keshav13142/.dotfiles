@@ -50,9 +50,6 @@ sudo ufw enable
 sudo ufw-docker install
 sudo ufw reload
 
-gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"
-gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
-
 sudo systemctl enable --now bluetooth.service
 
 sudo systemctl enable --now cups.service
