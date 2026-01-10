@@ -168,7 +168,7 @@ install_applications() {
         lxappearance
 
         # Fonts
-        ttf-jetbrains-mono-nerd ttf-nerd-fonts-symbols
+        ttf-jetbrains-mono-nerd ttf-nerd-fonts-symbols noto-fonts-emoji noto-fonts-cjk
 
         # Virtualization
         libvirt qemu-full virt-manager dnsmasq dmidecode
