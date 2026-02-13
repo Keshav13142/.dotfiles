@@ -1,5 +1,4 @@
 {
-  // Default formatters
   "[css]": { "editor.suggest.insertMode": "replace" },
   "[dockerfile]": { "editor.defaultFormatter": "foxundermoon.shell-format" },
   "[dotenv]": { "editor.defaultFormatter": "foxundermoon.shell-format" },
@@ -16,6 +15,7 @@
   "[shellscript]": { "editor.defaultFormatter": "foxundermoon.shell-format" },
   "[typescript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "[xml]": { "editor.defaultFormatter": "DotJoshJohnson.xml" },
+  "[sql]": { "editor.defaultFormatter": "mtxr.sqltools" },
 
   "accessibility.signals.lineHasInlineSuggestion": {
     "sound": "off"
@@ -30,7 +30,6 @@
   "diffEditor.codeLens": false,
   "diffEditor.ignoreTrimWhitespace": false,
 
-  // Editor
   "editor.acceptSuggestionOnEnter": "on",
   "editor.bracketPairColorization.enabled": true,
   "editor.codeActionsOnSave": {
@@ -106,7 +105,6 @@
   },
   "emmet.useInlineCompletions": false,
 
-  // Error lens
   "errorLens.enabled": true,
   "errorLens.enabledDiagnosticLevels": ["error", "info"],
   "errorLens.fontWeight": "100",
@@ -164,7 +162,7 @@
   "merge-conflict.codeLens.enabled": true,
 
   "powershell.powerShellAdditionalExePaths": {
-    "Powershell 7": "/etc/profiles/per-user/keshav/bin/pwsh" // For some reason it does not auto-detect in nixos
+    "Powershell 7": "/etc/profiles/per-user/keshav/bin/pwsh"
   },
   "powershell.promptToUpdatePowerShell": false,
 
@@ -186,7 +184,8 @@
 
   "settingsSync.keybindingsPerPlatform": false,
 
-  // Terminal
+  "svelte.enable-ts-plugin": true,
+
   "terminal.integrated.confirmOnExit": "hasChildProcesses",
   "terminal.integrated.copyOnSelection": true,
   "terminal.integrated.cursorStyle": "line",
@@ -224,7 +223,6 @@
 
   "update.showReleaseNotes": false,
 
-  // Vim
   "vim.enableNeovim": true,
   "vim.foldfix": true,
   "vim.handleKeys": {
@@ -241,7 +239,6 @@
   "vim.mouseSelectionGoesIntoVisualMode": true,
   "vim.neovimPath": "/etc/profiles/per-user/keshav/bin/nvim",
   "vim.normalModeKeyBindingsNonRecursive": [
-    // Splits
     {
       "before": ["leader", "v"],
       "commands": [":vsplit"],
@@ -252,7 +249,6 @@
       "commands": [":split"],
       "silent": true
     },
-    // Search
     {
       "before": ["leader", "s", "r"],
       "commands": ["workbench.action.openRecent"],
@@ -278,7 +274,6 @@
       "commands": ["markdown-preview-enhanced.openPreviewToTheSide"],
       "silent": true
     },
-    // Save with or without formatting
     {
       "before": ["leader", "w"],
       "commands": ["workbench.action.files.save"],
@@ -299,7 +294,6 @@
       "commands": ["editor.action.organizeImports"],
       "silent": true
     },
-    // Nice to haves
     {
       "before": ["leader", "w"],
       "commands": [":w!"],
@@ -320,7 +314,6 @@
       "commands": ["workbench.action.closeOtherEditors"],
       "silent": true
     },
-    // Navigate splits
     {
       "before": ["leader", "j"],
       "commands": ["workbench.action.focusBelowGroup"],
@@ -331,19 +324,16 @@
       "commands": ["workbench.action.focusAboveGroup"],
       "silent": true
     },
-    // TODO: Paste without copying selection (Does not work as of now)
     {
       "after": ["\"_", "d", "P"],
       "before": ["leader", "p"],
       "silent": true
     },
-    // Select next occurence of selected word
     {
       "after": ["g", "b"],
       "before": ["<c-n>"],
       "silent": true
     },
-    // FIXME: Todo tree does not seem to work
     {
       "before": ["leader", "t", "d"],
       "commands": ["todo-tree-view.focus"],
@@ -354,7 +344,6 @@
       "commands": ["workbench.action.problems.focus"],
       "silent": true
     },
-    // Cycle through diagnostics
     {
       "before": ["[", "d"],
       "commands": ["editor.action.marker.prev"],
@@ -375,7 +364,6 @@
       "commands": ["workbench.action.editor.nextChange"],
       "silent": true
     },
-    // Cycle through tabs
     {
       "before": ["H"],
       "commands": [":bprev"],
@@ -386,7 +374,6 @@
       "commands": [":bnext"],
       "silent": true
     },
-    // Go to start/end of line
     {
       "after": ["^"],
       "before": ["g", "h"],
@@ -397,7 +384,6 @@
       "before": ["g", "l"],
       "silent": true
     },
-    // Center cursor
     {
       "after": ["<c-d>", "z", "z"],
       "before": ["<c-d>"],
@@ -438,19 +424,16 @@
       "before": ["g#"],
       "silent": true
     },
-    // Toggle boolean
     {
       "before": ["leader", "i"],
       "commands": ["extension.toggleBool"],
       "silent": true
     },
-    // Open/toggle file explorer
     {
       "before": ["leader", "e"],
       "commands": ["workbench.action.toggleSidebarVisibility"],
       "silent": true
     },
-    // Lsp stuff
     {
       "before": ["leader", "r"],
       "commands": ["editor.action.rename"],
@@ -482,7 +465,6 @@
       "commands": ["editor.action.quickFix"],
       "silent": true
     },
-    // Indent continuosly
     {
       "before": ["<"],
       "commands": ["editor.action.outdentLines"]
@@ -491,7 +473,6 @@
       "before": [">"],
       "commands": ["editor.action.indentLines"]
     },
-    // Move lines up/down
     {
       "before": ["K"],
       "commands": ["editor.action.moveLinesUpAction"]
@@ -500,7 +481,6 @@
       "before": ["J"],
       "commands": ["editor.action.moveLinesDownAction"]
     },
-    // Go to start/end of line
     {
       "after": ["^"],
       "before": ["g", "h"],
@@ -516,7 +496,7 @@
     {
       "after": ["g", "b"],
       "before": ["<c-n>"]
-    } // Select next occurence of selected word
+    }
   ],
   "vim.visualstar": true,
 
